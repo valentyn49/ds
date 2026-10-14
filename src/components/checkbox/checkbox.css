@@ -1,0 +1,103 @@
+/*
+  Checkbox. Source: Figma component set "checkbox" (Checkbox page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  The native input sits on top of the 20px icon (invisible) so it keeps native click, focus and keyboard behavior.
+  `[data-preview-state="hover"]` exists only so the documentation can render the hover state without a pointer.
+  It is not part of the component API.
+*/
+
+.ds-checkbox {
+  --checkbox-icon: var(--ds-color-gray-600);
+  --checkbox-title: var(--ds-color-gray-900);
+  --checkbox-caption: var(--ds-color-gray-500);
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-2x);
+  width: 100%;
+  font-family: var(--ds-font-family);
+}
+
+.ds-checkbox *,
+.ds-checkbox *::before,
+.ds-checkbox *::after {
+  box-sizing: border-box;
+}
+
+.ds-checkbox__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.ds-checkbox__box {
+  display: flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  color: var(--checkbox-icon);
+}
+
+.ds-checkbox__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.ds-checkbox__icon--checked { display: none; }
+.ds-checkbox__input:checked + .ds-checkbox__box .ds-checkbox__icon--unchecked { display: none; }
+.ds-checkbox__input:checked + .ds-checkbox__box .ds-checkbox__icon--checked { display: block; }
+
+.ds-checkbox__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.ds-checkbox__title {
+  color: var(--checkbox-title);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}
+
+.ds-checkbox__caption {
+  color: var(--checkbox-caption);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+  font-weight: 400;
+}
+
+/* hover: the unchecked box darkens from gray/600 to gray/900 */
+.ds-checkbox:is(:hover, [data-preview-state="hover"]) .ds-checkbox__input:not(:checked):not(:disabled) + .ds-checkbox__box {
+  --checkbox-icon: var(--ds-color-gray-900);
+}
+
+/* selected: the checked box is primary/600 */
+.ds-checkbox__input:checked + .ds-checkbox__box {
+  --checkbox-icon: var(--ds-color-primary-600);
+}
+
+/* disabled: box and text are gray/400 */
+.ds-checkbox:has(.ds-checkbox__input:disabled) {
+  --checkbox-title: var(--ds-color-gray-400);
+  --checkbox-caption: var(--ds-color-gray-400);
+}
+.ds-checkbox__input:disabled + .ds-checkbox__box {
+  --checkbox-icon: var(--ds-color-gray-400);
+}
+
+/* Keyboard focus. Figma defines no focus state, so this reuses the existing focus-primary ring token on the box. */
+.ds-checkbox__input:focus-visible + .ds-checkbox__box {
+  box-shadow: var(--ds-shadow-focus-primary);
+}

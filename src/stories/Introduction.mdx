@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Socrates Design System
+
+Documentation for the Socrates design language. The structure, names and values on these pages come from the Figma library **[AEGL AUG] Design Library**, which is the source of truth.
+
+[Open the Figma library](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library)
+
+## How this documentation is organised
+
+- **Foundations** lists the colors, typography, spacing, shadows and icons, in the same order as the Figma pages.
+- **Components** has one group per Figma components page, in Figma order. Each group lists the components defined on that page, using the Figma names.
+
+Most component pages are placeholders for now. They show what exists in Figma (type, variant count, variant properties) and link to the Figma page.
+
+## Keeping it in sync
+
+- The Figma hierarchy lives in `src/figma/structure.json`. Add a component or category there and it appears in the sidebar, in the right place, with a placeholder page.
+- Design tokens live in `src/tokens/tokens.json` and drive the Storybook theme, the CSS variables and the Foundations pages.
+- Placeholder pages are generated once and never overwritten, so edit them freely.
+
+## Known limitations
+
+- The Figma font is **Proxima Nova**. The font files are not bundled here, so machines without it installed fall back to a system font.
+- Icon previews are not available yet. The Icons page lists the component names found in Figma.
+- Components are not implemented in code yet, so there are no live examples or controls.

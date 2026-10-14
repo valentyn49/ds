@@ -1,0 +1,157 @@
+/*
+  Input Tag. Source: Figma component set "input tag" (Inputs page) and the "badge" chips it contains.
+  Values use the design tokens in src/tokens/tokens.css.
+
+  Figma keeps the border gray/200 in every state, so focus is shown by the text caret only.
+*/
+
+.ds-input-tag {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-2x);
+  width: 100%;
+  font-family: var(--ds-font-family);
+}
+
+.ds-input-tag *,
+.ds-input-tag *::before,
+.ds-input-tag *::after {
+  box-sizing: border-box;
+}
+
+/* Label row */
+.ds-input-tag__label {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2x);
+  min-height: 20px;
+}
+
+.ds-input-tag__label-text {
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+}
+
+.ds-input-tag__info {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--ds-color-gray-900);
+}
+
+.ds-input-tag__info svg { width: 20px; height: 20px; }
+
+/* Field */
+.ds-input-tag__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2x);
+  padding: var(--ds-space-3x) var(--ds-space-4x);
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-gray-50);
+  box-shadow: inset 0 0 0 1px var(--ds-color-gray-200);
+}
+
+/* With tags the field is tighter: 8px vertical, 12px horizontal */
+.ds-input-tag--has-tags .ds-input-tag__field {
+  padding: var(--ds-space-2x) var(--ds-space-3x);
+}
+
+.ds-input-tag__icon {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--ds-color-gray-900);
+}
+
+.ds-input-tag__icon svg { width: 16px; height: 16px; }
+
+/* Tags and the text entry share one row and wrap together */
+.ds-input-tag__items {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-2x);
+  min-width: 0;
+}
+
+/* Tag (Figma "badge") */
+.ds-input-tag__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1x);
+  padding: 2px var(--ds-space-2x);
+  border-radius: var(--ds-radius-2x);
+  background: var(--ds-color-gray-200);
+  color: var(--ds-color-gray-900);
+}
+
+.ds-input-tag__tag-text {
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ds-input-tag__tag-close {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.ds-input-tag__tag-close svg { width: 16px; height: 16px; }
+
+/* Text entry. The basis keeps it from collapsing when it wraps to its own row. */
+.ds-input-tag__value {
+  display: flex;
+  flex: 1 1 24px;
+  min-width: 24px;
+}
+
+.ds-input-tag__control {
+  width: 100%;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ds-color-gray-900);
+  caret-color: var(--ds-color-gray-900);
+  font-family: inherit;
+  font-size: var(--ds-text-sm-font-normal-input-size);
+  line-height: var(--ds-text-sm-font-normal-input-line-height);
+  font-weight: 400;
+}
+
+.ds-input-tag__control::placeholder {
+  color: var(--ds-color-gray-500);
+  opacity: 1;
+}
+
+/* finished: Figma shows the tags without a text entry. The input stays in the DOM, visually hidden. */
+.ds-input-tag--finished .ds-input-tag__value {
+  position: absolute;
+  flex: none;
+  width: 1px;
+  height: 1px;
+  min-width: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* Footnote */
+.ds-input-tag__footnote {
+  color: var(--ds-color-gray-500);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}

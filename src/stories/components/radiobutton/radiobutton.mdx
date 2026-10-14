@@ -1,0 +1,59 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as RadiobuttonStories from './radiobutton.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/radiobutton-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/radiobutton-docs.js';
+
+<Meta of={RadiobuttonStories} />
+
+# radiobutton
+
+Source: Figma component set **radiobutton** on the Radiobutton page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+Figma defines a single radio button, not a group. The demo shows three of them with the same `name` so you can see that selecting one deselects the others. The labels are neutral sample text.
+
+<Canvas of={RadiobuttonStories.Playground} sourceState="none" />
+<Controls of={RadiobuttonStories.Playground} />
+
+## Overview
+
+A radio button lets a person choose one option from a set of mutually exclusive choices. The Figma **radiobutton** component is a 20px circle next to a title, with an optional caption under the title and an optional badge after the title. It has **4 states** and one size.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+The Figma property is called `state` and has four values. It is the only variant property, so there is no separate Variants or Sizes section.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+The component is a native `input type="radio"` inside a `label`. Radio buttons that share the same `name` form one group, so these behaviors come from the browser and stay in sync with the visual state.
+
+- **Click the circle or the label:** selects the radio button and deselects the others in its group.
+- **Tab:** moves keyboard focus into the group, onto the selected radio, or onto the first one if none is selected.
+- **Arrow keys:** move focus to the next or previous radio in the group and select it.
+- **Space:** selects the focused radio if it is not already selected.
+- **Disabled:** the radio button cannot be focused or selected, and arrow-key navigation skips it.
+- **Value:** the visual state is driven by the input's `checked` value, shown below.
+
+<Canvas of={RadiobuttonStories.Behavior} sourceState="none" />
+
+Figma does not specify a focus appearance. To keep keyboard use visible, a focused radio button shows the existing `shadow-focus-primary` ring around the circle.

@@ -1,0 +1,27 @@
+/* Layout for the Stepper documentation page. Shares tile, legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-step-box { width: 265px; max-width: 100%; }
+.ds-bd-demo-surface .ds-bd-step-box { margin: 0 auto; }
+
+.ds-bd-overview--stepper { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.ds-bd-overview--stepper .ds-bd-tile { min-height: 0; padding: var(--ds-space-4x); }
+
+.ds-bd-step-states { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.ds-bd-step-states .ds-bd-tile { min-height: 80px; }
+
+/* Anatomy: the component is enlarged with zoom, markers cancel the zoom so they keep their size. */
+.ds-bd-step-anatomy { --z: 2; padding: 96px 160px; }
+.ds-bd-step-anatomy__figure { zoom: var(--z); width: 265px; }
+
+.ds-bd-step-indicator.ds-bd-anchor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* Sequence demo. Figma defines one step, so the sequence is a documentation arrangement of that component. */
+.ds-bd-step-sequence { display: flex; flex-wrap: wrap; gap: var(--ds-space-4x) var(--ds-space-6x); }
+.ds-bd-step-sequence .ds-bd-step-box { width: 265px; }

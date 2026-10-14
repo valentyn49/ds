@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FooterStories from './footer.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/footer-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderResponsive,
+  renderVariants,
+  renderFormatting,
+} from '../../../docs/footer-docs.js';
+
+<Meta of={FooterStories} />
+
+# footer
+
+Source: Figma component set **footer** on the Footer page of the [AEGL AUG] Design Library. Placement in the product is taken from the **Downgrade** page of the My Account mockup.
+
+## Live Demo
+
+Switch the preview width to see the footer change layout. Wide previews are scaled down to fit this page; the layout is decided by the footer's real width.
+
+<Canvas of={FooterStories.Playground} sourceState="none" />
+<Controls of={FooterStories.Playground} />
+
+## Overview
+
+The footer closes every page of the product. The big footer holds the Socrates logo, the legal notice, three columns of links and a legal bar with the copyright and legal links. The small footer is a single centered line with the copyright text. Both span the full width of the page, with their content inset by a horizontal margin.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Responsive layout
+
+<div dangerouslySetInnerHTML={{ __html: renderResponsive() }} />
+
+## Variants
+
+<div dangerouslySetInnerHTML={{ __html: renderVariants() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+The footer is a `footer` landmark. Its two groups of links are `nav` regions labelled "Footer" and "Legal", and each link group has a heading that labels it. Every item is a real link.
+
+- **Keyboard:** Tab moves through the links in reading order: the link columns left to right, then the legal links.
+- **Focus:** Figma defines no link focus look, so a focused link shows the existing `shadow-focus-primary` ring.
+- **Hover and pressed:** Figma defines no look for them, so links do not change on hover.
+- **Destinations:** Figma gives no link destinations. The links use `#` as a placeholder, and the component prevents it from navigating. This is unresolved and needs the product's real URLs.
+- **No animation or other interaction** is defined.

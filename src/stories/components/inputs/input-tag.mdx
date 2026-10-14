@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as InputTagStories from './input-tag.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/input-tag-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/input-tag-docs.js';
+
+<Meta of={InputTagStories} />
+
+# input tag
+
+Source: Figma component set **input tag** on the Inputs page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+<Canvas of={InputTagStories.Playground} sourceState="none" />
+<Controls of={InputTagStories.Playground} />
+
+## Overview
+
+An input tag is a text field that can also hold tags. The Figma **input tag** component is a stack of an optional label, the field and an optional footnote. The field has a left icon by default and can also show a right icon and a dropdown icon. Tags appear in the field in the `selected` and `finished` states. It has **5 states** and one size.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+The Figma property is called `state` and has five values. It is the only variant property, so there is no separate Variants or Sizes section. The tags are the Figma **badge** component.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+The text entry is a native `input` with a `label` linked through `for`, and the footnote is linked with `aria-describedby`.
+
+- **Typing:** the field takes a single line of text. Clicking anywhere in the field, or the label, focuses the text entry.
+- **Tab:** moves focus into and out of the text entry.
+- **Tags:** display only. Figma draws a close icon on each tag but does not define removing tags, adding them from the text, or selecting them, so none of these are built.
+- **Finished:** the text entry is hidden visually and stays in the page for assistive technology.

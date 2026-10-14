@@ -1,0 +1,59 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as AccordionStories from './collapse.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/accordion-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/accordion-docs.js';
+
+<Meta of={AccordionStories} />
+
+# collapse
+
+Source: Figma component set **collapse** on the Accordion page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+The title and content text are sample text for demonstration. They are not part of the design specification.
+
+<Canvas of={AccordionStories.Playground} sourceState="none" />
+<Controls of={AccordionStories.Playground} />
+
+## Overview
+
+An accordion reveals or hides content inside an expandable section. The Figma **collapse** component is one independent item: a header with a title and a chevron, and a content area that shows when the item is open. The header can also show a left icon, a subtitle, a link and a Button. It has **2 states** and one size.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+Figma defines a single item that is either closed or open. It does not define a group, so each item opens and closes on its own and opening one does not close another.
+
+- **Click the header:** toggles the item. The whole header row, padding included, is the target.
+- **Enter or Space** on the focused header: toggles the item.
+- **Chevron:** points down when closed and up when open, and always matches the state.
+- **Content:** shown only when the item is open.
+- **Tab:** the header is focusable. A Button or Link in the header are separate controls with their own focus stops, and clicking them does not toggle the item.
+- **Semantics:** the header is a native `button` with `aria-expanded`, and `aria-controls` points to the content panel. The panel is a `region` labelled by the title.
+
+Figma does not specify a focus appearance. To keep keyboard use visible, a focused header shows the existing `shadow-focus-primary` ring.
+
+Nested accordions, animation, exclusive expansion and extra header actions are not defined in Figma and are not built.
+
+<Canvas of={AccordionStories.Behavior} sourceState="none" />

@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as InputStories from './input.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderVariants,
+  renderSizes,
+  renderStates,
+} from '../../../docs/input-docs.js';
+
+<Meta of={InputStories} />
+
+# input
+
+Source: Figma component set **input** on the Inputs page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+<Canvas of={InputStories.Playground} sourceState="none" />
+<Controls of={InputStories.Playground} />
+
+## Overview
+
+A text input lets a person enter a single line of text. The Figma **input** component is a stack of an optional label, the field and an optional footnote. The field can show a left icon and a right icon, and the label can show an info icon. It has **7 states** and one size.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Variants
+
+The Figma input has no type variants. Its only variant property is `state`, which is documented under States. The configurations below come from the component properties and are named after them.
+
+<div dangerouslySetInnerHTML={{ __html: renderVariants() }} />
+
+## Sizes
+
+Figma defines a single size. There is no `size` property.
+
+<div dangerouslySetInnerHTML={{ __html: renderSizes() }} />
+
+## States
+
+The Figma property is called `state` and has seven values.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and content
+
+- The label sits above the field, 8px apart. The info icon follows the label text with an 8px gap.
+- The footnote sits below the field, 8px apart. Figma has one footnote text property, used in every state. In the `valid` and `error` states the footnote color matches the field border (green/700 and alert/600).
+- Icons sit inside the field, 8px from the text, 16px from the field edge.
+- Placeholder text is gray/500. Entered text is gray/900. In the `disabled` state the text is gray/400 and the field fill is gray/100.

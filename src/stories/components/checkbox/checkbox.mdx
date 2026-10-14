@@ -1,0 +1,56 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CheckboxStories from './checkbox.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/checkbox-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/checkbox-docs.js';
+
+<Meta of={CheckboxStories} />
+
+# checkbox
+
+Source: Figma component set **checkbox** on the Checkbox page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+<Canvas of={CheckboxStories.Playground} sourceState="none" />
+<Controls of={CheckboxStories.Playground} />
+
+## Overview
+
+A checkbox lets a person turn one independent option on or off. The Figma **checkbox** component is a 20px box next to a title, with an optional caption under the title. It has **4 states** and one size.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+The Figma property is called `state` and has four values. It is the only variant property, so there is no separate Variants or Sizes section.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+The component is a native `input type="checkbox"` inside a `label`, so these behaviors come from the browser and stay in sync with the visual state.
+
+- **Click the box or the label:** toggles the value.
+- **Tab:** moves keyboard focus to the checkbox.
+- **Space:** toggles the checkbox when it has focus.
+- **Disabled:** the checkbox cannot be focused or toggled.
+- **Value:** the visual state is driven by the input's `checked` value, shown below.
+
+<Canvas of={CheckboxStories.Behavior} sourceState="none" />
+
+Figma does not specify a focus appearance. To keep keyboard use visible, a focused checkbox shows the existing `shadow-focus-primary` ring around the box.

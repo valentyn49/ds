@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as StepperStories from './stepper.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/stepper-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/stepper-docs.js';
+
+<Meta of={StepperStories} />
+
+# stepper
+
+Source: Figma component set **stepper** on the Stepper page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+<Canvas of={StepperStories.Playground} sourceState="none" />
+<Controls of={StepperStories.Playground} />
+
+## Overview
+
+The Figma **stepper** component is one step of a multi-step progress indicator, such as a sign-up or purchase flow. A step shows a numbered circle, a title, an optional short description and a connector line to the next step. It has **4 states** that show where the step is in the sequence, and one size.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+The Figma property is called `state` and has four values. It is the only variant property, so there is no separate Variants or Sizes section.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+Figma defines a single step. The sequence below uses it four times to show the states side by side. The current step control belongs to the documentation and is not a component property.
+
+<Canvas of={StepperStories.Sequence} sourceState="none" />
+<Controls of={StepperStories.Sequence} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+Figma defines how a step looks in each state but no interaction: there is no click, hover, focus, keyboard or navigation behavior for a step, so the component is presentational and does not move between steps by itself. To keep the progress understandable to assistive technology, these attributes are set from the state:
+
+- **Active:** the step has `aria-current="step"`.
+- **Disabled:** the step has `aria-disabled="true"`.
+- **Filled:** the check mark replaces the number, so the step also contains the visually hidden text "Completed:" before its title.
+- **Connector:** it is decorative and hidden from assistive technology.
+
+Validation rules, clickable steps or moving to the next step are not defined in Figma and are not built.

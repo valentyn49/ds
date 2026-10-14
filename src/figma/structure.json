@@ -1,0 +1,305 @@
+{
+  "source": {
+    "file": "[AEGL AUG] Design Library",
+    "fileKey": "spBZF1HWrU83CHRMF8q3mU",
+    "url": "https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library",
+    "verified": "2026-10-14",
+    "method": "Figma MCP (use_figma read-only inspection of every page)"
+  },
+  "figmaPageOrder": [
+    "Preview",
+    "Colors",
+    "Typography",
+    "Spacing",
+    "Shadows & Borders",
+    "Icons",
+    "(separator)",
+    "components",
+    "Accordion",
+    "Badges",
+    "Buttons",
+    "Breadcrumbs",
+    "Checkbox",
+    "Counter",
+    "Datepicker",
+    "Dropdowns",
+    "Email template",
+    "Footer",
+    "Graphs",
+    "Highchart",
+    "Headers",
+    "Inputs",
+    "Messages",
+    "Memberships",
+    "Nav Tabs",
+    "News",
+    "Popup",
+    "Pagination",
+    "Radiobutton",
+    "Stepper",
+    "Table",
+    "Toast",
+    "Toggle",
+    "Tooltips",
+    "Links"
+  ],
+  "foundations": [
+    { "name": "Colors", "figmaPage": "🎨 Colors", "nodeId": "0:1" },
+    { "name": "Typography", "figmaPage": "📕 Typography", "nodeId": "1:339" },
+    { "name": "Spacing", "figmaPage": "📏 Spacing", "nodeId": "1:340" },
+    { "name": "Shadows & Borders", "figmaPage": "🔲 Shadows & Borders", "nodeId": "1:928" },
+    { "name": "Icons", "figmaPage": "💯 Icons", "nodeId": "6:5641" }
+  ],
+  "components": [
+    {
+      "category": "Accordion",
+      "figmaPage": "--- Accordion",
+      "nodeId": "222:103",
+      "items": [
+        { "name": "collapse", "kind": "Component set", "variants": 2, "axes": ["type (1)", "state (2)"] }
+      ]
+    },
+    {
+      "category": "Badges",
+      "figmaPage": "--- Badges",
+      "nodeId": "93:403",
+      "items": [
+        { "name": "badge", "kind": "Component" },
+        { "name": "pro", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Buttons",
+      "figmaPage": "--- Buttons",
+      "nodeId": "34:150",
+      "items": [
+        { "name": "Button", "kind": "Component set", "variants": 88, "axes": ["type (12)", "state (4)", "size (2)"] },
+        { "name": "cursor", "kind": "Component set", "variants": 2, "axes": ["type (2)"] }
+      ]
+    },
+    {
+      "category": "Breadcrumbs",
+      "figmaPage": "--- Breadcrumbs",
+      "nodeId": "56:256",
+      "items": [
+        { "name": "Breadcrumb", "kind": "Component set", "variants": 3, "axes": ["type (3)"] },
+        { "name": "breadcrumbs-main", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Checkbox",
+      "figmaPage": "--- Checkbox",
+      "nodeId": "56:153",
+      "items": [
+        { "name": "checkbox", "kind": "Component set", "variants": 4, "axes": ["state (4)"] }
+      ]
+    },
+    {
+      "category": "Counter",
+      "figmaPage": "--- Counter",
+      "nodeId": "1281:10915",
+      "items": [
+        { "name": "counter", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Datepicker",
+      "figmaPage": "--- Datepicker",
+      "nodeId": "942:11430",
+      "items": [
+        { "name": "datepicker-cell", "kind": "Component set", "variants": 14, "axes": ["type (2)", "state (6)", "direction (2)"] },
+        { "name": "datepicker-overlay", "kind": "Component set", "variants": 4, "axes": ["type (4)", "direction (1)"] }
+      ]
+    },
+    {
+      "category": "Dropdowns",
+      "figmaPage": "--- Dropdowns",
+      "nodeId": "60:1773",
+      "items": [
+        { "name": "dropdown-input", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },
+        { "name": "dropdown item", "kind": "Component set", "variants": 2, "axes": ["type (2)"] },
+        { "name": "dropdown", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Email template",
+      "figmaPage": "--- Email template",
+      "nodeId": "732:9884",
+      "items": [
+        { "name": "New Socrates Account", "kind": "Frame", "note": "Email layout frame, not a component." }
+      ]
+    },
+    {
+      "category": "Footer",
+      "figmaPage": "--- Footer",
+      "nodeId": "951:11336",
+      "items": [
+        { "name": "footer", "kind": "Component set", "variants": 9, "axes": ["size (2)", "resolution (3)", "type (2)"] }
+      ]
+    },
+    {
+      "category": "Graphs",
+      "figmaPage": "--- Graphs",
+      "nodeId": "203:70",
+      "items": [
+        { "name": "Grid", "kind": "Component set", "variants": 6, "axes": ["size (3)", "mode (2)"] },
+        { "name": "OHLC chart", "kind": "Component set", "variants": 3, "axes": ["size (3)"] },
+        { "name": "Sparkline", "kind": "Component set", "variants": 9, "axes": ["size (3)", "type (3)"] },
+        { "name": "Line chart", "kind": "Component set", "variants": 3, "axes": ["size (3)"] },
+        { "name": "Bar chart", "kind": "Component set", "variants": 2, "axes": ["size (2)"] }
+      ]
+    },
+    {
+      "category": "Highchart",
+      "figmaPage": "--- Highchart",
+      "nodeId": "3435:366",
+      "items": [
+        {
+          "name": "Chart",
+          "kind": "Component set",
+          "variants": 9,
+          "axes": ["size (3)", "type (3)"],
+          "note": "The Figma page also contains the sections \"Tooltip logic\" and \"options\", which are not components."
+        }
+      ]
+    },
+    {
+      "category": "Headers",
+      "figmaPage": "--- Headers",
+      "nodeId": "39:1070",
+      "items": [
+        { "name": "Header", "kind": "Component set", "variants": 24, "axes": ["size (3)", "platform (2)", "type (4)"] },
+        { "name": "Blur", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Inputs",
+      "figmaPage": "--- Inputs",
+      "nodeId": "60:1356",
+      "items": [
+        { "name": "input", "kind": "Component set", "variants": 7, "axes": ["state (7)"] },
+        { "name": "text-area", "kind": "Component set", "variants": 7, "axes": ["state (7)"] },
+        { "name": "input tag", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },
+        { "name": "quantity adjuster", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Messages",
+      "figmaPage": "--- Messages",
+      "nodeId": "81:18",
+      "items": [
+        { "name": "notification", "kind": "Component set", "variants": 12, "axes": ["type (2)", "state (6)"] }
+      ]
+    },
+    {
+      "category": "Memberships",
+      "figmaPage": "--- Memberships",
+      "nodeId": "4677:4781",
+      "items": [
+        { "name": "Membership", "kind": "Component set", "variants": 3, "axes": ["Membership (3)", "version (1)"] }
+      ]
+    },
+    {
+      "category": "Nav Tabs",
+      "figmaPage": "--- Nav Tabs",
+      "nodeId": "60:1150",
+      "items": [
+        { "name": "tab-item", "kind": "Component set", "variants": 4, "axes": ["type (4)"] },
+        { "name": "menu item", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },
+        { "name": "small menu item", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },
+        { "name": "small menu item dark", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },
+        { "name": "Small tab", "kind": "Component set", "variants": 2, "axes": ["mode (2)"] },
+        { "name": "tab", "kind": "Component" },
+        { "name": "General tab", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "News",
+      "figmaPage": "--- News",
+      "nodeId": "219:583",
+      "items": [
+        { "name": "news-item-card", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Popup",
+      "figmaPage": "--- Popup",
+      "nodeId": "108:191",
+      "items": [
+        { "name": "modal", "kind": "Component set", "variants": 6, "axes": ["size (2)", "type (3)"] },
+        { "name": "blur", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Pagination",
+      "figmaPage": "--- Pagination",
+      "nodeId": "3642:14770",
+      "items": [
+        { "name": "table-breadcrumbs", "kind": "Component" }
+      ]
+    },
+    {
+      "category": "Radiobutton",
+      "figmaPage": "--- Radiobutton",
+      "nodeId": "56:75",
+      "items": [
+        { "name": "radiobutton", "kind": "Component set", "variants": 4, "axes": ["state (4)"] }
+      ]
+    },
+    {
+      "category": "Stepper",
+      "figmaPage": "--- Stepper",
+      "nodeId": "90:44",
+      "items": [
+        { "name": "stepper", "kind": "Component set", "variants": 4, "axes": ["state (4)"] }
+      ]
+    },
+    {
+      "category": "Table",
+      "figmaPage": "--- Table",
+      "nodeId": "131:46",
+      "items": [
+        {
+          "name": "table-cell",
+          "kind": "Component set",
+          "variants": 33,
+          "axes": ["mode (2)", "type (15)", "metric type (3)", "text type (3)"],
+          "note": "Two separate component sets share the name \"table-cell\": one with 33 variants (above) and one with 2 variants (axis: mode)."
+        },
+        { "name": "Divider", "kind": "Component set", "variants": 2, "axes": ["mode (2)"] }
+      ]
+    },
+    {
+      "category": "Toast",
+      "figmaPage": "--- Toast",
+      "nodeId": "81:273",
+      "items": [
+        { "name": "message", "kind": "Component set", "variants": 5, "axes": ["state (5)"] }
+      ]
+    },
+    {
+      "category": "Toggle",
+      "figmaPage": "--- Toggle",
+      "nodeId": "495:11",
+      "items": [
+        { "name": "Toggle", "kind": "Component set", "variants": 4, "axes": ["state (4)"] }
+      ]
+    },
+    {
+      "category": "Tooltips",
+      "figmaPage": "--- Tooltips",
+      "nodeId": "98:711",
+      "items": [
+        { "name": "tooltip", "kind": "Component set", "variants": 4, "axes": ["type (4)"] }
+      ]
+    },
+    {
+      "category": "Links",
+      "figmaPage": "--- Links",
+      "nodeId": "156:441",
+      "items": [
+        { "name": "link", "kind": "Component set", "variants": 32, "axes": ["type (4)", "color (2)", "state (4)"] }
+      ]
+    }
+  ]
+}

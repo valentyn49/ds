@@ -1,0 +1,54 @@
+/* Layout for the Text Input documentation page. Shares tile, overview, legend and table classes with button-docs.css. */
+
+.ds-bd-tile--start { justify-content: flex-start; }
+.ds-bd-input-box { width: 323px; max-width: 100%; }
+.ds-bd-demo-surface .ds-bd-input-box { margin: 0 auto; }
+
+.ds-bd-overview--input { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+.ds-bd-overview--input .ds-bd-tile { min-height: 0; padding: var(--ds-space-4x); }
+
+/* States */
+.ds-bd-input-states { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--ds-space-6x) var(--ds-space-4x); }
+.ds-bd-input-state { display: flex; flex-direction: column; gap: var(--ds-space-2x); }
+.ds-bd-input-state > code { color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+
+/* Anatomy: the component is enlarged with zoom, markers cancel the zoom so they keep their size. */
+.ds-bd-input-anatomy {
+  --z: 1.75;
+  padding: 96px 160px;
+}
+.ds-bd-input-anatomy__figure { zoom: var(--z); width: 323px; }
+
+.ds-bd-anchor { position: relative; }
+.ds-bd-anchor::before,
+.ds-bd-anchor::after {
+  content: "";
+  position: absolute;
+  zoom: calc(1 / var(--z));
+  pointer-events: none;
+}
+.ds-bd-anchor::before { background: var(--ds-color-gray-900); }
+.ds-bd-anchor::after {
+  content: attr(data-n);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ds-color-gray-900);
+  color: var(--ds-color-gray-50);
+  font: 700 12px/24px var(--ds-font-family);
+  text-align: center;
+}
+
+.ds-bd-anchor--top::before { left: var(--ax, 50%); bottom: 100%; width: 1px; height: 36px; }
+.ds-bd-anchor--top::after { left: var(--ax, 50%); bottom: calc(100% + 36px); margin-left: -12px; }
+
+.ds-bd-anchor--bottom::before { left: var(--ax, 50%); top: 100%; width: 1px; height: 36px; }
+.ds-bd-anchor--bottom::after { left: var(--ax, 50%); top: calc(100% + 36px); margin-left: -12px; }
+
+.ds-bd-anchor--left::before { right: 100%; top: 50%; width: 92px; height: 1px; }
+.ds-bd-anchor--left::after { right: calc(100% + 92px); top: 50%; margin-top: -12px; }
+
+.ds-bd-anchor--right::before { left: 100%; top: 50%; width: 92px; height: 1px; }
+.ds-bd-anchor--right::after { left: calc(100% + 92px); top: 50%; margin-top: -12px; }
+
+.ds-bd-overview--input .ds-bd-overview__item .ds-bd-tile { flex: 1; align-items: flex-start; }

@@ -1,0 +1,148 @@
+/*
+  Text Area. Source: Figma component set "text-area" (Inputs page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  `[data-preview-state="focus"]` exists only so the documentation can render the focus and filing
+  states without user interaction. It is not part of the component API.
+*/
+
+.ds-text-area {
+  --area-stroke: var(--ds-color-gray-200);
+  --area-bg: var(--ds-color-gray-50);
+  --area-text: var(--ds-color-gray-900);
+  --area-placeholder: var(--ds-color-gray-500);
+  --area-footnote: var(--ds-color-gray-500);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-2x);
+  width: 100%;
+  font-family: var(--ds-font-family);
+}
+
+.ds-text-area *,
+.ds-text-area *::before,
+.ds-text-area *::after {
+  box-sizing: border-box;
+}
+
+/* Label row */
+.ds-text-area__label {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2x);
+  min-height: 20px;
+}
+
+.ds-text-area__label-text {
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+}
+
+.ds-text-area__info {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--ds-color-gray-900);
+}
+
+.ds-text-area__info svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Field: icons and text start at the top edge */
+.ds-text-area__field {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-2x);
+  padding: var(--ds-space-3x) var(--ds-space-4x);
+  border-radius: var(--ds-radius-3x);
+  background: var(--area-bg);
+  box-shadow: inset 0 0 0 1px var(--area-stroke);
+}
+
+.ds-text-area__icon {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--ds-color-gray-900);
+}
+
+.ds-text-area__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ds-text-area__value {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+/* One line tall, as in Figma. Browsers that support field-sizing grow the field as lines are added. */
+.ds-text-area__control {
+  display: block;
+  width: 100%;
+  min-height: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  resize: none;
+  overflow: auto;
+  field-sizing: content;
+  background: transparent;
+  color: var(--area-text);
+  caret-color: var(--ds-color-gray-900);
+  font-family: inherit;
+  font-size: var(--ds-text-sm-font-normal-input-size);
+  line-height: var(--ds-text-sm-font-normal-input-line-height);
+  font-weight: 400;
+}
+
+.ds-text-area__control::placeholder {
+  color: var(--area-placeholder);
+  opacity: 1;
+}
+
+/* Footnote */
+.ds-text-area__footnote {
+  color: var(--area-footnote);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}
+
+/* focus and filing */
+.ds-text-area:focus-within,
+.ds-text-area[data-preview-state="focus"] {
+  --area-stroke: var(--ds-color-gray-500);
+}
+
+/* disabled */
+.ds-text-area--disabled {
+  --area-bg: var(--ds-color-gray-100);
+  --area-text: var(--ds-color-gray-400);
+  --area-placeholder: var(--ds-color-gray-400);
+}
+
+/* valid and error. Figma defines no combined focus + validation look, so the validation color stays while focused. */
+.ds-text-area--valid,
+.ds-text-area--valid:focus-within,
+.ds-text-area--valid[data-preview-state="focus"] {
+  --area-stroke: var(--ds-color-green-700);
+  --area-footnote: var(--ds-color-green-700);
+}
+
+.ds-text-area--error,
+.ds-text-area--error:focus-within,
+.ds-text-area--error[data-preview-state="focus"] {
+  --area-stroke: var(--ds-color-alert-600);
+  --area-footnote: var(--ds-color-alert-600);
+}

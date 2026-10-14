@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { renderColors, renderSemanticColors } from '../../docs/render.js';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Primitive color scales from the Figma variable collection `primitives`, in the order shown on the Figma Colors page. The grey caption under each name is the token path used on that page.
+
+<div dangerouslySetInnerHTML={{ __html: renderColors() }} />
+
+## Semantic tokens
+
+The Figma collection `tokens` has a Light and a Dark mode. It currently only defines the header colors, and both modes resolve to the same primitives except `color/header/search_text`.
+
+<div dangerouslySetInnerHTML={{ __html: renderSemanticColors() }} />

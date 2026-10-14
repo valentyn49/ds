@@ -1,0 +1,12 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { renderIcons } from '../../docs/render.js';
+
+<Meta title="Foundations/Icons" />
+
+# Icons
+
+The Figma Icons page contains 104 components in three groups. Names are shown exactly as in Figma.
+
+Icon previews are not available yet. They need the SVG assets exported from Figma.
+
+<div dangerouslySetInnerHTML={{ __html: renderIcons() }} />

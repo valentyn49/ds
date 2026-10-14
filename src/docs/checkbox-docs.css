@@ -1,0 +1,34 @@
+/* Layout for the Checkbox documentation page. Shares tile, legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-cb-box { width: 180px; max-width: 100%; }
+.ds-bd-demo-surface .ds-bd-cb-box { margin: 0 auto; }
+
+.ds-bd-overview--checkbox { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.ds-bd-overview--checkbox .ds-bd-tile { min-height: 0; padding: var(--ds-space-4x); }
+
+.ds-bd-cb-states { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.ds-bd-cb-states .ds-bd-tile { min-height: 96px; }
+
+/* Anatomy: the component is enlarged with zoom, markers cancel the zoom so they keep their size. */
+.ds-bd-cb-anatomy { --z: 2; padding: 96px 200px; }
+.ds-bd-cb-anatomy__figure { zoom: var(--z); width: 180px; }
+
+.ds-bd-cb-indicator.ds-bd-anchor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* Behavior demo */
+.ds-bd-behavior { display: flex; flex-direction: column; gap: var(--ds-space-4x); align-items: flex-start; }
+.ds-bd-behavior__status {
+  font-family: var(--ds-font-family);
+  margin: 0;
+  color: var(--ds-color-gray-600);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-behavior__status code { color: var(--ds-color-gray-900); font-family: var(--ds-font-mono); }

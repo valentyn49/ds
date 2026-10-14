@@ -1,0 +1,176 @@
+/*
+  Button. Source: Figma component set "Button" (Buttons page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  Variant/state rules set four custom properties:
+    --btn-bg, --btn-fg, --btn-stroke (inside 1px stroke color), --btn-ring (focus ring)
+
+  `[data-preview-state]` selectors exist only so the documentation can render the hover and
+  focus states without user interaction. They are not part of the component API.
+*/
+
+.ds-button {
+  --btn-bg: transparent;
+  --btn-fg: var(--ds-color-gray-900);
+  --btn-stroke: transparent;
+  --btn-ring: 0 0 0 0 transparent;
+  --btn-icon: 24px;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2x);
+  margin: 0;
+  border: 0;
+  border-radius: var(--ds-radius-3x);
+  outline: none;
+  font-family: var(--ds-font-family);
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  box-shadow: inset 0 0 0 1px var(--btn-stroke), var(--btn-ring);
+}
+
+.ds-button:disabled {
+  cursor: default;
+}
+
+/* Sizes */
+.ds-button--48 {
+  --btn-icon: 24px;
+  height: 48px;
+  padding: var(--ds-space-3x) var(--ds-space-5x);
+  font-size: var(--ds-text-base-font-bold-size);
+  line-height: var(--ds-text-base-font-bold-line-height);
+}
+
+.ds-button--36 {
+  --btn-icon: 20px;
+  height: 36px;
+  padding: var(--ds-space-2x) var(--ds-space-4x);
+  font-size: var(--ds-text-sm-font-bold-size);
+  line-height: var(--ds-text-sm-font-bold-line-height);
+}
+
+.ds-button__icon {
+  flex: none;
+  display: block;
+  width: var(--btn-icon);
+  height: var(--btn-icon);
+}
+
+/* Types without a container: text, cancel, menu */
+.ds-button--text,
+.ds-button--cancel,
+.ds-button--menu {
+  height: auto;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+/* menu: only exists at size 36, semibold label, icons are 24px left and 20px right in Figma */
+.ds-button--menu {
+  font-weight: 600;
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+}
+.ds-button--menu .ds-button__icon--left { width: 24px; height: 24px; }
+.ds-button--menu .ds-button__icon--right { width: 20px; height: 20px; }
+
+/* Stroke: named size 36 in Figma but 40px high, 12px padding, regular 14/16 */
+.ds-button--Stroke {
+  --btn-icon: 16px;
+  height: 40px;
+  padding: var(--ds-space-3x);
+  justify-content: flex-start;
+  font-weight: 400;
+  font-size: var(--ds-text-sm-font-normal-input-size);
+  line-height: var(--ds-text-sm-font-normal-input-line-height);
+}
+
+/* primary */
+.ds-button--primary { --btn-bg: var(--ds-color-primary-600); --btn-fg: var(--ds-color-gray-50); }
+.ds-button--primary:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-bg: var(--ds-color-primary-700); }
+.ds-button--primary:is(:focus-visible, [data-preview-state="focus"]) { --btn-ring: var(--ds-shadow-focus-primary); }
+.ds-button--primary:disabled { --btn-bg: var(--ds-color-primary-300); }
+
+/* secondary */
+.ds-button--secondary { --btn-bg: var(--ds-color-primary-100); --btn-fg: var(--ds-color-primary-600); }
+.ds-button--secondary:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-bg: var(--ds-color-primary-200); }
+.ds-button--secondary:is(:focus-visible, [data-preview-state="focus"]) { --btn-ring: var(--ds-shadow-focus-primary); }
+.ds-button--secondary:disabled { --btn-fg: var(--ds-color-primary-400); }
+
+/* purchase */
+.ds-button--purchase { --btn-bg: var(--ds-color-green-600); --btn-fg: var(--ds-color-gray-50); }
+.ds-button--purchase:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-bg: var(--ds-color-green-700); }
+.ds-button--purchase:is(:focus-visible, [data-preview-state="focus"]) { --btn-bg: var(--ds-color-green-700); --btn-ring: var(--ds-shadow-focus-purchase); }
+.ds-button--purchase:disabled { --btn-bg: var(--ds-color-secondary-300); }
+
+/* purchase_secondary */
+.ds-button--purchase_secondary { --btn-fg: var(--ds-color-green-600); --btn-stroke: var(--ds-color-green-600); }
+.ds-button--purchase_secondary:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-fg: var(--ds-color-green-700); --btn-stroke: var(--ds-color-green-700); }
+.ds-button--purchase_secondary:is(:focus-visible, [data-preview-state="focus"]) { --btn-fg: var(--ds-color-green-700); --btn-stroke: var(--ds-color-green-700); --btn-ring: var(--ds-shadow-focus-purchase); }
+.ds-button--purchase_secondary.ds-button--36:is(:focus-visible, [data-preview-state="focus"]) { --btn-bg: var(--ds-color-gray-50); }
+.ds-button--purchase_secondary:disabled { --btn-fg: var(--ds-color-gray-400); --btn-stroke: var(--ds-color-gray-400); }
+
+/* white (spec sheet label: neutral) */
+.ds-button--white { --btn-bg: var(--ds-color-gray-50); --btn-fg: var(--ds-color-primary-600); }
+.ds-button--white:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-fg: var(--ds-color-primary-700); }
+.ds-button--white:is(:focus-visible, [data-preview-state="focus"]) { --btn-ring: var(--ds-shadow-focus-primary); }
+.ds-button--white:disabled { --btn-bg: var(--ds-color-gray-200); }
+
+/* neutral_summary, neutral_detailed, neutral_premium share one pattern with their own color family */
+.ds-button--neutral_summary { --accent-300: var(--ds-color-summary-300); --accent-500: var(--ds-color-summary-500); --accent-600: var(--ds-color-summary-600); }
+.ds-button--neutral_detailed { --accent-300: var(--ds-color-detailed-300); --accent-500: var(--ds-color-detailed-500); --accent-600: var(--ds-color-detailed-600); }
+.ds-button--neutral_premium { --accent-300: var(--ds-color-premium-300); --accent-500: var(--ds-color-premium-500); --accent-600: var(--ds-color-premium-600); }
+
+:is(.ds-button--neutral_summary, .ds-button--neutral_detailed, .ds-button--neutral_premium) {
+  --btn-bg: var(--ds-color-gray-50);
+  --btn-fg: var(--accent-500);
+  --btn-stroke: var(--accent-500);
+}
+:is(.ds-button--neutral_summary, .ds-button--neutral_detailed, .ds-button--neutral_premium):is(:hover, [data-preview-state="hover"]):not(:disabled) {
+  --btn-fg: var(--accent-600);
+}
+/* Figma focus: no stroke, focus ring in the 300 step; label is 500 at size 48 and 600 at size 36 */
+:is(.ds-button--neutral_summary, .ds-button--neutral_detailed, .ds-button--neutral_premium):is(:focus-visible, [data-preview-state="focus"]) {
+  --btn-stroke: transparent;
+  --btn-ring: 0 0 0 1px var(--ds-color-gray-50), 0 0 0 3px var(--accent-300);
+}
+:is(.ds-button--neutral_summary, .ds-button--neutral_detailed, .ds-button--neutral_premium).ds-button--36:is(:focus-visible, [data-preview-state="focus"]) {
+  --btn-fg: var(--accent-600);
+}
+:is(.ds-button--neutral_summary, .ds-button--neutral_detailed, .ds-button--neutral_premium):disabled {
+  --btn-bg: var(--ds-color-gray-200);
+  --btn-stroke: transparent;
+}
+
+/* Stroke */
+.ds-button--Stroke { --btn-bg: var(--ds-color-gray-50); --btn-fg: var(--ds-color-gray-900); --btn-stroke: var(--ds-color-gray-200); }
+.ds-button--Stroke:is(:hover, [data-preview-state="hover"]):not(:disabled),
+.ds-button--Stroke:is(:focus-visible, [data-preview-state="focus"]) { --btn-bg: var(--ds-color-gray-100); }
+.ds-button--Stroke:disabled { --btn-bg: var(--ds-color-gray-100); --btn-fg: var(--ds-color-gray-500); }
+
+/* text (spec sheet label: link) */
+.ds-button--text { --btn-fg: var(--ds-color-primary-600); }
+.ds-button--text:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-fg: var(--ds-color-primary-700); text-decoration: underline; }
+.ds-button--text:is(:focus-visible, [data-preview-state="focus"]) { text-decoration: underline; }
+.ds-button--text:disabled { --btn-fg: var(--ds-color-gray-500); }
+
+/* cancel */
+.ds-button--cancel { --btn-fg: var(--ds-color-gray-600); }
+.ds-button--cancel:is(:hover, [data-preview-state="hover"]):not(:disabled) { --btn-fg: var(--ds-color-gray-700); text-decoration: underline; }
+.ds-button--cancel:is(:focus-visible, [data-preview-state="focus"]) { text-decoration: underline; }
+.ds-button--cancel:disabled { --btn-fg: var(--ds-color-gray-500); }
+
+/* menu: light label, designed for the dark header surface */
+.ds-button--menu { --btn-fg: var(--ds-color-gray-50); }
+.ds-button--menu:is(:hover, [data-preview-state="hover"]):not(:disabled),
+.ds-button--menu:is(:focus-visible, [data-preview-state="focus"]) { --btn-fg: var(--ds-color-gray-300); }
+.ds-button--menu:disabled { --btn-fg: var(--ds-color-gray-500); }

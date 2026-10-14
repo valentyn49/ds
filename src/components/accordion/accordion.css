@@ -1,0 +1,130 @@
+/*
+  Accordion item. Source: Figma component set "collapse" (Accordion page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  The native toggle button is laid over the whole header (padding included). The Button and Link in the header sit
+  above it so they stay separate controls. Figma defines no hover or disabled look, and no animation.
+*/
+
+.ds-accordion {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-gray-50);
+  box-shadow: var(--ds-shadow);
+  font-family: var(--ds-font-family);
+}
+
+.ds-accordion *,
+.ds-accordion *::before,
+.ds-accordion *::after {
+  box-sizing: border-box;
+}
+
+/* Header: 16px padding, 16px gap, vertically centered */
+.ds-accordion__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-4x);
+  padding: var(--ds-space-4x);
+}
+
+.ds-accordion__toggle {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-radius-3x);
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Keyboard focus. Figma defines no focus state, so this reuses the existing focus-primary ring token. */
+.ds-accordion__toggle:focus-visible {
+  box-shadow: var(--ds-shadow-focus-primary);
+}
+
+.ds-accordion__icon,
+.ds-accordion__chevron {
+  display: inline-flex;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: var(--ds-color-gray-900);
+}
+
+.ds-accordion__icon svg,
+.ds-accordion__chevron svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* The chevron points down when closed and up when open (Figma: chevron and chevron_up) */
+.ds-accordion--open .ds-accordion__chevron { transform: rotate(180deg); }
+
+.ds-accordion__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ds-accordion__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2x);
+}
+
+.ds-accordion__title {
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+}
+
+.ds-accordion__subtitle {
+  overflow: hidden;
+  color: var(--ds-color-gray-500);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Link: Figma "link" small / primary / default */
+.ds-accordion__link {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  color: var(--ds-color-primary-600);
+  font-size: var(--ds-text-xs-font-medium-size);
+  line-height: var(--ds-text-xs-font-medium-line-height);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Button above the toggle */
+.ds-accordion__button {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  display: inline-flex;
+}
+
+/* Panel: content starts 16px below the header text and is inset by the 16px item padding */
+.ds-accordion__panel {
+  padding: 0 var(--ds-space-4x) var(--ds-space-4x);
+}
+
+.ds-accordion__panel[hidden] { display: none; }
+
+.ds-accordion__content {
+  color: var(--ds-color-gray-700);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}

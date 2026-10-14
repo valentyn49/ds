@@ -1,0 +1,21 @@
+{
+  "name": "socrates-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Socrates Design System documentation (Storybook), sourced from the AEGL AUG Design Library in Figma.",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "docs:generate": "node scripts/generate-docs.mjs",
+    "sidebar": "node scripts/sync-sidebar-order.mjs",
+    "prepare:docs": "npm run tokens && npm run docs:generate && npm run sidebar",
+    "storybook": "npm run prepare:docs && storybook dev -p 6006",
+    "build-storybook": "npm run prepare:docs && storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.6.2",
+    "@storybook/html-vite": "^10.6.2",
+    "storybook": "^10.6.2",
+    "vite": "^7.0.0"
+  }
+}

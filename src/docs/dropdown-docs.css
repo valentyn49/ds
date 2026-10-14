@@ -1,0 +1,41 @@
+/* Layout for the Dropdown documentation page. Shares tile, legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-dd-box { width: 347px; max-width: 100%; }
+.ds-bd-demo-surface .ds-bd-dd-box { margin: 0 auto; }
+
+/* The open menu is absolutely positioned, so previews reserve room below the trigger instead of clipping it. */
+.ds-bd-dd-surface { align-items: flex-start; min-height: 440px; }
+
+.ds-bd-overview--dropdown { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+.ds-bd-overview--dropdown .ds-bd-tile { min-height: 0; padding: var(--ds-space-4x); }
+
+.ds-bd-dd-states { grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); }
+.ds-bd-dd-states .ds-bd-tile { padding: var(--ds-space-4x); }
+
+/* A menu shown on its own, in the page flow */
+.ds-bd-menu-flow .ds-dropdown__menu { position: static; }
+
+/* Anatomy */
+.ds-bd-dd-anatomy { --z: 1.6; padding: 96px 190px; margin-bottom: var(--ds-space-2x); }
+.ds-bd-dd-anatomy__figure { width: 347px; }
+.ds-bd-dd-anatomy--open { padding-bottom: 80px; }
+.ds-bd-dd-anatomy__figure--open { padding-bottom: 260px; }
+
+/* The menu must not clip its own markers or be repositioned by the marker styles. */
+.ds-bd-dd-anatomy .ds-dropdown__menu.ds-bd-anchor { position: absolute; overflow: visible; }
+.ds-bd-dd-anatomy .ds-dropdown__trigger.ds-bd-anchor { position: relative; }
+
+/* Divider marker: the line sits on the bottom edge of the item above the divider */
+.ds-bd-anchor--right-end::before { left: 100%; top: 100%; width: 92px; height: 1px; }
+.ds-bd-anchor--right-end::after { left: calc(100% + 92px); top: 100%; margin-top: -12px; }
+
+/* Behavior demo */
+.ds-bd-dd-readout {
+  margin: var(--ds-space-4x) 0 0;
+  color: var(--ds-color-gray-600);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-dd-readout code { color: var(--ds-color-gray-900); font-family: var(--ds-font-mono); }

@@ -1,0 +1,25 @@
+/* Documentation-only caret for the Input Tag state previews. Figma draws a 1px gray/900 caret in focus, filing and selected.
+   In the browser the native caret does this; these rules only make it visible in static previews. */
+
+.ds-input-tag[data-preview-state] .ds-input-tag__value { position: relative; }
+
+.ds-input-tag[data-preview-state="focus"] .ds-input-tag__value::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 16px;
+  background: var(--ds-color-gray-900);
+}
+
+/* Text width follows its content (where field-sizing is supported) so the caret can sit right after the text. */
+.ds-input-tag[data-preview-state="typing"] .ds-input-tag__value { flex: none; min-width: 0; }
+.ds-input-tag[data-preview-state="typing"] .ds-input-tag__control { width: auto; field-sizing: content; }
+.ds-input-tag[data-preview-state="typing"] .ds-input-tag__value::after {
+  content: "";
+  align-self: center;
+  width: 1px;
+  height: 16px;
+  background: var(--ds-color-gray-900);
+}

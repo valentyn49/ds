@@ -1,0 +1,90 @@
+/* Layout for the Button documentation page. Colors, spacing and radii come from src/tokens/tokens.css. */
+
+/* Preview surface: the Figma spec sheet places buttons on gray/100; the menu type sits on the dark header surface. */
+.ds-bd-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-6x);
+  padding: var(--ds-space-6x);
+  background: var(--ds-color-gray-100);
+  border-radius: var(--ds-radius-3x);
+}
+.ds-bd-tile--dark { background: var(--ds-color-secondary-900); }
+.ds-bd-tile--row { justify-content: flex-start; gap: var(--ds-space-8x); }
+.ds-bd-tile--stack { flex-direction: column; align-items: flex-start; gap: var(--ds-space-6x); justify-content: flex-start; }
+
+/* Live demo canvas should use the same surface */
+.ds-bd-demo-surface {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: var(--ds-space-8x);
+  background: var(--ds-color-gray-100);
+  border-radius: var(--ds-radius-3x);
+}
+.ds-bd-demo-surface--dark { background: var(--ds-color-secondary-900); }
+
+/* Overview */
+.ds-bd-overview { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--ds-space-4x); }
+.ds-bd-overview__item { display: flex; flex-direction: column; gap: var(--ds-space-2x); }
+.ds-bd-overview__item .ds-bd-tile { min-height: 88px; padding: var(--ds-space-4x); }
+.ds-bd-overview__item code { color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+
+/* Anatomy */
+.ds-bd-anatomy__stage {
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--ds-space-15x) + var(--ds-space-4x)) var(--ds-space-8x);
+  background: var(--ds-color-gray-100);
+  border-radius: var(--ds-radius-3x);
+}
+.ds-bd-anatomy__figure { position: relative; display: inline-block; }
+.ds-bd-anatomy__button { display: inline-block; line-height: 0; }
+.ds-bd-anatomy__button .ds-button { pointer-events: none; }
+.ds-bd-marker { position: absolute; display: flex; flex-direction: column; align-items: center; }
+.ds-bd-marker b {
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--ds-color-gray-900); color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-xs-font-bold-size); line-height: 1; font-weight: 700;
+}
+.ds-bd-marker::after { content: ""; width: 1px; height: 40px; background: var(--ds-color-gray-900); }
+.ds-bd-marker--top { bottom: 100%; }
+.ds-bd-marker--top::after { order: 2; }
+.ds-bd-marker--bottom { top: 100%; flex-direction: column-reverse; }
+.ds-bd-anatomy__legend { margin: var(--ds-space-6x) 0 0; padding: 0; list-style: none; display: grid; gap: var(--ds-space-4x); }
+.ds-bd-anatomy__legend li { display: flex; gap: var(--ds-space-3x); align-items: flex-start; }
+.ds-bd-anatomy__legend li > b {
+  flex: none; display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--ds-color-gray-900); color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-xs-font-bold-size);
+}
+.ds-bd-anatomy__legend li div { display: flex; flex-direction: column; gap: 2px; }
+.ds-bd-anatomy__legend span { color: var(--ds-color-gray-500); font-size: var(--ds-text-sm-font-normal-size); line-height: var(--ds-text-sm-font-normal-line-height); }
+.ds-bd-note { color: var(--ds-color-gray-500); font-size: var(--ds-text-sm-font-normal-size) !important; }
+
+/* Variants */
+.ds-bd-variants { display: grid; gap: var(--ds-space-6x); }
+.ds-bd-variant { padding-bottom: var(--ds-space-6x); border-bottom: 1px solid var(--ds-color-gray-300); }
+.ds-bd-variant header { display: flex; align-items: center; gap: var(--ds-space-3x); }
+.ds-bd-variant p { margin: var(--ds-space-2x) 0 var(--ds-space-3x) !important; color: var(--ds-color-gray-600); }
+.ds-bd-variant__sample { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-space-2x); }
+.ds-bd-variant__sample > span { color: var(--ds-color-gray-400); font-size: var(--ds-text-xs-font-normal-size); }
+
+/* Sizes */
+.ds-bd-size-sample { display: flex; align-items: center; gap: var(--ds-space-4x); }
+.ds-bd-size-sample > code { width: 72px; color: var(--ds-color-gray-500); }
+.ds-bd-sizes .ds-table { margin: var(--ds-space-6x) 0; }
+.ds-bd-sizes .ds-table th[scope="row"] { background: none; color: var(--ds-color-gray-700); font-weight: 600; width: 28%; }
+.ds-bd-list { padding-left: var(--ds-space-5x); color: var(--ds-color-gray-600); }
+.ds-bd-list li { margin-bottom: var(--ds-space-2x); }
+
+/* States */
+.ds-bd-states { width: 100%; border-collapse: separate; border-spacing: var(--ds-space-2x); margin-bottom: var(--ds-space-6x); }
+.ds-bd-states thead th { padding: 0 var(--ds-space-2x); color: var(--ds-color-gray-500); font-weight: 400; text-align: left; }
+.ds-bd-states tbody th { width: 160px; text-align: left; font-weight: 400; }
+.ds-bd-states td { padding: 0; }
+.ds-bd-states .ds-bd-tile { padding: var(--ds-space-4x); min-height: 72px; justify-content: flex-start; }

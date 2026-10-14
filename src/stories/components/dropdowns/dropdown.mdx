@@ -1,0 +1,61 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DropdownStories from './dropdown.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/dropdown-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/dropdown-docs.js';
+
+<Meta of={DropdownStories} />
+
+# dropdown
+
+Source: Figma Dropdowns section of the [AEGL AUG] Design Library: the **dropdown-input** trigger, the **dropdown** menu and the **dropdown item**.
+
+## Live Demo
+
+The option names (London, Paris, Berlin, Madrid) are sample data to show selection. They are not part of the design specification.
+
+<Canvas of={DropdownStories.Playground} sourceState="none" />
+<Controls of={DropdownStories.Playground} />
+
+## Overview
+
+A dropdown lets a person choose one option from a list. The Figma dropdown has three parts: a **dropdown-input** trigger with a title, the chosen value or placeholder, a chevron and a caption, a **dropdown** menu that opens below it, and the **dropdown item** rows inside the menu. The trigger has **5 states** and one size. Items can show a Pro badge, a checkbox icon, a color swatch and a check mark, and the menu can show a search field.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+The trigger has one variant property, `state`, with five values. The menu item has `type` with two values. There are no other variants, so there is no separate Variants or Sizes section.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+Figma shows a single-choice list that opens from a trigger, so it is built as a select-style combobox with a listbox. The trigger is a `button` with `role="combobox"`, and the menu is a `listbox` of `option` rows with `aria-selected`.
+
+- **Click the trigger:** opens or closes the menu.
+- **Click an option:** selects it, shows its name in the trigger and closes the menu.
+- **Click outside:** closes the menu.
+- **Keyboard on the trigger:** Arrow Down, Arrow Up, Enter or Space opens the menu.
+- **Keyboard in the open menu:** Arrow Down and Arrow Up move through the options, Home and End jump to the first and last, Enter or Space selects, Escape closes and returns focus to the trigger, and Tab closes it.
+- **Focus:** stays on the trigger while the menu is open, and the highlighted option is announced with `aria-activedescendant`. With the search field, focus moves to the search field instead.
+- **Disabled:** the trigger cannot be focused or opened.
+- **Search (when on):** typing narrows the list to options whose name contains the text. Figma defines the search field but not its filtering, so this is the minimal behavior that makes it work.
+
+Figma does not define multiple selection, grouping, clearing, creating options or scrolling, so none of them are built. The checkbox icon on an item is shown as drawn in Figma (unchecked) and does not make the list multi-select.
+
+<Canvas of={DropdownStories.Behavior} sourceState="none" />

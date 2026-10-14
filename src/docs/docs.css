@@ -1,0 +1,79 @@
+/* Documentation-only styling. Values come from the Figma tokens (src/tokens/tokens.css). */
+
+.sbdocs-wrapper {
+  padding: var(--ds-space-10x) var(--ds-space-8x);
+}
+
+.sbdocs-content {
+  max-width: 1040px;
+}
+
+.ds-status {
+  display: inline-block;
+  padding: 0 var(--ds-space-2x);
+  border: 1px solid var(--ds-color-gray-200);
+  border-radius: var(--ds-radius-2x);
+  color: var(--ds-color-gray-500);
+  font-size: var(--ds-text-xs-font-medium-size);
+  line-height: 20px;
+}
+
+/* Colors */
+.ds-color-family { margin: 0 0 var(--ds-space-8x); }
+.ds-color-family__title { margin: 0 !important; padding: 0 !important; border: 0 !important; font-size: var(--ds-text-base-font-bold-size) !important; }
+.ds-color-family__path { margin: 0 0 var(--ds-space-3x) !important; color: var(--ds-color-gray-400); font-size: var(--ds-text-xs-font-normal-size); }
+.ds-swatch-row { display: flex; flex-wrap: wrap; gap: var(--ds-space-3x); }
+.ds-swatch { width: 64px; }
+.ds-swatch__chip {
+  display: flex; align-items: center; justify-content: center;
+  height: 64px; border-radius: var(--ds-radius-2x);
+  box-shadow: inset 0 0 0 1px rgba(3, 7, 18, 0.06);
+  font-size: var(--ds-text-xs-font-normal-size);
+}
+.ds-swatch__hex {
+  display: block; margin-top: var(--ds-space-1x); text-align: center;
+  color: var(--ds-color-gray-500); font-size: 11px !important; background: none !important; border: 0 !important; padding: 0 !important;
+}
+
+/* Tables */
+.ds-table { width: 100%; border-collapse: collapse; font-size: var(--ds-text-sm-font-normal-size); }
+.ds-table th {
+  padding: var(--ds-space-3x) var(--ds-space-4x); background: var(--ds-color-gray-100);
+  color: var(--ds-color-gray-500); font-weight: 400; text-align: left;
+  border-bottom: 1px solid var(--ds-color-gray-300);
+}
+.ds-table td { padding: var(--ds-space-3x) var(--ds-space-4x); border-bottom: 1px solid var(--ds-color-gray-300); vertical-align: middle; }
+.ds-table__strong { font-size: var(--ds-text-base-font-normal-size); }
+.ds-table__muted { color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size); }
+.ds-table__bar { width: 40%; }
+.ds-table__bar span { display: block; height: 8px; border-radius: var(--ds-radius-1x); background: var(--ds-color-primary-600); }
+.ds-chip {
+  display: inline-block; padding: 0 var(--ds-space-1x); border: 1px solid var(--ds-color-gray-200);
+  border-radius: var(--ds-radius-2x); color: var(--ds-color-gray-600); font-size: var(--ds-text-xs-font-normal-size); line-height: 18px;
+}
+
+/* Radius */
+.ds-radius-row { display: flex; flex-wrap: wrap; gap: var(--ds-space-6x); }
+.ds-radius { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-2x); width: 80px; }
+.ds-radius__box { width: 64px; height: 64px; background: var(--ds-color-primary-100); border: 1px solid var(--ds-color-primary-600); }
+.ds-radius__name { font-size: var(--ds-text-sm-font-medium-size); }
+
+/* Typography */
+.ds-type-row { display: grid; grid-template-columns: 280px 1fr; gap: var(--ds-space-6x); align-items: baseline; padding: var(--ds-space-4x) 0; border-bottom: 1px solid var(--ds-color-gray-300); }
+.ds-type-row__meta { display: flex; flex-direction: column; gap: 2px; font-size: var(--ds-text-xs-font-normal-size); color: var(--ds-color-gray-500); }
+.ds-type-row__meta code { font-size: var(--ds-text-xs-font-medium-size); color: var(--ds-color-gray-900); width: fit-content; }
+.ds-type-row__sample { color: var(--ds-color-gray-900); }
+
+/* Shadows */
+.ds-shadow-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--ds-space-8x) var(--ds-space-6x); padding: var(--ds-space-6x); background: var(--ds-color-gray-100); border-radius: var(--ds-radius-3x); }
+.ds-shadow { display: flex; flex-direction: column; gap: var(--ds-space-2x); }
+.ds-shadow__card { height: 120px; background: var(--ds-color-gray-50); border-radius: var(--ds-radius-1x); }
+.ds-shadow__card--focus { border-radius: var(--ds-radius-3x); }
+.ds-shadow__name { width: fit-content; }
+.ds-shadow__css { color: var(--ds-color-gray-500); font-size: 11px; line-height: 16px; word-break: break-word; }
+
+/* Icons */
+.ds-icon-group h3 { display: flex; align-items: center; gap: var(--ds-space-2x); }
+.ds-icon-list { display: flex; flex-wrap: wrap; gap: var(--ds-space-2x); margin: 0; padding: 0; list-style: none; }
+.ds-icon-list li { margin: 0; padding: 0; }
+.ds-icon-list code { white-space: pre; }

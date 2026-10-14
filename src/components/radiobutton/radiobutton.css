@@ -1,0 +1,121 @@
+/*
+  Radio Button. Source: Figma component set "radiobutton" (Radiobutton page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  The native input sits on top of the 20px icon (invisible) so it keeps native click, focus, arrow-key and group behavior.
+  `[data-preview-state="hover"]` exists only so the documentation can render the hover state without a pointer.
+  It is not part of the component API.
+*/
+
+.ds-radiobutton {
+  --radio-icon: var(--ds-color-gray-600);
+  --radio-title: var(--ds-color-gray-900);
+  --radio-caption: var(--ds-color-gray-500);
+  --radio-badge-bg: var(--ds-color-green-100);
+  --radio-badge-text: var(--ds-color-green-600);
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--ds-space-2x);
+  font-family: var(--ds-font-family);
+}
+
+.ds-radiobutton *,
+.ds-radiobutton *::before,
+.ds-radiobutton *::after {
+  box-sizing: border-box;
+}
+
+.ds-radiobutton__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.ds-radiobutton__control {
+  display: flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: var(--radio-icon);
+}
+
+.ds-radiobutton__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.ds-radiobutton__icon--selected { display: none; }
+.ds-radiobutton__input:checked + .ds-radiobutton__control .ds-radiobutton__icon--unselected { display: none; }
+.ds-radiobutton__input:checked + .ds-radiobutton__control .ds-radiobutton__icon--selected { display: block; }
+
+.ds-radiobutton__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ds-radiobutton__row {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-1x);
+}
+
+.ds-radiobutton__title {
+  color: var(--radio-title);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}
+
+.ds-radiobutton__caption {
+  color: var(--radio-caption);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+  font-weight: 400;
+}
+
+/* Badge: Figma "pro" component */
+.ds-radiobutton__badge {
+  flex: none;
+  padding: var(--ds-space-1x) var(--ds-space-2x);
+  border-radius: var(--ds-radius-2x);
+  background: var(--radio-badge-bg);
+  color: var(--radio-badge-text);
+  font-size: var(--ds-text-uppercase-font-medium-size);
+  line-height: var(--ds-text-uppercase-font-medium-line-height);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* hover: the unselected circle darkens from gray/600 to gray/900 */
+.ds-radiobutton:is(:hover, [data-preview-state="hover"]) .ds-radiobutton__input:not(:checked):not(:disabled) + .ds-radiobutton__control {
+  --radio-icon: var(--ds-color-gray-900);
+}
+
+/* selected: the circle and dot are primary/600 */
+.ds-radiobutton__input:checked + .ds-radiobutton__control {
+  --radio-icon: var(--ds-color-primary-600);
+}
+
+/* disabled: circle gray/200, text gray/500, badge uses the Figma disabled colors */
+.ds-radiobutton:has(.ds-radiobutton__input:disabled) {
+  --radio-title: var(--ds-color-gray-500);
+  --radio-badge-bg: var(--ds-color-primary-100);
+  --radio-badge-text: var(--ds-color-primary-700);
+}
+.ds-radiobutton__input:disabled + .ds-radiobutton__control {
+  --radio-icon: var(--ds-color-gray-200);
+}
+
+/* Keyboard focus. Figma defines no focus state, so this reuses the existing focus-primary ring token on the control. */
+.ds-radiobutton__input:focus-visible + .ds-radiobutton__control {
+  box-shadow: var(--ds-shadow-focus-primary);
+}

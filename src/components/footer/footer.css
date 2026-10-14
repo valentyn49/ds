@@ -1,0 +1,249 @@
+/*
+  Footer. Source: Figma component set "footer" (Footer page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  The layout follows the footer's own width (container queries), not the browser window, so it behaves the same in a
+  full page and in a narrower container. Layout thresholds (see footer.spec.js):
+    mobile  up to 576px    tablet  577px - 992px    desktop  993px and up
+  Required horizontal content margins: 80px desktop, 40px tablet, 40px mobile (--footer-margin).
+  The background spans the whole footer; the content is inset by the margin on both sides.
+*/
+
+.ds-footer {
+  container-type: inline-size;
+  container-name: ds-footer;
+
+  box-sizing: border-box;
+  width: 100%;
+  font-family: var(--ds-font-family);
+}
+
+.ds-footer *,
+.ds-footer *::before,
+.ds-footer *::after {
+  box-sizing: border-box;
+}
+
+.ds-footer--big {
+  background: var(--ds-color-secondary-900);
+  color: var(--ds-color-gray-50);
+}
+
+.ds-footer__inner {
+  --footer-margin: 40px;
+  --footer-top: 24px;
+  --footer-columns-gap: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-14x);
+  padding: var(--footer-top) var(--footer-margin) var(--ds-space-4x);
+}
+
+/* Main block: about text and link columns */
+.ds-footer__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-10x);
+}
+
+.ds-footer__about {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--ds-space-6x);
+  min-width: 0;
+}
+
+.ds-footer__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 6.5px;
+  color: var(--ds-color-gray-50);
+}
+
+.ds-footer__logo { display: block; flex: none; }
+
+.ds-footer__tag {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 3px;
+  padding: var(--ds-space-1x) var(--ds-space-2x);
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-secondary-900);
+  font-size: var(--ds-text-xs-font-bold-size);
+  line-height: var(--ds-text-xs-font-bold-line-height);
+  font-weight: 700;
+}
+
+.ds-footer__notice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-4x);
+}
+
+.ds-footer__text {
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+  font-weight: 400;
+}
+
+.ds-footer__note-title { font-weight: 600; }
+
+/* Link columns */
+.ds-footer__nav {
+  display: flex;
+  gap: var(--footer-columns-gap);
+}
+
+.ds-footer__column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--ds-space-6x);
+  min-width: 0;
+}
+
+.ds-footer__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-3x);
+}
+
+.ds-footer__heading {
+  overflow-wrap: anywhere;
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+}
+
+.ds-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-2x);
+}
+
+/* Links are scoped to `footer.ds-footer a` so page or documentation link styles (color, underline) do not override them. */
+footer.ds-footer a.ds-footer__link,
+footer.ds-footer a.ds-footer__legal-link {
+  align-self: flex-start;
+  border-radius: 2px;
+  text-decoration: none;
+  outline: none;
+}
+
+footer.ds-footer a.ds-footer__link {
+  overflow-wrap: anywhere;
+  color: var(--ds-color-gray-300);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}
+
+/* Standalone items look like group headings */
+footer.ds-footer a.ds-footer__link--primary {
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+}
+
+/* Keyboard focus. Figma defines no focus look, so this reuses the existing focus-primary ring token. */
+footer.ds-footer a.ds-footer__link:focus-visible,
+footer.ds-footer a.ds-footer__legal-link:focus-visible {
+  box-shadow: var(--ds-shadow-focus-primary);
+}
+
+/* Legal bar */
+.ds-footer__legal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-4x);
+}
+
+/* Divider: 1px, 17px above the legal bar */
+.ds-footer__legal::before {
+  content: "";
+  position: absolute;
+  top: -17px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ds-color-secondary-800);
+}
+
+.ds-footer__copyright {
+  color: var(--ds-color-gray-200);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+  font-weight: 400;
+}
+
+.ds-footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-6x);
+}
+
+footer.ds-footer a.ds-footer__legal-link {
+  align-self: auto;
+  color: var(--ds-color-gray-300);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+  font-weight: 400;
+}
+
+/* Small size: one centered line, no fill */
+.ds-footer--small .ds-footer__inner {
+  padding: var(--ds-space-4x) var(--footer-margin);
+}
+
+.ds-footer__small-text {
+  color: var(--ds-color-gray-500);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Tablet: 577px - 992px. Margin 40px. Container queries only restyle descendants, so they target the inner element. */
+@container ds-footer (min-width: 577px) {
+  .ds-footer__inner {
+    --footer-margin: 40px;
+    --footer-top: 40px;
+    --footer-columns-gap: 32px;
+  }
+
+  .ds-footer__main { gap: var(--ds-space-14x); }
+}
+
+/* Mobile: up to 576px. Margin 40px. */
+@container ds-footer (max-width: 576px) {
+  .ds-footer__inner { --footer-margin: 40px; --footer-top: 24px; }
+}
+
+/* Desktop: 993px and up. Margin 80px. About block and link columns sit side by side. */
+@container ds-footer (min-width: 993px) {
+  .ds-footer__inner { --footer-margin: 80px; }
+
+  .ds-footer__main {
+    flex-direction: row;
+    gap: var(--ds-space-14x);
+  }
+
+  .ds-footer__nav { flex: none; gap: var(--ds-space-8x); }
+  .ds-footer__column { flex: none; width: 156px; }
+
+  .ds-footer__legal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* On desktop the divider runs the full width of the footer */
+  .ds-footer__legal::before { left: calc(var(--footer-margin) * -1); right: calc(var(--footer-margin) * -1); }
+}

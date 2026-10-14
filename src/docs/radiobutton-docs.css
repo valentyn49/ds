@@ -1,0 +1,31 @@
+/* Layout for the Radio Button documentation page. Shares tile, legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-overview--radio { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.ds-bd-overview--radio .ds-bd-tile { min-height: 0; padding: var(--ds-space-4x); }
+
+.ds-bd-rb-states { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.ds-bd-rb-states .ds-bd-tile { min-height: 96px; }
+
+/* Anatomy: the component is enlarged with zoom, markers cancel the zoom so they keep their size. */
+.ds-bd-rb-anatomy { --z: 2; padding: 96px 200px; }
+.ds-bd-rb-anatomy__figure { zoom: var(--z); display: inline-block; }
+
+.ds-bd-rb-indicator.ds-bd-anchor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* Group demo. Figma defines no group, so this spacing belongs to the documentation only. */
+.ds-bd-rb-group { display: flex; flex-direction: column; gap: var(--ds-space-4x); align-items: flex-start; }
+.ds-bd-rb-readout {
+  margin: var(--ds-space-4x) 0 0;
+  color: var(--ds-color-gray-600);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-rb-readout code { color: var(--ds-color-gray-900); font-family: var(--ds-font-mono); }

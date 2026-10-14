@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './button.stories.js';
+import '../../../docs/button-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderVariants,
+  renderSizes,
+  renderStates,
+} from '../../../docs/button-docs.js';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Source: Figma component set **Button** on the Buttons page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+<Canvas of={ButtonStories.Playground} sourceState="none" />
+<Controls of={ButtonStories.Playground} />
+
+## Overview
+
+A button triggers an action. The Figma Button component has **12 types**, **2 sizes** (48 and 36) and **4 states** (default, hover, focus, disabled). Every button can show a text label, a left icon and a right icon, each controlled by its own Figma property.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Variants
+
+The Figma property is called `type`. The names below are the Figma variant values. Where the Figma spec sheet labels a row differently, the label is shown next to the name.
+
+<div dangerouslySetInnerHTML={{ __html: renderVariants() }} />
+
+## Sizes
+
+The Figma property is called `size` and has the values `48` and `36`.
+
+<div dangerouslySetInnerHTML={{ __html: renderSizes() }} />
+
+## States
+
+The Figma property is called `state`. All four states exist for every type and size.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />

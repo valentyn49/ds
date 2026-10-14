@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TextAreaStories from './text-area.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/text-area-docs.js';
+
+<Meta of={TextAreaStories} />
+
+# text-area
+
+Source: Figma component set **text-area** on the Inputs page of the [AEGL AUG] Design Library.
+
+## Live Demo
+
+<Canvas of={TextAreaStories.Playground} sourceState="none" />
+<Controls of={TextAreaStories.Playground} />
+
+## Overview
+
+A text area lets a person enter text that can run over several lines. The Figma **text-area** component is a stack of an optional label, the field and an optional footnote. The field can show a left icon and a right icon, and the label can show an info icon. It has **7 states** and one size. It uses the same properties and states as the Figma **input**, with the field filling the component height and the content aligned to the top.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## States
+
+The Figma property is called `state` and has seven values. It is the only variant property, so there is no separate Variants or Sizes section.
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+The component is a native `textarea` with a `label` linked through `for`, and the footnote is linked with `aria-describedby`.
+
+- **Typing:** the field takes multiline text. Enter inserts a new line.
+- **Label click:** focuses the text area.
+- **Tab:** moves focus into and out of the text area.
+- **Disabled:** the text area cannot be focused or edited.
+- **Error:** sets `aria-invalid` on the text area.

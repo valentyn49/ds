@@ -1,0 +1,72 @@
+/* Layout for the Footer documentation page. Shares legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-ft-stack { display: flex; flex-direction: column; gap: var(--ds-space-6x); margin: var(--ds-space-4x) 0; }
+.ds-bd-ft-item { display: flex; flex-direction: column; gap: var(--ds-space-2x); }
+.ds-bd-ft-label { width: fit-content; color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+
+/* The scaled wrapper holds a frame at its real width; the page background of the product is shown behind it. */
+.ds-bd-ft-zoom { display: block; }
+.ds-bd-ft-frame {
+  position: relative;
+  max-width: none;
+  overflow: hidden;
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-gray-100);
+}
+
+/* Margin bands */
+.ds-bd-ft-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--ds-space-2x);
+  background: rgba(23, 154, 245, 0.18);
+  pointer-events: none;
+}
+.ds-bd-ft-band--left { left: 0; border-right: 1px dashed var(--ds-color-primary-600); }
+.ds-bd-ft-band--right { right: 0; border-left: 1px dashed var(--ds-color-primary-600); }
+.ds-bd-ft-band b {
+  color: var(--ds-color-primary-700);
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.ds-bd-ft-table th, .ds-bd-ft-table td { text-transform: none; }
+.ds-bd-ft-table tbody th { text-transform: capitalize; }
+
+.ds-bd-callout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-1x);
+  margin: var(--ds-space-4x) 0;
+  padding: var(--ds-space-4x);
+  border: 1px solid var(--ds-color-primary-200);
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-primary-50);
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-callout span { color: var(--ds-color-gray-600); }
+
+/* Anatomy: the footer is enlarged or reduced with zoom; markers cancel it so they keep their size. */
+.ds-bd-ft-anatomy { --z: 0.8; padding: 80px 60px 90px; }
+.ds-bd-ft-anatomy__figure { zoom: var(--z); width: 1100px; }
+.ds-bd-ft-anatomy .ds-footer.ds-bd-anchor { position: relative; }
+
+.ds-bd-ft-divider.ds-bd-anchor {
+  position: absolute;
+  top: -17px;
+  left: calc(var(--footer-margin) * -1);
+  width: 0;
+  height: 1px;
+}
+
+/* Behavior demo */
+.ds-bd-ft-demo { width: 100%; }

@@ -1,0 +1,42 @@
+{
+  "$comment": "Component names found on the Figma Icons page (104 components), kept verbatim including duplicates, trailing spaces and the Cyrillic letter in \"сondensed\".",
+  "groups": [
+    {
+      "name": "icon",
+      "label": "Interface icons",
+      "items": [
+        "icon / cart", "icon / search", "icon / chevron", "icon / chevron_right", "icon / sorting_down", "icon / sorting_up",
+        "icon / sorting", "icon / close", "icon / filter", "icon / radio", "icon / radio_selected", "icon / check_box",
+        "icon / check_box_cheked", "icon / logoff", "icon / plus", "icon / minus", "icon / check", "icon / report",
+        "icon / warning", "icon / check_filled", "icon / clone", "icon / info", "icon / toggle_off", "icon / toggle_on",
+        "icon / delete", "icon / plus_circle", "icon / minus_circle", "icon / drag", "icon / edit", "icon / sorting",
+        "icon / load", "icon / profile", "icon / dashboard", "icon / settings", "icon / table", "icon / calendar",
+        "icon / file", "icon / chevron_up", "icon / list", "icon / settings", "icon / favourite", "icon / favourite_filled",
+        "icon / load", "icon / notifications", "icon / full", "icon / Fullscreen", "icon / Fullscreen_exit", "icon / list",
+        "icon / invite", "icon / notifications_off", "icon / drag_pan", "icon / star", "icon / star_filled", "icon / empty",
+        "icon / support", "icon / visibility", "icon / visibility_off", "icon / convert", "icon / table_chart", "icon / play",
+        "icon / pause", "icon / open_in_new_tab", "icon / warning_circle", "icon / сondensed", "icon / сondensed_standard",
+        "icon / standart", "icon / row", "icon / info", "icon / menu", "icon / Keep_crossed", "icon / keep_filled",
+        "icon / public", "icon / volume", "icon / more", "icon / arrow_right", "icon / arrow_left", "icon / chart_tooltip",
+        "icon / chart_tooltip_off"
+      ]
+    },
+    {
+      "name": "TS",
+      "label": "Signal icons (TS)",
+      "items": [
+        "TS / Red Stochastic Highest", "TS / Red Stochastic Lowest", "TS / all three Stochastics 80", "TS / all three Stochastics 20",
+        "TS / All four main Indicating Ranges  bullish", "TS / All four main Indicating Ranges bearish", "TS / Elected Bullish Reversal",
+        "TS / Elected Bearish Reversal ", "TS / GMW Yellow ", "TS / GMW Blue", "TS / Direction Change (full or partial) ",
+        "TS / Aggregate High (full or partial)", "TS / Aggregate Low within next 3 weeks ", "TS / Panic Cycle within next 3 weeks or months",
+        "TS / Death Cross", "TS / new 52-week High ", "TS / new 52-week Low", "TS / Green and Red arrow", "TS / Array Alignment Signal",
+        "TS / RSI at 70 or above", "TS / RSI at 30 or below", "TS / GMW Colors 1", "TS / GMW Colors 2", "TS / GMW Colors 3"
+      ]
+    },
+    {
+      "name": "Socrates",
+      "label": "Logos",
+      "items": ["Socrates light", "Socrates dark"]
+    }
+  ]
+}
