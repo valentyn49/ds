@@ -1,0 +1,67 @@
+/* Layout for the Header documentation page. Shares legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-hd-stack { display: flex; flex-direction: column; gap: var(--ds-space-6x); margin: var(--ds-space-4x) 0; }
+.ds-bd-hd-stack--tight { gap: var(--ds-space-3x); }
+.ds-bd-hd-row { display: flex; flex-wrap: wrap; gap: var(--ds-space-6x); align-items: flex-start; margin: var(--ds-space-4x) 0; }
+.ds-bd-hd-item { display: flex; flex-direction: column; gap: var(--ds-space-2x); }
+.ds-bd-hd-label { width: fit-content; color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+
+/* The frame is the page behind the header. The transform makes it the containing block for the fixed drawer. */
+.ds-bd-hd-zoom { display: block; }
+.ds-bd-hd-frame {
+  position: relative;
+  max-width: none;
+  overflow: hidden;
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-background-900);
+  transform: translateZ(0);
+}
+.ds-bd-hd-frame--plain { overflow: visible; background: transparent; border-radius: 0; transform: none; }
+
+/* Margin bands */
+.ds-bd-hd-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2px;
+  background: rgba(23, 154, 245, 0.28);
+  pointer-events: none;
+}
+.ds-bd-hd-band--left { left: 0; border-right: 1px dashed var(--ds-color-primary-600); }
+.ds-bd-hd-band--right { right: 0; border-left: 1px dashed var(--ds-color-primary-600); }
+.ds-bd-hd-band b { color: var(--ds-color-gray-50); font-family: var(--ds-font-family); font-size: 12px; line-height: 14px; font-weight: 700; }
+
+.ds-bd-hd-table th, .ds-bd-hd-table td { text-transform: none; }
+.ds-bd-hd-table tbody th { text-transform: capitalize; }
+
+/* The callout is shared with the Footer page; repeated here so the page does not depend on it. */
+.ds-bd-callout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-1x);
+  margin: var(--ds-space-4x) 0;
+  padding: var(--ds-space-4x);
+  border: 1px solid var(--ds-color-primary-200);
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-primary-50);
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-callout span { color: var(--ds-color-gray-600); }
+
+/* Anatomy: the header is reduced with zoom; markers cancel it so they keep their size. */
+.ds-bd-hd-anatomy { --z: 0.62; padding: 70px 40px 80px; }
+.ds-bd-hd-anatomy__figure { zoom: var(--z); flex: none; width: 1440px; }
+.ds-bd-hd-anatomy--mobile { --z: 1; padding: 60px 40px 70px; margin-top: var(--ds-space-6x); }
+.ds-bd-hd-anatomy__figure--mobile { zoom: var(--z); flex: none; width: 375px; }
+.ds-bd-hd-anatomy .ds-header__bar.ds-bd-anchor { position: relative; }
+
+/* Live demo */
+.ds-bd-hd-demo { width: 100%; }
+.ds-bd-hd-demo .ds-bd-note { margin: var(--ds-space-3x) 0 0; color: var(--ds-color-gray-500); font-family: var(--ds-font-family); font-size: var(--ds-text-sm-font-normal-size); line-height: var(--ds-text-sm-font-normal-line-height); }

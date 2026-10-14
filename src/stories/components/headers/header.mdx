@@ -1,14 +1,66 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as HeaderStories from './header.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/header-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderResponsive,
+  renderVariants,
+  renderStates,
+  renderFormatting,
+} from '../../../docs/header-docs.js';
 
-<Meta title="Components/Headers/Header" />
+<Meta of={HeaderStories} />
 
 # Header
 
-- **Figma page:** Headers
-- **Figma type:** Component set
-- **Variants:** 24
-- **Variant properties:** `size (3)`, `platform (2)`, `type (4)`
-- **Status:** Placeholder, not documented yet
+Source: Figma component set **Header** on the Headers page of the [AEGL AUG] Design Library, together with the menu and drawer frames on the same page.
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=39-1070)
+## Live Demo
+
+Switch the preview width to see the header change layout. Wide previews are scaled down to fit this page; the layout is decided by the header's real width. Click a menu, the cart or the profile to open it, or use the menu button on tablet and mobile.
+
+<Canvas of={HeaderStories.Playground} sourceState="none" />
+<Controls of={HeaderStories.Playground} />
+
+## Overview
+
+The header sits at the top of every page. It carries the Socrates logo and, depending on the type, the main navigation with its menus, a search field, the cart and the profile menu, or only the Login and Sign Up links. On tablet and mobile the navigation moves into a drawer opened from a menu button. It comes in two platforms, Standart and Enterprise.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Responsive layout
+
+<div dangerouslySetInnerHTML={{ __html: renderResponsive() }} />
+
+## Variants
+
+<div dangerouslySetInnerHTML={{ __html: renderVariants() }} />
+
+## States
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+The header is a `header` landmark. Its main links are in a `nav` labelled "Main", and the drawer is a modal `dialog`. Every item is a real link or button.
+
+- **Menus (desktop):** a menu item with a chevron is a button with `aria-expanded`. Click or press Enter or Space to open it; the chevron points up and the page below is blurred. Only one menu is open at a time.
+- **Submenus:** Performance Trackers and Members Help open a second panel beside the first from a button with `aria-expanded`.
+- **Closing:** Escape closes the open menu and returns focus to its button. Clicking outside, or on the blurred page, closes it too. Tab moves through the open menu's links in order.
+- **Cart and profile:** open their panels the same way. Their buttons are labelled "Cart, 2 items" and "Profile".
+- **Drawer:** the menu button opens it and moves focus to the close button. Tab stays inside the drawer. Escape, the close button or a click on the dimmed area closes it and returns focus to the menu button. Rows with a chevron expand in place.
+- **Search:** the field is a native search input labelled "Market Search".
+- **Active page:** Figma does not show an active navigation item, so none is built.
+
+**Unresolved in Figma:** link destinations (links use `#` and are prevented from navigating), what the search field does (Figma also draws a suggestions panel but not when it appears, so it is not built), the content of the drawer's warning notification (it needs the Notification component), and which submenus the market categories other than Performance Trackers open. Figma defines no hover, pressed or focus look for header items; a focused item shows the existing `shadow-focus-primary` ring.

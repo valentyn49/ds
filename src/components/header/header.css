@@ -1,0 +1,493 @@
+/*
+  Header. Source: Figma component set "Header" (Headers page) and the dropdown frames on the same page.
+  Values use the design tokens in src/tokens/tokens.css.
+
+  The layout follows the header's own width (container queries on .ds-header__container):
+    mobile  up to 576px    tablet  577px - 1200px    desktop  1201px and up
+  Required horizontal content margins: 80px desktop, 40px tablet and mobile (--hd-margin). The background spans the full width.
+  With the 80px margin the desktop menu needs about 1250px (standart) or 1442px (enterprise); until then the tablet layout is used.
+  The drawer and its scrim are outside the container because a container would become their containing block.
+*/
+
+.ds-header {
+  box-sizing: border-box;
+  width: 100%;
+  font-family: var(--ds-font-family);
+}
+
+.ds-header *,
+.ds-header *::before,
+.ds-header *::after {
+  box-sizing: border-box;
+}
+
+.ds-header__container {
+  container-type: inline-size;
+  container-name: ds-header;
+}
+
+.ds-header__bar {
+  position: relative;
+  background: var(--ds-color-secondary-900);
+  color: var(--ds-color-gray-50);
+}
+
+.ds-header__inner {
+  --hd-margin: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-4x);
+  padding: var(--ds-space-4x) var(--hd-margin);
+}
+
+/* Brand */
+.ds-header__brand {
+  display: inline-flex;
+  flex: none;
+  align-items: flex-start;
+  gap: 6.5px;
+  color: var(--ds-color-gray-50);
+}
+
+.ds-header__brand .ds-footer__logo { display: block; width: 124px; height: 24px; }
+
+.ds-header__tag {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  padding: 3px 6px;
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-secondary-900);
+  font-size: var(--ds-text-xs-font-bold-size);
+  line-height: 15px;
+  font-weight: 700;
+}
+
+.ds-header--registration .ds-header__inner { justify-content: center; }
+
+/* Links keep the color of their surroundings and are not underlined, even when the page styles links itself
+   (specificity of `header.ds-header a` is deliberately higher than a bare `a` rule). */
+header.ds-header a { color: inherit; text-decoration: none; }
+header.ds-header a.ds-header__checkout { color: var(--ds-color-gray-50); }
+.ds-header button { font-family: inherit; }
+
+.ds-header__nav-link,
+.ds-header__trigger,
+.ds-header__auth {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1x);
+  padding: var(--ds-space-1x) 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.ds-header--enterprise .ds-header__nav-link,
+.ds-header--enterprise .ds-header__trigger,
+.ds-header__auth { padding-inline: var(--ds-space-3x); }
+
+/* Keyboard focus. Figma defines no focus look, so this reuses the existing focus-primary ring token. */
+.ds-header a:focus-visible,
+.ds-header button:focus-visible,
+.ds-header__search-input:focus-visible {
+  box-shadow: var(--ds-shadow-focus-primary);
+}
+
+.ds-header__chevron {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+}
+.ds-header__chevron svg { width: 20px; height: 20px; }
+.ds-header__item.is-open > .ds-header__trigger .ds-header__chevron { transform: rotate(180deg); }
+
+/* Navigation (desktop) */
+.ds-header__nav {
+  display: none;
+  flex: 1;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--ds-space-4x);
+  min-width: 0;
+}
+
+.ds-header--first-purchase .ds-header__nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-inline: var(--ds-space-3x);
+}
+
+.ds-header__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+/* Actions */
+.ds-header__actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--ds-space-8x);
+}
+
+.ds-header__actions--auth { gap: var(--ds-space-4x); }
+
+.ds-header__auth-icon { width: 20px; height: 20px; }
+.ds-header__auth-label { white-space: nowrap; }
+
+.ds-header__icon-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ds-color-gray-50);
+  cursor: pointer;
+  outline: none;
+}
+
+.ds-header__icon-button svg { display: block; width: 24px; height: 24px; }
+.ds-header__profile-icon { width: 29px !important; height: 29px !important; }
+.ds-header__cart-icon { width: 28px !important; height: 28px !important; }
+
+/* Cart count and warning use the header tokens: color/header/pin_background and color/header/pin_text */
+.ds-header__counter {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 20px;
+  background: var(--ds-color-primary-700);
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-xs-font-bold-size);
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.ds-header__warning {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 20px;
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-orange-500);
+}
+.ds-header__warning svg { width: 22px; height: 22px; }
+
+/* Search: color/header/search_beckground (secondary/700) with color/header/search_text */
+.ds-header__search { display: flex; align-items: center; }
+
+.ds-header__search-field {
+  display: none;
+  align-items: center;
+  gap: var(--ds-space-2x);
+  width: 180px;
+  height: 40px;
+  padding: 0 var(--ds-space-4x);
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-secondary-700);
+  color: var(--ds-color-gray-300);
+}
+
+.ds-header__search-icon { display: inline-flex; flex: none; width: 16px; height: 16px; }
+.ds-header__search-icon svg { width: 16px; height: 16px; }
+
+.ds-header__search-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  background: transparent;
+  color: var(--ds-color-gray-50);
+  font-family: inherit;
+  font-size: var(--ds-text-sm-font-normal-input-size);
+  line-height: var(--ds-text-sm-font-normal-input-line-height);
+}
+.ds-header__search-input::placeholder { color: var(--ds-color-gray-300); opacity: 1; }
+
+.ds-header__cart--mobile-only { display: none; }
+.ds-header__profile--desktop { display: none; }
+
+/* Desktop panels */
+.ds-header__panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  width: 240px;
+  border-radius: var(--ds-radius-2x);
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-gray-900);
+  box-shadow: var(--ds-shadow-lg);
+}
+
+.ds-header__panel[hidden],
+.ds-header__flyout[hidden] { display: none; }
+
+.ds-header__item--end > .ds-header__panel { left: auto; right: 0; }
+.ds-header__panel--profile { border-radius: var(--ds-radius-3x); }
+.ds-header__panel--cart { width: 301px; border-radius: var(--ds-radius-3x); }
+
+/* 12px notch at the top of an open panel */
+.ds-header__item.is-open::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 6px);
+  z-index: 21;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  background: var(--ds-color-gray-50);
+  transform: rotate(45deg);
+}
+
+.ds-header__panel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3x);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--ds-space-3x) var(--ds-space-4x);
+  border: 0;
+  border-bottom: 1px solid var(--ds-color-gray-200);
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.ds-header__panel-item:has(.ds-header__arrow) { padding-block: var(--ds-space-3x); min-height: 48px; }
+.ds-header__panel-item:first-child { border-top-left-radius: inherit; border-top-right-radius: inherit; }
+
+/* The row whose submenu is open is filled gray/200 (Figma) */
+.ds-header__panel-item.is-open { background: var(--ds-color-gray-200); }
+
+.ds-header__arrow { display: inline-flex; flex: none; width: 24px; height: 24px; }
+.ds-header__arrow svg { width: 24px; height: 24px; }
+
+.ds-header__row { position: relative; }
+
+.ds-header__flyout {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 240px;
+  background: var(--ds-color-gray-50);
+  box-shadow: var(--ds-shadow-lg);
+}
+
+.ds-header__badge {
+  margin-left: auto;
+  padding: var(--ds-space-1x) var(--ds-space-2x);
+  border-radius: var(--ds-radius-2x);
+  background: var(--ds-color-green-100);
+  color: var(--ds-color-green-600);
+  font-size: var(--ds-text-uppercase-font-medium-size);
+  line-height: var(--ds-text-uppercase-font-medium-line-height);
+  font-weight: 600;
+}
+
+/* Profile panel */
+.ds-header__profile-head { padding: var(--ds-space-4x); border-bottom: 1px solid var(--ds-color-gray-300); }
+.ds-header__profile-name { font-size: var(--ds-text-base-font-bold-size); line-height: var(--ds-text-base-font-bold-line-height); font-weight: 700; }
+.ds-header__profile-line { font-size: var(--ds-text-sm-font-normal-size); line-height: var(--ds-text-sm-font-normal-line-height); }
+.ds-header__profile-line--muted { color: var(--ds-color-gray-500); }
+.ds-header__profile-list { display: flex; flex-direction: column; gap: var(--ds-space-4x); padding: var(--ds-space-4x); }
+.ds-header__profile-item {
+  border-radius: 2px;
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  text-decoration: none;
+  outline: none;
+}
+
+/* Cart panel */
+.ds-header__cart-head { display: flex; align-items: center; justify-content: space-between; padding: var(--ds-space-4x); }
+.ds-header__cart-title { font-size: var(--ds-text-base-font-bold-size); line-height: var(--ds-text-base-font-bold-line-height); font-weight: 700; }
+.ds-header__cart-edit,
+.ds-header__cart-line { font-size: var(--ds-text-sm-font-normal-size); line-height: var(--ds-text-sm-font-normal-line-height); }
+.ds-header__cart-edit { color: var(--ds-color-gray-900); text-decoration: none; border-radius: 2px; outline: none; }
+.ds-header__cart-line { display: flex; justify-content: space-between; gap: var(--ds-space-4x); padding: var(--ds-space-3x) var(--ds-space-4x); }
+.ds-header__cart-level { color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size); line-height: var(--ds-text-xs-font-normal-line-height); }
+.ds-header__checkout {
+  display: block;
+  margin: var(--ds-space-4x);
+  padding: var(--ds-space-3x) var(--ds-space-5x);
+  border-radius: var(--ds-radius-3x);
+  background: var(--ds-color-green-600);
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-base-font-bold-size);
+  line-height: var(--ds-text-base-font-bold-line-height);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Page blur under open desktop panels (Figma "Blur": background blur 20 over the page) */
+.ds-header__veil {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 828px;
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+}
+.ds-header__veil[hidden] { display: none; }
+
+/* Drawer (tablet and mobile) */
+.ds-header__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--ds-color-gray-900);
+  opacity: 0.6;
+}
+
+.ds-header__drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  max-width: 100%;
+  overflow-y: auto;
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-gray-900);
+}
+
+.ds-header__scrim[hidden],
+.ds-header__drawer[hidden] { display: none; }
+
+.ds-header__drawer-head { display: flex; align-items: center; justify-content: space-between; padding: var(--ds-space-4x); }
+.ds-header__drawer-title { font-size: var(--ds-text-base-font-bold-size); line-height: var(--ds-text-base-font-bold-line-height); font-weight: 600; }
+.ds-header__drawer-close { display: inline-flex; padding: 0; border: 0; border-radius: 2px; background: transparent; color: var(--ds-color-gray-900); cursor: pointer; outline: none; }
+.ds-header__drawer-close svg { width: 24px; height: 24px; }
+
+.ds-header__row-link,
+.ds-header__row-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3x);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--ds-space-3x) var(--ds-space-4x);
+  border: 0;
+  border-top: 1px solid var(--ds-color-gray-200);
+  background: transparent;
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.ds-header__row-button[aria-expanded="true"] { font-weight: 600; }
+.ds-header__row-button[aria-expanded="true"] .ds-header__row-chevron { transform: rotate(180deg); }
+.ds-header__row-chevron { display: inline-flex; flex: none; width: 24px; height: 24px; }
+.ds-header__row-chevron svg { width: 24px; height: 24px; }
+.ds-header__row-link--sub,
+.ds-header__row-button--sub { padding-inline: var(--ds-space-4x); }
+.ds-header__row-link--sub2 { padding-inline: var(--ds-space-4x); }
+.ds-header__subrows[hidden] { display: none; }
+
+.ds-header__drawer-account { margin-top: auto; }
+.ds-header__account-button { align-items: flex-start; }
+.ds-header__account-text { display: flex; flex-direction: column; }
+.ds-header__account-name { font-size: var(--ds-text-base-font-bold-size); line-height: var(--ds-text-base-font-bold-line-height); font-weight: 700; }
+.ds-header__account-line { color: var(--ds-color-gray-500); font-weight: 400; }
+
+/* ---------- Tablet: 577px - 1200px. Search field instead of the search button. Margin 40px. ---------- */
+@container ds-header (min-width: 577px) {
+  .ds-header__inner { --hd-margin: 40px; }
+  .ds-header__brand .ds-footer__logo { width: 162px; height: 32px; }
+  .ds-header__tag { margin-top: 3px; padding: 4px 8px; }
+  .ds-header__search-field { display: flex; }
+  .ds-header__search-button { display: none; }
+  .ds-header__actions--auth { gap: var(--ds-space-4x); }
+}
+
+/* ---------- Desktop range: 1201px and up. Margin 80px. ---------- */
+@container ds-header (min-width: 1201px) {
+  .ds-header__inner { --hd-margin: 80px; }
+}
+
+/* The desktop menu (type "yes") needs room: standart from 1250px, enterprise from 1442px (see header.spec.js). */
+@container ds-header (min-width: 1250px) {
+  .ds-header--standart.ds-header--yes .ds-header__nav { display: flex; }
+  .ds-header--standart.ds-header--yes .ds-header__menu-button { display: none; }
+  .ds-header--standart.ds-header--yes .ds-header__profile--desktop { display: inline-flex; }
+  .ds-header--standart.ds-header--yes .ds-header__inner { gap: var(--ds-space-14x); }
+}
+
+@container ds-header (min-width: 1442px) {
+  .ds-header--enterprise.ds-header--yes .ds-header__nav { display: flex; }
+  .ds-header--enterprise.ds-header--yes .ds-header__menu-button { display: none; }
+  .ds-header--enterprise.ds-header--yes .ds-header__profile--desktop { display: inline-flex; }
+  .ds-header--enterprise.ds-header--yes .ds-header__inner { gap: var(--ds-space-14x); }
+}
+
+/* ---------- Mobile: up to 576px ---------- */
+@container ds-header (max-width: 576px) {
+  /* Figma scales the Enterprise tag with the 124px logo on mobile (about 58px × 21px) */
+  .ds-header__brand { gap: 5px; }
+  .ds-header__tag { margin-top: 1.5px; padding: 3px 6px; border-radius: var(--ds-radius-3x); font-size: 9px; line-height: 15px; }
+  /* With 40px margins the Enterprise logo, tag and three icons need the icon gaps to give way (24px down to 8px) */
+  .ds-header--enterprise .ds-header__actions { gap: clamp(8px, calc((100cqw - 356px) / 2), 24px); }
+  .ds-header__actions { gap: var(--ds-space-6x); }
+  .ds-header__actions--auth { gap: var(--ds-space-6x); }
+  .ds-header__cart--mobile-only { display: inline-flex; }
+  .ds-header__auth { padding-inline: 0; }
+  .ds-header__auth-icon { width: 24px; height: 24px; }
+  .ds-header__auth-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .ds-header__cart-icon { width: 24px !important; height: 24px !important; }
+}
