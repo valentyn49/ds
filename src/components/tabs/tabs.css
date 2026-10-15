@@ -1,0 +1,191 @@
+/*
+  Nav Tabs. Source: Figma "Nav Tabs" page.
+  Three bars with different structure and look:
+    .ds-tabs--tab          Figma "tab" (tab-item): underline tabs
+    .ds-tabs--general-tab  Figma "General tab" (menu item): boxed tabs on a white bar, optional icon, "Upgrade" badge and dividers
+    .ds-tabs--small-tab    Figma "Small tab" (small menu item): compact tabs on a light or dark bar
+  Figma defines no sizes, no focus state and no responsive variants. Values use the tokens in src/tokens/tokens.css.
+  [data-preview-state] forces a look for documentation only; it is not part of the component API.
+*/
+
+.ds-tabs {
+  font-family: var(--ds-font-family);
+  color: var(--ds-color-gray-900);
+}
+
+.ds-tabs *,
+.ds-tabs *::before,
+.ds-tabs *::after {
+  box-sizing: border-box;
+}
+
+/* Wide bars scroll sideways inside their container instead of widening the page. The 3px padding keeps the focus ring visible. */
+.ds-tabs__scroll {
+  display: block;
+  width: fit-content;
+  max-width: calc(100% + 6px);
+  margin: -3px;
+  padding: 3px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.ds-tabs__list {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.ds-tabs__item {
+  --t-fg: var(--ds-color-gray-500);
+  --t-bg: transparent;
+  --t-inset: 0 0 0 0 transparent;
+  --t-ring: 0 0 0 0 transparent;
+
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-1x);
+  margin: 0;
+  border: 0;
+  background: var(--t-bg);
+  box-shadow: var(--t-inset), var(--t-ring);
+  color: var(--t-fg);
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ds-tabs__main {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1x);
+}
+
+
+
+/* Keyboard focus. Figma defines no focus state, so this reuses the existing focus-primary ring token. */
+.ds-tabs__item:is(:focus-visible, [data-preview-state="focus"]) {
+  --t-ring: var(--ds-shadow-focus-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.ds-tabs__panel[hidden] { display: none; }
+.ds-tabs__panel:focus-visible { box-shadow: var(--ds-shadow-focus-primary); outline: none; }
+
+.ds-tabs__item:is(:disabled, [aria-disabled="true"]) { cursor: default; }
+
+/* ---- tab (tab-item): underline tabs -------------------------------------------------------- */
+.ds-tabs--tab .ds-tabs__list { align-items: stretch; gap: 0; }
+
+.ds-tabs--tab .ds-tabs__item {
+  --t-fg: var(--ds-color-gray-600);
+  --t-inset: inset 0 -1px 0 0 var(--ds-color-gray-200);
+  padding: 0 var(--ds-space-2x) var(--ds-space-2x);
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+}
+
+.ds-tabs--tab .ds-tabs__item[aria-selected="true"] {
+  --t-fg: var(--ds-color-primary-600);
+  --t-inset: inset 0 -1px 0 0 var(--ds-color-primary-600);
+}
+
+.ds-tabs--tab .ds-tabs__item:not([aria-selected="true"]):is(:hover, [data-preview-state="hover"]) { --t-fg: var(--ds-color-gray-900); }
+.ds-tabs--tab .ds-tabs__item:not([aria-selected="true"]):is(:active, [data-preview-state="pressed"]) { --t-fg: var(--ds-color-gray-900); }
+
+/* ---- General tab (menu item): boxed tabs --------------------------------------------------- */
+.ds-tabs--general-tab .ds-tabs__list {
+  gap: var(--ds-space-2x);
+  padding: var(--ds-space-1x);
+  border-radius: 8px;
+  background: var(--ds-color-gray-50);
+}
+
+.ds-tabs--general-tab .ds-tabs__item {
+  padding: var(--ds-space-3x) var(--ds-space-4x);
+  border-radius: 8px;
+  font-size: var(--ds-text-sm-font-medium-size);
+  line-height: var(--ds-text-sm-font-medium-line-height);
+}
+
+.ds-tabs--general-tab .ds-tabs__main { padding: 3px 0; }
+
+.ds-tabs--general-tab .ds-tabs__item:is([aria-current="page"], [aria-selected="true"]) {
+  --t-fg: var(--ds-color-gray-900);
+  --t-bg: var(--ds-color-background-900);
+  --t-inset: inset 0 0 0 1px var(--ds-color-gray-900);
+}
+
+.ds-tabs--general-tab .ds-tabs__item:not([aria-current="page"], [aria-disabled="true"]):is(:hover, [data-preview-state="hover"]) { --t-fg: var(--ds-color-gray-600); }
+.ds-tabs--general-tab .ds-tabs__item:not([aria-current="page"], [aria-disabled="true"]):is(:active, [data-preview-state="pressed"]) { --t-fg: var(--ds-color-gray-600); }
+.ds-tabs--general-tab .ds-tabs__item[aria-disabled="true"] { --t-fg: var(--ds-color-gray-200); }
+
+.ds-tabs__divider {
+  flex: none;
+  width: 1px;
+  height: 32px;
+  background: var(--ds-color-gray-400);
+}
+
+.ds-tabs__pro {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ds-space-1x) var(--ds-space-2x);
+  border-radius: var(--ds-radius-2x);
+  background: var(--ds-color-green-100);
+  color: var(--ds-color-green-600);
+  font-size: var(--ds-text-uppercase-font-medium-size);
+  line-height: var(--ds-text-uppercase-font-medium-line-height);
+  text-transform: uppercase;
+}
+
+/* ---- Small tab (small menu item): compact tabs, light and dark bars -------------------------- */
+.ds-tabs--small-tab .ds-tabs__list {
+  gap: var(--ds-space-1x);
+  padding: var(--ds-space-1x);
+  border-radius: 8px;
+  background: var(--ds-color-background-900);
+}
+
+.ds-tabs--small-tab.ds-tabs--dark .ds-tabs__list { background: var(--ds-color-secondary-800); }
+
+.ds-tabs--small-tab .ds-tabs__item {
+  padding: 7px var(--ds-space-2x);
+  border-radius: 8px;
+  font-size: var(--ds-text-xs-font-medium-size);
+  line-height: var(--ds-text-xs-font-medium-line-height);
+}
+
+.ds-tabs--small-tab .ds-tabs__item[aria-selected="true"] {
+  --t-fg: var(--ds-color-gray-50);
+  --t-bg: var(--ds-color-primary-600);
+}
+
+.ds-tabs--small-tab .ds-tabs__item:not([aria-selected="true"]):is(:hover, [data-preview-state="hover"]) { --t-fg: var(--ds-color-gray-400); }
+.ds-tabs--small-tab .ds-tabs__item:not([aria-selected="true"]):is(:active, [data-preview-state="pressed"]) { --t-fg: var(--ds-color-gray-600); }
+.ds-tabs--small-tab .ds-tabs__item:not([aria-selected="true"]):disabled { --t-fg: var(--ds-color-gray-200); }
+
+.ds-tabs--small-tab.ds-tabs--dark .ds-tabs__item { --t-fg: var(--ds-color-gray-50); }
+.ds-tabs--small-tab.ds-tabs--dark .ds-tabs__item[aria-selected="true"] { --t-fg: var(--ds-color-gray-50); }
+.ds-tabs--small-tab.ds-tabs--dark .ds-tabs__item:not([aria-selected="true"]):is(:hover, [data-preview-state="hover"]) { --t-fg: var(--ds-color-gray-200); }
+.ds-tabs--small-tab.ds-tabs--dark .ds-tabs__item:not([aria-selected="true"]):is(:active, [data-preview-state="pressed"]) { --t-fg: var(--ds-color-gray-200); }
+.ds-tabs--small-tab.ds-tabs--dark .ds-tabs__item:not([aria-selected="true"]):disabled { --t-fg: var(--ds-color-gray-400); }
+
+.ds-tabs__icon { display: inline-flex; flex: none; }
+.ds-tabs__icon svg { display: block; }
+
+/* Storybook docs restyle links; keep the navigation items as designed. */
+nav.ds-tabs a.ds-tabs__item,
+nav.ds-tabs a.ds-tabs__item:is(:hover, :active, :focus, :visited) {
+  color: var(--t-fg);
+  text-decoration: none;
+}

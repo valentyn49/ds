@@ -1,0 +1,78 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TabsStories from './tabs.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/tabs-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderTypes,
+  renderSizes,
+  renderStates,
+  renderFormatting,
+  renderResponsive,
+  renderSemantics,
+  renderKeyboard,
+} from '../../../docs/tabs-docs.js';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+Source: the **Nav Tabs** page of the [AEGL AUG] Design Library. It holds three separate tab bars: **tab**, **General tab** and **Small tab**. Each has its own tab component and states, so each is documented and built as its own type.
+
+## Live Demo
+
+Pick a type to see its real component. The controls shown change with the type: only the options that exist in Figma for that type are offered. The tab labels, the panel text and the choice of which tab gets the badge, divider or forced state are sample content for this page, not Figma specifications.
+
+<Canvas of={TabsStories.Playground} sourceState="none" />
+<Controls of={TabsStories.Playground} />
+
+## Overview
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+The three bars do not share one anatomy: only `tab` has an active line, only `General tab` has a badge and dividers, and `Small tab` has a light and a dark mode.
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Types and variants
+
+<div dangerouslySetInnerHTML={{ __html: renderTypes() }} />
+
+## Sizes
+
+Figma defines no size property for any of the three bars; each has one fixed size.
+
+<div dangerouslySetInnerHTML={{ __html: renderSizes() }} />
+
+## States
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Responsive layout
+
+<div dangerouslySetInnerHTML={{ __html: renderResponsive() }} />
+
+## Behaviors
+
+Figma shows only the tab bars, with no links, panels or description of what a tab does. The semantics below are therefore an implementation choice, based on how each bar is built: `tab` and `Small tab` are implemented as tabs that switch a panel, and `General tab` (its parts are called "menu item") as navigation. Please confirm this with the design team.
+
+<div dangerouslySetInnerHTML={{ __html: renderSemantics() }} />
+
+- **Selection:** only one tab is selected at a time. Clicking a tab selects it and, for `tab` and `Small tab`, shows its panel and hides the others. For `General tab` the clicked link gets `aria-current="page"`. Each selection fires a `ds-tabs-change` event.
+- **Focus:** in `tab` and `Small tab`, only the selected tab is in the Tab order (roving tabindex); the arrow keys move between tabs. The panel can take focus (`tabindex="0"`). A disabled tab cannot take focus and is skipped by the arrow keys.
+- **Activation:** selection follows focus, so arrowing to a tab selects it.
+- **Accessible name:** every bar needs a name for its landmark or tablist (the `ariaLabel` prop). The sample name here is generic.
+- **Badge and icons:** the icons are decorative (`aria-hidden`). The "Upgrade" badge is part of the link's text.
+- **Not included:** Figma defines no closable, draggable, reorderable, nested or lazy-loaded tabs, no scroll buttons, and no animation, so none are built.
+
+<div dangerouslySetInnerHTML={{ __html: renderKeyboard() }} />
+
+<Canvas of={TabsStories.Behavior} sourceState="none" />

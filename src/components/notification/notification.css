@@ -1,0 +1,113 @@
+/*
+  Messages (Banners). Source: Figma component set "notification" (Messages page).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  Variants: type (home | default) x state (warning | success | info | alert | gray | white).
+  Figma defines no hover, focus, disabled or responsive variants and no animation.
+*/
+
+.ds-notification {
+  --n-bg: var(--ds-color-gray-50);
+  --n-stroke: transparent;
+  --n-icon: var(--ds-color-gray-600);
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--ds-space-3x);
+  border-radius: var(--ds-radius-4x);
+  background: var(--n-bg);
+  box-shadow: inset 0 0 0 1px var(--n-stroke);
+  color: var(--ds-color-gray-900);
+  font-family: var(--ds-font-family);
+}
+
+.ds-notification *,
+.ds-notification *::before,
+.ds-notification *::after {
+  box-sizing: border-box;
+}
+
+.ds-notification[hidden] { display: none; }
+
+/* Icon, text, button and close share one row, aligned to the top */
+.ds-notification__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-2x);
+}
+
+.ds-notification__icon {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--n-icon);
+}
+
+.ds-notification__icon-svg { width: 20px; height: 20px; }
+
+.ds-notification__text {
+  flex: 1;
+  min-width: 0;
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+
+.ds-notification__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ds-notification { position: relative; }
+
+.ds-notification__action {
+  display: inline-flex;
+  flex: none;
+}
+
+.ds-notification__close {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ds-color-gray-700);
+  cursor: pointer;
+  outline: none;
+}
+
+.ds-notification__close-svg { width: 20px; height: 20px; }
+
+/* Keyboard focus. Figma defines no focus state, so this reuses the existing focus-primary ring token. */
+.ds-notification__close:focus-visible {
+  box-shadow: var(--ds-shadow-focus-primary);
+}
+
+/* type=default: 12px radius and a 1px border in the state color (gray and white have no border) */
+.ds-notification--warning { --n-bg: var(--ds-color-orange-100); --n-icon: var(--ds-color-orange-500); }
+.ds-notification--success { --n-bg: var(--ds-color-green-100); --n-icon: var(--ds-color-green-600); }
+.ds-notification--info { --n-bg: var(--ds-color-primary-100); --n-icon: var(--ds-color-primary-600); }
+.ds-notification--alert { --n-bg: var(--ds-color-alert-100); --n-icon: var(--ds-color-alert-600); }
+.ds-notification--gray { --n-bg: var(--ds-color-gray-100); --n-icon: var(--ds-color-gray-600); }
+.ds-notification--white { --n-bg: var(--ds-color-gray-50); --n-icon: var(--ds-color-gray-600); }
+
+.ds-notification--default.ds-notification--warning { --n-stroke: var(--ds-color-orange-500); }
+.ds-notification--default.ds-notification--success { --n-stroke: var(--ds-color-green-600); }
+.ds-notification--default.ds-notification--info { --n-stroke: var(--ds-color-primary-700); }
+.ds-notification--default.ds-notification--alert { --n-stroke: var(--ds-color-alert-600); }
+
+/* type=home: a full-width strip, no radius and no border. Alert uses alert/200 and info uses a primary/700 icon. */
+.ds-notification--home { border-radius: 0; }
+.ds-notification--home.ds-notification--alert { --n-bg: var(--ds-color-alert-200); }
+.ds-notification--home.ds-notification--info { --n-icon: var(--ds-color-primary-700); }

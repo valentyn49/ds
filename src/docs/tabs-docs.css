@@ -1,0 +1,57 @@
+/* Layout for the Nav Tabs documentation page. Shares legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-tabs-box { width: 100%; max-width: 100%; min-width: 0; }
+.ds-bd-demo-surface .ds-bd-tabs-box { margin: 0 auto; max-width: 820px; }
+.ds-bd-demo-surface { align-items: flex-start; }
+
+.ds-bd-tabs-stack { display: flex; flex-direction: column; gap: var(--ds-space-6x); margin: var(--ds-space-3x) 0; width: 100%; }
+.ds-bd-tabs-item { display: flex; flex-direction: column; gap: var(--ds-space-2x); min-width: 0; }
+.ds-bd-tabs-item > code,
+.ds-bd-tabs-state > code { width: fit-content; color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+.ds-bd-tabs-gap { height: var(--ds-space-3x); }
+.ds-bd-tabs-subtitle { margin: 0; padding: var(--ds-space-6x) 0 var(--ds-space-1x); color: var(--ds-color-gray-600); font-family: var(--ds-font-family); font-size: var(--ds-text-sm-font-medium-size); font-weight: 600; }
+
+.ds-bd-tabs-table th, .ds-bd-tabs-table td { text-transform: none; vertical-align: top; }
+.ds-bd-tabs-table tbody th { text-transform: none; white-space: nowrap; }
+
+/* Overview cards */
+.ds-bd-tabs-overview { display: grid; grid-template-columns: repeat(auto-fill, minmax(560px, 1fr)); gap: var(--ds-space-4x); margin: var(--ds-space-4x) 0; }
+.ds-bd-tabs-card { display: flex; flex-direction: column; gap: var(--ds-space-3x); min-width: 0; padding: var(--ds-space-4x); border: 1px solid var(--ds-color-gray-200); border-radius: var(--ds-radius-4x); background: var(--ds-color-gray-50); }
+.ds-bd-tabs-card__head { display: flex; flex-direction: column; gap: 2px; font-family: var(--ds-font-family); }
+.ds-bd-tabs-card__head strong { color: var(--ds-color-gray-900); font-size: var(--ds-text-base-font-bold-size); }
+.ds-bd-tabs-card__head span { color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size); }
+.ds-bd-tabs-card__stage { min-width: 0; padding: var(--ds-space-4x); border-radius: var(--ds-radius-4x); background: var(--ds-color-gray-100); }
+.ds-bd-tabs-card__text { color: var(--ds-color-gray-600); font-family: var(--ds-font-family); font-size: var(--ds-text-sm-font-normal-size); line-height: var(--ds-text-sm-font-normal-line-height); }
+
+/* States */
+.ds-bd-tabs-states { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--ds-space-4x); margin: 0 0 var(--ds-space-4x); padding-top: var(--ds-space-4x); }
+.ds-bd-tabs-state { display: flex; flex-direction: column; gap: var(--ds-space-2x); min-width: 0; }
+
+/* Anatomy: shown scaled up; the stage leaves room for the markers, so scrolling is switched off inside it. */
+.ds-bd-tabs-anatomy { padding: 70px 110px 70px; }
+.ds-bd-tabs-anatomy__figure { zoom: var(--z); flex: none; width: max-content; }
+.ds-bd-tabs-anatomy .ds-tabs__scroll { overflow: visible; max-width: none; }
+.ds-bd-tabs-anatomy-block h3 { margin-bottom: var(--ds-space-2x); }
+
+/* Behavior demo and sample panel (documentation only) */
+.ds-bd-tabs-group { display: flex; flex-direction: column; gap: var(--ds-space-2x); min-width: 0; }
+.ds-bd-tabs-group > code { width: fit-content; color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+.ds-bd-tabs-panel {
+  margin-top: var(--ds-space-4x);
+  padding: var(--ds-space-4x);
+  border: 1px dashed var(--ds-color-gray-200);
+  border-radius: var(--ds-radius-4x);
+  color: var(--ds-color-gray-600);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-tabs-readout {
+  margin-top: var(--ds-space-3x);
+  color: var(--ds-color-gray-600);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-demo-surface .ds-bd-tabs-stack { max-width: 820px; margin: 0 auto; }

@@ -1,14 +1,62 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as NotificationStories from './notification.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/notification-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderVariants,
+  renderResponsive,
+  renderFormatting,
+} from '../../../docs/notification-docs.js';
 
-<Meta title="Components/Messages/notification" />
+<Meta of={NotificationStories} />
 
 # notification
 
-- **Figma page:** Messages
-- **Figma type:** Component set
-- **Variants:** 12
-- **Variant properties:** `type (2)`, `state (6)`
-- **Status:** Placeholder, not documented yet
+Messages (Banners). Source: Figma component set **notification** on the Messages page of the [AEGL AUG] Design Library.
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=81-18)
+## Live Demo
+
+The message text is sample text from the Figma component. The "Show banner again" button belongs to the documentation and is not part of the component.
+
+<Canvas of={NotificationStories.Playground} sourceState="none" />
+<Controls of={NotificationStories.Playground} />
+
+## Overview
+
+A message banner tells a person something about the product in a short line of text, such as the result of an action or a notice about their account. The Figma **notification** component is a full-width banner with an optional status icon, one text, an optional Button and an optional close control. It comes in two types and six states.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Variants
+
+Twelve variants: the types `home` and `default`, each in the states `warning`, `success`, `info`, `alert`, `gray` and `white`.
+
+<div dangerouslySetInnerHTML={{ __html: renderVariants() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Responsive layout
+
+<div dangerouslySetInnerHTML={{ __html: renderResponsive() }} />
+
+## Behaviors
+
+Figma defines a close control and an optional Button. Nothing else is interactive, and Figma defines no timer, animation, stacking or queue, so none is built.
+
+- **Dismiss:** clicking the close control hides the banner and fires a `ds-notification-dismiss` event. The banner does not come back by itself.
+- **Focus:** if the close control had focus, focus moves to the next focusable element on the page (or the previous one if there is none), so keyboard users are not left at the top of the page.
+- **Keyboard:** the close control and the Button are native buttons, so Tab, Enter and Space work. Figma defines no focus look, so a focused control shows the existing `shadow-focus-primary` ring.
+- **Accessible name:** the close control, which is icon-only, is named "Close".
+- **Announcements:** only the `alert` state uses `role="alert"`; every other state uses `role="status"`, so banners are not all announced as urgent. The four status states (warning, success, info, alert) also contain a visually hidden word naming the status; `gray` and `white` are neutral and do not.
+- **Button action:** Figma gives the Button no destination or action, so it only fires a normal click.
+
+<Canvas of={NotificationStories.Behavior} sourceState="none" />

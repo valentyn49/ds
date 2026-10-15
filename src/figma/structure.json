@@ -204,6 +204,7 @@
       "figmaPage": "--- Nav Tabs",
       "nodeId": "60:1150",
       "items": [
+        { "name": "Tabs", "kind": "Documentation page", "note": "One page for the three Figma tab bars: tab (tab-item), General tab (menu item) and Small tab (small menu item)." },
         { "name": "tab-item", "kind": "Component set", "variants": 4, "axes": ["type (4)"] },
         { "name": "menu item", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },
         { "name": "small menu item", "kind": "Component set", "variants": 5, "axes": ["state (5)"] },

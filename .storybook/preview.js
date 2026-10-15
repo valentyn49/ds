@@ -104,6 +104,7 @@ const preview = {
           ],
           "Nav Tabs",
           [
+            "Tabs",
             "tab-item",
             "menu item",
             "small menu item",
