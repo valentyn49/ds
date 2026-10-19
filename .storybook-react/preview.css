@@ -1,0 +1,4 @@
+/* Story canvas defaults for the React Storybook: the design font for any text outside a component. */
+body {
+  font-family: var(--ds-font-family);
+}

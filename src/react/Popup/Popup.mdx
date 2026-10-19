@@ -1,0 +1,107 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as PopupStories from './Popup.stories';
+
+<Meta of={PopupStories} />
+
+# Popup (React)
+
+The React version of the Socrates **Popup** (Figma component set **modal**, backdrop **blur**, frames **480** and **600**, and the Behaviour section). It renders the same markup and uses the same `popup.css` and tokens as the HTML component, so it looks identical. The Figma specification tables (anatomy, basic popup, formatting and alignment, states) are on the HTML page of this component, **Components / Popup / modal**, in the HTML Storybook.
+
+```tsx
+import { useState } from 'react';
+import { Button, Popup } from '@socrates/design-system';
+
+function Upgrade() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Upgrade</Button>
+      <Popup
+        open={open}
+        title="Premium subscription required"
+        onClose={() => setOpen(false)}
+        onPrimary={() => startUpgrade()}
+      >
+        Would you like to upgrade to Premium now?
+      </Popup>
+    </>
+  );
+}
+```
+
+## Live Demo
+
+Press **Open popup**. This is the real component: it traps focus, makes the page behind it inert, closes with the close control, Cancel and Escape, and returns focus to the button. The primary action does not close it, because that is up to the application. Change a control while the popup is open and the open popup follows.
+
+The **preview** control chooses a desktop, tablet or mobile frame, or opens the popup over this whole page (`viewport`). The frame, the page behind it and the status line belong to the documentation and are not part of the component.
+
+<Canvas of={PopupStories.Playground} sourceState="none" />
+<Controls of={PopupStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>open</code></td><td><code>boolean</code>, default <code>false</code></td><td>none</td><td>Closed means not rendered. The application owns this state</td></tr>
+    <tr><td><code>onClose</code></td><td><code>(reason) => void</code></td><td>none</td><td>The close control, Cancel, Escape or the backdrop asked to close. Set <code>open</code> to false in response. <code>reason</code> is <code>'close-button' | 'cancel' | 'escape' | 'backdrop'</code></td></tr>
+    <tr><td><code>onPrimary</code>, <code>onCancel</code></td><td>click handlers</td><td>none</td><td>The primary action never closes the popup by itself. Cancel calls <code>onCancel</code>, then <code>onClose('cancel')</code></td></tr>
+    <tr><td><code>type</code></td><td><code>'default' | 'successfully' | 'negative'</code></td><td><code>type</code></td><td>The header: default, or an illustration above centered text</td></tr>
+    <tr><td><code>width</code></td><td><code>600 | 480</code>, default <code>600</code></td><td>frames <code>600</code>, <code>480</code></td><td>Desktop only; tablet and mobile fill the width</td></tr>
+    <tr><td><code>title</code></td><td><code>ReactNode</code></td><td><code>title</code></td><td>Required. It names the dialog</td></tr>
+    <tr><td><code>subtitle</code></td><td><code>ReactNode</code></td><td><code>subTitle</code>, <code>sub</code></td><td>Present means shown. It describes the dialog</td></tr>
+    <tr><td><code>children</code></td><td><code>ReactNode</code></td><td>content</td><td>The body: any content. It is the only part that scrolls</td></tr>
+    <tr><td><code>primaryLabel</code>, <code>cancelLabel</code>, <code>showCancel</code></td><td><code>ReactNode</code>, <code>boolean</code></td><td>Buttons</td><td>Defaults "Yes", "Cancel", true. Cancel is only drawn on desktop</td></tr>
+    <tr><td><code>closeOnEscape</code></td><td><code>boolean</code>, default <code>true</code></td><td>none</td><td>Behavior, not in Figma. Only the topmost popup reacts</td></tr>
+    <tr><td><code>closeOnBackdrop</code></td><td><code>boolean</code>, default <code>false</code></td><td>none</td><td>Behavior, not in Figma</td></tr>
+    <tr><td><code>container</code></td><td><code>HTMLElement | null</code>, default <code>document.body</code></td><td>none</td><td>Where the popup is rendered. A positioned element contains it; <code>null</code> renders nothing yet</td></tr>
+    <tr><td><code>autoFocus</code>, <code>returnFocusTo</code></td><td><code>boolean</code>, <code>RefObject</code></td><td>none</td><td>Focus moves to the dialog on open; on close it returns to the element that had it, or to <code>returnFocusTo</code></td></tr>
+    <tr><td>everything else</td><td>native div attributes</td><td>none</td><td>Applied to the dialog element: <code>className</code>, <code>{'aria-*'}</code>, <code>{'data-*'}</code>. <code>ref</code> points to the dialog</td></tr>
+  </tbody>
+</table>
+
+`PopupView` is the same popup without any behavior (no portal, no focus handling). `Popup` renders it in a portal. `PopupView` also has a `static` mode that draws the popup in the page flow, which the documentation uses for previews.
+
+## Variants
+
+Figma `type` changes the header only: `default`, and the status headers `successfully` and `negative`, which put an illustration above centered text. They are shown here at desktop and mobile size.
+
+<Canvas of={PopupStories.Types} sourceState="none" />
+
+### Widths
+
+<Canvas of={PopupStories.Widths} sourceState="none" />
+
+## Responsive layout
+
+The layout follows the width of the popup's container, with the same limits as the Header and Footer: mobile up to 576px, tablet 577 to 992px, desktop from 993px. On desktop the popup is centered, 80px from the top, with Cancel and the primary action on the right. On tablet and mobile it is a bottom sheet with one full-width primary action and no Cancel.
+
+<Canvas of={PopupStories.Responsive} sourceState="none" />
+
+### Long content
+
+When the content does not fit, the popup grows to its limits, the header and footer stay in place and gain a shadow, and the body scrolls.
+
+<Canvas of={PopupStories.LongContent} sourceState="none" />
+
+## Behavior and accessibility
+
+- The dialog has `role="dialog"` and `aria-modal="true"`, is named by its title and described by its subtitle (or its body when there is no subtitle).
+- On open, focus moves to the dialog; Tab and Shift+Tab stay inside it; everything else in the container is `inert`; the page does not scroll behind a popup that fills the window.
+- Escape closes the popup (`closeOnEscape`); with several popups only the topmost reacts. A click on the backdrop does nothing unless `closeOnBackdrop` is set.
+- On close, focus returns to the element that had it when the popup opened.
+- Close, Cancel and the primary action are three different actions. The close control and Cancel call `onClose`; the primary action only calls `onPrimary`. You decide whether to close, keep the popup open for a next step, or show a loading look (Figma defines none).
+- The overlay also dispatches the bubbling DOM events `ds-popup-open`, `ds-popup-primary`, `ds-popup-cancel` and `ds-popup-close` (with `detail.reason`), as the HTML component does. The log below shows them.
+- Figma defines no animation, so there is none.
+
+<Canvas of={PopupStories.Behavior} sourceState="none" />
+
+Differences from the HTML component: the popup is declarative, so there is no `open()` / `close()` to call and `onClose` is not called when your code sets `open` to false (you already know). The HTML events for programmatic closes are therefore not dispatched.
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every combination of type, width, subtitle, Cancel and scrolling look, in the fixed, contained and static modes, and compares the DOM.
+
+<Canvas of={PopupStories.ParityWithHtml} sourceState="none" />

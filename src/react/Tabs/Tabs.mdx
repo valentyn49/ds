@@ -1,0 +1,113 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+# Tabs (React)
+
+The React version of the three Socrates tab bars from the Figma **Nav Tabs** page: **tab**, **General tab** and **Small tab**. It renders the same markup and uses the same `tabs.css` and tokens as the HTML component, so it looks identical. The three bars are separate components in Figma, so they are the three values of the `type` prop. The Figma specification tables (sizes, colors, spacing per state) are on the HTML page, **Nav Tabs / Tabs**, and are not copied here.
+
+```tsx
+import { Tabs } from '@socrates/design-system';
+
+<Tabs
+  type="Small tab"
+  mode="dark"
+  ariaLabel="Views"
+  items={[
+    { label: 'Table view', panel: <TableView /> },
+    { label: 'Chart view', panel: <ChartView />, icon: true },
+    { label: 'Notes', disabled: true },
+  ]}
+  onValueChange={(index, item) => console.log(index, item.label)}
+/>
+```
+
+## Live Demo
+
+The controls shown change with the type: only the options that exist in Figma for that type are offered. The tab labels, the panel text and the choice of which tab gets the badge, divider or forced state are sample content for this page, not Figma specifications.
+
+<Canvas of={TabsStories.Playground} sourceState="none" />
+<Controls of={TabsStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>type</code></td><td><code>'tab' | 'General tab' | 'Small tab'</code>, default <code>'tab'</code></td><td>the component</td><td>Three separate Figma components</td></tr>
+    <tr><td><code>mode</code></td><td><code>'light' | 'dark'</code>, default <code>'light'</code></td><td><code>mode</code></td><td><code>Small tab</code> only</td></tr>
+    <tr><td><code>items</code></td><td><code>TabsItem[]</code></td><td>the tabs</td><td>See the item properties below</td></tr>
+    <tr><td><code>value</code>, <code>onValueChange</code></td><td><code>number | null</code>, <code>(index, item) =&gt; void</code></td><td>none</td><td>Controlled selection; <code>null</code> selects none</td></tr>
+    <tr><td><code>defaultValue</code></td><td><code>number | null</code>, default <code>0</code></td><td>none</td><td>Uncontrolled starting selection</td></tr>
+    <tr><td><code>ariaLabel</code></td><td><code>string</code>, default <code>'Tabs'</code></td><td>none</td><td>The name of the <code>tablist</code> or <code>nav</code></td></tr>
+    <tr><td>everything else</td><td>native element attributes</td><td>none</td><td>Go to the root element: <code>className</code>, <code>style</code>, <code>ref</code>, <code>{'data-*'}</code></td></tr>
+  </tbody>
+</table>
+
+### Item properties
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Property</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>label</code></td><td>the tab text</td><td>Any node</td></tr>
+    <tr><td><code>icon</code></td><td><code>right icon</code> (tab), <code>icon</code> (General tab, Small tab)</td><td>The icon is drawn by the component</td></tr>
+    <tr><td><code>pro</code></td><td><code>pro</code></td><td>The "Upgrade" badge, <code>General tab</code> only</td></tr>
+    <tr><td><code>dividerBefore</code></td><td><code>divider</code></td><td>A divider before the tab</td></tr>
+    <tr><td><code>disabled</code></td><td><code>state=disabled</code></td><td><code>General tab</code> and <code>Small tab</code>; <code>tab</code> has no disabled state and ignores it</td></tr>
+    <tr><td><code>panel</code></td><td>none</td><td><code>tab</code> and <code>Small tab</code>: the content shown for this tab. Figma defines no panel content</td></tr>
+    <tr><td><code>href</code></td><td>none</td><td><code>General tab</code> only; the default <code>#</code> does not navigate</td></tr>
+    <tr><td><code>previewState</code></td><td>hover, pressed</td><td>Documentation only: forces a look without interaction</td></tr>
+  </tbody>
+</table>
+
+## Types and variants
+
+Every optional property of the three bars, at the sample text Figma uses. Hover a tab, click it, or use the arrow keys on the first and last bars.
+
+<Canvas of={TabsStories.Types} sourceState="none" />
+
+## States
+
+Figma defines the states selected, default, hover and pressed for `tab`; selected, default, disabled, hover and pressed for `General tab`; and active, default, disabled, hover and Pressed for `Small tab` (light and dark). Hover, pressed and focus are real browser states in the CSS; the display below forces them with `previewState` for documentation only. Figma defines no focus state; the focus tile uses the existing focus-primary ring and is not a Figma specification.
+
+<Canvas of={TabsStories.States} sourceState="none" />
+
+## Behavior and accessibility
+
+Figma shows only the tab bars, with no links, panels or description of what a tab does. The semantics below are an implementation choice, based on how each bar is built (the same choice as the HTML component).
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Type</th><th>Pattern</th><th>Markup</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>tab</code></td><td>Tabs that switch a content panel</td><td><code>role="tablist"</code> with <code>button role="tab"</code> and <code>role="tabpanel"</code>; <code>aria-selected</code>, <code>aria-controls</code>, <code>aria-labelledby</code></td></tr>
+    <tr><td><code>Small tab</code></td><td>Tabs that switch a content panel</td><td>Same as <code>tab</code></td></tr>
+    <tr><td><code>General tab</code></td><td>Navigation</td><td><code>nav</code> with links; the current link has <code>aria-current="page"</code>; a disabled link has <code>aria-disabled="true"</code></td></tr>
+  </tbody>
+</table>
+
+- **Selection:** only one tab is selected at a time. A click selects a tab and, for `tab` and `Small tab`, shows its panel and hides the others. For `General tab` the clicked link gets `aria-current="page"`. Each selection calls `onValueChange`.
+- **Focus:** in `tab` and `Small tab` only the selected tab is in the Tab order (roving tabindex). The arrow keys move between tabs. The panel can take focus. A disabled tab cannot take focus and is skipped by the arrow keys.
+- **Activation:** selection follows focus, so arrowing to a tab selects it.
+- **Keyboard:** Arrow Left and Arrow Right move to the previous or next enabled tab and wrap at the ends; Home and End go to the first or last enabled tab.
+- **Not included:** Figma defines no closable, draggable, reorderable, nested or lazy-loaded tabs, no scroll buttons and no animation, so none are built. Wide bars scroll sideways inside their container.
+
+<Canvas of={TabsStories.Behavior} sourceState="none" />
+
+### Controlled selection
+
+With `value` and `onValueChange` the parent owns the selection and can change it from outside.
+
+<Canvas of={TabsStories.Controlled} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both over a matrix of types, modes, tab counts, icons, panels, disabled tabs and selections, and compares the DOM.
+
+<Canvas of={TabsStories.ParityWithHtml} sourceState="none" />

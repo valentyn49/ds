@@ -1,0 +1,152 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table (React)
+
+The React version of the Socrates **Table**: the 33-variant **table-cell**, the **header** cell and the **Divider** from the Figma Design Library (Table page), composed as in the Sandbox "Table example" elements. It renders the same markup and uses the same `table.css` and tokens as the HTML component, so it looks identical. The Figma specification tables (sizes, paddings, colors per cell type and per theme) are on the HTML page, **Table / table-cell**, and are not copied here.
+
+```tsx
+import { Table } from '@socrates/design-system';
+
+<Table
+  label="Watchlist"
+  columns={[
+    { title: 'Market', width: 140, sorting: true, sorted: true },
+    { title: 'Open' },
+    { title: 'Current Subscription', width: 156 },
+  ]}
+  rows={[
+    {
+      subscription: 'premium',
+      cells: [
+        { type: 'market name', name: 'US - Meta Platforms', flag: '🇺🇸', country: 'United States' },
+        { type: 'metric', text: '3.99\n3/18/2024' },
+        { type: 'button', variant: 'neutral_premium', text: 'Premium Analysis', onClick: open },
+      ],
+    },
+  ]}
+/>
+```
+
+## Live Demo
+
+The sample rows are the watchlist table from the Sandbox, with made-up values. Change the mode, the preview width, the rows and the options and the table redraws at once. To try the pinned first column, choose the **mobile** preview, switch on **stickyFirstColumn** and scroll the table sideways. The preview width, the row count and the sample-data controls belong to the documentation and are not properties of the component.
+
+<Canvas of={TableStories.Playground} sourceState="none" />
+<Controls of={TableStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>columns</code></td><td><code>TableColumn[]</code></td><td><code>title</code>, optional <code>width</code> in px (omit for a flexible column), <code>sorting</code>, <code>sorted</code>, <code>align</code></td></tr>
+    <tr><td><code>rows</code></td><td><code>TableRow[]</code></td><td>A data row (<code>cells</code>, optional <code>subscription</code>) or a divider (<code>divider: true</code>, <code>title</code>, <code>level</code>, <code>icon</code>, <code>iconAlign</code>, <code>action</code>)</td></tr>
+    <tr><td><code>theme</code></td><td><code>'light' | 'dark'</code>, default <code>'light'</code></td><td>Figma <code>mode</code>. Only the table changes</td></tr>
+    <tr><td><code>label</code></td><td><code>string</code></td><td>The accessible name of the table, also its caption</td></tr>
+    <tr><td><code>stickyFirstColumn</code></td><td><code>boolean</code></td><td>Pins the first column; its shadow appears once the table has scrolled</td></tr>
+    <tr><td><code>columnDividers</code></td><td><code>boolean</code></td><td>1px vertical dividers between columns</td></tr>
+    <tr><td><code>rowHeaders</code></td><td><code>boolean</code>, default <code>true</code></td><td>The first cell of each row is the row header</td></tr>
+    <tr><td><code>minWidth</code></td><td><code>number</code></td><td>Width in px below which the table scrolls sideways. Default: the fixed widths plus 80px per flexible column</td></tr>
+    <tr><td><code>footnote</code></td><td><code>string</code></td><td>A note under the table</td></tr>
+    <tr><td><code>width</code></td><td><code>number</code></td><td>Width of the scroll region in px. By default it fills its container</td></tr>
+    <tr><td>everything else</td><td>native <code>div</code> attributes</td><td>Go to the scroll region, which also receives <code>ref</code> and <code>className</code></td></tr>
+  </tbody>
+</table>
+
+The building blocks are exported too, so a screen can compose its own rows: `TableCell` (a `td`, or a `th scope="row"` with `rowHeader`), `TableHeaderCell` and `TableDividerRow`. Use them inside a `table.ds-tbl`.
+
+## Cell types
+
+The Figma component set **table-cell** has the properties `mode` (light, dark), `type` (15 values), `metric type` and `text type`, which make 33 variants. Each is shown below with its Figma name, light and dark side by side, at the width Figma draws it. `link`, `toggle` and `text_label` exist only in light; in a dark table they keep their light look, because Figma defines nothing else. A cell is a plain object whose `type` is the Figma `type`:
+
+<table className="ds-table">
+  <thead>
+    <tr><th>type</th><th>Fields</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>market name</code></td><td><code>name</code>, <code>country</code>, <code>flag</code>, <code>star</code></td></tr>
+    <tr><td><code>text</code></td><td><code>text</code>, <code>textType</code> (<code>default</code>, <code>1 element</code>, <code>2 element</code>), <code>badge</code>, <code>suffix</code>, <code>icon</code>, <code>tone</code>, <code>strong</code></td></tr>
+    <tr><td><code>text_new</code>, <code>text_label</code></td><td><code>label</code>, <code>text</code>, <code>count</code>, <code>tone</code>, <code>strong</code></td></tr>
+    <tr><td><code>link</code>, <code>toggle</code>, <code>icon</code>, <code>icon+text</code></td><td><code>text</code>, <code>icon</code>, <code>muted</code>, <code>onClick</code> (link)</td></tr>
+    <tr><td><code>metric</code>, <code>metric+comment</code></td><td><code>text</code>, <code>comment</code>, <code>counts</code> (1 or 2), <code>count</code>, <code>tone</code></td></tr>
+    <tr><td><code>button</code></td><td><code>variant</code> (a Button type), <code>text</code>, <code>onClick</code>. Rendered with the React Button at size 36</td></tr>
+    <tr><td><code>graph-green</code>, <code>graph-red</code>, <code>bar</code>, <code>blank</code></td><td><code>alt</code>, <code>label</code> (bar)</td></tr>
+  </tbody>
+</table>
+
+<Canvas of={TableStories.CellTypes} sourceState="none" />
+
+### Cell options
+
+The tile colors, the Button types and the text tones are content, chosen per cell. These are the ones the Sandbox examples use.
+
+<Canvas of={TableStories.CellOptions} sourceState="none" />
+
+## Header
+
+The header cell is 32px high, with a 10px uppercase title and an optional sorting icon. Figma defines the icon but no sorting behavior, so nothing sorts and the icon is decoration.
+
+<Canvas of={TableStories.Header} sourceState="none" />
+
+## Dividers
+
+The Figma **Divider** is a 26px section bar that names a group of rows, not a thin line. Row separators are the 1px bottom border of every cell; vertical dividers are an option (`columnDividers`).
+
+<Canvas of={TableStories.Dividers} sourceState="none" />
+
+## States
+
+Figma draws a default row, a hovered row in one Sandbox table, and the subscription tint. It defines no selected, focus, disabled or loading state for rows or cells. Hover is real: move the pointer over a row.
+
+<Canvas of={TableStories.States} sourceState="none" />
+
+## Market subscription highlighting
+
+A row with a `subscription` (`detailed`, `premium` or `summary`) is tinted with `detailed/50`, `premium/50` or `summary/50` on every cell, including the pinned first column. This is not a selected-row state: it does not change on hover and is not a focus look. The row carries `data-subscription`, and its row header contains the hidden text "Subscribed market, Premium subscription." so the meaning is available to assistive technology without any new visible element. Figma defines no dark tint, so the dark theme draws none.
+
+<Canvas of={TableStories.SubscriptionHighlighting} sourceState="none" />
+
+## Responsive behavior and the pinned column
+
+The table fills its container and scrolls sideways inside its own region (`role="region"`, named, focusable) when the columns do not fit, so it never widens the page. Column widths are kept; columns are never squeezed to fit. With `stickyFirstColumn` the first column stays at the left edge with its own fill, above the scrolling cells, and gets the Figma shadow (4px 4px 6px, black at 16%) once the table has scrolled. Figma draws the shadow in a scrolled state and gives no rule for when it appears, so showing it from the first pixel of scrolling is an implementation decision.
+
+## Sandbox examples
+
+The three examples below are built from the elements named "Table example" in the Sandbox file, with the same component.
+
+### Example 1: Light theme
+
+Node `6228:19649`: header with sorting icons, two section dividers with a pin action, three subscription tints, a hovered row and the five colors of the pattern tile.
+
+<Canvas of={TableStories.LightExample} sourceState="none" />
+
+### Example 2: Dark theme
+
+Nodes `6228:21083` and `6228:21100`: both sit on secondary/900. The header is secondary/800, the cells have no fill and a gray/400 border, and the text is white.
+
+<Canvas of={TableStories.DarkExample} sourceState="none" />
+
+### Example 3: Mobile table with a sticky first column
+
+Node `6228:25452`: 343px wide, 620px of content. Scroll sideways to see the pinned Market column and its shadow. The Figma frame shows the table already scrolled by 80px, which is what the first button does.
+
+<Canvas of={TableStories.MobileExample} sourceState="none" />
+<Controls of={TableStories.MobileExample} />
+
+## Behavior and accessibility
+
+- The component is a native `table`: header cells are `th scope="col"`, the first cell of a row is `th scope="row"`, a divider is a `th scope="colgroup"` spanning all columns, and the table has a caption.
+- The scroll region is focusable (Tab) and scrolls with the arrow keys. Links and Buttons inside cells are native controls; there is no grid navigation.
+- Figma defines no sorting, filtering, pagination, resizing, selection or editing, so none exists.
+- Ids are not generated: the table needs none.
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every cell variant, header and divider option and for the Sandbox example tables in both themes, and compares the DOM.
+
+<Canvas of={TableStories.ParityWithHtml} sourceState="none" />

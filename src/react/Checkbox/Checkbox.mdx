@@ -1,0 +1,75 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox (React)
+
+The React version of the Socrates **Checkbox**. It renders the same markup and uses the same `checkbox.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **checkbox** (Checkbox page). The Figma specification tables (anatomy, formatting, alignment) are on the HTML page of this component, **Components / Checkbox / checkbox**, in the HTML Storybook.
+
+```tsx
+import { Checkbox } from '@socrates/design-system';
+
+<Checkbox
+  title="Send me market alerts"
+  subtitle="You can change this later."
+  checked={alerts}
+  onChange={(event) => setAlerts(event.target.checked)}
+/>
+```
+
+## Live Demo
+
+<Canvas of={CheckboxStories.Playground} sourceState="shown" />
+<Controls of={CheckboxStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>title</code></td><td><code>ReactNode</code>, default "Unchecked and label"</td><td><code>title</code></td><td>The label. Always shown</td></tr>
+    <tr><td><code>showCaption</code></td><td><code>boolean</code>, default <code>true</code></td><td><code>Show Caption</code></td><td>Shows the caption under the title</td></tr>
+    <tr><td><code>subtitle</code></td><td><code>ReactNode</code>, default "Unchecked and label"</td><td><code>subtitle</code></td><td>The caption text</td></tr>
+    <tr><td><code>checked</code> / <code>defaultChecked</code> / <code>onChange</code></td><td>native</td><td><code>state=selected</code></td><td>Controlled or uncontrolled, like a native input</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>state=disabled</code></td><td>Native attribute</td></tr>
+    <tr><td><code>id</code></td><td><code>string</code></td><td>none</td><td>Generated when omitted</td></tr>
+    <tr><td><code>className</code>, <code>style</code>, <code>rootProps</code></td><td>for the root <code>label</code></td><td>none</td><td><code>rootProps</code> takes extra attributes such as <code>{'data-*'}</code></td></tr>
+    <tr><td>everything else</td><td>native input attributes</td><td>none</td><td><code>name</code>, <code>value</code>, <code>required</code>, <code>form</code>, <code>{'aria-*'}</code> and so on go to the <code>input</code>. The <code>ref</code> points to the <code>input</code></td></tr>
+  </tbody>
+</table>
+
+Figma's `state` is not a prop: `selected` is `checked`, `disabled` is the native `disabled`, and `hover` is the browser's `:hover`.
+
+## States
+
+Four values of the Figma `state` property: default, hover, selected and disabled. Hover is forced here with a documentation-only attribute (`rootProps={{ 'data-preview-state': 'hover' }}`); in a page it comes from the browser.
+
+<Canvas of={CheckboxStories.States} sourceState="none" />
+
+Figma does not define an indeterminate state, a focus state, an error state, a hover look for a checked box, or a disabled unchecked box, so none of them have a documented appearance.
+
+## Caption and long text
+
+<Canvas of={CheckboxStories.WithoutCaption} sourceState="none" />
+<Canvas of={CheckboxStories.LongLabel} sourceState="none" />
+
+## Behavior and accessibility
+
+The component is a native `input type="checkbox"` inside a `label`, so these behaviors come from the browser.
+
+- **Click the box or the label:** toggles the value.
+- **Tab:** moves keyboard focus to the checkbox. **Space** toggles it.
+- **Disabled:** the checkbox cannot be focused or toggled.
+- **Names:** the input is labelled by the title (`aria-labelledby`) and described by the caption (`aria-describedby`) when the caption is shown. The drawn box is `aria-hidden`.
+- **Focus:** Figma defines no focus look, so a focused checkbox shows the existing `shadow-focus-primary` ring around the box.
+
+<Canvas of={CheckboxStories.Behavior} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for a matrix of props and compares the DOM.
+
+<Canvas of={CheckboxStories.ParityWithHtml} sourceState="none" />

@@ -1,0 +1,71 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FooterStories from './Footer.stories';
+
+<Meta of={FooterStories} />
+
+# Footer (React)
+
+The React version of the Socrates **Footer**. It renders the same markup and uses the same `footer.css`, tokens and content as the HTML component, so it looks identical. Source of truth: Figma component set **footer** (Footer page). The Figma specification tables (spacing, typography, colors, responsive rules) are in the HTML Storybook page for the footer and are not repeated here.
+
+```tsx
+import { Footer, Logo } from '@socrates/design-system';
+
+<Footer />                        {/* big, standart */}
+<Footer type="enterprise" />
+<Footer size="small" />
+```
+
+## Live Demo
+
+<Canvas of={FooterStories.Playground} sourceState="none" />
+<Controls of={FooterStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>size</code></td><td><code>'big' | 'small'</code>, default <code>'big'</code></td><td><code>size</code></td><td>The small footer is one centered line</td></tr>
+    <tr><td><code>type</code></td><td><code>'standart' | 'enterprise'</code>, default <code>'standart'</code></td><td><code>type</code></td><td>Only the big size has types. The spelling <code>standart</code> is the Figma one</td></tr>
+    <tr><td>everything else</td><td>native attributes of <code>&lt;footer&gt;</code></td><td>none</td><td><code>className</code>, <code>style</code>, <code>ref</code>, <code>id</code>, <code>{'aria-*'}</code>, <code>{'data-*'}</code>, <code>onClick</code></td></tr>
+  </tbody>
+</table>
+
+The Figma `resolution` (desktop, tablet, mobile) is **not a prop**. The layout follows the footer's own width through container queries: mobile up to 576px, tablet 577px to 992px, desktop from 993px. The link text and destinations are fixed by the design (Figma gives no destinations, so the links use `#`).
+
+## Types
+
+<Canvas of={FooterStories.Types} sourceState="none" />
+
+## Small
+
+<Canvas of={FooterStories.Small} sourceState="none" />
+
+## Responsive layout
+
+Each preview is the footer at the width of a Figma frame (scaled down to fit this page). The shaded bands are the required content margins: 80px on desktop, 40px on tablet and mobile.
+
+<Canvas of={FooterStories.Responsive} sourceState="none" />
+
+## Behavior and accessibility
+
+- The footer is a `<footer>` landmark. Its two groups of links are `<nav>` regions labelled "Footer" and "Legal"; every link group has a heading that labels it (`role="group"`, `aria-labelledby`).
+- Tab moves through the links in reading order. Figma defines no link focus look, so a focused link shows the existing focus ring; Figma defines no hover look either.
+- A press on a placeholder `#` link is prevented, so the page does not jump or change its address. This is unresolved: the product has to supply real destinations.
+- Container queries decide the layout, so the footer behaves the same in a full page and in a narrower container.
+
+<Canvas of={FooterStories.Behavior} sourceState="none" />
+
+## Logo
+
+`Logo` is the Socrates logo (162 × 32) in the current text color. The Header uses the same component. Its path data comes from the HTML module, so there is one copy of the artwork.
+
+<Canvas of={FooterStories.LogoOnly} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every size and type, including unknown values, and compares the DOM.
+
+<Canvas of={FooterStories.ParityWithHtml} sourceState="none" />

@@ -1,0 +1,78 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button (React)
+
+The React version of the Socrates **Button**. It renders the same markup and uses the same `button.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **Button** (Buttons page). The HTML documentation of this component is in the HTML Storybook.
+
+```tsx
+import { Button } from '@socrates/design-system';
+
+<Button variant="primary" size={48} leftIcon="search" onClick={save}>
+  Save
+</Button>
+```
+
+## Live Demo
+
+<Canvas of={ButtonStories.Playground} sourceState="shown" />
+<Controls of={ButtonStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>variant</code></td><td>one of 12 values, default <code>'primary'</code></td><td><code>type</code></td><td>Renamed because <code>type</code> is the native button attribute</td></tr>
+    <tr><td><code>size</code></td><td><code>48 | 36</code>, default <code>48</code></td><td><code>size</code></td><td><code>Stroke</code> and <code>menu</code> exist only at 36 and use it whatever is asked</td></tr>
+    <tr><td><code>children</code></td><td><code>ReactNode</code></td><td><code>Text</code>, <code>show text</code></td><td>The label. No children means icon-only</td></tr>
+    <tr><td><code>leftIcon</code>, <code>rightIcon</code></td><td>icon name or element</td><td><code>Show left icon</code> / <code>left icon</code>, <code>Show right icon</code> / <code>right icon</code></td><td>Present means shown</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>state=disabled</code></td><td>Native attribute</td></tr>
+    <tr><td><code>type</code></td><td><code>'button' | 'submit' | 'reset'</code>, default <code>'button'</code></td><td>none</td><td>Native</td></tr>
+    <tr><td>everything else</td><td>native button attributes</td><td>none</td><td><code>onClick</code>, <code>className</code>, <code>ref</code>, <code>{'aria-*'}</code>, <code>{'data-*'}</code>, <code>form</code>, and so on</td></tr>
+  </tbody>
+</table>
+
+## Variants
+
+Twelve types. `Stroke` and `menu` exist at size 36 only; the others have 48 and 36. `menu` has a light label for the dark header surface.
+
+<Canvas of={ButtonStories.Variants} sourceState="none" />
+
+## States
+
+Figma defines default, hover, focus and disabled. Hover, focus and disabled are real browser states in the CSS; the display below forces hover and focus with `data-preview-state`, which is for documentation only.
+
+<Canvas of={ButtonStories.States} sourceState="none" />
+
+## Icons
+
+An icon can be an icon name from the shared set or your own element. Icons are decorative (`aria-hidden`).
+
+<Canvas of={ButtonStories.WithIcons} sourceState="none" />
+
+### Icon-only
+
+With no `children` the button has no visible text, so TypeScript requires `aria-label` or `aria-labelledby`.
+
+<Canvas of={ButtonStories.IconOnly} sourceState="none" />
+
+## Behavior and accessibility
+
+- It is a native `<button>`: Enter and Space activate it, and a disabled button leaves the tab order.
+- `type` defaults to `"button"`. A button inside a form does not submit it; pass `type="submit"` on the main action.
+- Focus shows the existing `shadow-focus-primary` ring on `:focus-visible` only.
+- The component forwards its `ref` and spreads any other attribute onto the `<button>`.
+- Figma defines no loading state, no link behavior and no toggle, so none exists.
+
+<Canvas of={ButtonStories.InAForm} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every variant × size × option and compares the DOM.
+
+<Canvas of={ButtonStories.ParityWithHtml} sourceState="none" />

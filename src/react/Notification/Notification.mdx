@@ -1,0 +1,78 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as NotificationStories from './Notification.stories';
+
+<Meta of={NotificationStories} />
+
+# Notification (React)
+
+The React version of the Socrates **Notification** (Messages, banners). It renders the same markup and uses the same `notification.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **notification** (Messages page). The Figma specification tables (anatomy, formatting, alignment, colors per variant) are on the HTML page of this component, **Components / Messages / notification**, in the HTML Storybook.
+
+```tsx
+import { Notification } from '@socrates/design-system';
+
+<Notification type="default" state="warning" buttonText="Update" onButtonClick={update} onDismiss={() => setOpen(false)} open={open}>
+  Your payment method expires next month.
+</Notification>
+```
+
+## Live Demo
+
+The banner text is sample text from the Figma component. The "Show banner again" button belongs to the documentation and is not part of the component.
+
+<Canvas of={NotificationStories.Playground} sourceState="none" />
+<Controls of={NotificationStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>type</code></td><td><code>'home' | 'default'</code>, default <code>'default'</code></td><td><code>type</code></td><td><code>home</code> is a full-width strip without radius or border</td></tr>
+    <tr><td><code>state</code></td><td><code>'warning' | 'success' | 'info' | 'alert' | 'gray' | 'white'</code>, default <code>'info'</code></td><td><code>state</code></td><td>Fill, border and icon per state</td></tr>
+    <tr><td><code>children</code></td><td><code>ReactNode</code></td><td><code>Text</code></td><td>The message</td></tr>
+    <tr><td><code>showIcon</code></td><td><code>boolean</code>, default <code>true</code></td><td><code>show icon</code></td><td></td></tr>
+    <tr><td><code>close</code></td><td><code>boolean</code>, default <code>true</code></td><td><code>close</code></td><td>Shows the close control</td></tr>
+    <tr><td><code>buttonText</code></td><td><code>string</code></td><td><code>show button</code></td><td>Present means the text Button is shown</td></tr>
+    <tr><td><code>onButtonClick</code></td><td>click handler</td><td>none</td><td>Figma gives the Button no destination or action</td></tr>
+    <tr><td><code>open</code>, <code>defaultOpen</code></td><td><code>boolean</code></td><td>none</td><td>Controlled or uncontrolled visibility</td></tr>
+    <tr><td><code>onDismiss</code></td><td><code>() =&gt; void</code></td><td>none</td><td>Called when the close control is pressed</td></tr>
+    <tr><td>everything else</td><td>native div attributes</td><td>none</td><td><code>className</code>, <code>ref</code>, <code>role</code>, <code>{'aria-*'}</code>, <code>{'data-*'}</code></td></tr>
+  </tbody>
+</table>
+
+## Variants
+
+Twelve variants: the types `home` and `default`, each in the states `warning`, `success`, `info`, `alert`, `gray` and `white`.
+
+<Canvas of={NotificationStories.Variants} sourceState="none" />
+
+## With a Button
+
+<Canvas of={NotificationStories.WithButton} sourceState="none" />
+
+## Responsive layout
+
+Figma defines a single width of 820px and no desktop, tablet or mobile variants. The banner fills its container and the text wraps, so the height grows. The 80px and 40px page margins of the Header and Footer are page-level rules and are not part of the banner.
+
+<Canvas of={NotificationStories.Widths} sourceState="none" />
+
+## Behavior and accessibility
+
+Figma defines a close control and an optional Button. Nothing else is interactive, and Figma defines no timer, animation, stacking or queue, so none is built.
+
+- **Dismiss:** the close control hides the banner (it stays mounted with the `hidden` attribute, as in the HTML component) and calls `onDismiss`. A bubbling `ds-notification-dismiss` DOM event is also dispatched, the same event the HTML component fires. The banner does not come back by itself.
+- **Controlled or not:** pass `open` and update it in `onDismiss` to control visibility, or leave it out and the banner hides itself.
+- **Focus:** if the close control had focus, focus moves to the next focusable element on the page (or the previous one if there is none), so keyboard users are not left at the top of the page.
+- **Keyboard:** the close control and the Button are native buttons, so Tab, Enter and Space work. Figma defines no focus look, so a focused control shows the existing `shadow-focus-primary` ring.
+- **Accessible name:** the close control is icon-only and is named "Close".
+- **Announcements:** only the `alert` state uses `role="alert"`; every other state uses `role="status"`. The four status states also contain a visually hidden word naming the status; `gray` and `white` do not.
+
+<Canvas of={NotificationStories.Behavior} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every type, state, icon, close and Button option and several texts, and compares the DOM.
+
+<Canvas of={NotificationStories.ParityWithHtml} sourceState="none" />

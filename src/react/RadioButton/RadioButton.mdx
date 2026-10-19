@@ -1,0 +1,83 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as RadioButtonStories from './RadioButton.stories';
+
+<Meta of={RadioButtonStories} />
+
+# RadioButton (React)
+
+The React version of the Socrates **radiobutton**. It renders the same markup and uses the same `radiobutton.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **radiobutton** (Radiobutton page). The Figma specification tables (anatomy, spacing, typography) are on the HTML page of this component in the HTML Storybook.
+
+```tsx
+import { RadioButton } from '@socrates/design-system';
+
+<RadioButton name="plan" value="basic" title="Basic" subtitle="Billed monthly" checked={plan === 'basic'} onChange={(e) => setPlan(e.target.value)} />
+```
+
+## Live Demo
+
+Figma defines a single radio button, not a group. This demo shows three of them with the same `name`, so selecting one deselects the others. Change the **state** control to see each Figma state on the three samples.
+
+<Canvas of={RadioButtonStories.Group} sourceState="none" />
+<Controls of={RadioButtonStories.Group} />
+
+### One radio button
+
+<Canvas of={RadioButtonStories.Playground} sourceState="none" />
+<Controls of={RadioButtonStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>title</code></td><td><code>ReactNode</code>, default <code>'Unchecked and label'</code></td><td><code>title</code></td><td>The label. It is not the native <code>title</code> tooltip attribute</td></tr>
+    <tr><td><code>showCaption</code></td><td><code>boolean</code>, default <code>true</code></td><td><code>Show Caption</code></td><td></td></tr>
+    <tr><td><code>subtitle</code></td><td><code>ReactNode</code>, default <code>'Unchecked and label'</code></td><td><code>subtitle</code></td><td>Shown when <code>showCaption</code> is on</td></tr>
+    <tr><td><code>badge</code></td><td><code>boolean</code>, default <code>false</code></td><td><code>badge</code></td><td>The <code>pro</code> badge after the title</td></tr>
+    <tr><td><code>badgeText</code></td><td><code>ReactNode</code>, default <code>'Premium'</code></td><td>text of <code>badge</code></td><td></td></tr>
+    <tr><td><code>checked</code>, <code>defaultChecked</code>, <code>onChange</code></td><td>native</td><td><code>state=selected</code></td><td>Controlled or uncontrolled, as on a native input</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>state=disabled</code></td><td>Native attribute</td></tr>
+    <tr><td><code>name</code>, <code>value</code></td><td>native</td><td>none</td><td>Radios that share a <code>name</code> form one group</td></tr>
+    <tr><td><code>className</code>, <code>style</code>, <code>labelProps</code></td><td></td><td>none</td><td>Applied to the root <code>&lt;label&gt;</code></td></tr>
+    <tr><td>everything else</td><td>native input attributes</td><td>none</td><td>Passed to the <code>&lt;input&gt;</code>, including <code>ref</code>, <code>id</code>, <code>{'aria-*'}</code>, <code>{'data-*'}</code>, <code>required</code> and <code>form</code></td></tr>
+  </tbody>
+</table>
+
+Figma's `state` property is not a prop. `selected` is a checked radio, `disabled` is the native attribute, and hover is the browser's `:hover`.
+
+## States
+
+Figma defines four states and no other variant property. The hover look is forced here with a documentation-only attribute (`labelProps`), because a screenshot has no pointer. Figma has no focus, error, or disabled-selected state.
+
+<Canvas of={RadioButtonStories.States} sourceState="none" />
+
+### States with caption and badge
+
+<Canvas of={RadioButtonStories.StatesWithOptions} sourceState="none" />
+
+## Configurations
+
+<Canvas of={RadioButtonStories.Configurations} sourceState="none" />
+
+## Behavior and accessibility
+
+The component is a native `<input type="radio">` inside a `<label>`, so these behaviors come from the browser and stay in sync with the visual state.
+
+- **Click the circle or the label:** selects the radio and deselects the others with the same `name`.
+- **Tab:** moves focus into the group, to the selected radio, or to the first one if none is selected.
+- **Arrow keys:** move focus to the next or previous radio in the group and select it. Disabled radios are skipped.
+- **Space:** selects the focused radio.
+- **Names:** the input is named by its title (`aria-labelledby`) and described by its caption (`aria-describedby`, only when the caption is shown). Pass your own `aria-*` props to override them.
+- **Group:** wrap related radios in an element with `role="radiogroup"` and an `aria-label` or `aria-labelledby`. Figma has no group component, so none is provided.
+- **Focus:** Figma defines no focus look. A focused radio shows the existing `shadow-focus-primary` ring around the circle.
+- **Forms:** the radio takes part in forms like any native radio, and `required`, `form` and `name` work.
+
+<Canvas of={RadioButtonStories.Controlled} sourceState="shown" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for a matrix of options (caption, badge, selected, disabled, name and value, custom and special-character texts, generated ids) and compares the DOM.
+
+<Canvas of={RadioButtonStories.ParityWithHtml} sourceState="none" />

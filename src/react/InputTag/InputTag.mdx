@@ -1,0 +1,87 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as InputTagStories from './InputTag.stories';
+
+<Meta of={InputTagStories} />
+
+# InputTag (React)
+
+The React version of the Socrates **input tag**: a text field that can also hold tags. It renders the same markup and uses the same `input-tag.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **input tag** (Inputs page). The anatomy, the Figma spec tables and the HTML documentation are on the HTML Storybook page **Inputs / input tag**.
+
+```tsx
+import { InputTag } from '@socrates/design-system';
+
+<InputTag
+  label="Your email"
+  placeholder="Au"
+  tags={['Australia BMK']}
+  onChange={(event) => setText(event.target.value)}
+/>
+```
+
+## Live Demo
+
+The `state` control draws one of the five Figma states for documentation. In your code the states are only `tags`, `finished` and the text in the field.
+
+<Canvas of={InputTagStories.Playground} sourceState="shown" />
+<Controls of={InputTagStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>label</code>, <code>showLabel</code></td><td><code>string</code>, <code>boolean</code> (default <code>true</code>)</td><td><code>label text</code>, <code>show label</code></td><td>Without a visible label the text becomes the input's <code>aria-label</code></td></tr>
+    <tr><td><code>info</code></td><td><code>boolean</code></td><td><code>info</code></td><td>Info icon after the label</td></tr>
+    <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>placeholder text</code></td><td>Native attribute</td></tr>
+    <tr><td><code>showLeftIcon</code>, <code>leftIcon</code></td><td><code>boolean</code> (default <code>true</code>), icon name (default <code>'info'</code>)</td><td><code>show left icon</code>, <code>left icon</code></td><td>Left icon is on by default in this component</td></tr>
+    <tr><td><code>showRightIcon</code>, <code>rightIcon</code></td><td><code>boolean</code>, icon name</td><td><code>show right icon</code>, <code>right icon</code></td><td>Sits before the dropdown icon</td></tr>
+    <tr><td><code>showDropdown</code></td><td><code>boolean</code></td><td><code>dropdown</code></td><td>A chevron at the end of the field</td></tr>
+    <tr><td><code>showFootnote</code>, <code>footnote</code></td><td><code>boolean</code> (default <code>true</code>), <code>string</code></td><td><code>show footnote</code>, <code>footnote_text</code></td><td>Linked with <code>aria-describedby</code></td></tr>
+    <tr><td><code>tags</code></td><td><code>string[]</code></td><td>states <code>selected</code>, <code>finished</code></td><td>The Figma badge chips. Display only</td></tr>
+    <tr><td><code>finished</code></td><td><code>boolean</code></td><td>state <code>finished</code></td><td>Hides the text entry visually; it stays in the page</td></tr>
+    <tr><td><code>value</code>, <code>defaultValue</code>, <code>onChange</code>, <code>name</code>, <code>disabled</code>, <code>id</code>, <code>ref</code>, and every other native input attribute</td><td>native</td><td>none</td><td>Go to the <code>&lt;input&gt;</code>. The <code>ref</code> is the input</td></tr>
+    <tr><td><code>className</code>, <code>rootProps</code></td><td><code>string</code>, <code>div</code> attributes</td><td>none</td><td>Go to the root element (<code>rootProps</code> for <code>data-*</code> and other root attributes)</td></tr>
+  </tbody>
+</table>
+
+## States
+
+The Figma property `state` has five values: `Default`, `focus`, `filing`, `selected` and `finished`. The border is gray/200 in every state, so they differ by tags, text colour and caret. The carets of `focus`, `filing` and `selected` are drawn here with a documentation-only attribute; in a page the native caret appears while the field is focused.
+
+<Canvas of={InputTagStories.States} sourceState="none" />
+
+## Configurations
+
+<Canvas of={InputTagStories.Configurations} sourceState="none" />
+
+### Wrapping tags
+
+Tags and the text entry share a row and wrap onto new rows with an 8px gap.
+
+<Canvas of={InputTagStories.WrappingTags} sourceState="none" />
+
+## Behavior and accessibility
+
+- The text entry is a native `<input type="text">` with a `<label>` linked through `for`. The footnote is linked with `aria-describedby` (your own `aria-describedby` is added to it).
+- Clicking anywhere in the field, or on the label, focuses the text entry. Tab moves focus into and out of it.
+- It works **uncontrolled** (`defaultValue`, `onChange`) and **controlled** (`value`, `onChange`).
+- The `id` is generated with `useId` unless you pass one.
+- Tags are display only. Figma draws a close icon on each tag but defines no removing, adding from the text, or selecting, so none of these exist. They are not announced as controls.
+- `finished` hides the text entry visually and keeps it in the page for assistive technology.
+- Focus is shown by the native caret only, because Figma keeps the border the same in every state.
+
+### Uncontrolled
+
+<Canvas of={InputTagStories.Uncontrolled} sourceState="none" />
+
+### Controlled
+
+<Canvas of={InputTagStories.Controlled} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every combination of the Figma properties (including all icons and special characters in the texts) and compares the DOM.
+
+<Canvas of={InputTagStories.ParityWithHtml} sourceState="none" />

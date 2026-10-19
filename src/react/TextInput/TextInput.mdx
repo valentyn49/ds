@@ -1,0 +1,86 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TextInputStories from './TextInput.stories';
+
+<Meta of={TextInputStories} />
+
+# TextInput (React)
+
+The React version of the Socrates **text input**. It renders the same markup and uses the same `text-input.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **input** (Inputs page). The Figma specification tables (anatomy, metrics, typography) are on the **input** page of the HTML Storybook.
+
+```tsx
+import { TextInput } from '@socrates/design-system';
+
+<TextInput
+  label="Email"
+  type="email"
+  name="email"
+  leftIcon="search"
+  footnote="We’ll never share your details."
+  value={email}
+  onChange={(event) => setEmail(event.target.value)}
+/>
+```
+
+## Live Demo
+
+<Canvas of={TextInputStories.Playground} sourceState="none" />
+<Controls of={TextInputStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>label</code></td><td><code>string</code>, required</td><td><code>label text</code></td><td>Names the field. Always required</td></tr>
+    <tr><td><code>showLabel</code></td><td><code>boolean</code>, default <code>true</code></td><td><code>show label</code></td><td>When false the label is not drawn and its text becomes <code>aria-label</code></td></tr>
+    <tr><td><code>info</code></td><td><code>boolean</code></td><td><code>info</code></td><td>The 20px info icon after the label</td></tr>
+    <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>placeholder text</code></td><td>Native attribute</td></tr>
+    <tr><td><code>leftIcon</code>, <code>rightIcon</code></td><td>icon name</td><td><code>show left icon</code> / <code>left icon</code>, <code>show right icon</code> / <code>right icon</code></td><td>Present means shown. Names: <code>INPUT_ICON_NAMES</code></td></tr>
+    <tr><td><code>footnote</code></td><td><code>string</code></td><td><code>show footnote</code> / <code>footnote_text</code></td><td>Present means shown. Linked with <code>aria-describedby</code></td></tr>
+    <tr><td><code>validation</code></td><td><code>'valid' | 'error'</code></td><td>states <code>valid</code>, <code>error</code></td><td><code>error</code> also sets <code>aria-invalid</code></td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td>state <code>disabled</code></td><td>Native attribute</td></tr>
+    <tr><td><code>className</code>, <code>style</code>, <code>rootProps</code></td><td>—</td><td>none</td><td>For the outer element. <code>rootProps</code> takes <code>id</code>, <code>{'data-*'}</code>, <code>{'aria-*'}</code> and handlers</td></tr>
+    <tr><td>everything else</td><td>native input attributes</td><td>none</td><td><code>value</code>, <code>defaultValue</code>, <code>onChange</code>, <code>name</code>, <code>type</code> (default <code>"text"</code>), <code>required</code>, <code>autoComplete</code>, <code>ref</code>, and so on, on the <code>&lt;input&gt;</code></td></tr>
+  </tbody>
+</table>
+
+## States
+
+Figma has one variant property, `state`, with seven values. Focus and filing are `:focus-within`; filled is a field with a value; disabled is the native attribute; valid and error come from `validation`. The display below forces focus with `data-preview-state` (documentation only).
+
+<Canvas of={TextInputStories.States} sourceState="none" />
+
+## Configurations
+
+These come from the component properties and are named after them in Figma.
+
+<Canvas of={TextInputStories.Configurations} sourceState="none" />
+
+### Icons
+
+<Canvas of={TextInputStories.Icons} sourceState="none" />
+
+## Behavior and accessibility
+
+- It is a native `<input>`. Typing, selection, autofill and the soft keyboard behave natively, and it works controlled (`value` + `onChange`) or uncontrolled (`defaultValue`).
+- The `<label>` is tied to the input with `for`/`id`. The id comes from `useId` unless you pass `id`.
+- With `showLabel={false}` the label text is used as `aria-label`, so the field still has a name.
+- The footnote is linked with `aria-describedby` (added to any value you pass). In the `error` state the input has `aria-invalid="true"`.
+- Pressing anywhere in the field (the icons or the padding) focuses the text, like the HTML component. A disabled field is skipped.
+- Figma defines no focus ring for the field other than the darker border; the text caret is the browser's. No clear button, password toggle or masking exists in Figma, so none is built.
+
+<Canvas of={TextInputStories.Controlled} sourceState="none" />
+
+### In a form
+
+`name`, `type`, `autoComplete` and `required` go to the `<input>`, so the field works in a plain `<form>`.
+
+<Canvas of={TextInputStories.InAForm} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for a full factorial of the Figma properties (label, info, both icons, footnote, disabled, validation, value), every icon name and escaped text, and compares the DOM.
+
+<Canvas of={TextInputStories.ParityWithHtml} sourceState="none" />

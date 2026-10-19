@@ -1,0 +1,97 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DropdownStories from './Dropdown.stories';
+
+<Meta of={DropdownStories} />
+
+# Dropdown (React)
+
+The React version of the Socrates **Dropdown**. It renders the same markup and uses the same `dropdown.css` and tokens as the HTML component, so it looks and behaves identically. Source of truth: the Figma Dropdowns section (the **dropdown-input** trigger, the **dropdown** menu and the **dropdown item**). The Figma specification tables (anatomy, spacing, typography) are on the HTML page, in the HTML Storybook.
+
+```tsx
+import { Dropdown } from '@socrates/design-system';
+
+<Dropdown
+  label="City"
+  options={['London', 'Paris', 'Berlin']}
+  defaultValue="Paris"
+  onValueChange={(value) => save(value)}
+/>
+```
+
+## Live Demo
+
+The option names (London, Paris, Berlin, Madrid) are sample data to show selection. They are not part of the design specification. The **state** control is a documentation control: it sets `defaultValue`, `disabled` or `validation` on the component, and forces the hover look.
+
+<Canvas of={DropdownStories.Playground} sourceState="shown" />
+<Controls of={DropdownStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>options</code></td><td><code>(string | {'{'} label, value?, pro?, checkbox?, rightIcon?, color? {'}'})[]</code></td><td>none</td><td>The choices. A string is both value and label. The per-item fields override the switches below for that item</td></tr>
+    <tr><td><code>value</code> / <code>defaultValue</code> / <code>onValueChange</code></td><td><code>string</code>, <code>(value, option) =&gt; void</code></td><td><code>selected</code> state</td><td>Controlled or uncontrolled choice. A bubbling <code>ds-dropdown-change</code> event is also fired, like in the HTML component</td></tr>
+    <tr><td><code>open</code> / <code>defaultOpen</code> / <code>onOpenChange</code></td><td><code>boolean</code></td><td>open look (<code>hover</code>)</td><td>Controlled or uncontrolled menu</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>state=disabled</code></td><td>The trigger cannot be focused or opened</td></tr>
+    <tr><td><code>validation</code></td><td><code>'error'</code></td><td><code>state=error</code></td><td>Also sets <code>aria-invalid</code></td></tr>
+    <tr><td><code>showLabel</code>, <code>label</code>, <code>info</code></td><td><code>boolean</code>, <code>string</code>, <code>boolean</code></td><td><code>title</code>, <code>title text</code>, <code>info</code></td><td>Defaults: shown, "Your email", off</td></tr>
+    <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>placeholder text</code></td><td></td></tr>
+    <tr><td><code>showFootnote</code>, <code>footnote</code></td><td><code>boolean</code>, <code>string</code></td><td><code>footnote</code>, <code>footnote text</code></td><td>Linked to the trigger with <code>aria-describedby</code></td></tr>
+    <tr><td><code>showPro</code>, <code>showCheckbox</code>, <code>showRightIcon</code>, <code>showColor</code></td><td><code>boolean</code></td><td><code>Pro</code>, <code>checkbox</code>, <code>Right icons</code>, <code>Color</code></td><td>Applied to every item that does not set its own</td></tr>
+    <tr><td><code>showSearch</code></td><td><code>boolean</code></td><td><code>Search</code></td><td>Search field at the top of the menu</td></tr>
+    <tr><td><code>id</code>, <code>name</code></td><td><code>string</code></td><td>none</td><td><code>id</code> is the base of the generated ids; <code>name</code> is written to <code>data-name</code> on the trigger</td></tr>
+    <tr><td><code>triggerProps</code></td><td>button attributes</td><td>none</td><td>Extra attributes for the trigger</td></tr>
+    <tr><td>everything else</td><td>div attributes</td><td>none</td><td><code>className</code>, <code>style</code>, <code>data-*</code> go to the root; <code>ref</code> is the root</td></tr>
+  </tbody>
+</table>
+
+`DropdownItems` is also exported. It renders only the rows of the menu (the Figma **dropdown item**), with the same markup as the HTML `dropdownItemsHTML()`.
+
+## States
+
+The trigger has one variant property, `state`, with five values. The menu item has `type` with two values. Disabled uses the native attribute and error is set through the `validation` prop. The hover look is forced here with a documentation-only attribute. Figma defines no separate open, focus or selected-item state. The hover look is also used while the menu is open and for keyboard focus, and the chosen item is exposed with `aria-selected`.
+
+<Canvas of={DropdownStories.States} sourceState="none" />
+
+### Item parts
+
+Optional parts of a dropdown item: `checkbox`, `Color`, `Right icons` (a check mark, on the selected item) and `Pro`.
+
+<Canvas of={DropdownStories.ItemParts} sourceState="none" />
+
+### Open menus
+
+<Canvas of={DropdownStories.OpenWithSearch} sourceState="shown" />
+<Canvas of={DropdownStories.OpenWithItemParts} sourceState="none" />
+
+## Behavior and accessibility
+
+Figma shows a single-choice list that opens from a trigger, so it is a select-style combobox with a listbox. The trigger is a `button` with `role="combobox"`, and the menu is a `listbox` of `option` rows with `aria-selected`.
+
+- **Click the trigger:** opens or closes the menu.
+- **Click an option:** selects it, shows its name in the trigger and closes the menu.
+- **Click outside:** closes the menu.
+- **Keyboard on the trigger:** Arrow Down, Arrow Up, Enter or Space opens the menu.
+- **Keyboard in the open menu:** Arrow Down and Arrow Up move through the options, Home and End jump to the first and last, Enter or Space selects, Escape closes and returns focus to the trigger, and Tab closes it.
+- **Focus:** stays on the trigger while the menu is open, and the highlighted option is announced with `aria-activedescendant`. With the search field, focus moves to the search field instead.
+- **Disabled:** the trigger cannot be focused or opened.
+- **Search (when on):** typing narrows the list to options whose name contains the text.
+
+Figma does not define multiple selection, grouping, clearing, creating options or scrolling, so none of them are built. The checkbox icon on an item is shown as drawn in Figma (unchecked) and does not make the list multi-select.
+
+<Canvas of={DropdownStories.Behavior} sourceState="none" />
+
+### Controlled
+
+Both the value and the open state can be owned by the parent.
+
+<Canvas of={DropdownStories.Controlled} sourceState="shown" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for a matrix of props (the five states, every switch, open and closed, search, per-item parts, special characters) and compares the DOM.
+
+<Canvas of={DropdownStories.ParityWithHtml} sourceState="none" />

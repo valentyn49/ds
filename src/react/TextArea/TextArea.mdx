@@ -1,0 +1,83 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TextAreaStories from './TextArea.stories';
+
+<Meta of={TextAreaStories} />
+
+# TextArea (React)
+
+The React version of the Socrates **text-area**. It renders the same markup and uses the same `text-area.css` and tokens as the HTML component, so it looks identical. Source of truth: Figma component set **text-area** (Inputs page). The Figma specification tables (anatomy, formatting, measurements) are on the HTML page of this component in the HTML Storybook and are not repeated here.
+
+```tsx
+import { TextArea } from '@socrates/design-system';
+
+<TextArea
+  label="Comment"
+  placeholder="Write something"
+  footnote="Visible to your team"
+  value={comment}
+  onChange={(event) => setComment(event.target.value)}
+/>
+```
+
+## Live Demo
+
+The **state** control belongs to the documentation: it maps the seven Figma `state` values onto the real component (focus is forced for display only; disabled, valid and error use the `disabled` and `validation` props).
+
+<Canvas of={TextAreaStories.Playground} sourceState="none" />
+<Controls of={TextAreaStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>showLabel</code>, <code>label</code></td><td><code>boolean</code> (default <code>true</code>), <code>string</code></td><td><code>show label</code>, <code>label text</code></td><td>When the label is off, <code>label</code> becomes the field's <code>aria-label</code></td></tr>
+    <tr><td><code>info</code></td><td><code>boolean</code></td><td><code>info</code></td><td>Info icon after the label</td></tr>
+    <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>placeholder text</code></td><td>Native attribute</td></tr>
+    <tr><td><code>leftIcon</code>, <code>rightIcon</code></td><td>icon name or element</td><td><code>show left icon</code> / <code>left icon</code>, <code>show right icon</code> / <code>right icon</code></td><td>Present means shown</td></tr>
+    <tr><td><code>showFootnote</code>, <code>footnote</code></td><td><code>boolean</code> (default <code>true</code>), <code>string</code></td><td><code>show footnote</code>, <code>footnote_text</code></td><td>Linked to the field with <code>aria-describedby</code></td></tr>
+    <tr><td><code>validation</code></td><td><code>'valid' | 'error'</code></td><td><code>state</code> = valid, error</td><td><code>error</code> also sets <code>aria-invalid</code></td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>state</code> = disabled</td><td>Native attribute</td></tr>
+    <tr><td><code>value</code>, <code>defaultValue</code>, <code>onChange</code></td><td>native</td><td>filled, filing</td><td>Controlled or uncontrolled</td></tr>
+    <tr><td><code>className</code>, <code>style</code></td><td>native</td><td>none</td><td>Apply to the component's root element</td></tr>
+    <tr><td>everything else</td><td>native textarea attributes</td><td>none</td><td><code>name</code>, <code>id</code>, <code>rows</code> (default 1), <code>maxLength</code>, <code>required</code>, <code>ref</code> (to the textarea), <code>{'aria-*'}</code>, <code>{'data-*'}</code></td></tr>
+  </tbody>
+</table>
+
+## States
+
+Figma has one variant property, `state`, with seven values: `default`, `focus`, `filing`, `filled`, `disabled`, `valid` and `error`. The first five are the behavior of a native text area: `focus` and `filing` are `:focus-within` (without and with text), `filled` is a field with a value, and `disabled` is the native attribute. `valid` and `error` are set with `validation`. The previews below force the focus look with a documentation-only attribute.
+
+<Canvas of={TextAreaStories.States} sourceState="none" />
+
+## Configurations
+
+The label, the info icon, the left and right icons and the footnote are optional.
+
+<Canvas of={TextAreaStories.Configurations} sourceState="none" />
+
+### Multi-line text
+
+Figma defines no row count, maximum height, resize handle or character counter. The field is one line tall by default and grows with its content in browsers that support `field-sizing`.
+
+<Canvas of={TextAreaStories.Multiline} sourceState="none" />
+
+## Behavior and accessibility
+
+- It is a native `textarea` with a `label` linked through `for` (the id is generated with `useId` unless you pass `id`). The footnote is linked with `aria-describedby`; a `aria-describedby` of your own is kept and combined.
+- **Typing:** Enter inserts a new line. **Tab** moves focus into and out of the field. A click on the label, the icons or the field padding focuses the text area.
+- **Disabled:** the field cannot be focused or edited.
+- **Error:** sets `aria-invalid` on the text area. Figma defines no combined focus and validation look, so the validation color stays while focused.
+- Focus shows the stroke in gray/500 through `:focus-within`; there is no JavaScript state for it.
+
+### Controlled use
+
+<Canvas of={TextAreaStories.Controlled} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for every state and configuration and compares the DOM.
+
+<Canvas of={TextAreaStories.ParityWithHtml} sourceState="none" />

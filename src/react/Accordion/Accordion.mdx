@@ -1,0 +1,92 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion (React)
+
+The React version of the Socrates **Accordion** item (Figma component set **collapse**). It renders the same markup and uses the same `accordion.css` and tokens as the HTML component, so it looks identical. The Figma specification tables (anatomy, formatting, alignment) are on the HTML page of this component, **Components / Accordion / collapse**, in the HTML Storybook.
+
+```tsx
+import { Accordion } from '@socrates/design-system';
+
+<Accordion
+  title="Do changes to my membership affect my billing cycle?"
+  subtitle="Billing"
+  leftIcon
+  link="Learn more"
+  defaultOpen
+  onOpenChange={(open) => track(open)}
+>
+  Your billing cycle does not change.
+</Accordion>
+```
+
+## Live Demo
+
+The title and content text are sample text for demonstration. They are not part of the design specification.
+
+<Canvas of={AccordionStories.Playground} sourceState="none" />
+<Controls of={AccordionStories.Playground} />
+
+## Props
+
+<table className="ds-table">
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Figma</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>title</code></td><td><code>ReactNode</code>, default is the Figma title</td><td><code>title</code></td><td>The header text</td></tr>
+    <tr><td><code>subtitle</code></td><td><code>ReactNode</code></td><td><code>Subtitle</code></td><td>Present means shown</td></tr>
+    <tr><td><code>leftIcon</code></td><td><code>boolean</code>, default <code>false</code></td><td><code>Left icon</code></td><td>Shows the radio icon before the text</td></tr>
+    <tr><td><code>link</code>, <code>linkProps</code></td><td><code>ReactNode</code>, anchor attributes</td><td><code>Link</code></td><td>Present means shown. <code>href</code> defaults to <code>"#"</code> and a click on <code>"#"</code> does not navigate</td></tr>
+    <tr><td><code>button</code>, <code>buttonProps</code></td><td><code>ReactNode</code>, button attributes</td><td><code>Button</code></td><td>Present means shown. It is the primary Button at size 36; <code>buttonProps</code> takes <code>onClick</code> and so on</td></tr>
+    <tr><td><code>open</code> / <code>defaultOpen</code> / <code>onOpenChange</code></td><td><code>boolean</code>, <code>(open: boolean) =&gt; void</code></td><td><code>state</code> (closed, open)</td><td>Controlled or uncontrolled</td></tr>
+    <tr><td><code>children</code></td><td><code>ReactNode</code></td><td><code>content</code></td><td>The panel, shown only when open</td></tr>
+    <tr><td><code>id</code></td><td><code>string</code></td><td>none</td><td>Base for the generated ids (<code>-toggle</code>, <code>-panel</code>, <code>-title</code>). Not set on the root</td></tr>
+    <tr><td>everything else</td><td>div attributes</td><td>none</td><td><code>className</code>, <code>style</code>, <code>{'data-*'}</code>, <code>{'aria-*'}</code> go to the root <code>div</code>. The <code>ref</code> points to the root</td></tr>
+  </tbody>
+</table>
+
+Figma's `state` is not a prop name: `closed` is `open={false}` (or no `defaultOpen`) and `open` is `open` / `defaultOpen`.
+
+## States
+
+Figma defines two states, `closed` and `open`, and one `type` value. Figma defines no hover, focus, disabled or error look.
+
+<Canvas of={AccordionStories.States} sourceState="none" />
+
+## Configurations
+
+The header can show a subtitle, a left icon, a link and a Button.
+
+<Canvas of={AccordionStories.Configurations} sourceState="none" />
+
+## Behavior and accessibility
+
+Figma defines a single item that is either closed or open. It does not define a group, so each item opens and closes on its own and opening one does not close another.
+
+- **Click the header, Enter or Space** on the focused header toggles the item. The whole header row, padding included, is the target.
+- **Chevron:** points down when closed and up when open, and always matches the state.
+- **Content:** shown only when the item is open. It stays in the DOM while closed (hidden), so state inside it is kept.
+- **Tab:** the header is focusable. The Button and the link are separate controls with their own focus stops, and clicking them does not toggle the item.
+- **Semantics:** the header is a native `button` with `aria-expanded`, and `aria-controls` points to the panel. The panel is a `region` labelled by the title. Ids come from `useId`.
+- **Focus:** Figma does not specify a focus appearance, so a focused header shows the existing `shadow-focus-primary` ring on `:focus-visible`.
+
+The HTML component also fires a `ds-accordion-toggle` DOM event. The React component does not: use `onOpenChange`.
+
+Nested accordions, animation, exclusive expansion and extra header actions are not defined in Figma and are not built.
+
+<Canvas of={AccordionStories.Behavior} sourceState="none" />
+
+### Controlled
+
+Pass `open` and update it in `onOpenChange`, for example to open an item from outside.
+
+<Canvas of={AccordionStories.Controlled} sourceState="none" />
+
+## Parity with the HTML component
+
+The React and HTML versions are meant to stay identical while both exist. This check renders both for a matrix of props (open and closed, optional parts, special characters, with and without an id) and compares the DOM. Generated ids are compared by position, and an empty `class` attribute counts as none.
+
+<Canvas of={AccordionStories.ParityWithHtml} sourceState="none" />
