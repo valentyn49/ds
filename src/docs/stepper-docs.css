@@ -25,3 +25,7 @@
 /* Sequence demo. Figma defines one step, so the sequence is a documentation arrangement of that component. */
 .ds-bd-step-sequence { display: flex; flex-wrap: wrap; gap: var(--ds-space-4x) var(--ds-space-6x); }
 .ds-bd-step-sequence .ds-bd-step-box { width: 265px; }
+
+/* The title and description clip their overflow (ellipsis); the anatomy markers must not be clipped. */
+.ds-bd-step-anatomy .ds-stepper__title,
+.ds-bd-step-anatomy .ds-stepper__description { overflow: visible; }

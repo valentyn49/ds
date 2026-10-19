@@ -71,6 +71,7 @@ export function renderFormatting() {
         ${row('Check mark', STEPPER_SPEC.check)}
         ${row('Title', STEPPER_SPEC.title)}
         ${row('Description', STEPPER_SPEC.description)}
+        ${row('Text overflow', STEPPER_SPEC.text)}
         ${row('Connector', STEPPER_SPEC.connector)}
       </tbody>
     </table>

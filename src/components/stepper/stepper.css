@@ -62,12 +62,16 @@
 
 .ds-stepper__check svg { width: 20px; height: 20px; }
 
-/* Text block */
+/* Text block: as tall as the step and centered vertically, so without a description the title lines up with the circle.
+   Figma sets the text on one line (nowrap) with an ellipsis on the title and the description. */
 .ds-stepper__content {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
+  align-self: stretch;
+  justify-content: center;
   min-width: 0;
+  white-space: nowrap;
 }
 
 .ds-stepper__title {
@@ -75,6 +79,8 @@
   font-size: var(--ds-text-sm-font-medium-size);
   line-height: var(--ds-text-sm-font-medium-line-height);
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Figma uses the library variable color/text/secondary (#8e8e8e), which is not part of this project's tokens */
@@ -83,6 +89,8 @@
   font-size: var(--ds-text-xs-font-normal-size);
   line-height: var(--ds-text-xs-font-normal-line-height);
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Connector: fills the remaining width, 16px below the top edge */

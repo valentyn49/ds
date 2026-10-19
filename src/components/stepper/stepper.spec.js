@@ -20,5 +20,6 @@ export const STEPPER_SPEC = {
   title: 'text-sm/font-medium, Proxima Nova Semibold 14/20',
   description: 'text-xs/font-normal, Proxima Nova Regular 12/18, #8e8e8e (a library variable, color/text/secondary)',
   connector: '1px line in gray/200, 16px below the top edge (the vertical middle of the circle)',
-  alignment: 'The circle and the text start at the top edge; the connector sits at the circle’s middle',
+  alignment: 'The circle starts at the top edge. The text block is as tall as the step and centered vertically: with the description it fills the 38px height, without it the 20px title lines up with the middle of the 32px circle. The connector sits at the circle’s middle',
+  text: 'Title and description are on one line each (no wrapping) and are cut with an ellipsis when they do not fit',
 };
