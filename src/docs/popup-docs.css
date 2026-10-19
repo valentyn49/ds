@@ -1,0 +1,65 @@
+/* Layout for the Popup documentation page. Shares legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. */
+
+.ds-bd-pp-stack { display: flex; flex-direction: column; gap: var(--ds-space-6x); margin: var(--ds-space-4x) 0; }
+.ds-bd-pp-pair { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--ds-space-6x); margin: var(--ds-space-4x) 0; }
+.ds-bd-pp-item { display: flex; flex-direction: column; gap: var(--ds-space-2x); }
+.ds-bd-pp-label { width: fit-content; color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+.ds-bd-pp-zoom { display: block; }
+.ds-bd-pp-zoom .ds-popup { border-radius: var(--ds-radius-3x); }
+
+.ds-bd-pp-table th, .ds-bd-pp-table td { text-transform: none; }
+.ds-bd-pp-table tbody th { width: 22%; text-transform: none; }
+.ds-bd-pp-table .ds-chip { white-space: nowrap; }
+
+/* Stand-in for the product page behind the popup */
+.ds-bd-pp-page { position: absolute; inset: 0; background: var(--ds-color-gray-100); overflow: hidden; }
+.ds-bd-pp-page__bar { height: 72px; background: var(--ds-color-secondary-900); }
+.ds-bd-pp-page--mobile .ds-bd-pp-page__bar { height: 56px; }
+.ds-bd-pp-page__content { display: flex; flex-direction: column; gap: var(--ds-space-4x); padding: var(--ds-space-10x) 130px; }
+.ds-bd-pp-page--tablet .ds-bd-pp-page__content { padding-inline: 70px; }
+.ds-bd-pp-page--mobile .ds-bd-pp-page__content { padding: var(--ds-space-6x) var(--ds-space-4x); }
+.ds-bd-pp-page__line { display: block; width: 215px; height: 24px; border-radius: var(--ds-radius-2x); background: var(--ds-color-gray-300); }
+.ds-bd-pp-page__line--lg { width: 360px; height: 40px; }
+.ds-bd-pp-page__card { display: block; height: 220px; border-radius: var(--ds-radius-4x); background: var(--ds-color-gray-50); }
+.ds-bd-pp-page--mobile .ds-bd-pp-page__card { height: 160px; }
+
+/* Sample content for scrolling examples */
+.ds-bd-pp-fields { display: flex; flex-direction: column; gap: var(--ds-space-4x); }
+.ds-bd-pp-fields .ds-input { width: 100%; min-height: 68px; }
+
+/* Anatomy: the popup is drawn over the page mock; markers keep a white outline so they read on both the dark backdrop and the white popup. */
+.ds-bd-pp-anatomy { --z: 0.85; padding: 0; background: none; }
+.ds-bd-pp-anatomy__figure { zoom: var(--z); width: 1000px; flex: none; border-radius: var(--ds-radius-3x); overflow: hidden; }
+.ds-bd-pp-anatomy .ds-popup { border-radius: 0; }
+.ds-bd-pp-anatomy .ds-popup__dialog { top: 100px; }
+.ds-bd-pp-anatomy .ds-bd-anchor::before { box-shadow: 0 0 0 1px var(--ds-color-gray-50); }
+.ds-bd-pp-anatomy .ds-bd-anchor::after { box-shadow: 0 0 0 2px var(--ds-color-gray-50); }
+.ds-bd-pp-anatomy .ds-popup__backdrop.ds-bd-anchor { position: absolute; }
+.ds-bd-pp-anatomy .ds-popup__backdrop.ds-bd-anchor::before { display: none; }
+.ds-bd-pp-anatomy .ds-popup__backdrop.ds-bd-anchor::after { top: 24px; left: 24px; right: auto; margin: 0; }
+.ds-bd-pp-anatomy .ds-popup__dialog.ds-bd-anchor { overflow: visible; }
+
+/* Live demo and behavior demo */
+.ds-bd-demo-surface.ds-bd-pp-demo-surface { align-items: flex-start; justify-content: flex-start; }
+.ds-bd-pp-demo { display: flex; flex-direction: column; gap: var(--ds-space-4x); width: 100%; }
+.ds-bd-pp-demo-frame { position: relative; overflow: hidden; border: 1px solid var(--ds-color-gray-200); border-radius: var(--ds-radius-3x); isolation: isolate; }
+.ds-bd-pp-demo-frame .ds-bd-pp-page { z-index: 0; }
+.ds-bd-pp-trigger { position: absolute; z-index: 1; top: 236px; left: 154px; }
+.ds-bd-pp-demo-frame--tablet .ds-bd-pp-trigger { left: 94px; }
+.ds-bd-pp-demo-frame--mobile .ds-bd-pp-trigger { top: 196px; left: 32px; }
+.ds-bd-pp-viewport-note {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-space-3x);
+  padding: var(--ds-space-6x); border-radius: var(--ds-radius-4x); background: var(--ds-color-gray-50);
+}
+.ds-bd-pp-status,
+.ds-bd-pp-readout {
+  margin: 0;
+  color: var(--ds-color-gray-600);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+}
+.ds-bd-pp-log { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; max-height: 180px; overflow: auto; }
+.ds-bd-pp-log li { margin: 0; padding: 0; color: var(--ds-color-gray-600); font-size: var(--ds-text-xs-font-normal-size); line-height: var(--ds-text-xs-font-normal-line-height); }
+.ds-bd-pp-log code { font-size: var(--ds-text-xs-font-normal-size) !important; }

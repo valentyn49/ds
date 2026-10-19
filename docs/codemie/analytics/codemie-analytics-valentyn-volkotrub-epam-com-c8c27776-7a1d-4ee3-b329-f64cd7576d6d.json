@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "generatedAt": "2026-10-19T07:50:22.556Z",
+    "rangeLabel": "all",
+    "agents": [
+      "claude"
+    ],
+    "projectFilter": "all",
+    "totals": {
+      "sessions": 1,
+      "durationMs": 197271,
+      "turns": 6,
+      "files": 0,
+      "netLines": 0,
+      "toolCallsTotal": 5,
+      "toolSuccessRate": 80,
+      "totalCostUSD": 0.1293708,
+      "cacheReadCostUSD": 0.04714080000000001,
+      "pricedSessions": 1
+    },
+    "unpricedModels": [],
+    "estimatedModels": [],
+    "localModels": [],
+    "coverage": [
+      {
+        "agentName": "claude",
+        "total": 1,
+        "priced": 1,
+        "withLog": 1
+      }
+    ],
+    "userEmail": "valentyn_volkotrub@epam.com",
+    "periodStart": "2026-10-19T07:47:02.257Z",
+    "periodEnd": "2026-10-19T07:50:19.528Z"
+  },
+  "sessions": [
+    {
+      "sessionId": "c8c27776-7a1d-4ee3-b329-f64cd7576d6d",
+      "agentName": "claude",
+      "provider": "ai-run-sso",
+      "title": "/mcp",
+      "project": "/Users/Valentyn_Volkotrub/Socrates/design system",
+      "branch": "main",
+      "startTime": 1792396022257,
+      "durationMs": 197271,
+      "turns": 6,
+      "fileOps": 0,
+      "linesAdded": 0,
+      "linesRemoved": 0,
+      "linesModified": 0,
+      "netLines": 0,
+      "filesChanged": 0,
+      "filesWritten": 0,
+      "filesEdited": 0,
+      "toolCallsTotal": 5,
+      "toolCallsSuccess": 4,
+      "toolCallsFailure": 1,
+      "models": [
+        "claude-sonnet-5-5"
+      ],
+      "languages": [],
+      "tools": [
+        {
+          "toolName": "Bash",
+          "totalCalls": 5,
+          "successCount": 4,
+          "failureCount": 1,
+          "successRate": 80
+        }
+      ],
+      "tokens": {
+        "input": 14,
+        "output": 1415,
+        "cacheRead": 235704,
+        "cacheCreation": 17013,
+        "cacheCreation1h": 17013,
+        "total": 254146
+      },
+      "costUSD": 0.1293708,
+      "cacheReadCostUSD": 0.04714080000000001,
+      "perModelCost": [
+        {
+          "model": "claude-sonnet-5-5",
+          "tokens": {
+            "input": 2,
+            "output": 415,
+            "cacheRead": 26198,
+            "cacheCreation": 15010,
+            "cacheCreation1h": 15010,
+            "total": 41625
+          },
+          "costUSD": 0.0694336,
+          "unpriced": false
+        },
+        {
+          "model": "claude-sonnet-5-5",
+          "tokens": {
+            "input": 12,
+            "output": 1000,
+            "cacheRead": 209506,
+            "cacheCreation": 2003,
+            "cacheCreation1h": 2003,
+            "total": 212521
+          },
+          "costUSD": 0.0599372,
+          "unpriced": false
+        }
+      ],
+      "hadLog": true,
+      "agentSessionFile": "/Users/Valentyn_Volkotrub/.claude/projects/-Users-Valentyn-Volkotrub-Socrates-design-system/79dad4ae-3083-4abe-b806-9281bd24e4de.jsonl",
+      "costSeries": [
+        {
+          "t": 1792396112136,
+          "cost": 0.0694336,
+          "tokens": 41625
+        },
+        {
+          "t": 1792396119354,
+          "cost": 0.0818492,
+          "tokens": 83519
+        },
+        {
+          "t": 1792396125066,
+          "cost": 0.0923998,
+          "tokens": 125557
+        },
+        {
+          "t": 1792396130136,
+          "cost": 0.1028262,
+          "tokens": 167809
+        },
+        {
+          "t": 1792396169273,
+          "cost": 0.1143962,
+          "tokens": 210508
+        },
+        {
+          "t": 1792396193392,
+          "cost": 0.1293708,
+          "tokens": 254146
+        }
+      ],
+      "dispatches": [
+        {
+          "kind": "command",
+          "name": "mcp",
+          "start": 1792396035238,
+          "durationMs": 0,
+          "id": "command:0a3ac9ac-27c3-400a-bbea-11fd82fec538:0",
+          "ownerAgentId": "c8c27776-7a1d-4ee3-b329-f64cd7576d6d",
+          "relationshipStatus": "root",
+          "elapsedMs": 0,
+          "status": "completed",
+          "attributionStatus": "unavailable",
+          "attributionScope": "owner-window"
+        },
+        {
+          "kind": "command",
+          "name": "mcp",
+          "start": 1792396050744,
+          "durationMs": 0,
+          "id": "command:3c5d1d9d-ebe1-4aa6-803f-1ae5cbf080b2:0",
+          "ownerAgentId": "c8c27776-7a1d-4ee3-b329-f64cd7576d6d",
+          "relationshipStatus": "root",
+          "elapsedMs": 0,
+          "status": "completed",
+          "attributionStatus": "unavailable",
+          "attributionScope": "owner-window"
+        },
+        {
+          "kind": "command",
+          "name": "mcp",
+          "start": 1792396146431,
+          "durationMs": 0,
+          "id": "command:e625e8cb-005a-46d1-9b5c-c412f5ac4dc1:0",
+          "ownerAgentId": "c8c27776-7a1d-4ee3-b329-f64cd7576d6d",
+          "relationshipStatus": "root",
+          "elapsedMs": 0,
+          "status": "completed",
+          "attributionStatus": "unavailable",
+          "attributionScope": "owner-window"
+        }
+      ],
+      "costSource": "native-estimate",
+      "costBasis": "standard-api-tokens",
+      "dispatchesComplete": true,
+      "rootOwnCostUSD": 0.1293708,
+      "unlinkedCostUSD": 0,
+      "unlinkedAgentIds": [],
+      "rootOwnTokens": {
+        "input": 14,
+        "output": 1415,
+        "cacheRead": 235704,
+        "cacheCreation": 17013,
+        "cacheCreation1h": 17013,
+        "total": 254146
+      },
+      "unlinkedTokens": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheCreation": 0,
+        "cacheCreation1h": 0,
+        "total": 0
+      },
+      "modelTimeline": [
+        {
+          "t": 1792396112136,
+          "model": "claude-sonnet-5-5",
+          "costUSD": 0.0694336,
+          "tokens": 41625
+        },
+        {
+          "t": 1792396119354,
+          "model": "claude-sonnet-5-5",
+          "costUSD": 0.0124156,
+          "tokens": 41894
+        },
+        {
+          "t": 1792396125066,
+          "model": "claude-sonnet-5-5",
+          "costUSD": 0.0105506,
+          "tokens": 42038
+        },
+        {
+          "t": 1792396130136,
+          "model": "claude-sonnet-5-5",
+          "costUSD": 0.0104264,
+          "tokens": 42252
+        },
+        {
+          "t": 1792396169273,
+          "model": "claude-sonnet-5-5",
+          "costUSD": 0.01157,
+          "tokens": 42699
+        },
+        {
+          "t": 1792396193392,
+          "model": "claude-sonnet-5-5",
+          "costUSD": 0.0149746,
+          "tokens": 43638
+        }
+      ],
+      "routedTurnsPct": 0,
+      "skillInvocations": [],
+      "agentInvocations": [],
+      "commandInvocations": [
+        {
+          "name": "mcp",
+          "totalCalls": 3,
+          "successCount": 3,
+          "failureCount": 0
+        }
+      ],
+      "sessionSource": "Pure chat"
+    }
+  ]
+}

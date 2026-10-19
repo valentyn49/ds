@@ -1,14 +1,82 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ModalStories from './modal.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/popup-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderBasic,
+  renderVariants,
+  renderBehaviorTable,
+  renderResponsive,
+  renderFormatting,
+  renderStates,
+} from '../../../docs/popup-docs.js';
 
-<Meta title="Components/Popup/modal" />
+<Meta of={ModalStories} />
 
-# modal
+# Popup
 
-- **Figma page:** Popup
-- **Figma type:** Component set
-- **Variants:** 6
-- **Variant properties:** `size (2)`, `type (3)`
-- **Status:** Placeholder, not documented yet
+Source: the **Popup** page of the [AEGL AUG] Design Library (component set **modal**, component **blur**, frames **480** and **600**) and its **Behaviour** section, which shows the popup in use on desktop, tablet and mobile.
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=108-191)
+## Live Demo
+
+Press **Open popup**. This is the real component: it traps focus, makes the page behind it inert, closes with the close control, Cancel and Escape, and returns focus to the button. The primary action does not close it, because that is up to the application. Change a control while the popup is open and the open popup follows.
+
+The **preview** control chooses a desktop, tablet or mobile frame, or opens the popup over this whole page (`viewport`). The frame, the page behind it and the status line belong to the documentation and are not part of the component.
+
+<Canvas of={ModalStories.Playground} sourceState="none" />
+<Controls of={ModalStories.Playground} />
+
+## Overview
+
+A popup is a focused layer on top of the page. It presents information or asks for a person's attention, and the page behind it cannot be used until it is dismissed. In Figma it is a darkened backdrop with a white container holding a header (title, optional subtitle, close control), a body and an action area.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+## Anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+## Basic Popup
+
+<div dangerouslySetInnerHTML={{ __html: renderBasic() }} />
+
+## Variants
+
+The Figma component set `modal` has six variants. They change the header only.
+
+<div dangerouslySetInnerHTML={{ __html: renderVariants() }} />
+
+## Behaviors
+
+The Figma Behaviour section is six example screens (desktop, tablet and mobile, each with short and with long content) and contains **no written rules**. What it verifies is where the popup sits, which actions it has on each screen size, and what happens to the layout when the content is long. Every other rule below is an implementation decision, taken from the usual conventions for accessible modal dialogs. The Source column says which is which.
+
+<div dangerouslySetInnerHTML={{ __html: renderBehaviorTable() }} />
+
+Close, Cancel and the primary action are three different actions. The close control and Cancel dismiss the popup. The primary action only reports that it was pressed, through `onPrimary` and a `ds-popup-primary` event; the application chooses whether to close the popup, keep it open for a next step, or show a loading look (Figma defines none).
+
+The popup is an element with `role="dialog"` and `aria-modal="true"`, labelled by its title and described by its subtitle (or its body when there is no subtitle). The component API is small:
+
+- **Presentation:** `type`, `width`, `title`, `subtitle`, `body` (text or any element), `primaryLabel`, `cancelLabel`, `showCancel`.
+- **Behavior:** `closeOnEscape` (default `true`), `closeOnBackdrop` (default `false`), `container` (default `document.body`).
+- **Callbacks and events:** `onPrimary`, `onCancel`, `onClose(reason)`, and the bubbling events `ds-popup-open`, `ds-popup-primary`, `ds-popup-cancel` and `ds-popup-close` (`detail.reason` is `close-button`, `cancel`, `escape`, `backdrop` or `programmatic`).
+
+Try the keyboard: open the popup, press Tab until focus has gone round once, then press Escape. The log lists each event.
+
+<Canvas of={ModalStories.Behavior} sourceState="none" />
+
+**Unresolved.** Figma does not say whether Escape or a click on the backdrop should dismiss the popup, what the primary action does, where focus starts, whether the page may scroll behind the popup, or whether Cancel exists on tablet and mobile. These need an answer from design before they can be called rules.
+
+## Desktop and mobile behavior
+
+<div dangerouslySetInnerHTML={{ __html: renderResponsive() }} />
+
+## Formatting and alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## States
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />

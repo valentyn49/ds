@@ -1,0 +1,242 @@
+/*
+  Popup. Source: Figma Popup page (header component set "modal", backdrop "blur", frames "480" and "600")
+  and the Behaviour section (six in-context examples: desktop, tablet and mobile, short and scrolling).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  Layout is decided by the width of the overlay (container query), not the window:
+    mobile  up to 576px    tablet  577px - 992px    desktop  993px and up
+  Desktop is a centered dialog near the top. Tablet and mobile are bottom sheets without a Cancel action.
+  Figma defines no animation, so there is none.
+
+  `[data-scroll]` is set by the script when the content does not fit. The documentation can set it by hand to
+  draw the scrolling look. It is not a public prop.
+*/
+
+.ds-popup,
+.ds-popup *,
+.ds-popup *::before,
+.ds-popup *::after {
+  box-sizing: border-box;
+}
+
+/* Overlay: portal mode is fixed to the window, contained mode fills a positioned container, static sits in the flow. */
+.ds-popup {
+  --pp-w: 600px;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  container: ds-popup / inline-size;
+  font-family: var(--ds-font-family);
+  color: var(--ds-color-gray-900);
+}
+.ds-popup--contained { position: absolute; z-index: 10; }
+.ds-popup--static { position: relative; inset: auto; z-index: auto; overflow: hidden; }
+
+/* Backdrop: Figma component "blur", gray/900 at 60% */
+.ds-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.6);
+  background: color-mix(in srgb, var(--ds-color-gray-900) 60%, transparent);
+}
+
+/* Dialog. Positioned with offsets, not margins: the documentation page resets margins on divs. */
+.ds-popup__dialog {
+  --pp-head-bottom: var(--ds-space-6x);
+  --pp-foot-top: var(--ds-space-12x);
+  position: absolute;
+  z-index: 1;
+  top: 80px;
+  left: calc(50% - var(--pp-w) / 2);
+  display: flex;
+  flex-direction: column;
+  width: var(--pp-w);
+  max-height: calc(100% - 120px);
+  overflow: hidden;
+  border-radius: var(--ds-radius-4x);
+  background: var(--ds-color-gray-50);
+  outline: none;
+}
+.ds-popup__dialog--480 { --pp-w: 480px; }
+
+/* Content does not fit: the popup moves up and grows, the header and footer stay, the body scrolls. */
+.ds-popup__dialog[data-scroll] {
+  --pp-head-bottom: var(--ds-space-2x);
+  --pp-foot-top: var(--ds-space-4x);
+  top: 40px;
+  max-height: calc(100% - 80px);
+}
+
+/* Header */
+.ds-popup__header {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-6x);
+  padding: var(--ds-space-6x) var(--ds-space-5x) var(--pp-head-bottom);
+  background: var(--ds-color-gray-50);
+}
+.ds-popup__dialog[data-scroll] .ds-popup__header { box-shadow: var(--ds-shadow-lg); }
+
+.ds-popup__titles {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-popup__title {
+  margin: 0;
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-xl-font-bold-size);
+  line-height: var(--ds-text-xl-font-bold-line-height);
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.ds-popup__subtitle {
+  margin: 0;
+  color: var(--ds-color-gray-600);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+
+/* Close control: Figma "button-icon-only" */
+.ds-popup__close {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--ds-color-gray-200);
+  border-radius: 160px;
+  background: var(--ds-color-gray-100);
+  color: var(--ds-color-gray-500);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
+.ds-popup__close-icon { display: block; width: 20px; height: 20px; }
+
+/* Keyboard focus. Figma defines no focus look for the close control, so this reuses the focus-primary ring token. */
+.ds-popup__close:focus-visible { box-shadow: var(--ds-shadow-focus-primary); }
+
+/* Status header (type=successfully and type=negative): illustration above centered text */
+.ds-popup__dialog--successfully .ds-popup__header,
+.ds-popup__dialog--negative .ds-popup__header {
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--ds-space-8x);
+  padding: var(--ds-space-15x) 0 var(--pp-head-bottom);
+}
+.ds-popup__dialog--successfully .ds-popup__titles,
+.ds-popup__dialog--negative .ds-popup__titles {
+  flex: none;
+  width: 100%;
+  align-items: center;
+  gap: var(--ds-space-3x);
+  padding: 0 var(--ds-space-5x);
+  text-align: center;
+}
+.ds-popup__dialog--successfully .ds-popup__title,
+.ds-popup__dialog--negative .ds-popup__title,
+.ds-popup__dialog--successfully .ds-popup__subtitle,
+.ds-popup__dialog--negative .ds-popup__subtitle { width: min(400px, 100%); }
+.ds-popup__dialog--successfully .ds-popup__close,
+.ds-popup__dialog--negative .ds-popup__close { position: absolute; top: var(--ds-space-5x); right: var(--ds-space-5x); }
+.ds-popup__illustration { position: relative; flex: none; display: block; width: 154px; height: 120px; }
+.ds-popup__illustration img { position: absolute; display: block; max-width: none; }
+.ds-popup__illustration--successfully img { inset: 0; width: 154px; height: 120px; }
+.ds-popup__illustration--negative .ds-popup__circle { top: 16px; left: 25px; width: 104px; height: 104px; }
+.ds-popup__illustration--negative .ds-popup__cross { top: 53px; left: 62px; width: 30px; height: 30px; }
+
+/* Body: the only part that scrolls */
+.ds-popup__body {
+  position: relative;
+  z-index: 1;
+  flex: 0 1 auto;
+  min-height: 0;
+  padding: 0 var(--ds-space-5x);
+  overflow-y: auto;
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+.ds-popup__body:empty { display: none; }
+
+/* Footer */
+.ds-popup__footer {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--pp-foot-top) var(--ds-space-5x) var(--ds-space-6x);
+  background: var(--ds-color-gray-50);
+}
+.ds-popup__dialog[data-scroll] .ds-popup__footer { box-shadow: var(--ds-shadow-2xl); }
+
+.ds-popup__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-8x);
+}
+.ds-popup__cancel,
+.ds-popup__primary { display: inline-flex; }
+
+/* Tablet and mobile: bottom sheet, one full-width primary action, no Cancel */
+@container ds-popup (max-width: 992px) {
+  .ds-popup__dialog {
+    --pp-head-bottom: var(--ds-space-4x);
+    --pp-foot-top: var(--ds-space-10x);
+    top: auto;
+    bottom: 0;
+    left: 70px;
+    right: 70px;
+    width: auto;
+    max-height: calc(100% - 16px);
+    border-radius: var(--ds-radius-4x) var(--ds-radius-4x) 0 0;
+  }
+  .ds-popup__dialog[data-scroll] {
+    --pp-head-bottom: var(--ds-space-2x);
+    --pp-foot-top: var(--ds-space-4x);
+    top: auto;
+    max-height: calc(100% - 16px);
+  }
+
+  .ds-popup__header { padding-top: var(--ds-space-4x); padding-inline: var(--ds-space-4x); gap: 0; }
+  .ds-popup__titles { gap: var(--ds-space-2x); }
+  .ds-popup__title { font-size: var(--ds-text-base-font-bold-size); line-height: var(--ds-text-base-font-bold-line-height); }
+  .ds-popup__subtitle { font-size: var(--ds-text-xs-font-normal-size); line-height: var(--ds-text-xs-font-normal-line-height); }
+
+  .ds-popup__dialog--successfully .ds-popup__header,
+  .ds-popup__dialog--negative .ds-popup__header { gap: var(--ds-space-4x); padding-top: var(--ds-space-8x); padding-inline: 0; }
+  .ds-popup__dialog--successfully .ds-popup__titles,
+  .ds-popup__dialog--negative .ds-popup__titles { gap: var(--ds-space-1x); padding: 0 var(--ds-space-4x); }
+  .ds-popup__dialog--successfully .ds-popup__close,
+  .ds-popup__dialog--negative .ds-popup__close { top: var(--ds-space-4x); right: var(--ds-space-4x); }
+
+  .ds-popup__body { padding: 0 var(--ds-space-4x); }
+
+  .ds-popup__footer {
+    padding: var(--pp-foot-top) var(--ds-space-4x) var(--ds-space-4x);
+    box-shadow: var(--ds-shadow-2xl);
+  }
+  .ds-popup__actions,
+  .ds-popup__primary,
+  .ds-popup__primary .ds-button { width: 100%; }
+  .ds-popup__cancel { display: none; }
+}
+
+@container ds-popup (max-width: 576px) {
+  .ds-popup__dialog { left: 16px; right: 16px; }
+}
