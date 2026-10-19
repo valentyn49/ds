@@ -1,0 +1,424 @@
+/*
+  Table. Source: Figma Design Library, Table page (cells 131:1295, header 449:139, Divider 3253:3507)
+  and the Sandbox "Table example" elements (light 6228:19649, dark 6228:21083 and 6228:21100, mobile 6228:25452).
+  Values use the design tokens in src/tokens/tokens.css.
+
+  The theme (`ds-tbl-wrap--light` / `--dark`) only sets the custom properties below. Figma draws the dark cells without a
+  fill, because the table sits on secondary/900; the wrapper paints that surface so a pinned column can cover the cells
+  that scroll under it.
+
+  Hover and scroll-shadow selectors also accept `[data-preview-state]` / `[data-scrolled]` so the documentation can draw
+  them without user interaction. They are not part of the component API.
+*/
+
+.ds-tbl-wrap,
+.ds-tbl-wrap *,
+.ds-tbl-wrap *::before,
+.ds-tbl-wrap *::after {
+  box-sizing: border-box;
+}
+
+.ds-tbl-wrap {
+  --tbl-surface: var(--ds-color-gray-50);
+  --tbl-cell-bg: var(--ds-color-gray-50);
+  --tbl-border: var(--ds-color-gray-200);
+  --tbl-fg: var(--ds-color-gray-900);
+  --tbl-fg-strong: var(--ds-color-gray-900);
+  --tbl-fg-secondary: var(--ds-color-gray-500);
+  --tbl-head-bg: var(--ds-color-gray-100);
+  --tbl-head-fg: var(--ds-color-gray-500);
+  --tbl-head-icon: var(--ds-color-gray-500);
+  --tbl-divider-bg: var(--ds-color-gray-100);
+  --tbl-divider-border: var(--ds-color-gray-200);
+  --tbl-icon: var(--ds-color-gray-500);
+  --tbl-icon-strong: var(--ds-color-gray-900);
+
+  position: relative;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  background: var(--tbl-surface);
+  color: var(--tbl-fg);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+}
+
+.ds-tbl-wrap--dark {
+  --tbl-surface: var(--ds-color-secondary-900);
+  --tbl-cell-bg: var(--ds-color-secondary-900);
+  --tbl-border: var(--ds-color-gray-400);
+  --tbl-fg: var(--ds-color-gray-50);
+  --tbl-fg-strong: var(--ds-color-gray-50);
+  --tbl-fg-secondary: var(--ds-color-gray-50);
+  --tbl-head-bg: var(--ds-color-secondary-800);
+  --tbl-head-fg: var(--ds-color-secondary-50);
+  --tbl-head-icon: var(--ds-color-gray-50);
+  --tbl-divider-bg: var(--ds-color-secondary-800);
+  --tbl-divider-border: var(--ds-color-gray-400);
+  --tbl-icon: var(--ds-color-gray-50);
+  --tbl-icon-strong: var(--ds-color-gray-50);
+}
+
+/* The scroll region is focusable so a keyboard user can scroll it sideways. */
+.ds-tbl-wrap:focus-visible { outline: none; box-shadow: var(--ds-shadow-focus-primary); }
+
+.ds-tbl-wrap .ds-tbl {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: var(--tbl-min, 0px);
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  color: inherit;
+}
+
+.ds-tbl-wrap .ds-tbl__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ds-tbl-wrap .ds-tbl__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Rows carry no border or fill of their own: host pages (the docs) may style tr elements. */
+.ds-tbl-wrap .ds-tbl__row,
+.ds-tbl-wrap .ds-tbl__divider-row {
+  border: 0;
+  background: transparent;
+}
+
+/* ---------- header (Figma table-cell, node 449:139) ---------- */
+.ds-tbl-wrap .ds-tbl__th {
+  height: 32px;
+  margin: 0;
+  border: 0;
+  padding: var(--ds-space-1x);
+  background: var(--tbl-head-bg);
+  color: var(--tbl-head-fg);
+  font-size: 10px;
+  line-height: normal;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.ds-tbl-wrap .ds-tbl__th--start { text-align: left; }
+.ds-tbl-wrap .ds-tbl__th-inner {
+  /* Figma: the header is a fixed 32px; a long title is centered and overflows the padding instead of growing the row. */
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.ds-tbl-wrap .ds-tbl__th--start .ds-tbl__th-inner { justify-content: flex-start; }
+.ds-tbl-wrap .ds-tbl__th-title { min-width: 0; white-space: pre-line; }
+.ds-tbl-wrap .ds-tbl__th-sort { flex: none; width: 20px; height: 20px; color: var(--tbl-head-icon); }
+.ds-tbl-wrap .ds-tbl__th--sorted { color: var(--ds-color-primary-600); }
+.ds-tbl-wrap .ds-tbl__th--sorted .ds-tbl__th-sort { color: var(--ds-color-primary-600); }
+
+/* ---------- row and cell (Figma table-cell, node 131:1295) ---------- */
+.ds-tbl-wrap .ds-tbl__row { height: 64px; }
+
+.ds-tbl-wrap .ds-tbl__cell {
+  --pad-y: var(--ds-space-2x);
+  height: 64px;
+  margin: 0;
+  padding: var(--pad-y) var(--ds-space-1x);
+  border: 0;
+  border-bottom: 1px solid var(--tbl-border);
+  background: var(--tbl-cell-bg);
+  color: var(--tbl-fg);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+}
+/* Figma pads these types 16px, but the row is a fixed 64px and a two-line value (36px) already overflows that padding,
+   so 8px keeps the row at 64px and the value centered; longer text can still grow the row. */
+.ds-tbl-wrap .ds-tbl__cell--roomy { --pad-y: var(--ds-space-2x); }
+
+.ds-tbl-wrap .ds-tbl__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-1x);
+  min-width: 0;
+  min-height: calc(64px - 1px - var(--pad-y) * 2);
+}
+
+/* Optional vertical dividers: a 1px right border on every cell (Sandbox example 6228:26517) */
+.ds-tbl--col-dividers .ds-tbl__cell,
+.ds-tbl--col-dividers .ds-tbl__th { border-right: 1px solid var(--tbl-border); }
+.ds-tbl--col-dividers .ds-tbl__cell:last-child,
+.ds-tbl--col-dividers .ds-tbl__th:last-child { border-right: 0; }
+
+/* Dark mode has no variant for these types in Figma, so they keep the light cell look. */
+.ds-tbl-wrap--dark .ds-tbl__cell--light-only {
+  --tbl-cell-bg: var(--ds-color-gray-50);
+  --tbl-border: var(--ds-color-gray-200);
+  --tbl-fg: var(--ds-color-gray-900);
+  --tbl-fg-secondary: var(--ds-color-gray-500);
+  --tbl-icon: var(--ds-color-gray-500);
+  --tbl-icon-strong: var(--ds-color-gray-900);
+}
+
+/* Subscribed market: the tint replaces the cell fill on every cell of the row (light theme only; Figma draws none for dark) */
+.ds-tbl-wrap--light .ds-tbl__row[data-subscription="detailed"] { --tbl-cell-bg: var(--ds-color-detailed-50); }
+.ds-tbl-wrap--light .ds-tbl__row[data-subscription="premium"] { --tbl-cell-bg: var(--ds-color-premium-50); }
+.ds-tbl-wrap--light .ds-tbl__row[data-subscription="summary"] { --tbl-cell-bg: var(--ds-color-summary-50); }
+
+/* Row hover, as drawn in the Sandbox example: gray/100 fill and an underlined market name. Not drawn for tinted rows or the dark theme. */
+.ds-tbl-wrap--light .ds-tbl__row:not([data-subscription]):is(:hover, [data-preview-state="hover"]) { --tbl-cell-bg: var(--ds-color-gray-100); }
+.ds-tbl-wrap--light .ds-tbl__row:not([data-subscription]):is(:hover, [data-preview-state="hover"]) .ds-tbl__mn-name { text-decoration: underline; }
+
+/* ---------- cell types ---------- */
+.ds-tbl-wrap .ds-tbl__cell--market-name { text-align: left; }
+.ds-tbl-wrap .ds-tbl__cell--market-name .ds-tbl__content {
+  align-items: center;
+  justify-content: flex-start;
+  /* Figma: fixed 64px cell; the 54px text group is centered and overflows the padding, so the row never grows. */
+  height: calc(64px - 1px - var(--pad-y) * 2);
+  min-height: 0;
+}
+.ds-tbl-wrap .ds-tbl__mn-box { display: flex; flex: 1; align-items: flex-start; gap: var(--ds-space-1x); min-width: 0; }
+.ds-tbl-wrap .ds-tbl__star { flex: none; width: 18px; height: 18px; color: var(--tbl-icon); }
+.ds-tbl-wrap .ds-tbl__mn { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.ds-tbl-wrap .ds-tbl__mn-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--tbl-fg-strong);
+  overflow-wrap: break-word;
+}
+.ds-tbl-wrap .ds-tbl__mn--country .ds-tbl__mn-name { -webkit-line-clamp: 2; }
+.ds-tbl-wrap .ds-tbl__mn-country { display: flex; align-items: center; gap: var(--ds-space-1x); min-width: 0; color: var(--ds-color-gray-500); }
+.ds-tbl-wrap .ds-tbl__mn-country > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ds-tbl-wrap .ds-tbl__flag { flex: none; font-size: 16px; line-height: 1; }
+
+.ds-tbl-wrap .ds-tbl__text { min-width: 0; white-space: pre-line; overflow-wrap: break-word; }
+.ds-tbl-wrap .ds-tbl__text--secondary { color: var(--ds-color-gray-500); }
+.ds-tbl-wrap--dark .ds-tbl__text--secondary { color: var(--tbl-fg); }
+.ds-tbl-wrap .ds-tbl__text--muted { color: var(--ds-color-gray-400); }
+.ds-tbl-wrap .ds-tbl__text--strong { font-weight: 700; }
+.ds-tbl-wrap .ds-tbl__row-inline { display: flex; align-items: center; justify-content: center; gap: var(--ds-space-1x); flex-wrap: wrap; }
+
+.ds-tbl-wrap .ds-tbl__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ds-space-1x) var(--ds-space-2x);
+  border-radius: var(--ds-radius-1x);
+  background: var(--ds-color-primary-600);
+  color: var(--ds-color-gray-50);
+}
+.ds-tbl-wrap .ds-tbl__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px var(--ds-space-2x);
+  border-radius: var(--ds-radius-7x);
+  background: var(--ds-color-primary-600);
+  color: var(--ds-color-gray-50);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ds-tbl-wrap--dark .ds-tbl__cell--text-new .ds-tbl__pill {
+  padding-block: 2px;
+  background: var(--ds-color-primary-700);
+  font-size: var(--ds-text-xs-font-medium-size);
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.ds-tbl-wrap .ds-tbl__cell--text-new .ds-tbl__content { flex-direction: column; gap: var(--ds-space-1x); }
+
+.ds-tbl-wrap .ds-tbl__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1x);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-radius-1x);
+  background: none;
+  color: var(--ds-color-primary-600);
+  font: inherit;
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  cursor: pointer;
+}
+.ds-tbl-wrap .ds-tbl__link:focus-visible { outline: none; box-shadow: var(--ds-shadow-focus-primary); }
+.ds-tbl-wrap .ds-tbl__link svg { flex: none; width: 20px; height: 20px; color: var(--ds-color-primary-600); }
+
+.ds-tbl-wrap .ds-tbl__toggle {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--ds-space-2x);
+  color: var(--ds-color-gray-900);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  white-space: nowrap;
+}
+.ds-tbl-wrap .ds-tbl__toggle svg { flex: none; width: 28px; height: 28px; color: var(--ds-color-gray-600); }
+
+.ds-tbl-wrap .ds-tbl__icon { flex: none; display: block; color: var(--tbl-icon-strong); }
+.ds-tbl-wrap .ds-tbl__icon--muted { color: var(--ds-color-gray-400); }
+.ds-tbl-wrap .ds-tbl__cell--icon-text .ds-tbl__content { gap: var(--ds-space-1x); }
+.ds-tbl-wrap .ds-tbl__cell--icon-text .ds-tbl__icon { color: var(--tbl-fg-secondary); }
+.ds-tbl-wrap--dark .ds-tbl__cell--icon-text .ds-tbl__icon { color: var(--ds-color-gray-50); }
+.ds-tbl-wrap .ds-tbl__cell--icon-text .ds-tbl__text { color: var(--tbl-fg-secondary); white-space: nowrap; }
+
+/* Metric tile: a colored tile that fills the cell */
+.ds-tbl-wrap .ds-tbl__cell--metric,
+.ds-tbl-wrap .ds-tbl__cell--metric-comment { padding-inline: var(--ds-space-1x); }
+.ds-tbl-wrap .ds-tbl__tile {
+  --tile-bg: var(--ds-color-alert-600);
+  --tile-fg: var(--ds-color-gray-50);
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: var(--ds-space-1x);
+  border-radius: var(--ds-radius-1x);
+  background: var(--tile-bg);
+  color: var(--tile-fg);
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+.ds-tbl-wrap .ds-tbl__tile--alert-600 { --tile-bg: var(--ds-color-alert-600); }
+.ds-tbl-wrap .ds-tbl__tile--alert-500 { --tile-bg: var(--ds-color-alert-500); }
+.ds-tbl-wrap .ds-tbl__tile--green-600 { --tile-bg: var(--ds-color-green-600); }
+.ds-tbl-wrap .ds-tbl__tile--green-500 { --tile-bg: var(--ds-color-green-500); }
+.ds-tbl-wrap .ds-tbl__tile--primary-600 { --tile-bg: var(--ds-color-primary-600); }
+.ds-tbl-wrap .ds-tbl__tile--yellow-300 { --tile-bg: var(--ds-color-yellow-300); --tile-fg: var(--ds-color-gray-900); }
+.ds-tbl-wrap .ds-tbl__tile--comments-900 { --tile-bg: var(--ds-color-comments-900); --tile-fg: var(--ds-color-gray-900); }
+.ds-tbl-wrap .ds-tbl__tile-row { display: flex; align-items: center; justify-content: center; gap: var(--ds-space-1x); }
+.ds-tbl-wrap .ds-tbl__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--ds-space-1x);
+  border-radius: var(--ds-radius-1x);
+  background: var(--ds-color-gray-50);
+  color: var(--ds-color-alert-600);
+  font-weight: 700;
+}
+
+.ds-tbl-wrap .ds-tbl__cell--button .ds-button { width: 100%; }
+
+.ds-tbl-wrap .ds-tbl__spark { display: block; flex: 1; align-self: stretch; min-width: 0; width: 100%; height: 100%; max-height: 48px; object-fit: fill; }
+.ds-tbl-wrap .ds-tbl__cell--graph { padding-inline: var(--ds-space-1x); }
+
+.ds-tbl-wrap .ds-tbl__cell--bar { padding-inline: 1px; }
+.ds-tbl-wrap .ds-tbl__cell--bar .ds-tbl__content { align-items: flex-end; justify-content: stretch; }
+.ds-tbl-wrap .ds-tbl__bar {
+  position: relative;
+  flex: 1;
+  height: 25px;
+  background: var(--ds-color-primary-600);
+}
+.ds-tbl-wrap--dark .ds-tbl__bar { height: 10px; }
+.ds-tbl-wrap .ds-tbl__bar-label {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  color: var(--ds-color-gray-50);
+  font-size: var(--ds-text-xs-font-medium-size);
+  line-height: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------- divider (Figma Divider, node 3253:3507): a section bar, not a thin line ---------- */
+.ds-tbl-wrap .ds-tbl__divider-row { height: 26px; }
+.ds-tbl-wrap .ds-tbl__divider {
+  height: 26px;
+  margin: 0;
+  padding: var(--ds-space-1x);
+  border: 0;
+  border-top: 1px solid var(--tbl-divider-border);
+  border-bottom: 1px solid var(--tbl-divider-border);
+  background: var(--tbl-divider-bg);
+  color: var(--tbl-fg-strong);
+  font-weight: 400;
+  text-align: left;
+}
+.ds-tbl-wrap--light .ds-tbl__divider--level-1 { background: var(--ds-color-gray-200); }
+.ds-tbl-wrap .ds-tbl__divider-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-1x); min-width: 0; }
+.ds-tbl-wrap .ds-tbl__divider-main { display: flex; flex: 1; align-items: center; gap: var(--ds-space-1x); min-width: 0; }
+.ds-tbl-wrap .ds-tbl__divider-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ds-tbl-wrap .ds-tbl__divider--icon-end .ds-tbl__divider-title { flex: 1; }
+.ds-tbl-wrap .ds-tbl__divider-icon { flex: none; width: 18px; height: 18px; color: var(--tbl-icon); }
+.ds-tbl-wrap .ds-tbl__divider-action {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--ds-space-1x);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-radius-1x);
+  background: none;
+  color: var(--ds-color-gray-500);
+  font: inherit;
+  font-size: var(--ds-text-xs-font-medium-size);
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ds-tbl-wrap--dark .ds-tbl__divider-action { color: var(--ds-color-gray-50); }
+.ds-tbl-wrap .ds-tbl__divider-action--primary { color: var(--ds-color-primary-600); }
+.ds-tbl-wrap--dark .ds-tbl__divider-action--primary { color: var(--ds-color-primary-600); }
+.ds-tbl-wrap .ds-tbl__divider-action:focus-visible { outline: none; box-shadow: var(--ds-shadow-focus-primary); }
+.ds-tbl-wrap .ds-tbl__divider-action svg { flex: none; width: 18px; height: 18px; }
+
+.ds-tbl-root .ds-tbl__note {
+  margin: 0;
+  padding: var(--ds-space-2x) 0 0;
+  color: var(--ds-color-gray-500);
+  font-size: var(--ds-text-xs-font-normal-size);
+  line-height: var(--ds-text-xs-font-normal-line-height);
+}
+
+/* ---------- pinned first column (Sandbox mobile example 6228:25452) ---------- */
+.ds-tbl--sticky .ds-tbl__th:first-child,
+.ds-tbl--sticky .ds-tbl__cell:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+/* Figma: drop shadow 4px 4px 6px, black at 16%. No token matches it, so it is kept as drawn. Shown once content scrolls under the column. */
+.ds-tbl-wrap:is([data-scrolled], [data-preview-state="scrolled"]) .ds-tbl--sticky .ds-tbl__th:first-child,
+.ds-tbl-wrap:is([data-scrolled], [data-preview-state="scrolled"]) .ds-tbl--sticky .ds-tbl__cell:first-child {
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.16);
+}

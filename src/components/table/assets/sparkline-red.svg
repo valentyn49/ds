@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="156" height="48" viewBox="0 0 156 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Sparkline" clip-path="url(#clip0_0_106)">
+<path id="area" opacity="0.2" d="M39 12.5L55.5 24.5L78 33L97 34L116 30L134 38.5L156 44V48.5H0V8L11.5 12.5H39Z" fill="url(#paint0_linear_0_106)"/>
+<path id="line" d="M154.5 43.5L134 38.5L116.609 30L97 34L77.7115 32.8826L55.5 24.5L39.0792 12.3846H24.5H11.5L1 8" stroke-width="2" stroke-linecap="round" stroke="#BE2625"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_106" x1="583.833" y1="-17.6154" x2="583.833" y2="189" gradientUnits="userSpaceOnUse">
+<stop stop-color="#BE2625"/>
+<stop offset="1" stop-color="#CE3930" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_0_106">
+<rect width="156" height="48" fill="white"/>
+</clipPath>
+</defs>
+</svg>

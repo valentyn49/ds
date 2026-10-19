@@ -1,16 +1,109 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TableStories from './table-cell.stories.js';
+import '../../../docs/button-docs.css';
+import '../../../docs/input-docs.css';
+import '../../../docs/table-docs.css';
+import {
+  renderOverview,
+  renderAnatomy,
+  renderCellAnatomy,
+  renderStickyAnatomy,
+  renderCells,
+  renderDividers,
+  renderHeader,
+  renderStates,
+  renderSubscription,
+  renderFormatting,
+  renderBehaviorTable,
+  renderResponsive,
+} from '../../../docs/table-docs.js';
 
-<Meta title="Components/Table/table-cell" />
+<Meta of={TableStories} />
 
-# table-cell
+# Table
 
-- **Figma page:** Table
-- **Figma type:** Component set
-- **Variants:** 33
-- **Variant properties:** `mode (2)`, `type (15)`, `metric type (3)`, `text type (3)`
-- **Status:** Placeholder, not documented yet
+Source: the **Table** page of the [AEGL AUG] Design Library (component sets **table-cell**, the header **table-cell**, and **Divider**) and the elements named **Table example** in the Sandbox file: a light table, two dark tables and a mobile table.
 
-> Two separate component sets share the name "table-cell": one with 33 variants (above) and one with 2 variants (axis: mode).
+## Live Demo
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=131-46)
+The sample rows are the watchlist table from the Sandbox, with made-up values. Change the mode, the preview width, the rows and the options; the table redraws at once. To try the pinned first column, choose the **mobile** preview, switch on **stickyFirstColumn** and scroll the table sideways. The preview width, the row count and the sample-data controls belong to the documentation and are not properties of the component.
+
+<Canvas of={TableStories.Playground} sourceState="none" />
+<Controls of={TableStories.Playground} />
+
+## Overview
+
+A table shows structured, comparable information, such as the prices, changes and patterns of many markets side by side, and what the user can do with each market. In Figma it is made of three building blocks and some rows around them.
+
+<div dangerouslySetInnerHTML={{ __html: renderOverview() }} />
+
+The component is a semantic HTML `table`. The first cell of each row is the row header (`th scope="row"`), the header cells are `th scope="col"`, and a Divider is a row that spans all columns. The table sits in a scroll region (`role="region"`, named, focusable) so that wide tables scroll inside it and never widen the page.
+
+## Anatomy
+
+### General anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderAnatomy() }} />
+
+### Cell anatomy
+
+<div dangerouslySetInnerHTML={{ __html: renderCellAnatomy() }} />
+
+### Pinned column anatomy (mobile)
+
+<div dangerouslySetInnerHTML={{ __html: renderStickyAnatomy() }} />
+
+## Table Cells
+
+The Figma component set **table-cell** has four properties: `mode` (light, dark), `type` (15 values), `metric type` and `text type`. Together they make 33 variants. Each is shown below with its Figma name, light and dark side by side, at the width Figma draws it.
+
+<div dangerouslySetInnerHTML={{ __html: renderCells() }} />
+
+## Table Dividers
+
+<div dangerouslySetInnerHTML={{ __html: renderDividers() }} />
+
+## Table Header
+
+<div dangerouslySetInnerHTML={{ __html: renderHeader() }} />
+
+## States
+
+<div dangerouslySetInnerHTML={{ __html: renderStates() }} />
+
+## Market Subscription Row Highlighting
+
+<div dangerouslySetInnerHTML={{ __html: renderSubscription() }} />
+
+## Formatting and Alignment
+
+<div dangerouslySetInnerHTML={{ __html: renderFormatting() }} />
+
+## Behaviors
+
+Figma shows a few behaviors in its examples and defines no others. The table below lists what is verified and what is a decision. Sorting, filtering, pagination, column resizing, row selection and the like are not in Figma and are not built.
+
+<div dangerouslySetInnerHTML={{ __html: renderBehaviorTable() }} />
+
+## Responsive Layout
+
+<div dangerouslySetInnerHTML={{ __html: renderResponsive() }} />
+
+## Example 1: Light Theme Table
+
+Sandbox node `6228:19649`, the element named **Table example** in *Socrates Markets_All*. It has the header with three sorting icons, two section Dividers with a pin action, three subscription tints (Detailed, Premium, Summary), a hovered row and the five colors of the pattern tile. The page has two more elements with this name (the watchlist `6228:26928`, used in the highlighting section, and the alerts table `6228:26517`, used in the dividers section); this one is the fullest. Hover a row to see the hover look.
+
+<Canvas of={TableStories.LightExample} sourceState="none" />
+
+## Example 2: Dark Theme Table
+
+Sandbox nodes `6228:21083` (Stochastics) and `6228:21100` (Energy Model), both named **Table example** in *Dashboards_Last Daily Close_Hover*. Both sit on secondary/900. The header is secondary/800, the cells have no fill and a gray/400 border, and the text is white. These tables have no highlighted rows, so Figma gives no dark subscription tint.
+
+<Canvas of={TableStories.DarkExample} sourceState="none" />
+
+## Example 3: Mobile Table with a Sticky First Column
+
+Sandbox node `6228:25452`, the element named **Table example** in *mobile*. The table is 620px wide in a 343px preview. The Market column is pinned; scroll the table sideways and the other columns slide under it, with the shadow on the pinned column. The Figma frame shows the table already scrolled by 80px, which is what the first button does. Switch **sticky first column** off to see the same table without the pin.
+
+<Canvas of={TableStories.MobileExample} sourceState="none" />
+<Controls of={TableStories.MobileExample} />

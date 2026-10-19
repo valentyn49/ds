@@ -1,0 +1,64 @@
+/*
+  Proxima Nova, from the local /fonts folder (the files used in the Figma design system).
+  The family name matches `--ds-font-family` in tokens.css, so every component and the docs pick the files up.
+
+  Files available: Light 300, Regular 400, Bold 700, ExtraBold 800, Black 900, Bold Italic, Black Italic.
+  There are no Medium (500) or Semibold (600) files. A request for 500 uses Regular and a request for 600 uses Bold
+  (standard CSS weight matching); no font is substituted or synthesized from another family.
+*/
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../../fonts/proximanova_light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../fonts/proximanova_regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../fonts/proximanova_bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../fonts/proximanova_boldit.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../fonts/proximanova_extrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../../fonts/proximanova_black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../../fonts/proximanova_blackit.otf") format("opentype");
+}

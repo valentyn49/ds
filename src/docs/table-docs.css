@@ -1,0 +1,69 @@
+/* Layout for the Table documentation page. Shares legend, table and marker (.ds-bd-anchor) classes with
+   button-docs.css and input-docs.css. The component itself uses the `ds-tbl` classes; `ds-table` is the
+   documentation's own table style (docs.css). */
+
+.ds-bd-tb-table th, .ds-bd-tb-table td { text-transform: none; vertical-align: top; }
+.ds-bd-tb-table tbody th { width: 22%; text-transform: none; }
+.ds-bd-tb-table code { font-size: var(--ds-text-xs-font-normal-size); }
+.ds-bd-tb-table .ds-chip { white-space: nowrap; }
+
+.ds-bd-tb-label { display: block; width: fit-content; max-width: 100%; color: var(--ds-color-gray-500); font-size: var(--ds-text-xs-font-normal-size) !important; }
+.ds-bd-tb-item { display: flex; flex-direction: column; gap: var(--ds-space-2x); min-width: 0; margin: var(--ds-space-3x) 0; }
+
+/* Surface: the page color a table sits on */
+.ds-bd-tb-surface { padding: var(--ds-space-4x); border-radius: var(--ds-radius-3x); background: var(--ds-color-gray-100); overflow-x: auto; }
+.ds-bd-tb-surface--dark { background: var(--ds-color-secondary-900); }
+.ds-bd-tb-surface--tight { display: inline-block; max-width: 100%; padding: var(--ds-space-2x); }
+
+.ds-bd-tb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ds-space-3x) var(--ds-space-6x); margin: var(--ds-space-4x) 0; }
+.ds-bd-tb-pair2 { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--ds-space-6x); margin: var(--ds-space-4x) 0; }
+
+/* Table Cells section */
+.ds-bd-tb-type { margin: var(--ds-space-8x) 0; }
+.ds-bd-tb-type > h3 { margin-bottom: var(--ds-space-1x); }
+.ds-bd-tb-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ds-space-6x); margin: var(--ds-space-5x) 0; }
+.ds-bd-tb-pair__cell { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-space-2x); min-width: 0; }
+.ds-bd-tb-pair__cell--none { justify-content: center; min-width: 180px; color: var(--ds-color-gray-400); font-size: var(--ds-text-xs-font-normal-size); }
+
+/* Subscription tints */
+.ds-bd-tb-swatch { display: inline-block; width: 40px; height: 20px; border: 1px solid var(--ds-color-gray-200); border-radius: var(--ds-radius-2x); }
+.ds-bd-tb-swatch--detailed { background: var(--ds-color-detailed-50); }
+.ds-bd-tb-swatch--premium { background: var(--ds-color-premium-50); }
+.ds-bd-tb-swatch--summary { background: var(--ds-color-summary-50); }
+
+/* Anatomy: the table is drawn at natural size; the stage leaves room for the markers. */
+.ds-bd-tb-anatomy { --z: 1; padding: 90px 150px 90px 150px; overflow-x: auto; justify-content: flex-start; }
+.ds-bd-tb-anatomy__figure { zoom: var(--z); flex: none; }
+.ds-bd-tb-anatomy .ds-tbl-wrap { overflow: visible; }
+.ds-bd-tb-anatomy--cell { justify-content: center; padding-inline: 130px; }
+.ds-bd-tb-cellpair { display: flex; gap: 150px; align-items: flex-start; }
+.ds-bd-tb-anatomy--cell .ds-tbl-wrap { overflow: visible; }
+.ds-bd-tb-anatomy--sticky { padding-inline: 160px; }
+
+/* Live Demo and examples */
+.ds-bd-demo-surface.ds-bd-tb-demo-surface { display: block; width: 100%; padding: var(--ds-space-4x); overflow-x: auto; }
+.ds-bd-demo-surface.ds-bd-tb-demo-surface--dark { background: var(--ds-color-secondary-900); }
+.ds-bd-tb-demo { display: flex; flex-direction: column; gap: var(--ds-space-3x); width: 100%; min-width: 0; }
+.ds-bd-tb-demo > .ds-tbl-wrap, .ds-bd-tb-demo > .ds-tbl-root { max-width: 100%; }
+.ds-bd-tb-dark-card { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--ds-space-2x); padding: var(--ds-space-4x); border-radius: var(--ds-radius-3x); background: var(--ds-color-secondary-900); }
+.ds-bd-tb-note { margin: 0; color: var(--ds-color-gray-500); font-family: var(--ds-font-family); font-size: var(--ds-text-sm-font-normal-size); line-height: var(--ds-text-sm-font-normal-line-height); }
+.ds-bd-tb-actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3x); }
+.ds-bd-tb-phone { width: fit-content; max-width: 100%; padding: var(--ds-space-4x) var(--ds-space-4x) var(--ds-space-4x) var(--ds-space-4x); border-radius: var(--ds-radius-3x); background: var(--ds-color-gray-50); }
+
+/* Anatomy markers placed at a point: a line of --len in one direction, ending in a numbered bubble */
+.ds-bd-tb-fig { position: relative; }
+.ds-bd-tb-mk { position: absolute; width: 0; height: 0; z-index: 5; pointer-events: none; }
+.ds-bd-tb-mk::before { content: ""; position: absolute; background: var(--ds-color-gray-900); }
+.ds-bd-tb-mk b {
+  position: absolute; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--ds-color-gray-900); color: var(--ds-color-gray-50);
+  font: 700 12px/24px var(--ds-font-family); text-align: center;
+}
+.ds-bd-tb-mk--left::before { right: 0; top: 0; width: var(--len); height: 1px; }
+.ds-bd-tb-mk--left b { left: calc(-1 * var(--len) - 12px); top: -12px; }
+.ds-bd-tb-mk--right::before { left: 0; top: 0; width: var(--len); height: 1px; }
+.ds-bd-tb-mk--right b { left: calc(var(--len) - 12px); top: -12px; }
+.ds-bd-tb-mk--top::before { left: 0; bottom: 0; width: 1px; height: var(--len); }
+.ds-bd-tb-mk--top b { left: -12px; top: calc(-1 * var(--len) - 12px); }
+.ds-bd-tb-mk--bottom::before { left: 0; top: 0; width: 1px; height: var(--len); }
+.ds-bd-tb-mk--bottom b { left: -12px; top: calc(var(--len) - 12px); }

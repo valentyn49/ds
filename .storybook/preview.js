@@ -1,4 +1,5 @@
 import theme from './theme.js';
+import '../src/tokens/fonts.css';
 import '../src/tokens/tokens.css';
 import '../src/docs/docs.css';
 
