@@ -2,9 +2,9 @@
   Proxima Nova, from the local /fonts folder (the files used in the Figma design system).
   The family name matches `--ds-font-family` in tokens.css, so every component and the docs pick the files up.
 
-  Files available: Light 300, Regular 400, Bold 700, ExtraBold 800, Black 900, Bold Italic, Black Italic.
-  There are no Medium (500) or Semibold (600) files. A request for 500 uses Regular and a request for 600 uses Bold
-  (standard CSS weight matching); no font is substituted or synthesized from another family.
+  Files available: Light 300, Regular 400, Semibold 600, Bold 700, ExtraBold 800, Black 900,
+  Bold Italic, Black Italic. Figma's font-medium styles use Semibold (600).
+  There is no Medium (500) file; requests for 500 use Regular through standard CSS weight matching.
 */
 
 @font-face {
@@ -21,6 +21,14 @@
   font-weight: 400;
   font-display: swap;
   src: url("../../fonts/proximanova_regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../fonts/proximanova_semibold.ttf") format("truetype");
 }
 
 @font-face {
