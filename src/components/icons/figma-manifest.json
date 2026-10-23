@@ -1,0 +1,6458 @@
+{
+  "fileKey": "spBZF1HWrU83CHRMF8q3mU",
+  "rootNodeId": "6:5659",
+  "pageNodeId": "6:5641",
+  "componentCount": 78,
+  "instanceCount": 3,
+  "componentSetCount": 0,
+  "entries": [
+    {
+      "name": "icon/cart",
+      "figmaName": "icon / cart",
+      "nodeId": "39:1176",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "cart.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "39:1176",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "39:1175",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "233e9e336cb068b374e279b1dd5fb4757ff64a9692ebe160de0cdb1c57aac3d9"
+    },
+    {
+      "name": "icon/search",
+      "figmaName": "icon / search",
+      "nodeId": "35:183",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "search.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "35:183",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "35:182",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "94d89e4e15a463d991636f1535565bb11414c3e33bb85592ffab1d1b31577951"
+    },
+    {
+      "name": "icon/chevron",
+      "figmaName": "icon / chevron",
+      "nodeId": "38:1013",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "chevron.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "38:1013",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "38:1012",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "763267303aab871587ef89fcf5c0ccb30278ca3e80d6c7df034a806e9bb81ea6"
+    },
+    {
+      "name": "icon/chevron_right",
+      "figmaName": "icon / chevron_right",
+      "nodeId": "180:1045",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "chevron_right.svg",
+      "bounds": {
+        "x": -12.499961853027347,
+        "y": -1323,
+        "width": 24.000000000000004,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027347,
+        "y": -1323,
+        "width": 24.000000000000004,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "180:1045",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "180:1044",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "6d597a0510f1ca2b67b7a9298e20a9358ff356fa782f68df764445c907f7b98d"
+    },
+    {
+      "name": "icon/sorting_down",
+      "figmaName": "icon / sorting_down",
+      "nodeId": "38:1039",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "sorting_down.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "38:1039",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "38:1038",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "407c404b5bfc872b487fb132d636944ea220f98b1cd24ad368d572d59c8db6c7"
+    },
+    {
+      "name": "icon/sorting_up",
+      "figmaName": "icon / sorting_up",
+      "nodeId": "3494:15745",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "sorting_up.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3494:15745",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3494:15744",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "55125da5ec9dde55b3de60f9f384a8c2169032b30e464e6c851a4a6f0aae3079"
+    },
+    {
+      "name": "icon/sorting",
+      "figmaName": "icon / sorting",
+      "nodeId": "3540:31135",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "sorting.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -1323,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3540:31135",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3540:31133",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3540:31134",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "3b0de7cd2336e12e6f758a291207c2d8c716349b1ae36efd2a03fcdf00f9ffc6"
+    },
+    {
+      "name": "icon/close",
+      "figmaName": "icon / close",
+      "nodeId": "40:1381",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "close.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "40:1381",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "40:1380",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "cb268a11c997b5f94ccda13c255cc1bf15533f452e83d912b5918a6fb12ab5b5"
+    },
+    {
+      "name": "icon/filter",
+      "figmaName": "icon / filter",
+      "nodeId": "46:1388",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "filter.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "46:1388",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "46:1387",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "e2475e3e2c929214e5a08dfb925bd36db29b20ec8105f519d37ec1e438f794b5"
+    },
+    {
+      "name": "icon/radio",
+      "figmaName": "icon / radio",
+      "nodeId": "59:883",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "radio.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "59:883",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "59:875",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "f98a003281aca4c366149d51a6c004df25fc7e775301355e5cfac6271a6c6481"
+    },
+    {
+      "name": "icon/radio_selected",
+      "figmaName": "icon / radio_selected",
+      "nodeId": "59:884",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "radio_selected.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "59:884",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "59:881",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5864aa0e77aa60e0b78e8f34bf1dc3931778f5a6daf00a9e6b10d20653d042ff"
+    },
+    {
+      "name": "icon/check_box",
+      "figmaName": "icon / check_box",
+      "nodeId": "59:901",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "check_box.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "59:901",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "59:898",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "cb2cb58af8224062769948355f2c436b6ba83e0a025ec964ced98c9fb6d37a96"
+    },
+    {
+      "name": "icon/check_box_cheked",
+      "figmaName": "icon / check_box_cheked",
+      "nodeId": "59:902",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "check_box_cheked.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "59:902",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "67:3169",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "7c03b7adf9be58a227b5bc98715d860a89cd35577a3323ae8a6545b759850f17"
+    },
+    {
+      "name": "icon/logoff",
+      "figmaName": "icon / logoff",
+      "nodeId": "422:180",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#000000",
+      "asset": "logoff.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -1147,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "422:180",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "422:179",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5fbebd63ac290e6dbeb9845273208f0d1f320450571f27db311b92210febdeb5"
+    },
+    {
+      "name": "icon/plus",
+      "figmaName": "icon / plus",
+      "nodeId": "63:3139",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "plus.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "63:3139",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "63:3138",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "6cdb922aab3c081ab51a74dedc5eeced1d664a91d6e5ba9c95a7a23a36450a52"
+    },
+    {
+      "name": "icon/minus",
+      "figmaName": "icon / minus",
+      "nodeId": "63:3153",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "minus.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "63:3153",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "63:3152",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5c1dbcf2a4cd62a689252c6e103b8cc8b9e0af82df1c66aa79b23f985dcd7817"
+    },
+    {
+      "name": "icon/check",
+      "figmaName": "icon / check",
+      "nodeId": "76:35",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "check.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "76:35",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "76:34",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "ff6875ce3ec8cbdf05491f8093e7de5ec137906dfd30d99238f8e09ac13f4353"
+    },
+    {
+      "name": "icon/report",
+      "figmaName": "icon / report",
+      "nodeId": "81:87",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "report.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "81:87",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "81:86",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "39828018ac7eb2f2bbbc4256846259091f553de7b928e545d3ed767f74f0554e"
+    },
+    {
+      "name": "icon/warning",
+      "figmaName": "icon / warning",
+      "nodeId": "81:94",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "warning.svg",
+      "bounds": {
+        "x": 178.78575134277344,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78575134277344,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "81:94",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "81:93",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "8d7ed075abff3cb952cf67704a20719116721a66ef55e8bd650b22e7e2df5ba0"
+    },
+    {
+      "name": "icon/check_filled",
+      "figmaName": "icon / check_filled",
+      "nodeId": "81:101",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "check_filled.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "81:101",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "81:100",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "f09265be378d180a8ff56cc709eca624a0f516d5ec2e620b5777aa59084ba0c3"
+    },
+    {
+      "name": "icon/clone",
+      "figmaName": "icon / clone",
+      "nodeId": "1275:3",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "clone.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -971,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1275:3",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1274:10",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "c4e62cc71e9b1d7a75328c3e408cece1ffbd26e0e490bb4d23a0cf3d20447d38"
+    },
+    {
+      "name": "icon/info",
+      "figmaName": "icon / info",
+      "nodeId": "81:135",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "info.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "81:135",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "81:134",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "1e8f50251283c70f230d3f961aeb10210778e57e27d46a2f3cf354aa9d453b68"
+    },
+    {
+      "name": "icon/toggle_off",
+      "figmaName": "icon / toggle_off",
+      "nodeId": "82:387",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "toggle_off.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "82:387",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "82:384",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "975c311e6f4ac4ac00b88c5ed1b0b2602437a7332ff35898ce9a135a3a887ccf"
+    },
+    {
+      "name": "icon/toggle_on",
+      "figmaName": "icon / toggle_on",
+      "nodeId": "82:388",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "toggle_on.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "82:388",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "82:386",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "3cfa2ff6b95817032e57fe9d2fcddb74c60c4892437941708780ceeba44670e1"
+    },
+    {
+      "name": "icon/delete",
+      "figmaName": "icon / delete",
+      "nodeId": "84:395",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "delete.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "84:395",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "84:394",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "7b6c23b19fdaf6dba1198434ae938c0ee5ecdd277cfc1e1e8e20a67744fad0d7"
+    },
+    {
+      "name": "icon/plus_circle",
+      "figmaName": "icon / plus_circle",
+      "nodeId": "94:675",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "plus_circle.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "94:675",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "94:672",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "099e41ea7ed290fd35804369704e834426e3215e9430b6e97ab4f82d48379f01"
+    },
+    {
+      "name": "icon/minus_circle",
+      "figmaName": "icon / minus_circle",
+      "nodeId": "94:682",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "minus_circle.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "94:682",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "94:681",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "dd68082c91fbcc14af4048b4e010de7e8d0ac530a4380defa1bcb43b68e2bbc8"
+    },
+    {
+      "name": "icon/drag",
+      "figmaName": "icon / drag",
+      "nodeId": "136:109",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "drag.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -795,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "136:109",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "136:108",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "fe2bd11228be309b3f7d6e69b22dd24a215cdf2e7457bf43561411c2b7b07f7c"
+    },
+    {
+      "name": "icon/edit",
+      "figmaName": "icon / edit",
+      "nodeId": "138:153",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "edit.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "138:153",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "138:152",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "895bf4534e97354d835d41899a1604480800c6debe60ee0343fc7fc72d7d8d13"
+    },
+    {
+      "name": "icon/sorting--166-924",
+      "figmaName": "icon / sorting",
+      "nodeId": "166:924",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "sorting--166-924.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "166:924",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "166:923",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "b1b815447488567b168857c3419609b19c9a1728e62161e9466f1c82e501ebe1"
+    },
+    {
+      "name": "icon/load",
+      "figmaName": "icon / load",
+      "nodeId": "168:933",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "load.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "168:933",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "168:932",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "cdcb7d405caf9a0b88b329308ded3633848a6680c8627f0640a44d4b9979ef86"
+    },
+    {
+      "name": "icon/profile",
+      "figmaName": "icon / profile",
+      "nodeId": "38:1023",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "profile.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "38:1023",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "38:1020",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "9aaebaa55731e0eccdbacdcf93aecb1cf1f4fbdae05464c10fcb82e0a0cced59"
+    },
+    {
+      "name": "icon/dashboard",
+      "figmaName": "icon / dashboard",
+      "nodeId": "181:1054",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "dashboard.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "181:1054",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "181:1053",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "860a14d946dd053c1dcee1e95dd04c66e76bfc86a492871ef96a37e6034ea4f9"
+    },
+    {
+      "name": "icon/settings",
+      "figmaName": "icon / settings",
+      "nodeId": "185:1096",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "settings.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "185:1096",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "185:1094",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "088eb5d6b9d5f7740a0a741de3ad6b11809a4d7c7d06183f174959509de54890"
+    },
+    {
+      "name": "icon/table",
+      "figmaName": "icon / table",
+      "nodeId": "212:424",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "table.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -619,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "212:424",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "212:423",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "48247710d3350387ca75967ed39fc60fabc784a449091320ca9d7ecfaa11888d"
+    },
+    {
+      "name": "icon/calendar",
+      "figmaName": "icon / calendar",
+      "nodeId": "216:125",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "calendar.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "216:125",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "216:124",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "0a8a8ff6786f68a3d1ebb8ff06d22529f986748364699b455572fced8442957b"
+    },
+    {
+      "name": "icon/file",
+      "figmaName": "icon / file",
+      "nodeId": "217:138",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "file.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "217:138",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "217:137",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "321ac1220d7b231955f9324722018b17c6383dbffccf11a64cb7989ecc33f8db"
+    },
+    {
+      "name": "icon/chevron_up",
+      "figmaName": "icon / chevron_up",
+      "nodeId": "222:936",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "chevron_up.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "222:936",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "222:935",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "a5871d67e1d2f5549d9da5529557fba1dccef3e56703770d04bbd3793da21b2a"
+    },
+    {
+      "name": "icon/list",
+      "figmaName": "icon / list",
+      "nodeId": "250:550",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "list.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "250:550",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "250:549",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "0637eeb65789ee8e7bc7fb3cfd964a3783efae136d7a85be0ff6b45531a037af"
+    },
+    {
+      "name": "icon/settings--281-889",
+      "figmaName": "icon / settings",
+      "nodeId": "281:889",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "settings--281-889.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "281:889",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "281:888",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "abd96d59c88e0a91749f3973c6809accb5663f4df561652019d0bc5f28934b14"
+    },
+    {
+      "name": "icon/favourite",
+      "figmaName": "icon / favourite",
+      "nodeId": "284:898",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "favourite.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "284:898",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "284:897",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "99adf2625f1b2d0d857de40808b7519795390dce694e6e913f50246897295d0a"
+    },
+    {
+      "name": "icon/favourite_filled",
+      "figmaName": "icon / favourite_filled",
+      "nodeId": "378:18",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "favourite_filled.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -443,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "378:18",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "378:17",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "721d4896d710d2510bd71fad44b0f1082a0ab7e489bdcdd0bccea1fb2410600e"
+    },
+    {
+      "name": "icon/load--357-536",
+      "figmaName": "icon / load",
+      "nodeId": "357:536",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "load--357-536.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "357:536",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "357:535",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "3fc205fb86ba902b0566293ddc68d825191df5c56c48346fecac35392743ca90"
+    },
+    {
+      "name": "icon/edit--378-7",
+      "figmaName": "icon / edit",
+      "nodeId": "378:7",
+      "nodeType": "INSTANCE",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "edit--378-7.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "378:7",
+          "type": "INSTANCE",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "I378:7;341:95",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "ad6faccda785e605de188e339f75bbc695fd0edfddc7ce4cb45e2d48fdd3b93a"
+    },
+    {
+      "name": "icon/notifications",
+      "figmaName": "icon / notifications",
+      "nodeId": "381:13",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "notifications.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "381:13",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "381:10",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "b6072d65b6b33b8414d5bdd1b8db2d39e4a39bf65a6ce2cad8a9acf903b17b67"
+    },
+    {
+      "name": "icon/full",
+      "figmaName": "icon / full",
+      "nodeId": "401:29",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "full.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "401:29",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "401:28",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "fc883067294bb776d313408ef94b48cd9365a1356b014540d4aa88f6b1c2b35a"
+    },
+    {
+      "name": "icon/fullscreen",
+      "figmaName": "icon / Fullscreen",
+      "nodeId": "410:106",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "fullscreen.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "410:106",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "410:105",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5a84ae920dfd5e37071c9b0943d4295d7d5c4f44bc646acfa324102b0146cfe0"
+    },
+    {
+      "name": "icon/fullscreen_exit",
+      "figmaName": "icon / Fullscreen_exit",
+      "nodeId": "410:187",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "fullscreen_exit.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "410:187",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "410:186",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "cbcaad9b3e241c0adabbe750868b9215134ce4253689e0e94fd73bb5810174b9"
+    },
+    {
+      "name": "icon/list--422-48",
+      "figmaName": "icon / list",
+      "nodeId": "422:48",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "list--422-48.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -267,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "422:48",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "422:47",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "63ef03fa37a0b9b81d229a94106eefe275eafc3927f4825286930bdc8e9c3dd3"
+    },
+    {
+      "name": "icon/invite",
+      "figmaName": "icon / invite",
+      "nodeId": "422:173",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "invite.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "422:173",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "422:172",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "3fe7eccdec5ceaeda42f49609e3a074458c4322c4a02426504ecbdf6e41166b0"
+    },
+    {
+      "name": "icon/notifications_off",
+      "figmaName": "icon / notifications_off",
+      "nodeId": "457:40",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "notifications_off.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "457:40",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "457:39",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "b10024e88b926df5e8c4e31743d22f91760157533369aa7db69499f75452e836"
+    },
+    {
+      "name": "icon/drag_pan",
+      "figmaName": "icon / drag_pan",
+      "nodeId": "492:51",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "drag_pan.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "492:51",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "492:50",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "3a0eb165ea90c28c5bec623e3f97c221fa7bb6ee06c022a6df00eb9a4450fd14"
+    },
+    {
+      "name": "icon/star",
+      "figmaName": "icon / star",
+      "nodeId": "66:3160",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "star.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "66:3160",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "66:3159",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "38ef7a2bc978b1fc3497c4cfa299452f99fb7c7bac4fef4109046851932398c2"
+    },
+    {
+      "name": "icon/star_filled",
+      "figmaName": "icon / star_filled",
+      "nodeId": "952:11126",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "star_filled.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "952:11126",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "952:11124",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "15dc104fe38f1cbc2454d70b0065c4e4ef6a106a7224a828b538d3a493927fae"
+    },
+    {
+      "name": "icon/empty",
+      "figmaName": "icon / empty",
+      "nodeId": "1180:11177",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "empty.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1180:11177",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1180:11175",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "c80d6fefc8d0adf6967f2569e92590b6583b98dd745c1140f1ae2d8391accf08"
+    },
+    {
+      "name": "icon/support",
+      "figmaName": "icon / support",
+      "nodeId": "1201:11197",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "support.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": -91,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1201:11197",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1201:11195",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "ccf0859362d9af45254bdf109285f0981a70ed349720e0ebdca287c060809b9e"
+    },
+    {
+      "name": "icon/visibility",
+      "figmaName": "icon / visibility",
+      "nodeId": "1568:13335",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "visibility.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1568:13335",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1568:13330",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "1ffe8c4ae537e78a090e55f489d1f4957a2025b22cb8897ce6d8a4d542079939"
+    },
+    {
+      "name": "icon/visibility_off",
+      "figmaName": "icon / visibility_off",
+      "nodeId": "1568:13336",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "visibility_off.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1568:13336",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1568:13333",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5e596be7f05043a135944b3f7be0a94adfc797c244f26236fc00e81091968855"
+    },
+    {
+      "name": "icon/convert",
+      "figmaName": "icon / convert",
+      "nodeId": "1599:13526",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "convert.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1599:13526",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1599:13524",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "6fa1c96be6f0d7abf0fe7c8cdd5e94b9551f6cf9708547c1eaab0a570466852b"
+    },
+    {
+      "name": "icon/table_chart",
+      "figmaName": "icon / table_chart",
+      "nodeId": "1908:943",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "table_chart.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "1908:943",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "1908:941",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "3ef24b3c8c40084f02d6ba0f26910d618f8c0a0ed753451ff6c87797720e4702"
+    },
+    {
+      "name": "icon/play",
+      "figmaName": "icon / play",
+      "nodeId": "2201:734",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "play.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "2201:734",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "2201:732",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5e964de443fa05d4f30b545e1497c1cf7a0bb2614f3bbb82ae3d248824c2fc6f"
+    },
+    {
+      "name": "icon/pause",
+      "figmaName": "icon / pause",
+      "nodeId": "2201:744",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "pause.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "2201:744",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "2201:742",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "de4a43a4170eabbb554cbbe14b98e1893cbf55d6b3d13a83ac974da433578773"
+    },
+    {
+      "name": "icon/open_in_new_tab",
+      "figmaName": "icon / open_in_new_tab",
+      "nodeId": "3027:14032",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "open_in_new_tab.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": 85,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3027:14032",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3027:14030",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5c198e0c62f257ec3d65cce3790f2ec850b7abd68d572dffb791987c8329972b"
+    },
+    {
+      "name": "icon/open_in_new_tab--3107-281",
+      "figmaName": "icon / open_in_new_tab",
+      "nodeId": "3107:281",
+      "nodeType": "INSTANCE",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "open_in_new_tab--3107-281.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3107:281",
+          "type": "INSTANCE",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "I3107:281;3027:14030",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "5c198e0c62f257ec3d65cce3790f2ec850b7abd68d572dffb791987c8329972b"
+    },
+    {
+      "name": "icon/warning_circle",
+      "figmaName": "icon / warning_circle",
+      "nodeId": "3190:13530",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "warning_circle.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3190:13530",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3190:13528",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "a909f1490cab03db8fdbd048468b3fe79213c0332cc07d1403193de612a5e16d"
+    },
+    {
+      "name": "icon/condensed",
+      "figmaName": "icon / сondensed",
+      "nodeId": "3346:3212",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "condensed.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3346:3212",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3346:3210",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "92b92ba33a5a5946961dcca7c571079fae04a37e1c74eda2e71e91e66875dc88"
+    },
+    {
+      "name": "icon/condensed_standard",
+      "figmaName": "icon / сondensed_standard",
+      "nodeId": "4155:1147",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "condensed_standard.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4155:1147",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4155:1146",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "bfbc347c785d3cb853258f66d294c32fc117818f35f4ea7d8384d5a8dcafbfc6"
+    },
+    {
+      "name": "icon/standart",
+      "figmaName": "icon / standart",
+      "nodeId": "3346:3217",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "standart.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3346:3217",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3346:3214",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "ca61fa273a153bc638fd19f46554884756e011c3c372685f3ecd5943c278b244"
+    },
+    {
+      "name": "icon/row",
+      "figmaName": "icon / row",
+      "nodeId": "3346:3222",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "row.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3346:3222",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3346:3219",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "c647a060cb14c6d6ae978b15a619c1ce3547d57aaf31e9862defc1d746dad65e"
+    },
+    {
+      "name": "icon/keep",
+      "figmaName": "icon / keep",
+      "nodeId": "4155:1138",
+      "nodeType": "INSTANCE",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "keep.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": 261,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4155:1138",
+          "type": "INSTANCE",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "I4155:1138;3379:13650",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "51b9f9dc63def315332fddbc9808aba1e743d1c85e3caf8241153027bbd8d213"
+    },
+    {
+      "name": "icon/info--38-1034",
+      "figmaName": "icon / info",
+      "nodeId": "38:1034",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "info--38-1034.svg",
+      "bounds": {
+        "x": -586.3571166992188,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -586.3571166992188,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "38:1034",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "38:1033",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "7f8ff92bbd1f795909146796e27acd608bddec916d4a6622bf29fd76b7cd7b15"
+    },
+    {
+      "name": "icon/menu",
+      "figmaName": "icon / menu",
+      "nodeId": "39:1239",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "menu.svg",
+      "bounds": {
+        "x": -395.0714416503906,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -395.0714416503906,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "39:1239",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "39:1238",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "986069d1f5040d2661fde090ae8eea14f05dc71b4f5e9c2d445628af377861c0"
+    },
+    {
+      "name": "icon/keep_crossed",
+      "figmaName": "icon / Keep_crossed",
+      "nodeId": "3683:12548",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "keep_crossed.svg",
+      "bounds": {
+        "x": -203.78570556640625,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -203.78570556640625,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3683:12548",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3683:12544",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "95a3032b205af333385f524f95265fa1fbf7b9b7fa398ca7afa31bed9dbb8380"
+    },
+    {
+      "name": "icon/keep_filled",
+      "figmaName": "icon / keep_filled",
+      "nodeId": "3379:13667",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "keep_filled.svg",
+      "bounds": {
+        "x": -12.499961853027344,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": -12.499961853027344,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "3379:13667",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "3379:13665",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "7d00bd654cd2b0f2eb2f3599d1115a764a3525a3539fe3b826a597b64f57af9f"
+    },
+    {
+      "name": "icon/public",
+      "figmaName": "icon / public",
+      "nodeId": "4060:14093",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "public.svg",
+      "bounds": {
+        "x": 178.78573608398438,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 178.78573608398438,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4060:14093",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4060:14091",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "9d4ab0a569dfa6e01393b703709ef8b741b5a3ed857e08c507ce2f070b4a9967"
+    },
+    {
+      "name": "icon/volume",
+      "figmaName": "icon / volume",
+      "nodeId": "4193:9518",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "volume.svg",
+      "bounds": {
+        "x": 370.07147216796875,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 370.07147216796875,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4193:9518",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4193:9511",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "e2138d22efa9d76a410ac53243a34fd27c4337dc88377364be35a8486cbc5e22"
+    },
+    {
+      "name": "icon/more",
+      "figmaName": "icon / more",
+      "nodeId": "4193:9519",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "more.svg",
+      "bounds": {
+        "x": 561.3572387695312,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 561.3572387695312,
+        "y": 437,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4193:9519",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4193:9516",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "1fe49ad5c89f5d6eaf405753a03e4654c5a17a95a76b8442eab0a625cb522288"
+    },
+    {
+      "name": "icon/arrow_right",
+      "figmaName": "icon / arrow_right",
+      "nodeId": "4248:2206",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "arrow_right.svg",
+      "bounds": {
+        "x": -514.625,
+        "y": 612.9999979018534,
+        "width": 24.000002098146638,
+        "height": 24.000002098146638
+      },
+      "visualBounds": {
+        "x": -514.625,
+        "y": 612.9999979018534,
+        "width": 24.000002098146638,
+        "height": 24.000002098146638
+      },
+      "paintGeometry": [
+        {
+          "id": "4248:2206",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4248:2204",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "00dcb60c4ac416a3c0d1bad00c3487b3a307eb39f3c311d15338b7a6203b2fb3"
+    },
+    {
+      "name": "icon/arrow_left",
+      "figmaName": "icon / arrow_left",
+      "nodeId": "4248:2213",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "arrow_left.svg",
+      "bounds": {
+        "x": -179.875,
+        "y": 612.9999979018534,
+        "width": 24.000002098146638,
+        "height": 24.000002098146638
+      },
+      "visualBounds": {
+        "x": -179.875,
+        "y": 612.9999979018534,
+        "width": 24.000002098146638,
+        "height": 24.000002098146638
+      },
+      "paintGeometry": [
+        {
+          "id": "4248:2213",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4248:2212",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "17d49e60488e4a61283eccb5c14880cbda9c9cdb7eb16494c590d1e72e6119ee"
+    },
+    {
+      "name": "icon/chart_tooltip",
+      "figmaName": "icon / chart_tooltip",
+      "nodeId": "4656:8023",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "chart_tooltip.svg",
+      "bounds": {
+        "x": 154.875,
+        "y": 613,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 154.875,
+        "y": 613,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4656:8023",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4656:8021",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "adfd42a4ec0ed5f973928ccc538fe6b161b6dccb8d86213008ef62139dd1148b"
+    },
+    {
+      "name": "icon/chart_tooltip_off",
+      "figmaName": "icon / chart_tooltip_off",
+      "nodeId": "4656:8027",
+      "nodeType": "COMPONENT",
+      "category": "icon",
+      "width": 24,
+      "height": 24,
+      "viewBox": "0 0 24 24",
+      "variants": {},
+      "rendering": "token-monochrome",
+      "colorCustomizable": true,
+      "defaultColor": "#030712",
+      "asset": "chart_tooltip_off.svg",
+      "bounds": {
+        "x": 489.625,
+        "y": 613,
+        "width": 24,
+        "height": 24
+      },
+      "visualBounds": {
+        "x": 489.625,
+        "y": 613,
+        "width": 24,
+        "height": 24
+      },
+      "paintGeometry": [
+        {
+          "id": "4656:8027",
+          "type": "COMPONENT",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1
+              },
+              "boundVariables": {}
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 1,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4656:8025",
+          "type": "VECTOR",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokes": [],
+          "strokeWeight": 0.02500000037252903,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        },
+        {
+          "id": "4656:8190",
+          "type": "VECTOR",
+          "fills": [],
+          "strokes": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.0117647061124444,
+                "g": 0.027450980618596077,
+                "b": 0.07058823853731155
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:1:2841"
+                }
+              }
+            }
+          ],
+          "strokeWeight": 1.5,
+          "strokeCap": "NONE",
+          "strokeJoin": "MITER"
+        }
+      ],
+      "sourceSha256": "7e74b9227d79acb7b683e0b9bcc33c10eda78232eb46e2125296135b8b75d813"
+    }
+  ]
+}

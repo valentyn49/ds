@@ -1,14 +1,137 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ToastStories from './message.stories';
+import { ToastTypes, ToastAnatomy, ToastResponsive, ToastMotionDemo, ToastQueueDemo } from '../../../react/Toast/ToastDocs';
 
-<Meta title="Components/Toast/message" />
+<Meta of={ToastStories} />
 
-# message
+# Toast Notifications
 
-- **Figma page:** Toast
-- **Figma type:** Component set
-- **Variants:** 5
-- **Variant properties:** `state (5)`
-- **Status:** Placeholder, not documented yet
+## Live Demo
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=81-273)
+Trigger a notification, edit its next message, select a verified type, or queue three messages. Notifications use the actual provider, animations, and viewport placement. Preview controls configure future notifications; they do not replace an active message.
+
+<Canvas of={ToastStories.Playground} sourceState="none" />
+<Controls of={ToastStories.Playground} />
+
+## Overview
+
+Toasts provide temporary, non-blocking feedback about application events. Figma calls the component `message` and its type property `state`. The React API uses `Toast` and `type`, with the exact source values: `purchase`, `warning`, `alert`, `neutral`, and `info`. Toasts are separate from Messages (Banners).
+
+[Figma types](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=81-289) · [Figma responsive presentation](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=5265-17694)
+
+## Anatomy
+
+<ToastAnatomy />
+
+## Types and Variants
+
+<ToastTypes />
+
+| Figma state / React type | Surface | Status icon | Text |
+| --- | --- | --- | --- |
+| purchase | Green 600 `#008236` | check_filled | White |
+| warning | Orange 500 `#f54900` | warning | White |
+| alert | Alert 600 `#be2625` | report | White |
+| neutral | Gray 50 `#ffffff` | check_filled | Gray 900 `#030712` |
+| info | Primary 600 `#179af5` | info | White |
+
+Original Figma icon geometry comes from the centralized Icon library and renders in 20 px slots. Colored surfaces use a Gray 200 close icon; neutral uses Gray 900. Actions inherit white on colored surfaces and Primary 600 on neutral. Optional icon, close, and action properties are supported for every type. The source has one message field; no title, supporting text, or additional severity types are introduced.
+
+## Responsive Behavior
+
+| Source viewport | Placement | Toast width | Bottom edge |
+| --- | --- | --- | --- |
+| Desktop 1440 × 900 | Left, 16 px | 343 px | 16 px |
+| Tablet 744 × 900 | Horizontally centered, X = 194 px | 356 px | 16 px |
+| Mobile 375 × 812 | Left and right, 16 px | Available width, 343 px at source size | 16 px |
+
+Figma supplies these reference layouts without breakpoint rules. The implementation uses the existing 576/992 px application breakpoints **only to choose among these Toast-specific layouts**. It does not reuse Header/Footer content margins. Desktop/tablet widths shrink if necessary; mobile keeps 16 px side insets. Long text wraps and grows upward from the fixed bottom edge. The component set only supplies a one-line example, so wrapping is an implementation adaptation for dynamic content.
+
+<ToastResponsive />
+
+## Animations
+
+Entrance moves 12 px upward from the toast’s bottom placement while fading in. Exit returns downward while fading out. These motion decisions are adopted from Material guidance; Figma specifies no animation.
+
+| Device | Entrance | Exit |
+| --- | --- | --- |
+| Desktop / tablet | 180 ms | 150 ms |
+| Mobile | 225 ms | 195 ms |
+
+Entrance uses deceleration `cubic-bezier(0, 0, .2, 1)`; exit uses acceleration `cubic-bezier(.4, 0, 1, 1)`. Reduced-motion preferences remove movement and animation delay. The next toast enters after the previous exit completes. Animation events drive completion, with a guarded timer fallback for interrupted/missing events.
+
+<Canvas of={ToastStories.Animations} sourceState="none" story={{ inline: false, height: '420px' }} />
+
+[Material duration and easing](https://m1.material.io/motion/duration-easing.html) informs the short entrance and quicker exit; the exact timings and 12 px distance are implementation choices.
+
+## Timing and Dismissal
+
+- Brief messages default to **4000 ms**; use **10000 ms** for longer reading time. These are the adopted product defaults, not quoted Android duration constants.
+- Messages with an action persist by default, consistent with [current Material-aligned action behavior](https://docs.flutter.dev/release/breaking-changes/snackbar-with-action-behavior-update).
+- `duration: null` persists; a positive `duration` overrides the default. A provider-level `defaultDuration` supports an application reading-time preference, including disabling automatic dismissal.
+- Timing begins only after entrance completes. Queued messages consume no display time.
+- Hover, focus within the toast, hidden document, and window blur pause the remaining time. The timer resumes only after every pause reason clears.
+- The close button dismisses when shown. Escape dismisses only while focus is inside a close-enabled toast; no document-wide keyboard listener is installed.
+- An action calls the supplied callback and then dismisses. A callback that throws leaves the notification available for recovery. Callbacks own application behavior.
+- Important messages should use persistent duration and a dismiss/action path. Type does not silently change timing or announcement urgency. Keep essential information available elsewhere in the product.
+
+## Multiple Notifications
+
+Exactly one notification is active. New messages join a FIFO queue and are not deduplicated or silently replaced. “Queue 3” demonstrates ordering. “Dismiss active” advances after exit; “Clear queue” removes pending notifications and dismisses the active one. Dismissing a queued ID removes only that record.
+
+<Canvas of={ToastStories.Queue} sourceState="none" story={{ inline: false, height: '420px' }} />
+
+This follows Material’s [single active snackbar principle](https://m1.material.io/components/snackbars-toasts.html); Figma shows individual notifications without a stacked layout.
+
+## Behaviors
+
+| Concern | Implemented behavior | Source |
+| --- | --- | --- |
+| Appearance / placement | Five original types; device-specific bottom placement | Figma |
+| Controls | Optional icon, Undo action, close | Figma |
+| Queue | One active notification; sequential FIFO | Material-inspired implementation |
+| Timing | 4 s default, 10 s extended, action persistence, configurable reading time | Adopted defaults / current Material guidance |
+| Focus | Never automatically moves into a toast; returns to its trigger only when a focused toast is dismissed | Accessibility implementation |
+| Announcements | A stable polite, atomic status region announces message and semantic type after entrance | Accessibility implementation |
+| Interaction | Native buttons; hover/focus pause; local Escape; no swipe gesture | Accessibility implementation / Material web guidance |
+| Lifecycle | Timers cleaned on removal; stale ID callbacks ignored; exit finishes before advancing | Implementation |
+
+The notification layer does not intercept input outside its surface. No modal overlay, focus trap, or global Escape handler is added. Repeated identical messages are announced as separate queue records. Live-region semantics follow the [official Material web accessibility guidance](https://github.com/material-components/material-components-web/blob/master/packages/mdc-snackbar/README.md), while the component retains Figma visuals.
+
+The original white-on-orange and white-on-blue palette is retained. Those source combinations do not meet WCAG AA’s 4.5:1 text contrast target at 14 px; semantic labels and icons do not resolve that visual contrast limitation. A design-approved palette revision would be needed for conformance.
+
+## Usage Examples
+
+```tsx
+import { ToastProvider, useToast } from '@socrates/design-system';
+import '@socrates/design-system/styles.css';
+
+function SaveFeedback() {
+  const { toast } = useToast();
+  return <button onClick={() => toast({
+    type: 'purchase', message: 'Changes saved',
+  })}>Save</button>;
+}
+
+<ToastProvider><SaveFeedback /></ToastProvider>;
+```
+
+```tsx
+const { toast, dismiss, clear } = useToast();
+
+toast({ type: 'info', message: 'Report is ready', duration: 10000 });
+toast({ type: 'warning', message: 'Check the selected date range' });
+const important = toast({ type: 'alert', message: 'The update could not be saved', duration: null });
+dismiss(important); // Also works for a queued notification.
+
+toast({ type: 'info', message: 'Added to “Energy” watchlist', showIcon: false,
+  action: { label: 'UNDO', onClick: undoWatchlistChange }, // Application callback.
+}); // Persistent by default; action or close dismisses it.
+
+for (const message of ['First saved', 'Second saved', 'Third saved']) {
+  toast({ type: 'neutral', message });
+}
+clear(); // Clears queued records and dismisses the active notification.
+```
+
+Use one provider for the application’s notification stream. `Toast` is the visual primitive; `ToastProvider` handles position, announcements, lifecycle, and queue. `useToastState()` exposes active, phase, and queued records for integrations and diagnostics. No backend or external notification dependency is used. Provider settings are fixed for its lifetime; remount it to apply a changed global reading-time preference.

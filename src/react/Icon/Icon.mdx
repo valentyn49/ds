@@ -1,0 +1,32 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as IconStories from './Icon.stories';
+import { IconGallery, IconIntroduction, IconPlayground, IconReference } from './IconExplorer';
+
+<Meta of={IconStories} />
+
+# Icons
+
+<IconIntroduction />
+
+## Icon Library
+
+Select a tile to inspect its original name, viewport, paint model, and Figma source. Each entry provides Copy name and Copy code.
+
+<IconGallery />
+
+## Search and Filtering
+
+Use the search field above to match the developer name, original Figma component name, or node ID. Results update immediately. The only verified group in this node is `icon /`; Clear filters restores the entire collection. Layout frames named `row` and `icon-tile` are not semantic categories.
+
+## Live Demo
+
+Select any exported drawing, explore its original or customized paint, and supply an accessible label. All controls below render the reusable React Icon component.
+
+<IconPlayground />
+
+### Storybook Args and Controls
+
+<Canvas of={IconStories.Playground} sourceState="none" />
+<Controls of={IconStories.Playground} />
+
+<IconReference />

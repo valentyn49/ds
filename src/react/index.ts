@@ -3,8 +3,10 @@ import '../tokens/tokens.css';
 
 export { Button, BUTTON_VARIANTS } from './Button/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './Button/Button';
-export { Icon, ICON_NAMES } from './Icon/Icon';
-export type { IconProps, IconName } from './Icon/Icon';
+export { Icon, ICON_NAMES, FIGMA_ICON_NAMES, ICON_REGISTRY } from './Icon/Icon';
+export type { IconProps, IconName, FigmaIconName, LegacyIconName } from './Icon/Icon';
+export { ICON_ENTRIES, ICON_CATEGORIES, ICON_COUNTS, ICON_SIZES } from '../components/icons/icon-library';
+export type { IconEntry } from '../components/icons/icon-library';
 
 // Form controls
 export { TextInput, INPUT_ICON_NAMES } from './TextInput/TextInput';
@@ -33,3 +35,12 @@ export { Footer } from './Footer/Footer';
 export type { FooterProps, FooterSize, FooterType } from './Footer/Footer';
 export { Logo } from './Footer/Logo';
 export type { LogoProps } from './Footer/Logo';
+
+export { Highcharts } from './Highcharts/Highcharts';
+export { Toast } from './Toast/Toast';
+export type { ToastProps } from './Toast/Toast';
+export { ToastProvider, useToast, useToastState } from './Toast/ToastProvider';
+export type { ToastProviderProps, ToastApi } from './Toast/ToastProvider';
+export { createToastManager, TOAST_TYPES } from './Toast/toast-manager';
+export type { ToastType, ToastOptions, ToastAction, ToastManager, ToastSnapshot } from './Toast/toast-manager';
+export type { HighchartsProps, ChartPoint, OhlcPoint, ChartStudy, StudySeries, ChartTooltipContext } from './Highcharts/types';

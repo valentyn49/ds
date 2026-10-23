@@ -1,12 +1,32 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import { renderIcons } from '../../docs/render.js';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as IconStories from './icons.stories';
+import { IconGallery, IconIntroduction, IconPlayground, IconReference } from '../../react/Icon/IconExplorer';
 
-<Meta title="Foundations/Icons" />
+<Meta of={IconStories} />
 
 # Icons
 
-The Figma Icons page contains 104 components in three groups. Names are shown exactly as in Figma.
+<IconIntroduction />
 
-Icon previews are not available yet. They need the SVG assets exported from Figma.
+## Icon Library
 
-<div dangerouslySetInnerHTML={{ __html: renderIcons() }} />
+Select a tile to inspect its original name, viewport, paint model, and Figma source. Each entry provides Copy name and Copy code.
+
+<IconGallery />
+
+## Search and Filtering
+
+Search by developer name, original Figma component name, or node ID. Results update immediately. The only verified group in this node is `icon /`; Clear filters restores every entry. Layout frames named `row` and `icon-tile` are not semantic categories.
+
+## Live Demo
+
+The playground and Storybook Args preview both render the reusable React Icon component from the existing library.
+
+<IconPlayground />
+
+### Storybook Args and Controls
+
+<Canvas of={IconStories.Playground} sourceState="none" />
+<Controls of={IconStories.Playground} />
+
+<IconReference />

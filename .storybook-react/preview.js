@@ -10,7 +10,7 @@ const preview = {
   parameters: {
     layout: 'fullscreen',
     docs: { theme },
-    options: { storySort: { order: ['Components'] } },
+    options: { storySort: { order: ['Foundations', ['Icons'], 'Components'] } },
   },
 };
 

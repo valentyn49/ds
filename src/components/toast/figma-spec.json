@@ -1,0 +1,144 @@
+{
+  "fileKey": "spBZF1HWrU83CHRMF8q3mU",
+  "visualNode": "81:289",
+  "placementNode": "5265:17694",
+  "inspected": "2026-10-23",
+  "figmaComponentName": "message",
+  "figmaVariantProperty": "state",
+  "types": [
+    {
+      "type": "purchase",
+      "nodeId": "81:288",
+      "color": "#008236",
+      "icon": "icon/check_filled"
+    },
+    {
+      "type": "warning",
+      "nodeId": "81:290",
+      "color": "#f54900",
+      "icon": "icon/warning"
+    },
+    {
+      "type": "alert",
+      "nodeId": "81:330",
+      "color": "#be2625",
+      "icon": "icon/report"
+    },
+    {
+      "type": "neutral",
+      "nodeId": "81:338",
+      "color": "#ffffff",
+      "icon": "icon/check_filled"
+    },
+    {
+      "type": "info",
+      "nodeId": "81:346",
+      "color": "#179af5",
+      "icon": "icon/info"
+    }
+  ],
+  "surface": {
+    "width": 343,
+    "minHeight": 36,
+    "padding": [
+      8,
+      12
+    ],
+    "radius": 4,
+    "gap": 16,
+    "fontFamily": "Proxima Nova",
+    "fontStyle": "Semibold",
+    "fontSize": 14,
+    "lineHeight": 20,
+    "iconSize": 20,
+    "iconGap": 8,
+    "controlsGap": 12,
+    "shadowToken": "--ds-shadow-lg",
+    "closeColor": "#d1d5dc",
+    "neutralCloseColor": "#030712",
+    "actionLabel": "UNDO",
+    "actionFontSize": 12,
+    "actionLineHeight": 16
+  },
+  "placements": [
+    {
+      "device": "desktop",
+      "frameNode": "932:12228",
+      "toastNode": "932:12376",
+      "viewport": [
+        1440,
+        900
+      ],
+      "toast": {
+        "x": 16,
+        "y": 848,
+        "width": 343,
+        "height": 36
+      },
+      "bottom": 16,
+      "showIcon": false,
+      "action": true
+    },
+    {
+      "device": "tablet",
+      "frameNode": "932:12521",
+      "toastNode": "932:12668",
+      "viewport": [
+        744,
+        900
+      ],
+      "toast": {
+        "x": 194,
+        "y": 848,
+        "width": 356,
+        "height": 36
+      },
+      "bottom": 16,
+      "showIcon": false,
+      "action": false
+    },
+    {
+      "device": "mobile",
+      "frameNode": "932:12377",
+      "toastNode": "932:12520",
+      "viewport": [
+        375,
+        812
+      ],
+      "toast": {
+        "x": 16,
+        "y": 760,
+        "width": 343,
+        "height": 36
+      },
+      "bottom": 16,
+      "showIcon": false,
+      "action": false
+    }
+  ],
+  "implementationDecisions": {
+    "breakpoints": [
+      576,
+      992
+    ],
+    "briefDuration": 4000,
+    "extendedDuration": 10000,
+    "actionDefault": "persistent",
+    "desktopMotion": [
+      180,
+      150
+    ],
+    "mobileMotion": [
+      225,
+      195
+    ],
+    "translation": 12,
+    "queue": "single active FIFO",
+    "announcements": "polite atomic status"
+  },
+  "unresolved": [
+    "Figma has no breakpoint annotations, animation, duration, or long-message wrapping example.",
+    "Mobile fill width is inferred from the equal 16px insets at 375px; source instance itself is FIXED.",
+    "Source warning/info white text does not meet WCAG AA 4.5:1 text contrast; palette retained."
+  ]
+}

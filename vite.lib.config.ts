@@ -25,7 +25,7 @@ export default defineConfig({
       cssFileName: 'styles',
     },
     rollupOptions: {
-      external: [/^react(\/.*)?$/, /^react-dom(\/.*)?$/],
+      external: [/^react(\/.*)?$/, /^react-dom(\/.*)?$/, /^highcharts(\/.*)?$/, /^@highcharts\/react(\/.*)?$/],
     },
   },
 });
