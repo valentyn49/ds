@@ -1,0 +1,125 @@
+{
+  "fileKey": "spBZF1HWrU83CHRMF8q3mU",
+  "section": "329:492",
+  "componentSet": "98:1151",
+  "inspected": "2026-10-26",
+  "properties": {
+    "type": [
+      "bottom",
+      "right",
+      "top",
+      "left"
+    ],
+    "title": "Tooltip text",
+    "subtitle": "Small tooltips provide the additional information.",
+    "show subtitle": true
+  },
+  "types": [
+    {
+      "type": "bottom",
+      "nodeId": "98:1150",
+      "width": 220,
+      "height": 79,
+      "contentWidth": 220,
+      "arrowNode": "98:1149",
+      "arrowSlot": [
+        34,
+        8
+      ],
+      "asset": "bottom.svg",
+      "svgBounds": [
+        17,
+        8
+      ],
+      "sha256": "f8d75b0dd71d6edbab1827b100528508fd0cdea8b0e522b9c42aef92066accaf"
+    },
+    {
+      "type": "right",
+      "nodeId": "98:1152",
+      "width": 228,
+      "height": 72,
+      "contentWidth": 221,
+      "arrowNode": "98:1156",
+      "arrowSlot": [
+        8,
+        34
+      ],
+      "asset": "right.svg",
+      "svgBounds": [
+        8,
+        17
+      ],
+      "sha256": "1103150fd82bbd3ced55003245759bd9806224383bb58afdffaf09d23852c098"
+    },
+    {
+      "type": "top",
+      "nodeId": "98:1157",
+      "width": 220,
+      "height": 72,
+      "contentWidth": 220,
+      "arrowNode": "98:1161",
+      "arrowSlot": [
+        34,
+        8
+      ],
+      "asset": "top.svg",
+      "svgBounds": [
+        17,
+        8
+      ],
+      "sha256": "4a92c1f56cf2c16a37a1972ba4ef0fdf4d7e4e85c43a84764dee37feec83273f"
+    },
+    {
+      "type": "left",
+      "nodeId": "98:1162",
+      "width": 228,
+      "height": 72,
+      "contentWidth": 228,
+      "arrowNode": "98:1166",
+      "arrowSlot": [
+        8,
+        16
+      ],
+      "asset": "left.svg",
+      "svgBounds": [
+        8,
+        16
+      ],
+      "sha256": "fa4c4c06487d996a6c98edc76cd846bbc76050d42a9b4f0c58ba27ad9a3dcf66"
+    }
+  ],
+  "style": {
+    "surface": "#ffffff",
+    "text": "#030712",
+    "radius": 4,
+    "padding": [
+      8,
+      12
+    ],
+    "shadow": "--ds-shadow-2xl",
+    "title": [
+      "Proxima Nova",
+      "Semibold",
+      14,
+      20
+    ],
+    "subtitle": [
+      "Proxima Nova",
+      "Regular",
+      12,
+      18
+    ]
+  },
+  "decisions": {
+    "hoverDelay": 100,
+    "focusDelay": 0,
+    "leaveGrace": 100,
+    "enter": 150,
+    "exit": 120,
+    "gap": 8,
+    "collisionInset": 8
+  },
+  "unspecified": [
+    "Interaction timing, triggers, gap, motion, responsive limits and viewport handling are not specified in Figma."
+  ]
+}

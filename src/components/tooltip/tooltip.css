@@ -1,0 +1,28 @@
+.ds-tooltip-trigger{display:inline-flex;vertical-align:middle;max-width:100%;position:relative}
+.ds-tooltip{position:fixed;z-index:1100;box-sizing:border-box;width:220px;max-width:calc(100vw - 16px);color:var(--ds-color-gray-900,#030712);font-family:var(--ds-font-family);font-style:normal;text-align:left;border-radius:var(--ds-radius-2x,4px);box-shadow:var(--ds-shadow-2xl);opacity:0;transition:opacity 120ms ease-in;pointer-events:none}
+.ds-tooltip[hidden]{display:none!important}
+.ds-tooltip[data-open=true]{opacity:1;transition:opacity 150ms ease-out;pointer-events:auto}
+.ds-tooltip::before{content:'';position:absolute;pointer-events:inherit}
+.ds-tooltip[data-type=bottom]::before{left:0;right:0;top:100%;height:8px}
+.ds-tooltip[data-type=top]::before{left:0;right:0;bottom:100%;height:15px}
+.ds-tooltip[data-type=right]::before{top:0;bottom:0;left:100%;width:8px}
+.ds-tooltip[data-type=left]::before{top:0;bottom:0;right:100%;width:15px}
+.ds-tooltip[data-type=bottom]{padding-bottom:7px}
+.ds-tooltip[data-type=right]{width:228px;padding-right:7px}
+.ds-tooltip[data-type=left]{width:228px}
+/* Match top/left: shadow the surface, not the transparent arrow-layout strip. */
+.ds-tooltip:is([data-type=bottom],[data-type=right]){box-shadow:none}
+.ds-tooltip:is([data-type=bottom],[data-type=right]) .ds-tooltip__content{box-shadow:var(--ds-shadow-2xl)}
+.ds-tooltip__content{box-sizing:border-box;padding:var(--ds-space-2x,8px) var(--ds-space-3x,12px);background:var(--ds-color-gray-50,#fff);border-radius:var(--ds-radius-2x,4px);max-height:var(--tooltip-max-height,calc(100dvh - 23px));overflow:auto}
+.ds-tooltip__title{display:block;font-size:14px;font-weight:600;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ds-tooltip__subtitle{display:block;font-size:12px;font-weight:400;line-height:18px;overflow-wrap:anywhere;white-space:pre-wrap}
+.ds-tooltip__arrow{position:absolute;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.ds-tooltip__arrow img{display:block;max-width:none}
+.ds-tooltip[data-type=bottom] .ds-tooltip__arrow img,.ds-tooltip[data-type=top] .ds-tooltip__arrow img{width:17px;height:8px}
+.ds-tooltip[data-type=right] .ds-tooltip__arrow img{width:8px;height:17px}
+.ds-tooltip[data-type=left] .ds-tooltip__arrow img{width:8px;height:16px}
+.ds-tooltip[data-type=bottom] .ds-tooltip__arrow{width:34px;height:8px;bottom:0;left:calc(var(--tooltip-arrow,110px) - 17px)}
+.ds-tooltip[data-type=top] .ds-tooltip__arrow{width:34px;height:8px;top:-7px;left:calc(var(--tooltip-arrow,110px) - 17px)}
+.ds-tooltip[data-type=right] .ds-tooltip__arrow{width:8px;height:34px;right:0;top:calc(var(--tooltip-arrow,36px) - 17px)}
+.ds-tooltip[data-type=left] .ds-tooltip__arrow{width:8px;height:16px;left:-7px;top:calc(var(--tooltip-arrow,36px) - 8px)}
+@media(prefers-reduced-motion:reduce){.ds-tooltip{transition:none!important}}

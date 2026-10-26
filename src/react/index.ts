@@ -38,6 +38,10 @@ export type { LogoProps } from './Footer/Logo';
 
 export { Highcharts } from './Highcharts/Highcharts';
 export { Toast } from './Toast/Toast';
+export { Tooltip } from './Tooltip/Tooltip';
+export type { TooltipProps } from './Tooltip/Tooltip';
+export { TOOLTIP_TYPES } from './Tooltip/position';
+export type { TooltipType } from './Tooltip/position';
 export type { ToastProps } from './Toast/Toast';
 export { ToastProvider, useToast, useToastState } from './Toast/ToastProvider';
 export type { ToastProviderProps, ToastApi } from './Toast/ToastProvider';

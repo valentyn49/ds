@@ -33,6 +33,7 @@
     "test:icons": "node --test tests/icons.test.mjs",
     "test:highcharts": "node --test tests/highcharts.test.mjs",
     "test:toast": "node --test tests/toast.test.mjs",
+    "test:tooltip": "node --test tests/tooltip.test.mjs",
     "tokens": "node scripts/build-tokens.mjs",
     "docs:generate": "node scripts/generate-docs.mjs",
     "sidebar": "node scripts/sync-sidebar-order.mjs",
