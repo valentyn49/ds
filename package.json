@@ -23,22 +23,34 @@
     "**/*.css"
   ],
   "peerDependencies": {
+    "@highcharts/react": "^5.1.0",
+    "highcharts": "^12.6.2",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "scripts": {
+    "icons:build": "node scripts/build-icons.mjs",
+    "test:icons": "node --test tests/icons.test.mjs",
+    "test:highcharts": "node --test tests/highcharts.test.mjs",
+    "test:toast": "node --test tests/toast.test.mjs",
+    "test:tooltip": "node --test tests/tooltip.test.mjs",
     "tokens": "node scripts/build-tokens.mjs",
     "docs:generate": "node scripts/generate-docs.mjs",
     "sidebar": "node scripts/sync-sidebar-order.mjs",
-    "prepare:docs": "npm run tokens && npm run docs:generate && npm run sidebar",
+    "prepare:docs": "npm run icons:build && npm run tokens && npm run docs:generate && npm run sidebar",
     "storybook": "npm run prepare:docs && storybook dev -p 6006",
     "build-storybook": "npm run prepare:docs && storybook build",
-    "storybook:react": "npm run tokens && storybook dev -p 6007 -c .storybook-react",
-    "build-storybook:react": "npm run tokens && storybook build -c .storybook-react -o storybook-static-react",
+    "storybook:react": "npm run icons:build && npm run tokens && storybook dev -p 6007 -c .storybook-react",
+    "build-storybook:react": "npm run icons:build && npm run tokens && storybook build -c .storybook-react -o storybook-static-react",
     "typecheck": "tsc --noEmit",
-    "build:lib": "npm run tokens && vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json && node scripts/build-lib-assets.mjs"
+    "build:lib": "npm run icons:build && npm run tokens && vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json && node scripts/build-lib-assets.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:react": "node --test tests/react-integration.test.mjs",
+    "typecheck:consumer": "tsc -p tsconfig.consumer.json --noEmit"
   },
   "devDependencies": {
+    "@highcharts/react": "5.1.0",
+    "highcharts": "12.6.2",
     "@storybook/addon-docs": "^10.6.2",
     "@storybook/html-vite": "^10.6.2",
     "@storybook/react-vite": "^10.6.2",

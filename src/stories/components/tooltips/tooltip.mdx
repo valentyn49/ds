@@ -1,14 +1,118 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TooltipStories from './tooltip.stories';
+import { TooltipAnatomy, TooltipVariants, TooltipExamples } from '../../../react/Tooltip/TooltipDocs';
 
-<Meta title="Components/Tooltips/tooltip" />
+<Meta of={TooltipStories} />
 
-# tooltip
+# Tooltip
 
-- **Figma page:** Tooltips
-- **Figma type:** Component set
-- **Variants:** 4
-- **Variant properties:** `type (4)`
-- **Status:** Placeholder, not documented yet
+## Live Demo
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=98-711)
+Hover or keyboard-focus the trigger to show the actual Tooltip. Edit its title or subtitle while open; change the Figma pointer direction or hide the subtitle. Escape dismisses without moving focus. The trigger remains clickable.
+
+<Canvas of={TooltipStories.Playground} sourceState="none" />
+<Controls of={TooltipStories.Playground} />
+
+## Overview
+
+Tooltip adds supplementary contextual information to an interface element. The Figma `tooltip` component has one surface style, four pointer-edge types, a title, and an optional subtitle. It contains no icons, buttons, or onboarding navigation.
+
+[Figma Tooltip section](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=329-492)
+
+## Anatomy
+
+<TooltipAnatomy />
+
+## Variants
+
+<TooltipVariants />
+
+The four source names are `bottom`, `right`, `top`, and `left`. These are directional variants of the same white surface. Figma defines no size scale, dark theme, status variants, or interactive content variant.
+
+## Positions
+
+Figma names the **pointer edge**, not the tooltip’s position relative to its trigger. The public `type` property preserves that convention.
+
+| Figma type | Pointer edge | Tooltip relative to trigger | Source frame | Content width |
+| --- | --- | --- | --- | --- |
+| bottom | Down | Above | 220 × 79 px | 220 px |
+| right | Right | Left | 228 × 72 px | 221 px |
+| top | Up | Below | 220 × 72 px | 220 px |
+| left | Left | Right | 228 × 72 px | 228 px |
+
+Frame dimensions use Figma’s default two-line subtitle. The top arrow extends 7 px above its frame; the left arrow extends 7 px outside its frame. Bottom/right arrows are part of their layout, with a 1 px overlap. This asymmetry is retained.
+
+Positions are measured from the trigger, not fixed viewport coordinates. The requested direction is preferred. Collision handling tries the opposite and then other verified directions, shifts within the viewport, and keeps the pointer aimed at the trigger. A flip remeasures the selected source width. Scrolling, resizing, trigger/content changes, font load, and visual-viewport changes update placement.
+
+## States
+
+Figma supplies visible directional assets, not a visual-state property. The component adopts hidden, entering, visible, and exiting lifecycle states without adding another surface style. Hover and focus reveal the same appearance.
+
+- Pointer hover appears after 100 ms; keyboard focus requests immediate display.
+- The tooltip stays open while the trigger has focus or either trigger/tooltip is hovered. Content does not expire on a timer.
+- Leaving both surfaces and removing focus starts a 100 ms grace period, then exit.
+- Escape dismisses immediately into the exit phase. It stays dismissed until pointer and focus leave, preventing an immediate reopen.
+- Re-entering during exit reverses the opacity transition. Each instance has independent state and IDs.
+
+## Formatting and Alignment
+
+| Property | Verified specification |
+| --- | --- |
+| Surface / text | Gray 50 `#ffffff` / Gray 900 `#030712` |
+| Border / corners | No border; 4 px radius (`--ds-radius-2x`) |
+| Shadow | `--ds-shadow-2xl`: 0 15 px 50 px −12 px, black at 25% |
+| Padding | 8 px vertical, 12 px horizontal |
+| Title | Proxima Nova Semibold 14/20, left aligned, single line with ellipsis |
+| Subtitle | Proxima Nova Regular 12/18, left aligned, wrapping text |
+| Title/subtitle spacing | 0 px |
+| Bottom/top pointer | 34 × 8 px source slot; exported visible SVG 17 × 8 px |
+| Right pointer | 8 × 34 px source slot; exported visible SVG 8 × 17 px |
+| Left pointer | 8 × 16 px source geometry and exported SVG |
+
+Original SVG geometry is exported directly from Figma; arrows are not CSS triangles or substitutions. Figma defines fixed reference widths rather than minimum/maximum width properties. Content height follows the text. The implementation shrinks widths only when necessary to fit the viewport and constrains unusually long content to available space, with overflow scrolling. There is no arbitrary size prop.
+
+The source does not include a trigger or specify a trigger gap. The implementation adopts an 8 px gap measured from the arrow tip, an 8 px collision clearance, and a transparent hover bridge. When the trigger consumes so much of the viewport that no readable tooltip can fit, the visual popup is suppressed; the accessible description remains available.
+
+## Behaviors
+
+The child is one focusable trigger, such as a Button or a native button. It must forward `aria-describedby`. Existing descriptions, refs, and event handlers are preserved. The Tooltip adds a unique description ID and renders `role="tooltip"` in the trigger document’s body, outside clipping containers. The hidden description is retained for assistive technology.
+
+Hover and focus are combined: pointer departure does not close a focused tooltip. Users can move onto and read the tooltip. Escape dismisses without moving keyboard focus or closing a surrounding popup. No focusable controls or focus trap are added, and click behavior belongs to the trigger. A disabled native button cannot receive focus; use an enabled, appropriately labeled trigger.
+
+These are adopted accessibility behaviors guided by the [WAI-ARIA Tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and [WCAG content on hover or focus](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html). They are not Figma-specified timing or interaction states. Keep essential information visible elsewhere. Interactive supplementary content needs a different accessible pattern.
+
+## Animations
+
+The component fades in over 150 ms ease-out and out over 120 ms ease-in. There is no movement, scaling, or bounce, so animation does not interfere with measured positioning. Reduced motion removes fades and their lifecycle delays. Figma specifies no animation; these timings follow the existing lightweight motion approach. Event listeners, observers, animation frames, and interaction timers are released on cleanup.
+
+## Usage Examples
+
+```tsx
+import { Tooltip, Button } from '@socrates/design-system';
+import '@socrates/design-system/styles.css';
+
+<Tooltip title="Tooltip text"
+  subtitle="Small tooltips provide the additional information."
+  type="bottom">
+  <Button variant="secondary" size={36}>Hover or focus</Button>
+</Tooltip>;
+
+<Tooltip title="Settlement price" showSubtitle={false} type="right">
+  <span tabIndex={0}>Settlement price</span>
+</Tooltip>;
+```
+
+`title` is required; `subtitle` is optional. `showSubtitle` defaults to true when subtitle text is supplied. `type` defaults to `bottom`, matching the Figma default. Optional `id` customizes the description ID; `className` applies to the tooltip surface. Do not add a native `title` to the same trigger, which would produce a second browser tooltip.
+
+<TooltipExamples />
+
+Example messages and trigger compositions are demonstration content. All examples use the same production Tooltip. This component does not modify the Welcomer flow or replace its coachmarks.
+
+
+import { TooltipUsageExample } from '../../../react/Tooltip/TooltipUsageExample';
+
+## Usage Example
+
+Hover or Tab to **Includes D/W/M/Q/Y** below the unavailable Enterprise Snapshot option. The Tooltip explains why it cannot be selected; Escape dismisses it without moving focus. This example recreates the relevant purchase panel from [Figma Snapshots](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=5276-1406). Purchase links and the Purchase button provide interface context only.
+
+<TooltipUsageExample />

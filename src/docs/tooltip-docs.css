@@ -1,0 +1,18 @@
+.ds-td{font-family:var(--ds-font-family);color:var(--ds-color-gray-900);min-width:0}
+.ds-td__stage{display:flex;justify-content:center;align-items:center;min-height:260px;padding:32px 16px;overflow:visible;background:var(--ds-color-gray-100);border-radius:var(--ds-radius-3x)}
+.ds-td__stage--row{gap:32px;flex-wrap:wrap}
+.ds-td__caption{font-size:13px;line-height:20px;color:var(--ds-color-gray-500)}
+.ds-td__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.ds-td__grid section{min-width:0}
+.ds-td__grid header{display:flex;justify-content:space-between;gap:12px;font-size:13px;margin:12px 0}
+.ds-td__grid header span{color:var(--ds-color-gray-500)}
+.ds-td__anatomy{min-height:300px}
+.ds-td__annotations{pointer-events:none;position:fixed;inset:0;z-index:1101}
+.ds-td__marker{position:fixed!important;transform:translate(-50%,-50%)}
+.ds-td__marker::after{display:none}
+.ds-td__label{font-size:14px;text-decoration:underline dotted;text-underline-offset:4px;cursor:help}
+.ds-td__label:focus-visible{outline:2px solid var(--ds-color-primary-600);outline-offset:4px}
+.ds-td__scroll{height:220px;overflow:auto;max-width:100%;border:1px solid var(--ds-color-gray-200);border-radius:8px}
+.ds-td__scroll>div{min-height:500px;padding:24px 12px;text-align:right}
+.ds-td__scroll p{margin-top:180px}
+@media(max-width:640px){.ds-td__grid{grid-template-columns:1fr}}

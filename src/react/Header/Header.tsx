@@ -1,4 +1,4 @@
-import { Fragment, forwardRef, useEffect, useId, useImperativeHandle, useRef, useState } from 'react';
+import { Fragment, forwardRef, useEffect, useLayoutEffect, useId, useImperativeHandle, useRef, useState } from 'react';
 import type { HTMLAttributes, InputHTMLAttributes, KeyboardEvent, MouseEvent, ReactNode, RefObject } from 'react';
 import '../../components/header/header.css';
 import { icon } from '../../components/header/icons.js';
@@ -13,6 +13,7 @@ import {
 import { NAV_ITEMS, MENUS, PROFILE, CART, LOGGED_OUT, SEARCH_PLACEHOLDER, ENTERPRISE_TAG } from '../../components/header/header.content.js';
 import { Logo } from '../Footer/Logo';
 import { cx } from '../utils/cx';
+import { enterModal, trapModalTab } from '../utils/modalEnvironment';
 
 export { HEADER_PLATFORMS, HEADER_TYPES, HEADER_RESOLUTIONS, HEADER_MARGINS, HEADER_BREAKPOINTS, HEADER_DESKTOP_FIT };
 
@@ -209,7 +210,6 @@ function Drawer({
   open,
   toggleExpanded,
   onClose,
-  onKeyDown,
   closeRef,
 }: {
   base: string;
@@ -217,7 +217,6 @@ function Drawer({
   open: HeaderOpenState;
   toggleExpanded: (key: string) => void;
   onClose: () => void;
-  onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void;
   closeRef: RefObject<HTMLButtonElement | null>;
 }) {
   const expanded = new Set(open.expanded);
@@ -244,7 +243,7 @@ function Drawer({
   return (
     <>
       <div className="ds-header__scrim" data-close-drawer="" hidden={!open.drawer} onClick={onClose} />
-      <div className="ds-header__drawer" id={`${base}-drawer`} role="dialog" aria-modal="true" aria-label="Menu" hidden={!open.drawer} onKeyDown={onKeyDown}>
+      <div className="ds-header__drawer" id={`${base}-drawer`} role="dialog" aria-modal="true" aria-label="Menu" hidden={!open.drawer} tabIndex={-1}>
         <div className="ds-header__drawer-head">
           <span className="ds-header__drawer-title">Menu</span>
           <button type="button" className="ds-header__drawer-close" aria-label="Close menu" ref={closeRef} onClick={onClose}>
@@ -327,7 +326,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
   useImperativeHandle(ref, () => rootRef.current as HTMLElement);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerCloseRef = useRef<HTMLButtonElement>(null);
-  const focusDrawerClose = useRef(false);
+
 
   const controlled = openProp !== undefined;
   const [inner, setInner] = useState<HeaderOpenState>(() => normalize(defaultOpen));
@@ -337,8 +336,10 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
 
   const update = (patch: Partial<HeaderOpenState>) => {
     const next = { ...stateRef.current, ...patch };
-    stateRef.current = next;
-    if (!controlled) setInner(next);
+    if (!controlled) {
+      stateRef.current = next;
+      setInner(next);
+    }
     onOpenChange?.(next);
   };
 
@@ -356,28 +357,54 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
   const hasDrawer = ht === 'yes';
 
   const openDrawer = () => {
-    focusDrawerClose.current = true;
     update({ panel: null, flyout: false, drawer: true });
   };
 
   const closeDrawer = () => {
     if (!stateRef.current.drawer) return;
     update({ drawer: false });
-    menuButtonRef.current?.focus();
   };
 
-  // The drawer opened from the menu button moves focus to its close button once it is visible.
-  useEffect(() => {
-    if (focusDrawerClose.current && state.drawer) drawerCloseRef.current?.focus();
-    focusDrawerClose.current = false;
-  });
+  const closeDrawerRef = useRef(closeDrawer);
+  closeDrawerRef.current = closeDrawer;
+
+  // Only a visible drawer is modal. Container queries can hide it when a desktop layout takes over.
+  useLayoutEffect(() => {
+    const root = rootRef.current;
+    const drawer = root?.querySelector<HTMLElement>('.ds-header__drawer');
+    if (!root || !drawer || !hasDrawer || !state.drawer) return;
+    let release: (() => void) | undefined;
+    const synchronize = () => {
+      const visible = drawer.getClientRects().length > 0;
+      if (!visible) { release?.(); release = undefined; return; }
+      if (release) return;
+      const modal = enterModal(drawer, root.ownerDocument.body, true, [...root.querySelectorAll<HTMLElement>('.ds-header__scrim')]);
+      drawerCloseRef.current?.focus({ preventScroll: true });
+      const onKeydown = (event: globalThis.KeyboardEvent) => {
+        if (!modal.isTop()) return;
+        if (event.key === 'Escape' && !event.defaultPrevented) {
+          event.preventDefault();
+          closeDrawerRef.current();
+        } else trapModalTab(event, drawer);
+      };
+      root.ownerDocument.addEventListener('keydown', onKeydown, true);
+      release = () => {
+        root.ownerDocument.removeEventListener('keydown', onKeydown, true);
+        if (modal.dispose() && menuButtonRef.current?.getClientRects().length) menuButtonRef.current.focus({ preventScroll: true });
+      };
+    };
+    synchronize();
+    const observer = new ResizeObserver(synchronize);
+    observer.observe(root);
+    return () => { observer.disconnect(); release?.(); };
+  }, [hasDrawer, state.drawer]);
 
   // A press outside the open menu closes it (focus is not moved).
   useEffect(() => {
     if (!state.panel) return undefined;
     const onDown = (event: globalThis.MouseEvent) => {
       const target = event.target as Element | null;
-      if (target && !target.closest?.('.ds-header__item.is-open')) {
+      if (target && !rootRef.current?.contains(target.closest?.('.ds-header__item.is-open'))) {
         update({ panel: null, flyout: false });
       }
     };
@@ -394,33 +421,17 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
 
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     onKeyDown?.(event);
-    if (event.key !== 'Escape') return;
+    if (event.defaultPrevented || event.key !== 'Escape') return;
     if (hasDrawer && stateRef.current.drawer) {
       event.preventDefault();
       closeDrawer();
     } else if (stateRef.current.panel) {
-      const trigger = rootRef.current?.querySelector<HTMLElement>('.ds-header__item.is-open > [aria-expanded]');
+      const trigger = [...(rootRef.current?.querySelectorAll<HTMLElement>('.ds-header__item.is-open > [aria-expanded]') ?? [])].find((el) => el.getClientRects().length > 0);
       if (trigger) {
         event.preventDefault();
         closePanels();
         trigger.focus();
       }
-    }
-  };
-
-  // The drawer is modal: Tab cycles inside it.
-  const handleDrawerKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key !== 'Tab') return;
-    const drawer = event.currentTarget;
-    const focusable = [...drawer.querySelectorAll<HTMLElement>('a[href], button')].filter((el) => el.offsetParent !== null);
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last?.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first?.focus();
     }
   };
 
@@ -558,7 +569,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
         </div>
       </div>
       {hasDrawer ? (
-        <Drawer base={base} platform={hp} open={state} toggleExpanded={toggleExpanded} onClose={closeDrawer} onKeyDown={handleDrawerKeyDown} closeRef={drawerCloseRef} />
+        <Drawer base={base} platform={hp} open={state} toggleExpanded={toggleExpanded} onClose={closeDrawer} closeRef={drawerCloseRef} />
       ) : null}
     </header>
   );

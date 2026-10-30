@@ -1,0 +1,143 @@
+{
+  "fileKey": "spBZF1HWrU83CHRMF8q3mU",
+  "nodeId": "3444:3753",
+  "inspected": "2026-10-23",
+  "variants": [
+    {
+      "id": "3444:2108",
+      "name": "size=desktop, type=default",
+      "width": 1087,
+      "height": 500,
+      "padding": [
+        16,
+        16,
+        28,
+        16
+      ],
+      "radius": 16
+    },
+    {
+      "id": "3444:3754",
+      "name": "size=tablet, type=default",
+      "width": 604,
+      "height": 472,
+      "padding": [
+        16,
+        16,
+        28,
+        16
+      ],
+      "radius": 16
+    },
+    {
+      "id": "3444:6069",
+      "name": "size=mobile, type=default",
+      "width": 343,
+      "height": 646,
+      "padding": [
+        16,
+        16,
+        28,
+        16
+      ],
+      "radius": 16
+    },
+    {
+      "id": "3467:1806",
+      "name": "size=desktop, type=price sparkline",
+      "width": 1087,
+      "height": 500,
+      "padding": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "radius": 16
+    },
+    {
+      "id": "3467:2468",
+      "name": "size=tablet, type=price sparkline",
+      "width": 604,
+      "height": 504,
+      "padding": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "radius": 16
+    },
+    {
+      "id": "3467:3385",
+      "name": "size=mobile, type=price sparkline",
+      "width": 343,
+      "height": 506,
+      "padding": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "radius": 16
+    },
+    {
+      "id": "3497:25932",
+      "name": "size=desktop, type=homepage",
+      "width": 1055,
+      "height": 372,
+      "padding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0
+    },
+    {
+      "id": "3497:25990",
+      "name": "size=tablet, type=homepage",
+      "width": 597,
+      "height": 372,
+      "padding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0
+    },
+    {
+      "id": "3497:26043",
+      "name": "size=mobile, type=homepage",
+      "width": 340,
+      "height": 372,
+      "padding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0
+    }
+  ],
+  "assets": {
+    "stochastic.svg": "4654:7525",
+    "energy.svg": "4654:7532",
+    "moving-average.svg": "4654:7540",
+    "price-channel.svg": "4654:7543",
+    "technical-lines.svg": "4654:7547",
+    "ohlc-monochrome.svg": "4891:4267",
+    "ohlc-red-green.svg": "4891:4280",
+    "calendar.svg": "3442:950",
+    "range-arrow.svg": "3442:943",
+    "tooltip-corner.svg": "4656:7317"
+  },
+  "notes": [
+    "Price Channel legend and primary OHLC share Figma property price#3444:12; no separate blue plot is verified.",
+    "Both technical plot lines use #ca3500, while the original legend glyph is orange/green.",
+    "Tooltip logic specifies study-control hints, not financial tooltip content.",
+    "Options contains alternative controls for the same OHLC color mode; compact toggle retained.",
+    "Advanced fullscreen workflow and responsive breakpoints are unspecified."
+  ]
+}

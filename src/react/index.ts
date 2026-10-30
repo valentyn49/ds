@@ -3,8 +3,10 @@ import '../tokens/tokens.css';
 
 export { Button, BUTTON_VARIANTS } from './Button/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './Button/Button';
-export { Icon, ICON_NAMES } from './Icon/Icon';
-export type { IconProps, IconName } from './Icon/Icon';
+export { Icon, ICON_NAMES, FIGMA_ICON_NAMES, ICON_REGISTRY } from './Icon/Icon';
+export type { IconProps, IconName, FigmaIconName, LegacyIconName } from './Icon/Icon';
+export { ICON_ENTRIES, ICON_CATEGORIES, ICON_COUNTS, ICON_SIZES } from '../components/icons/icon-library';
+export type { IconEntry } from '../components/icons/icon-library';
 
 // Form controls
 export { TextInput, INPUT_ICON_NAMES } from './TextInput/TextInput';
@@ -33,3 +35,30 @@ export { Footer } from './Footer/Footer';
 export type { FooterProps, FooterSize, FooterType } from './Footer/Footer';
 export { Logo } from './Footer/Logo';
 export type { LogoProps } from './Footer/Logo';
+
+export { Highcharts } from './Highcharts/Highcharts';
+export { Toast } from './Toast/Toast';
+export { Tooltip } from './Tooltip/Tooltip';
+export type { TooltipProps } from './Tooltip/Tooltip';
+export { TOOLTIP_TYPES } from './Tooltip/position';
+export type { TooltipType } from './Tooltip/position';
+export type { ToastProps } from './Toast/Toast';
+export { ToastProvider, useToast, useToastState } from './Toast/ToastProvider';
+export type { ToastProviderProps, ToastApi } from './Toast/ToastProvider';
+export { createToastManager, TOAST_TYPES } from './Toast/toast-manager';
+export type { ToastType, ToastOptions, ToastAction, ToastManager, ToastSnapshot } from './Toast/toast-manager';
+export type { HighchartsProps, ChartPoint, OhlcPoint, ChartStudy, StudySeries, ChartTooltipContext } from './Highcharts/types';
+
+// Selects, dialogs, tables, and page navigation
+export { Dropdown, DropdownItems, DROPDOWN_STATE_LIST, DROPDOWN_DEFAULTS, SAMPLE_OPTIONS } from './Dropdown/Dropdown';
+export type { DropdownProps, DropdownItemsProps, DropdownOption, DropdownState } from './Dropdown/Dropdown';
+export { Popup, PopupView, POPUP_TYPE_LIST, POPUP_WIDTH_LIST } from './Popup/Popup';
+export type { PopupProps, PopupViewProps, PopupType, PopupWidth, PopupMode, PopupCloseReason } from './Popup/Popup';
+export { Table, TableCell, TableHeaderCell, TableDividerRow, TABLE_THEMES } from './Table/Table';
+export type {
+  TableProps, TableCellProps, TableHeaderCellProps, TableDividerRowProps, TableTheme,
+  TableSubscription, TableMetricTone, TableIconName, TableTextTone, TableCellData,
+  TableCellType, TableColumn, TableDataRow, TableDividerData, TableRow,
+} from './Table/Table';
+export { Header, HEADER_PLATFORMS, HEADER_TYPES, HEADER_RESOLUTIONS, HEADER_MARGINS, HEADER_BREAKPOINTS, HEADER_DESKTOP_FIT } from './Header/Header';
+export type { HeaderProps, HeaderPlatform, HeaderType, HeaderResolution, HeaderPanel, HeaderOpenState } from './Header/Header';

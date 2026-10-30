@@ -255,3 +255,22 @@ export const ParityWithHtml: StoryObj = {
   parameters: { controls: { disable: true } },
   render: () => <DropdownParity />,
 };
+
+
+function DynamicOptionsExample() {
+  const [options, setOptions] = useState<string[]>(['London', 'Paris', 'Berlin']);
+  const [open, setOpen] = useState(false);
+  return (
+    <Surface>
+      <Box>
+        <Dropdown showSearch options={options} defaultValue="Paris" label="Cities" open={open} onOpenChange={setOpen} />
+        <Button variant="secondary" size={36} onClick={() => { setOptions((current) => current.length ? [] : ['Madrid', 'Oslo']); setOpen(true); }}>
+          Replace options
+        </Button>
+      </Box>
+    </Surface>
+  );
+}
+
+/** Replace an option list, including with an empty list, without stale selection or active-descendant IDs. */
+export const DynamicOptions: StoryObj = { render: () => <DynamicOptionsExample /> };

@@ -3,7 +3,6 @@ import type { ButtonHTMLAttributes, HTMLAttributes, KeyboardEvent } from 'react'
 import '../../components/dropdown/dropdown.css';
 import { DROPDOWN_DEFAULTS, SAMPLE_OPTIONS } from '../../components/dropdown/dropdown.spec.js';
 import { INPUT_ICON_PATHS } from '../../components/text-input/icons.js';
-import { INPUT_DEFAULTS } from '../../components/text-input/text-input.spec.js';
 import { TextInput } from '../TextInput/TextInput';
 import { cx } from '../utils/cx';
 
@@ -79,7 +78,7 @@ export function DropdownItems({
   options,
   selectedIndex = -1,
   activeIndex = -1,
-  idPrefix = 'ds-dropdown',
+  idPrefix,
   showPro,
   showCheckbox,
   showRightIcon,
@@ -89,6 +88,8 @@ export function DropdownItems({
   onSelect,
   onActivate,
 }: DropdownItemsProps) {
+  const generated = useId();
+  const base = idPrefix ?? generated;
   return (
     <>
       {normalizeOptions(options).map((opt, i) => {
@@ -102,7 +103,7 @@ export function DropdownItems({
             key={i}
             className={cx('ds-dropdown__item', i === activeIndex && 'is-active')}
             role="option"
-            id={`${idPrefix}-option-${i}`}
+            id={`${base}-option-${i}`}
             aria-selected={selected}
             data-index={i}
             hidden={isHidden?.(i) || undefined}
@@ -291,16 +292,21 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
 
   const select = (index: number) => {
     const opt = opts[index];
+    if (!opt || disabled || !isOpen || !matches(index, query)) return;
     if (!isValueControlled) setInnerValue(opt.value);
     onValueChange?.(opt.value, { value: opt.value, label: opt.label });
     rootRef.current?.dispatchEvent(new CustomEvent('ds-dropdown-change', { bubbles: true, detail: { value: opt.value, label: opt.label } }));
     closeMenu();
   };
 
+  // Options may be replaced while the menu is open. Never expose or select a stale option index.
+  const visibleIndices = visible();
+  const currentActive = visibleIndices.includes(activeIndex) ? activeIndex : (visibleIndices[0] ?? -1);
+
   const move = (delta: number) => {
     const items = visible();
     if (!items.length) return;
-    const at = items.indexOf(activeIndex);
+    const at = items.indexOf(currentActive);
     setActiveIndex(items[Math.min(items.length - 1, Math.max(0, at + delta))]);
   };
 
@@ -328,12 +334,12 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
         break;
       case 'Enter':
         event.preventDefault();
-        if (activeIndex >= 0) select(activeIndex);
+        if (currentActive >= 0) select(currentActive);
         break;
       case ' ':
         if (!isSearch) {
           event.preventDefault();
-          if (activeIndex >= 0) select(activeIndex);
+          if (currentActive >= 0) select(currentActive);
         }
         break;
       case 'Escape':
@@ -349,12 +355,16 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
   };
 
   const shown = selectedIndex >= 0 ? opts[selectedIndex].label : placeholder;
-  const activeId = isOpen && activeIndex >= 0 ? `${base}-option-${activeIndex}` : undefined;
+  const activeId = isOpen && currentActive >= 0 ? `${base}-option-${currentActive}` : undefined;
 
   return (
     <div
       {...rest}
       ref={setRootRef}
+      onBlur={(event) => {
+        rest.onBlur?.(event);
+        if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(false);
+      }}
       className={cx('ds-dropdown', disabled && 'ds-dropdown--disabled', error && 'ds-dropdown--error', isOpen && 'ds-dropdown--open', className)}
     >
       {showLabel ? (
@@ -379,7 +389,7 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
           role="combobox"
           aria-haspopup="listbox"
           aria-expanded={isOpen}
-          aria-controls={`${base}-menu`}
+          aria-controls={`${base}-listbox`}
           aria-labelledby={`${showLabel ? `${base}-label ` : ''}${base}-value`}
           aria-describedby={showFootnote ? `${base}-caption` : undefined}
           aria-invalid={error ? true : undefined}
@@ -411,10 +421,14 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
               <TextInput
                 ref={searchRef}
                 id={`${base}-search`}
-                label={INPUT_DEFAULTS.label}
+                label={DROPDOWN_DEFAULTS.searchPlaceholder}
                 showLabel={false}
                 leftIcon="search"
                 placeholder={DROPDOWN_DEFAULTS.searchPlaceholder}
+                role="combobox"
+                aria-expanded={isOpen}
+                aria-controls={`${base}-listbox`}
+                aria-autocomplete="list"
                 aria-activedescendant={activeId}
                 onKeyDown={(event) => onListKey(event, true)}
                 onChange={(event) => {
@@ -428,13 +442,14 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
           <div
             className="ds-dropdown__list"
             role="listbox"
+            id={`${base}-listbox`}
             aria-labelledby={showLabel ? `${base}-label` : `${base}-trigger`}
             onMouseDown={(event) => event.preventDefault()}
           >
             <DropdownItems
               options={options}
               selectedIndex={selectedIndex}
-              activeIndex={activeIndex}
+              activeIndex={isOpen ? currentActive : activeIndex}
               idPrefix={base}
               showPro={showPro}
               showCheckbox={showCheckbox}

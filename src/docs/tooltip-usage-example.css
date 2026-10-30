@@ -1,0 +1,23 @@
+/* Scoped to the appended Figma Usage Example; existing Tooltip specimens remain unchanged. */
+.ds-tooltip-snapshot-example{box-sizing:border-box;min-width:0;padding:32px;background:var(--ds-color-background-900,#eff3f6);border-radius:var(--ds-radius-3x);font-family:var(--ds-font-family);color:var(--ds-color-gray-900,#030712)}
+.ds-tooltip-snapshot-example__panel{box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;gap:24px;width:586px;max-width:100%;margin:0 auto;padding:16px;border-radius:16px;background:var(--ds-color-gray-50,#fff);box-shadow:var(--ds-shadow-lg)}
+.ds-tooltip-snapshot-example__body{display:flex;flex-direction:column;gap:24px;width:100%;min-width:0}
+.ds-tooltip-snapshot-example__header{display:flex;flex-direction:column;gap:16px}
+.ds-tooltip-snapshot-example__heading{display:flex;flex-direction:column;gap:8px}
+.ds-tooltip-snapshot-example__heading h3{margin:0!important;font:700 16px/24px var(--ds-font-family);color:var(--ds-color-gray-900)}
+.ds-tooltip-snapshot-example__heading p{margin:0!important;font:400 14px/20px var(--ds-font-family);color:var(--ds-color-gray-500)}
+.ds-tooltip-snapshot-example__balance{box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px;padding:12px;border-radius:16px;background:var(--ds-color-gray-100,#f3f4f6);font:400 14px/20px var(--ds-font-family)}
+.ds-tooltip-snapshot-example__balance strong{font-weight:700}
+.ds-tooltip-snapshot-example a{color:var(--ds-color-primary-600,#179af5);text-decoration:none;font-weight:400}
+.ds-tooltip-snapshot-example__options{display:flex;flex-direction:column;gap:24px;width:100%;min-width:0}
+.ds-tooltip-snapshot-example .ds-radiobutton{width:100%;min-width:0}
+.ds-tooltip-snapshot-example .ds-radiobutton__content{flex:1;min-width:0}
+.ds-tooltip-snapshot-example .ds-tooltip-trigger{vertical-align:baseline}
+.ds-tooltip-snapshot-example__unavailable{display:flex;flex-direction:column;gap:4px}
+.ds-tooltip-snapshot-example__warning{margin:0!important;padding-left:28px;font:400 12px/18px var(--ds-font-family);color:var(--ds-color-orange-500,#f54900)}
+.ds-tooltip-snapshot-example__explanation{cursor:help}
+.ds-tooltip-snapshot-example__explanation:focus-visible{outline:2px solid var(--ds-color-primary-600);outline-offset:2px;border-radius:2px}
+/* This Figma instance has only a subtitle. Its original pointer is painted by Tooltip. */
+.ds-tooltip-snapshot-example__tooltip{background:transparent}
+.ds-tooltip-snapshot-example__tooltip .ds-tooltip__title:empty{display:none}
+.ds-tooltip-snapshot-example__tooltip .ds-tooltip__arrow{background:transparent;box-shadow:none;filter:none}

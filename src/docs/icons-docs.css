@@ -1,0 +1,42 @@
+/* Collection explorer, using the existing Storybook typography, surfaces, tables and annotations. */
+.ds-icons-explorer, .ds-icons-playground, .ds-icons-reference { font-family: var(--ds-font-family); color: var(--ds-color-gray-900); min-width: 0; }
+.ds-icons-toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--ds-space-3x); margin-bottom: var(--ds-space-4x); }
+.ds-icons-toolbar label { display: flex; flex: 1 1 180px; flex-direction: column; gap: var(--ds-space-2x); font-size: 14px; line-height: 20px; font-weight: 600; }
+.ds-icons-toolbar input, .ds-icons-toolbar select { box-sizing: border-box; width: 100%; min-width: 0; height: 40px; padding: 8px 12px; border: 1px solid var(--ds-color-gray-200); border-radius: 8px; background: var(--ds-color-gray-50); color: var(--ds-color-gray-900); font: 400 14px/20px var(--ds-font-family); }
+.ds-icons-toolbar select:disabled { color: var(--ds-color-gray-500); background: var(--ds-color-gray-100); }
+.ds-icons-toolbar input[type="color"] { padding: 4px; }
+.ds-icons-explorer button:focus-visible, .ds-icons-toolbar :is(input, select):focus-visible { outline: 2px solid var(--ds-color-primary-600); outline-offset: 3px; }
+.ds-icons-results, .ds-icons-feedback { color: var(--ds-color-gray-500); font-size: 14px; line-height: 20px; }
+.ds-icons-feedback { min-height: 40px; padding-block: 8px; overflow-wrap: anywhere; }
+.ds-icons-inspector { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-space-4x); margin-top: var(--ds-space-3x); padding: var(--ds-space-4x); border: 1px solid var(--ds-color-gray-200); border-radius: var(--ds-radius-4x); background: var(--ds-color-gray-100); }
+.ds-icons-inspector__preview { display: grid; place-items: center; flex: none; width: 72px; height: 72px; border: 1px solid var(--ds-color-gray-200); border-radius: 8px; background: var(--ds-color-gray-50); }
+.ds-icons-inspector__content { display: flex; flex: 1 1 230px; flex-direction: column; gap: 4px; min-width: 0; overflow-wrap: anywhere; }
+.ds-icons-inspector__content span { font-size: 12px; line-height: 18px; color: var(--ds-color-gray-500); }
+.ds-icons-copy { display: flex; gap: 8px; flex-wrap: wrap; }
+.ds-icons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(170px, 100%), 1fr)); gap: var(--ds-space-3x); }
+.ds-icons-tile { min-width: 0; border: 1px solid var(--ds-color-gray-200); border-radius: 8px; background: var(--ds-color-gray-50); overflow: hidden; }
+.ds-icons-tile.is-selected { border-color: var(--ds-color-primary-600); }
+.ds-icons-tile__inspect { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 12px; padding: 16px 8px 12px; background: transparent; border: 0; color: inherit; cursor: pointer; }
+.ds-icons-tile__preview { display: grid; place-items: center; height: 48px; }
+.ds-icons-tile code { max-width: 100%; overflow-wrap: anywhere; text-align: center; font-size: 12px !important; line-height: 18px; }
+.ds-icons-tile__actions { display: flex; justify-content: space-between; gap: 8px; padding: 8px; border-top: 1px solid var(--ds-color-gray-200); background: var(--ds-color-gray-100); }
+.ds-icons-tile__actions button { padding: 4px 0; border: 0; background: none; color: var(--ds-color-gray-600); cursor: pointer; font: 600 12px/18px var(--ds-font-family); }
+.ds-icons-empty { padding: 24px; border: 1px dashed var(--ds-color-gray-200); border-radius: 8px; }
+.ds-icons-demo { display: grid; place-items: center; min-height: 160px; border: 1px solid var(--ds-color-gray-200); border-radius: var(--ds-radius-4x); background: var(--ds-color-gray-50); margin-block: 16px; }
+.ds-icons-playground > code { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ds-icons-anatomy { padding: 80px; }
+.ds-icons-anatomy__viewport { display: block; width: 24px; height: 24px; outline: 1px dashed var(--ds-color-gray-400); background: var(--ds-color-gray-50); }
+.ds-icons-marker-one { left: -10px; }
+.ds-icons-marker-two { right: 8px; }
+.ds-icons-size-row, .ds-icons-variant-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 12px; }
+.ds-icons-size-row > div, .ds-icons-variant-grid > div { display: flex; min-width: 0; flex-direction: column; align-items: center; gap: 12px; padding: 24px 12px; border: 1px solid var(--ds-color-gray-200); border-radius: 8px; }
+.ds-icons-size-row code, .ds-icons-variant-grid code { overflow-wrap: anywhere; text-align: center; }
+.ds-icons-size-row span, .ds-icons-variant-grid span { color: var(--ds-color-gray-500); font-size: 12px; line-height: 18px; }
+.ds-icons-table-scroll { max-width: 100%; overflow-x: auto; }
+.ds-icons-table-scroll code { white-space: nowrap; }
+.ds-icons-reference pre { overflow: auto; }
+@media (max-width: 480px) {
+  .ds-icons-toolbar { align-items: stretch; }
+  .ds-icons-toolbar label { flex-basis: 100%; }
+  .ds-icons-inspector { padding: 12px; }
+}

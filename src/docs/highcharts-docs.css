@@ -1,0 +1,13 @@
+.ds-chart-docs{color:var(--ds-color-gray-900,#101828);font-family:var(--ds-font-family);min-width:0}
+.ds-chart-docs__field{display:flex;align-items:center;gap:12px;font-size:14px;margin-bottom:24px}
+.ds-chart-docs__field select,.ds-chart-docs__control{font:600 14px/20px var(--ds-font-family);padding:8px 12px;border:1px solid #d1d5dc;border-radius:8px;background:#fff;color:#030712}
+.ds-chart-docs__control{margin-bottom:16px;cursor:pointer}
+.ds-chart-docs__variant{margin:24px 0 32px;min-width:0}
+.ds-chart-docs__variant>header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px;font-size:13px;color:#697282}
+.ds-chart-docs__variant>header code{color:#030712}
+.ds-chart-docs__caption{font-size:13px;line-height:20px;color:#697282}
+.ds-chart-docs__anatomy{position:relative;width:100%;min-width:0}
+.ds-chart-docs .ds-bd-anatomy__stage{overflow:visible;padding:24px 12px}
+.ds-chart-docs__marker{position:absolute!important;transform:translate(-50%,-50%);pointer-events:none;z-index:2}
+.ds-chart-docs__legend{margin:24px 0;padding-left:24px}
+.ds-chart-docs__legend li{margin:8px 0;line-height:24px}

@@ -10,7 +10,7 @@ const meta = { title: 'Components/zzheadercheck' } satisfies Meta;
 export default meta;
 
 const out: string[] = [];
-const check = (name: string, ok: boolean, d = '') => out.push(`${ok ? 'PASS' : 'FAIL'} ${name}${d ? ' :: ' + d : ''}`);
+const check = (name: string, ok: unknown, d = '') => out.push(`${ok ? 'PASS' : 'FAIL'} ${name}${d ? ' :: ' + d : ''}`);
 const tick = (ms = 30) => new Promise((r) => setTimeout(r, ms));
 
 function mount(width: number, node: React.ReactNode, height = 700) {
@@ -117,6 +117,8 @@ async function run() {
   const cm = trigger(hostC.host, 'Socrates Markets');
   cm.click(); await tick();
   check('controlled: state does not change until the parent updates, callback fires', cm.getAttribute('aria-expanded') === 'false' && spy.at(-1)?.panel === 'markets');
+  cm.click(); await tick();
+  check('controlled: a repeated click still requests opening when the parent has not accepted it', spy.at(-1)?.panel === 'markets' && cm.getAttribute('aria-expanded') === 'false');
   flushSync(() => hostC.root.render(<Header open={{ panel: 'markets', flyout: true }} onOpenChange={(s) => spy.push(s)} />));
   check('controlled: parent opens the menu and its flyout', trigger(hostC.host, 'Socrates Markets').getAttribute('aria-expanded') === 'true' && q(hostC.host, '.ds-header__panel-item--flyout').getAttribute('aria-expanded') === 'true');
   hostC.root.unmount(); hostC.host.remove();

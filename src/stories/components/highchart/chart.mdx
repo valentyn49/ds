@@ -1,16 +1,116 @@
-{/* Generated placeholder. Edit freely: scripts/generate-docs.mjs never overwrites an existing file. */}
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ChartStories from './chart.stories';
+import { ChartAnatomy, ChartExamples, ChartVariants } from '../../../react/Highcharts/HighchartsDocs';
 
-<Meta title="Components/Highchart/Chart" />
+<Meta of={ChartStories} />
 
-# Chart
+# Highcharts
 
-- **Figma page:** Highchart
-- **Figma type:** Component set
-- **Variants:** 9
-- **Variant properties:** `size (3)`, `type (3)`
-- **Status:** Placeholder, not documented yet
+## Live Demo
 
-> The Figma page also contains the sections "Tooltip logic" and "options", which are not components.
+Actual Highcharts Stock rendering with synthetic financial data. Switch among the three verified Figma configurations, choose a layout, or replace the mock dataset. Dataset, tooltip, and studies controls belong to this documentation playground; the production component accepts data and a formatter.
 
-[Open the Figma page](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=3435-366)
+<Canvas of={ChartStories.Playground} sourceState="none" />
+<Controls of={ChartStories.Playground} />
+
+## Overview
+
+Highcharts visualizes supplied weekly prices and precomputed financial studies. Figma defines `default` (OHLC and studies), `price sparkline` (green area), and `homepage` (blue area). Each has desktop, tablet, and mobile layouts. No other chart types are exposed.
+
+[Figma Chart component](https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library?node-id=3444-3753)
+
+## Anatomy
+
+<ChartAnatomy />
+
+## Chart Elements
+
+| Element | Verified treatment |
+| --- | --- |
+| Dark container | Secondary 900 `#303b4d`, 16 px radius, 16 px inset; default reserves 28 px at the bottom. |
+| Title / subtitle | Proxima Nova Semibold 16/24; Regular 14/20. White on the dark surface. |
+| Axes | Datetime X-axis, uppercase day/month labels; right-aligned Y labels inside the plot. Semibold 12/16. |
+| Grid | Horizontal 1 px Gray 400 `#697282` on dark; Gray 200 `#d1d5dc` on white. |
+| OHLC | 1 px white bars. The verified compact switch enables red `#be2625` and green `#008236`. |
+| Stochastic | Three thin lines: `#38e5e7`, `#f1c50d`, `#be2625`. |
+| Energy Model | Green `#008236` columns. |
+| Moving Average | Gray 200 `#d1d5dc`, source stroke approximately 0.904 px. |
+| Price Channel | Original blue legend glyph. In the source, this label and the primary OHLC series share the `price` visibility property; the control therefore toggles OHLC. No separate blue plot series is defined. |
+| Technical Lines | Two Orange 600 `#ca3500` plot lines, 1 px. The original legend glyph contains orange and green; its geometry and colors are retained. |
+| Area | 2 px green `#008236` or homepage blue `#28acff`; fill fades from 20% opacity to transparent. No visible point markers. |
+| Legend | External study controls with original exported 16 px Figma glyphs and Semibold 12/16 labels. |
+
+## Variants
+
+<ChartVariants />
+
+| Figma type | Desktop | Tablet | Mobile |
+| --- | --- | --- | --- |
+| default | 1087 × 500 | 604 × 472 | 343 × 646 |
+| price sparkline | 1087 × 500 | 604 × 504 | 343 × 506 |
+| homepage | 1055 × 372 | 597 × 372 | 340 × 372 |
+
+These are reference dimensions, not a fixed-width contract. Titles, supplied studies, and translated text may increase the container height.
+
+## Tooltip
+
+The Figma “Tooltip logic” section defines the study hints **Hide tooltip chart** and **Show tooltip chart**. They use a white surface, 4 px corners, 8 px vertical / 12 px horizontal padding, Regular 12/18 dark text, and the source shadow and corner. Hover or focus the icon next to a study to inspect it.
+
+Financial point-tooltip content is **not specified** in the source. Supply `formatTooltip` for product-owned plain-text content; otherwise data tooltips are disabled. The mock formatter demonstrates date, values, and OHLC values using the verified white tooltip treatment. HTML is escaped. Highcharts positions the data tooltip within the chart. Tooltip inclusion switches affect only their associated study, independently of visibility.
+
+## States and Interactions
+
+- OHLC monochrome / red–green switch changes bar paint without changing the data.
+- 3M, 6M, 1y, 3y, All, and Reset select actual UTC data ranges. Date fields and the native Stock navigator update the same X-axis.
+- Study labels show/hide all supplied series in that study. Adjacent icons include/exclude their tooltip values.
+- Standard Fullscreen uses the browser fullscreen API. Advanced Fullscreen is enabled when `onFullscreenRequest` is provided; Figma does not define its workflow. The callback receives the requested mode and chart container.
+- Optional `marketHref` renders the verified Go to Market Page link. No chart exporting menu, crosshair, automatic plot zooming, or panning is added.
+
+## Responsive Behavior
+
+Auto layout follows the **container**: mobile up to 576 px, tablet up to 992 px, desktop above 992 px. These breakpoints follow application conventions; Figma supplies three reference sizes without breakpoint rules. Explicit `size` values are useful for reference comparisons. Native Highcharts reflow handles plot resizing; a ResizeObserver chooses the header and footer layout. The homepage chart remains 372 px high at every source size.
+
+## Data Integration
+
+```tsx
+import { Highcharts } from '@socrates/design-system';
+import type { OhlcPoint, StudySeries } from '@socrates/design-system';
+import '@socrates/design-system/styles.css';
+
+const data: OhlcPoint[] = [
+  [Date.UTC(2025, 9, 20), 120, 126, 118, 124],
+  [Date.UTC(2025, 9, 27), 124, 130, 122, 128],
+];
+const studies: StudySeries[] = [{
+  id: 'moving-average', name: 'Moving Average', study: 'movingAverage',
+  data: [[Date.UTC(2025, 9, 20), 122], [Date.UTC(2025, 9, 27), 125]],
+}];
+
+<Highcharts title="Weekly prices" description="Weekly open, high, low and close in USD."
+  data={data} studies={studies} formatValue={value => value.toFixed(0)} />;
+```
+
+Area configurations accept `[UTC milliseconds, value | null]` tuples:
+
+```tsx
+<Highcharts variant="homepage" title="Weekly closing prices"
+  description="Closing values in USD, October 2025."
+  data={[[Date.UTC(2025, 9, 20), 124], [Date.UTC(2025, 9, 27), 128]]}
+  formatTooltip={({ points }) => points.map(p => `${p.name}: ${p.value}`).join('\n')} />
+```
+
+Replace arrays to update data; keep study IDs stable. Data is copied before passing it to Highcharts. Timestamps must be unique and increasing, OHLC high/low must contain open/close, and study IDs must be unique. Study calculations belong to the application. Optional `valueRange` fixes the Y domain; omitted values use the actual data extent. Provide Proxima Nova through the existing font setup.
+
+## Accessibility and Lifecycle
+
+The Highcharts accessibility module exposes descriptions, data semantics, and keyboard navigation. Meaningful `title` and `description` are required. Native buttons and date inputs have accessible names; study controls expose pressed state, and OHLC uses a switch. Reduced-motion preferences disable chart animation. Chart options are local to each instance, with no global theme changes. The official React wrapper updates existing series; unmount cleanup destroys the instance and disconnects observers, including React StrictMode effect replay.
+
+## Usage Examples
+
+<ChartExamples />
+
+## Implementation Notes
+
+Uses Highcharts Stock 12.6.2 and the official `@highcharts/react` 5.1.0 Stock integration. [Official React integration documentation](https://www.highcharts.com/docs/react/getting-started).
+
+All nine source variants and the adjacent Tooltip logic and options sections were inspected. OHLC option alternatives (checkbox, small tabs, labeled toggle) express the same color mode; the component uses the compact switch shown in the Chart component. The financial data-tooltip content, advanced fullscreen behavior, responsive breakpoints, and plot data values require consuming-product decisions. The documentation fixtures are synthetic and do not reproduce market history.

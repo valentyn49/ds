@@ -9,6 +9,7 @@ import crossUrl from '../../components/popup/assets/negative-x.png';
 import { Button } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
 import { cx } from '../utils/cx';
+import { enterModal, trapModalTab } from '../utils/modalEnvironment';
 
 /** Figma `type` of the header component "modal". */
 export type PopupType = 'default' | 'successfully' | 'negative';
@@ -170,28 +171,6 @@ export const PopupView = forwardRef<HTMLDivElement, PopupViewProps>(function Pop
 
 // ---------- modal behavior (same rules as createPopup in popup.js) ----------
 
-const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-const stack: symbol[] = [];
-let scrollLocks = 0;
-let savedOverflow = '';
-let savedPaddingRight = '';
-
-function lockScroll() {
-  if (scrollLocks++ > 0) return;
-  const body = document.body;
-  savedOverflow = body.style.overflow;
-  savedPaddingRight = body.style.paddingRight;
-  const bar = window.innerWidth - document.documentElement.clientWidth;
-  if (bar > 0) body.style.paddingRight = `${bar + (parseFloat(getComputedStyle(body).paddingRight) || 0)}px`;
-  body.style.overflow = 'hidden';
-}
-
-function unlockScroll() {
-  if (--scrollLocks > 0) return;
-  document.body.style.overflow = savedOverflow;
-  document.body.style.paddingRight = savedPaddingRight;
-}
-
 export interface PopupProps extends Omit<PopupViewProps, 'mode' | 'frame' | 'scrolling' | 'behind' | 'rootRef' | 'idBase' | 'onCloseClick' | 'onCancelClick' | 'onPrimaryClick' | 'onBackdropMouseDown' | 'onBackdropClick'> {
   /** Closed means not rendered. The application owns this state. */
   open?: boolean;
@@ -281,39 +260,17 @@ export const Popup = forwardRef<HTMLDivElement, PopupProps>(function Popup(
     const dialog = dialogRef.current;
     if (!root || !dialog) return undefined;
 
-    const token = Symbol('popup');
     const initialOpener = document.activeElement instanceof HTMLElement && document.activeElement !== document.body ? document.activeElement : null;
 
-    // Everything behind the popup becomes inert: not focusable, not clickable, hidden from assistive technology.
-    const inerted = [...target.children].filter((el): el is HTMLElement => el !== root && el instanceof HTMLElement && !el.inert);
-    inerted.forEach((el) => {
-      el.inert = true;
-    });
-    if (!contained) lockScroll();
-    stack.push(token);
-
-    const focusables = () => [...dialog.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((el) => el.getClientRects().length > 0);
+    const modal = enterModal(root, target, !contained);
     const onKeydown = (event: KeyboardEvent) => {
-      if (stack[stack.length - 1] !== token) return;
+      if (!modal.isTop()) return;
       if (event.key === 'Escape' && latest.current.closeOnEscape && !event.defaultPrevented) {
         event.preventDefault();
         requestClose('escape');
         return;
       }
-      if (event.key !== 'Tab') return;
-      const items = focusables();
-      if (items.length === 0) {
-        event.preventDefault();
-        dialog.focus({ preventScroll: true });
-        return;
-      }
-      const first = items[0];
-      const last = items[items.length - 1];
-      const activeEl = document.activeElement;
-      if (!dialog.contains(activeEl) || (event.shiftKey && (activeEl === first || activeEl === dialog)) || (!event.shiftKey && activeEl === last)) {
-        event.preventDefault();
-        (event.shiftKey ? last : first).focus();
-      }
+      trapModalTab(event, dialog);
     };
     document.addEventListener('keydown', onKeydown, true);
 
@@ -327,14 +284,9 @@ export const Popup = forwardRef<HTMLDivElement, PopupProps>(function Popup(
     return () => {
       document.removeEventListener('keydown', onKeydown, true);
       observer.disconnect();
-      const at = stack.indexOf(token);
-      if (at >= 0) stack.splice(at, 1);
-      inerted.forEach((el) => {
-        el.inert = false;
-      });
-      if (!contained) unlockScroll();
+      const wasTop = modal.dispose();
       const opener = latest.current.returnFocusTo?.current ?? initialOpener;
-      if (opener?.isConnected) opener.focus({ preventScroll: true });
+      if (wasTop && opener?.isConnected && !opener.closest('[inert]')) opener.focus({ preventScroll: true });
     };
   }, [active, target, contained, emit, refresh, requestClose]);
 
