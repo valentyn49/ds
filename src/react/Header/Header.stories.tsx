@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { HEADER_FRAME_WIDTHS } from '../../components/header/header.spec.js';
 import { PREVIEW_ZOOM } from '../../docs/header-docs.js';
@@ -21,16 +22,35 @@ interface FrameProps {
   zoom?: number;
   label?: string;
   children: React.ReactNode;
+  isolate?: boolean;
 }
 
 /** A header shown at a real width on a page-colored frame. The frame is also the containing block of the fixed drawer. Documentation only. */
-function HeaderFrame({ width, height, zoom, label, children }: FrameProps) {
+function HeaderFrame({ width, height, zoom, label, children, isolate = false }: FrameProps) {
+  const [target, setTarget] = useState<HTMLElement | null>(null);
   return (
     <div className="ds-bd-hd-item">
       {label ? <code className="ds-bd-hd-label">{label}</code> : null}
       <div className="ds-bd-hd-zoom" style={{ zoom: zoom ?? (width > 1000 ? zoomFor.desktop : 1) }}>
         <div className="ds-bd-hd-frame" style={{ width, height }}>
-          {children}
+          {isolate ? (
+            <>
+              <iframe
+                title={label ?? 'Header drawer preview'}
+                srcDoc="<!doctype html><html><head></head><body></body></html>"
+                style={{ display: 'block', width: '100%', height: '100%', border: 0 }}
+                onLoad={(event) => {
+                  const doc = event.currentTarget.contentDocument!;
+                  doc.head.replaceChildren(...[...document.head.querySelectorAll('style, link[rel="stylesheet"]')].map((node) => node.cloneNode(true)));
+                  const reset = doc.createElement('style');
+                  reset.textContent = 'html, body { margin: 0; height: 100%; }';
+                  doc.head.append(reset);
+                  setTarget(doc.body);
+                }}
+              />
+              {target && createPortal(children, target)}
+            </>
+          ) : children}
         </div>
       </div>
     </div>
@@ -155,13 +175,13 @@ export const Drawer: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <div className="ds-bd-hd-row">
-      <HeaderFrame width={375} height={812} label="Mobile · Socrates Markets expanded">
+      <HeaderFrame isolate width={375} height={812} label="Mobile · Socrates Markets expanded">
         <Header defaultOpen={{ drawer: true, expanded: ['Socrates Markets'] }} />
       </HeaderFrame>
-      <HeaderFrame width={375} height={812} label="Mobile · account expanded">
+      <HeaderFrame isolate width={375} height={812} label="Mobile · account expanded">
         <Header defaultOpen={{ drawer: true, expanded: ['account'] }} />
       </HeaderFrame>
-      <HeaderFrame width={744} height={812} zoom={0.8} label="Tablet · Help expanded">
+      <HeaderFrame isolate width={744} height={812} zoom={0.8} label="Tablet · Help expanded">
         <Header defaultOpen={{ drawer: true, expanded: ['Help'] }} />
       </HeaderFrame>
     </div>

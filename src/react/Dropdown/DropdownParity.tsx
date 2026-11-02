@@ -92,6 +92,21 @@ const toReact = ({ open, value, ...props }: Shared): DropdownProps => ({ ...prop
 function render(props: Shared) {
   const reactHtml = renderToStaticMarkup(<Dropdown {...toReact(props)} />);
   const htmlRoot = (createDropdown as (props: Record<string, unknown>) => HTMLElement)(props as Record<string, unknown>);
+  // React adds explicit combobox/listbox relationships and an accessible search name.
+  // Apply only those intentional semantic additions to the legacy DOM before checking presentation parity.
+  const trigger = htmlRoot.querySelector('.ds-dropdown__trigger')!;
+  const list = htmlRoot.querySelector('.ds-dropdown__list')!;
+  const listId = `${trigger.id.slice(0, -'-trigger'.length)}-listbox`;
+  list.id = listId;
+  trigger.setAttribute('aria-controls', listId);
+  const search = htmlRoot.querySelector('.ds-dropdown__search input');
+  if (search) {
+    search.setAttribute('role', 'combobox');
+    search.setAttribute('aria-controls', listId);
+    search.setAttribute('aria-expanded', trigger.getAttribute('aria-expanded')!);
+    search.setAttribute('aria-autocomplete', 'list');
+    search.setAttribute('aria-label', search.getAttribute('placeholder')!);
+  }
   const preview = (props as Record<string, unknown>)['data-preview-state'];
   if (preview) htmlRoot.setAttribute('data-preview-state', String(preview));
   return { react: normalize(reactHtml), html: normalize(htmlRoot.outerHTML) };

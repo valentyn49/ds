@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { createRoot } from 'react-dom/client';
+import type { Root } from 'react-dom/client';
 import { flushSync } from 'react-dom';
 import { createDropdown } from '../../components/dropdown/dropdown.js';
 import { Dropdown } from './Dropdown';
@@ -10,16 +11,18 @@ const meta = { title: 'Components/zzdropdowncheck' } satisfies Meta;
 export default meta;
 
 const out: string[] = [];
-const check = (n: string, ok: boolean, d = '') => out.push(`${ok ? 'PASS' : 'FAIL'} ${n}${d ? ' :: ' + d : ''}`);
+const check = (n: string, ok: unknown, d = '') => out.push(`${ok ? 'PASS' : 'FAIL'} ${n}${d ? ' :: ' + d : ''}`);
 const tick = (ms = 30) => new Promise((r) => setTimeout(r, ms));
 const cs = (el: Element) => getComputedStyle(el);
 
+const mountedRoots = new WeakMap<HTMLElement, Root>();
 function mount(node: React.ReactNode) {
   const host = document.createElement('div');
   host.dataset.zz = '1';
   host.style.cssText = 'width:347px;margin:8px;position:relative';
   document.body.append(host);
   const root = createRoot(host);
+  mountedRoots.set(host, root);
   flushSync(() => root.render(node));
   return host;
 }
@@ -43,13 +46,13 @@ async function run() {
   const a = mount(
     <Dropdown id="a" onValueChange={(v) => changes.push(v)} onOpenChange={(o) => opens.push(o)} className="extra" data-foo="1" />,
   );
-  a.addEventListener('ds-dropdown-change', ((e: CustomEvent) => events.push(e.detail.value + '/' + e.detail.label)) as EventListener);
+  a.addEventListener('ds-dropdown-change', (e: Event) => { const detail = (e as CustomEvent<{ value: string; label: string }>).detail; events.push(detail.value + '/' + detail.label); });
   const trigger = q<HTMLButtonElement>(a, '.ds-dropdown__trigger');
   const menu = q(a, '.ds-dropdown__menu');
   const rootEl = q(a, '.ds-dropdown');
   check('closed at start: aria-expanded false, menu hidden, no open class', trigger.getAttribute('aria-expanded') === 'false' && menu.hidden && !rootEl.classList.contains('ds-dropdown--open'));
   check('className and data-* go to the root', rootEl.classList.contains('extra') && rootEl.dataset.foo === '1');
-  check('trigger ARIA: combobox, haspopup, controls, labelledby, describedby', trigger.getAttribute('role') === 'combobox' && trigger.getAttribute('aria-haspopup') === 'listbox' && trigger.getAttribute('aria-controls') === 'a-menu' && trigger.getAttribute('aria-labelledby') === 'a-label a-value' && trigger.getAttribute('aria-describedby') === 'a-caption');
+  check('trigger ARIA: combobox, haspopup, controls, labelledby, describedby', trigger.getAttribute('role') === 'combobox' && trigger.getAttribute('aria-haspopup') === 'listbox' && trigger.getAttribute('aria-controls') === 'a-listbox' && trigger.getAttribute('aria-labelledby') === 'a-label a-value' && trigger.getAttribute('aria-describedby') === 'a-caption');
   trigger.focus();
   trigger.click();
   await tick();
@@ -171,6 +174,20 @@ async function run() {
   check('search: no match hides everything', vis().length === 0 && !si.hasAttribute('aria-activedescendant'));
   key(si, 'Escape'); await tick();
 
+  // ---- options replaced while open
+  const dynamicChanges: string[] = [];
+  const dynamic = mount(<Dropdown id="dynamic" open options={['One', 'Two', 'Three']} onValueChange={(v) => dynamicChanges.push(v)} />);
+  const dynamicTrigger = q<HTMLButtonElement>(dynamic, '.ds-dropdown__trigger');
+  key(dynamicTrigger, 'End'); await tick();
+  flushSync(() => mountedRoots.get(dynamic)!.render(<Dropdown id="dynamic" open options={['New']} onValueChange={(v) => dynamicChanges.push(v)} />));
+  check('replacing options repairs the active descendant', dynamicTrigger.getAttribute('aria-activedescendant') === 'dynamic-option-0');
+  key(dynamicTrigger, 'Enter'); await tick();
+  check('Enter after replacement selects an existing option', dynamicChanges.at(-1) === 'New');
+  flushSync(() => mountedRoots.get(dynamic)!.render(<Dropdown id="dynamic" open options={[]} />));
+  key(dynamicTrigger, 'Enter'); await tick();
+  check('empty replacement removes the active descendant and Enter is safe', !dynamicTrigger.hasAttribute('aria-activedescendant'));
+  mountedRoots.get(dynamic)!.unmount(); dynamic.remove();
+
   // ---- disabled
   const d = mount(<Dropdown id="d" disabled />);
   const dt = q<HTMLButtonElement>(d, '.ds-dropdown__trigger');
@@ -201,7 +218,7 @@ async function run() {
 
   // ---- ref
   let refEl: HTMLDivElement | null = null;
-  const r = mount(<Dropdown id="r" ref={(n) => (refEl = n)} />);
+  const r = mount(<Dropdown id="r" ref={(n) => { refEl = n; }} />);
   check('ref is the root element', refEl === q(r, '.ds-dropdown'));
 
   // ---- computed styles

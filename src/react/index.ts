@@ -48,3 +48,17 @@ export type { ToastProviderProps, ToastApi } from './Toast/ToastProvider';
 export { createToastManager, TOAST_TYPES } from './Toast/toast-manager';
 export type { ToastType, ToastOptions, ToastAction, ToastManager, ToastSnapshot } from './Toast/toast-manager';
 export type { HighchartsProps, ChartPoint, OhlcPoint, ChartStudy, StudySeries, ChartTooltipContext } from './Highcharts/types';
+
+// Selects, dialogs, tables, and page navigation
+export { Dropdown, DropdownItems, DROPDOWN_STATE_LIST, DROPDOWN_DEFAULTS, SAMPLE_OPTIONS } from './Dropdown/Dropdown';
+export type { DropdownProps, DropdownItemsProps, DropdownOption, DropdownState } from './Dropdown/Dropdown';
+export { Popup, PopupView, POPUP_TYPE_LIST, POPUP_WIDTH_LIST } from './Popup/Popup';
+export type { PopupProps, PopupViewProps, PopupType, PopupWidth, PopupMode, PopupCloseReason } from './Popup/Popup';
+export { Table, TableCell, TableHeaderCell, TableDividerRow, TABLE_THEMES } from './Table/Table';
+export type {
+  TableProps, TableCellProps, TableHeaderCellProps, TableDividerRowProps, TableTheme,
+  TableSubscription, TableMetricTone, TableIconName, TableTextTone, TableCellData,
+  TableCellType, TableColumn, TableDataRow, TableDividerData, TableRow,
+} from './Table/Table';
+export { Header, HEADER_PLATFORMS, HEADER_TYPES, HEADER_RESOLUTIONS, HEADER_MARGINS, HEADER_BREAKPOINTS, HEADER_DESKTOP_FIT } from './Header/Header';
+export type { HeaderProps, HeaderPlatform, HeaderType, HeaderResolution, HeaderPanel, HeaderOpenState } from './Header/Header';

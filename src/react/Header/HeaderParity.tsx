@@ -17,6 +17,8 @@ const mapId = (value: string) => value.replace(/^ds-header-.*?(?=-(?:panel|drawe
 const normalize = (html: string): string => {
   const template = document.createElement('template');
   template.innerHTML = html;
+  // React makes the drawer focusable as a fallback when it has no enabled controls.
+  template.content.querySelector('.ds-header__drawer')?.removeAttribute('tabindex');
   const walk = (node: Node): string => {
     if (node.nodeType === Node.TEXT_NODE) return node.textContent ?? '';
     const el = node as Element;

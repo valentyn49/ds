@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as HeaderStories from './Header.stories';
+
+<Meta of={HeaderStories} />
+
+# Header (React)
+
+The existing Socrates header, using the shared HTML component's CSS, tokens, logo, icons, and content. Layout follows the header container width. The `registration` variant is the existing logo-only header; it does not implement a registration flow.
+
+```tsx
+import { Header } from '@socrates/design-system';
+
+<Header platform="standart" type="yes" searchInputProps={{ name: 'market-search' }} />
+```
+
+## Live demo
+
+<Canvas of={HeaderStories.Playground} />
+<Controls of={HeaderStories.Playground} />
+
+## Variants and responsive layouts
+
+<Canvas of={HeaderStories.Variants} />
+<Canvas of={HeaderStories.Responsive} />
+
+## Menus and drawer
+
+Desktop menus are disclosures: Enter or Space activates the trigger; Escape and outside presses close the menu. Escape restores focus to its visible trigger. Links retain the existing placeholder destinations.
+
+The visible mobile/tablet drawer is a modal dialog. It focuses the close button, traps Tab and Shift+Tab, isolates the background, locks page scrolling, and restores focus on close. Escape, the close button, and the scrim request closure. A drawer hidden by the desktop layout releases its modal effects. Open drawer previews use separate iframe documents so they do not block other examples.
+
+<Canvas of={HeaderStories.DesktopMenus} />
+<Canvas of={HeaderStories.Drawer} />
+<Canvas of={HeaderStories.Behavior} />
+
+## Controlled state
+
+Use `open` with `onOpenChange`, or `defaultOpen` for initial uncontrolled state. `HeaderOpenState` contains `panel`, `flyout`, `drawer`, and `expanded`. Drawer expansion keys are section labels, `account`, or `Section:Row` for nested rows, for example `Socrates Markets:Bonds`. These stable React keys replace the legacy builder's generated DOM IDs for nested rows.
+
+<Canvas of={HeaderStories.Controlled} />
+
+## HTML parity
+
+The comparison allows the nonvisual fallback `tabIndex` on the React drawer. Keyboard and modal behavior require a live browser check in addition to markup comparison.
+
+<Canvas of={HeaderStories.ParityWithHtml} />
