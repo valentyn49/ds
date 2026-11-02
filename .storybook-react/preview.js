@@ -3,7 +3,7 @@ import '../src/tokens/fonts.css';
 import '../src/tokens/tokens.css';
 import '../src/docs/docs.css';
 import '../src/docs/button-docs.css';
-import './preview.css';
+import '../.storybook/preview.css';
 
 /** @type {import('@storybook/react-vite').Preview} */
 const preview = {

@@ -2,6 +2,7 @@ import theme from './theme.js';
 import '../src/tokens/fonts.css';
 import '../src/tokens/tokens.css';
 import '../src/docs/docs.css';
+import './preview.css';
 
 /** @type {import('@storybook/html-vite').Preview} */
 const preview = {
