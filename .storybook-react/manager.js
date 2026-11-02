@@ -1,11 +1,3 @@
-import '../.storybook/manager-fonts.css';
 import '../src/tokens/tokens.css';
 import '../.storybook/manager.css';
-import { addons } from 'storybook/manager-api';
-import theme from '../.storybook/theme.js';
-
-addons.setConfig({
-  theme,
-  sidebar: { showRoots: true },
-  toolbar: { zoom: { hidden: true }, eject: { hidden: true }, copy: { hidden: true } },
-});
+import '../.storybook/manager-shared.js';

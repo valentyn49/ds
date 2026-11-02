@@ -4,9 +4,9 @@ import { dirname, resolve } from 'node:path';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const structure = JSON.parse(readFileSync(resolve(root, 'src/figma/structure.json'), 'utf8'));
-const previewPath = resolve(root, '.storybook/preview.js');
+const previewPath = resolve(root, '.storybook/preview-shared.js');
 
-// Storybook reads `storySort` statically, so the order has to be a literal in preview.js.
+// Storybook reads `storySort` statically, so the order has to be a literal in the shared preview config.
 const order = [
   'Introduction',
   'Foundations',
@@ -21,7 +21,7 @@ const literal = JSON.stringify(order, null, 2).replace(/\n/g, '\n      ');
 
 const source = readFileSync(previewPath, 'utf8');
 const pattern = new RegExp(`${start.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[\\s\\S]*?${end.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`);
-if (!pattern.test(source)) throw new Error('sidebar-order markers not found in .storybook/preview.js');
+if (!pattern.test(source)) throw new Error('sidebar-order markers not found in .storybook/preview-shared.js');
 
 writeFileSync(previewPath, source.replace(pattern, () => `${start}\n      ${literal}\n      ${end}`));
-console.log('sidebar order synced into .storybook/preview.js');
+console.log('sidebar order synced into .storybook/preview-shared.js');

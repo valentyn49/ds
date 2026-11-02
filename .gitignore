@@ -1,6 +1,9 @@
 node_modules
 storybook-static
 storybook-static-react
+storybook-html-static
+storybook-react-static
+pages-dist
 dist
 *.log
 .DS_Store
