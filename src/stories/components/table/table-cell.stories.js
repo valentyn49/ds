@@ -106,7 +106,7 @@ export const Playground = {};
 export const LightExample = {
   parameters: { controls: { disable: true } },
   render: () => {
-    const table = createTable({ theme: 'light', label: 'Socrates Markets, light theme example', columns: LIGHT_COLUMNS, rows: LIGHT_ROWS, minWidth: 1148 });
+    const table = createTable({ theme: 'light', label: 'Test Design System Markets, light theme example', columns: LIGHT_COLUMNS, rows: LIGHT_ROWS, minWidth: 1148 });
     const wrap = document.createElement('div');
     wrap.className = 'ds-bd-tb-demo';
     wrap.append(table);

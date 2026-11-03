@@ -29,7 +29,7 @@ export type HeaderPanel = 'markets' | 'myMarkets' | 'watchlist' | 'help' | 'prof
 /**
  * What is open. `panel` is the open desktop menu (only one at a time), `flyout` its submenu (Performance Trackers,
  * Members Help), `drawer` the tablet/mobile drawer. `expanded` lists the open rows of the drawer: a section name
- * ("Socrates Markets", "My Markets", "Help"), a nested row as "Section:Row" ("Socrates Markets:Bonds") or "account".
+ * ("Test Design System Markets", "My Markets", "Help"), a nested row as "Section:Row" ("Test Design System Markets:Bonds") or "account".
  */
 export interface HeaderOpenState {
   panel: HeaderPanel | null;
@@ -221,7 +221,7 @@ function Drawer({
 }) {
   const expanded = new Set(open.expanded);
   const sections: Record<string, DrawerRow[]> = {
-    'Socrates Markets': menuItems('markets').map((m) => ({ label: m.drawerLabel ?? m.label, children: m.drawerChildren })),
+    'Test Design System Markets': menuItems('markets').map((m) => ({ label: m.drawerLabel ?? m.label, children: m.drawerChildren })),
     'My Markets': menuItems('myMarkets').map((m) => ({ label: m.label })),
     Help: menuItems('help').map((m) => ({ label: m.label })),
   };
@@ -305,7 +305,7 @@ function Drawer({
 /* ---------- header ---------- */
 
 /**
- * Socrates header. Same markup and classes as the HTML `headerHTML()` builder, styled by the same `header.css`.
+ * Test Design System header. Same markup and classes as the HTML `headerHTML()` builder, styled by the same `header.css`.
  *
  * `size` (desktop | tablet | mobile) is not a prop: the layout follows the header's own width with container queries.
  * Desktop menus follow the disclosure-navigation pattern: each trigger is a button with `aria-expanded`; Escape closes

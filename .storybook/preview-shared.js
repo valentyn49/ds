@@ -62,7 +62,7 @@ const preview = {
           ],
           "Email template",
           [
-            "New Socrates Account"
+            "New Test Design System Account"
           ],
           "Footer",
           [

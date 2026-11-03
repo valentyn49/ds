@@ -177,7 +177,7 @@ export interface DropdownProps extends Omit<HTMLAttributes<HTMLDivElement>, 'chi
 }
 
 /**
- * Socrates dropdown: a select-style combobox with a listbox (WAI-ARIA authoring practices). Same markup and classes as
+ * Test Design System dropdown: a select-style combobox with a listbox (WAI-ARIA authoring practices). Same markup and classes as
  * the HTML `dropdownHTML()` builder, styled by the same `dropdown.css`.
  *
  * Click or Arrow Down / Arrow Up / Enter / Space on the trigger opens the menu. In the open menu Arrow Down / Arrow Up

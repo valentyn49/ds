@@ -52,3 +52,41 @@
 .ds-bd-anchor--right::after { left: calc(100% + 92px); top: 50%; margin-top: -12px; }
 
 .ds-bd-overview--input .ds-bd-overview__item .ds-bd-tile { flex: 1; align-items: flex-start; }
+
+.ds-bd-validation-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-4x);
+  width: 323px;
+  max-width: 100%;
+}
+
+.ds-bd-checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-2x);
+}
+
+.ds-bd-form-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ds-bd-form-link:focus-visible {
+  outline: 2px solid var(--ds-color-primary-600);
+  outline-offset: 2px;
+}
+
+.ds-bd-form-error {
+  margin: 0;
+  color: var(--ds-color-alert-600);
+  font-size: var(--ds-text-sm-font-normal-size);
+  line-height: var(--ds-text-sm-font-normal-line-height);
+  font-weight: 400;
+}

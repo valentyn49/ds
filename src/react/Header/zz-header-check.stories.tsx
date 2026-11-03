@@ -42,7 +42,7 @@ async function run() {
   check('ref is the header element; className and data-* pass through', ref.current === q(h, 'header') && q(h, 'header').classList.contains('extra') && q(h, 'header').dataset.test === 'x');
   check('search input defaults + searchInputProps', q<HTMLInputElement>(h, '.ds-header__search-input').name === 'q' && q<HTMLInputElement>(h, '.ds-header__search-input').placeholder === 'Market Search');
 
-  const markets = trigger(h, 'Socrates Markets');
+  const markets = trigger(h, 'Test Design System Markets');
   const help = trigger(h, 'Help');
   const panelOf = (t: HTMLElement) => document.getElementById(t.getAttribute('aria-controls')!)!;
   check('aria-controls points to an existing hidden panel', !!panelOf(markets) && panelOf(markets).hidden && markets.getAttribute('aria-expanded') === 'false');
@@ -114,13 +114,13 @@ async function run() {
   /* ---------- controlled ---------- */
   const spy: HeaderOpenState[] = [];
   let hostC = mount(1440, <Header open={{ panel: null }} onOpenChange={(s) => spy.push(s)} />);
-  const cm = trigger(hostC.host, 'Socrates Markets');
+  const cm = trigger(hostC.host, 'Test Design System Markets');
   cm.click(); await tick();
   check('controlled: state does not change until the parent updates, callback fires', cm.getAttribute('aria-expanded') === 'false' && spy.at(-1)?.panel === 'markets');
   cm.click(); await tick();
   check('controlled: a repeated click still requests opening when the parent has not accepted it', spy.at(-1)?.panel === 'markets' && cm.getAttribute('aria-expanded') === 'false');
   flushSync(() => hostC.root.render(<Header open={{ panel: 'markets', flyout: true }} onOpenChange={(s) => spy.push(s)} />));
-  check('controlled: parent opens the menu and its flyout', trigger(hostC.host, 'Socrates Markets').getAttribute('aria-expanded') === 'true' && q(hostC.host, '.ds-header__panel-item--flyout').getAttribute('aria-expanded') === 'true');
+  check('controlled: parent opens the menu and its flyout', trigger(hostC.host, 'Test Design System Markets').getAttribute('aria-expanded') === 'true' && q(hostC.host, '.ds-header__panel-item--flyout').getAttribute('aria-expanded') === 'true');
   hostC.root.unmount(); hostC.host.remove();
 
   /* ---------- defaultOpen ---------- */
@@ -150,14 +150,14 @@ async function run() {
   check('drawer is a modal dialog named Menu', drawer.getAttribute('role') === 'dialog' && drawer.getAttribute('aria-modal') === 'true' && drawer.getAttribute('aria-label') === 'Menu' && menuBtn.getAttribute('aria-controls') === drawer.id);
 
   const rowBtn = (label: string) => qa(drawer, 'button.ds-header__row-button').find((b) => b.textContent!.startsWith(label))!;
-  const sm = rowBtn('Socrates Markets');
+  const sm = rowBtn('Test Design System Markets');
   const subrows = document.getElementById(sm.getAttribute('aria-controls')!)!;
   check('section row starts collapsed', sm.getAttribute('aria-expanded') === 'false' && subrows.hidden);
   sm.click(); await tick();
-  check('section row expands', sm.getAttribute('aria-expanded') === 'true' && !subrows.hidden && dr.at(-1)?.expanded.includes('Socrates Markets') === true);
+  check('section row expands', sm.getAttribute('aria-expanded') === 'true' && !subrows.hidden && dr.at(-1)?.expanded.includes('Test Design System Markets') === true);
   const bonds = qa(subrows, 'button.ds-header__row-button--sub').find((b) => b.textContent!.startsWith('Bonds'))!;
   bonds.click(); await tick();
-  check('nested row expands', bonds.getAttribute('aria-expanded') === 'true' && !document.getElementById(bonds.getAttribute('aria-controls')!)!.hidden && dr.at(-1)?.expanded.includes('Socrates Markets:Bonds') === true);
+  check('nested row expands', bonds.getAttribute('aria-expanded') === 'true' && !document.getElementById(bonds.getAttribute('aria-controls')!)!.hidden && dr.at(-1)?.expanded.includes('Test Design System Markets:Bonds') === true);
   bonds.click(); sm.click(); await tick();
   check('rows collapse again', bonds.getAttribute('aria-expanded') === 'false' && sm.getAttribute('aria-expanded') === 'false');
   const account = q<HTMLButtonElement>(drawer, '.ds-header__account-button');

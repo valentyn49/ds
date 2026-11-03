@@ -23,10 +23,10 @@ export function TooltipUsageExample() {
         </div>
         <div className="ds-tooltip-snapshot-example__options" role="group" aria-label="Snapshot report options">
           <RadioButton name={`${group}-snapshot`} value="premium" checked={premium} onChange={() => setPremium(true)}
-            title="Socrates Premium Snapshot - 3 MACs" subtitle="Includes D/W/M Reversals & Timing Arrays" />
+            title="Test Design System Premium Snapshot - 3 MACs" subtitle="Includes D/W/M Reversals & Timing Arrays" />
           <div className="ds-tooltip-snapshot-example__unavailable">
             <RadioButton name={`${group}-snapshot`} value="enterprise" disabled
-              title="Socrates Enterprise Snapshot - 10 MACs"
+              title="Test Design System Enterprise Snapshot - 10 MACs"
               subtitle={<>
                 <Tooltip title="" type="top" className="ds-tooltip-snapshot-example__tooltip"
                   subtitle="You can’t choose Enterprise Snapshot, as this market does not have enough historical data for this version of the snapshot.">

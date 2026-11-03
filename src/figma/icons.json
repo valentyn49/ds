@@ -34,9 +34,9 @@
       ]
     },
     {
-      "name": "Socrates",
+      "name": "Test Design System",
       "label": "Logos",
-      "items": ["Socrates light", "Socrates dark"]
+      "items": ["Test Design System light", "Test Design System dark"]
     }
   ]
 }

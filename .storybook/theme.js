@@ -1,20 +1,13 @@
 import { create } from 'storybook/theming/create';
 import tokens from '../src/tokens/tokens.json';
-import { logoSVG } from '../src/components/footer/logo.js';
 
 const c = (family, step) => tokens.colors[family].steps[step];
-const brandImage = `data:image/svg+xml;utf8,${encodeURIComponent(
-  logoSVG()
-    .replace(/class="[^"]*"\s*/u, '')
-    .replace('fill="currentColor"', `fill="${c('secondary', '900')}"`)
-)}`;
 
 // Every value below comes from the Figma tokens. See src/tokens/tokens.json.
 export default create({
   base: 'light',
 
-  brandTitle: 'Socrates Design System',
-  brandImage,
+  brandTitle: 'Test Design System',
   brandUrl: 'https://www.figma.com/design/spBZF1HWrU83CHRMF8q3mU/-AEGL-AUG--Design-Library',
   brandTarget: '_blank',
 

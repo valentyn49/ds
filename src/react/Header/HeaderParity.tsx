@@ -77,11 +77,11 @@ function buildCases(): Case[] {
     cases.push({ name: `${platform} / log out / a panel open (no such panel)`, props: { platform, type: 'log out' }, open: { panel: 'markets' } });
 
     cases.push({ name: `${platform} / drawer open`, props: yes, open: { drawer: true } });
-    for (const key of ['Socrates Markets', 'My Markets', 'Help', 'account']) cases.push({ name: `${platform} / drawer open, ${key} expanded`, props: yes, open: { drawer: true, expanded: [key] } });
+    for (const key of ['Test Design System Markets', 'My Markets', 'Help', 'account']) cases.push({ name: `${platform} / drawer open, ${key} expanded`, props: yes, open: { drawer: true, expanded: [key] } });
     cases.push({
       name: `${platform} / drawer open, everything expanded`,
       props: yes,
-      open: { drawer: true, expanded: ['Socrates Markets', 'My Markets', 'Help', 'account'] },
+      open: { drawer: true, expanded: ['Test Design System Markets', 'My Markets', 'Help', 'account'] },
     });
   }
   return cases;

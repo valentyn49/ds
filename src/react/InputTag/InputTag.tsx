@@ -52,7 +52,7 @@ export interface InputTagProps extends NativeInputProps {
 }
 
 /**
- * Socrates input tag: a text field that can also hold tags. Same markup and classes as the HTML `inputTagHTML()`
+ * Test Design System input tag: a text field that can also hold tags. Same markup and classes as the HTML `inputTagHTML()`
  * builder, styled by the same `input-tag.css`.
  *
  * The component forwards its `ref` to the `<input>`, and passes `value`, `defaultValue`, `onChange`, `name`,

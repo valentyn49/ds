@@ -4,7 +4,7 @@
 export const NAV_ITEMS = {
   standart: [
     { label: 'Members Blog' },
-    { label: 'Socrates Markets', menu: 'markets' },
+    { label: 'Test Design System Markets', menu: 'markets' },
     { label: 'My Markets', menu: 'myMarkets' },
     { label: 'Watchlist', menu: 'watchlist' },
     { label: 'Help', menu: 'help' },
@@ -13,7 +13,7 @@ export const NAV_ITEMS = {
   enterprise: [
     { label: 'Members Blog' },
     { label: 'Market Finder' },
-    { label: 'Socrates Markets', menu: 'markets' },
+    { label: 'Test Design System Markets', menu: 'markets' },
     { label: 'My Markets', menu: 'myMarkets' },
     { label: 'Watchlist', menu: 'watchlist' },
     { label: 'Help', menu: 'help' },

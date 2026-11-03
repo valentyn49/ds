@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { INPUT_STATES, INPUT_DEFAULTS } from '../../components/text-input/text-input.spec.js';
 import { Button } from '../Button/Button';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { INPUT_ICON_NAMES, TextInput } from './TextInput';
 import type { InputIconName, TextInputProps } from './TextInput';
 import { TextInputParity } from './TextInputParity';
@@ -212,28 +213,131 @@ export const Controlled: Story = {
   render: () => <ValidationExample />,
 };
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateForm(values: { email: string; password: string; accepted: boolean }) {
+  const errors = {
+    email: '',
+    password: '',
+    accepted: '',
+  };
+
+  const email = values.email.trim();
+  if (!email) errors.email = 'Email is required.';
+  else if (!EMAIL_PATTERN.test(email)) errors.email = 'Enter a valid email address.';
+
+  if (values.password.length < 6 || values.password.length > 48) {
+    errors.password = 'Password must be between 6 and 48 characters.';
+  }
+
+  if (!values.accepted) errors.accepted = 'Select to continue.';
+
+  return errors;
+}
+
+function TermsButton({ onActivate }: { onActivate: () => void }) {
+  return (
+    <button
+      type="button"
+      className="ds-bd-form-link"
+      role="link"
+      aria-label="Terms and Conditions"
+      onMouseDown={(event) => event.stopPropagation()}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        onActivate();
+      }}
+    >
+      Terms and Conditions
+    </button>
+  );
+}
+
 function FormExample() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [accepted, setAccepted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState('Nothing submitted yet.');
+
+  const errors = validateForm({ email, password, accepted });
+  const hasErrors = Boolean(errors.email || errors.password || errors.accepted);
+  const showErrors = submitted;
+
   return (
     <div className="ds-bd-tile ds-bd-tile--stack">
       <form
-        style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ds-space-4x)', width: 323, maxWidth: '100%' }}
+        className="ds-bd-validation-form"
         onSubmit={(event) => {
           event.preventDefault();
-          const data = new FormData(event.currentTarget);
-          setResult(`Submitted: email=${data.get('email')}, password length=${String(data.get('password') ?? '').length}`);
+          setSubmitted(true);
+
+          if (hasErrors) {
+            setResult('Validation failed. Fix the highlighted fields and submit again.');
+            return;
+          }
+
+          setResult(`Validated successfully: email=${email.trim()}, password length=${password.length}, terms accepted=${accepted ? 'yes' : 'no'}`);
         }}
       >
-        <TextInput label="Email" name="email" type="email" autoComplete="username" required />
-        <TextInput label="Password" name="password" type="password" autoComplete="current-password" required />
-        <Button type="submit">Log in</Button>
+        <TextInput
+          label="Email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value);
+            if (submitted) setResult('Nothing submitted yet.');
+          }}
+          validation={showErrors && errors.email ? 'error' : undefined}
+          footnote={showErrors ? errors.email || 'We’ll never share your details.' : 'We’ll never share your details.'}
+        />
+        <TextInput
+          label="Password"
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          value={password}
+          onChange={(event) => {
+            setPassword(event.target.value);
+            if (submitted) setResult('Nothing submitted yet.');
+          }}
+          validation={showErrors && errors.password ? 'error' : undefined}
+          footnote={showErrors ? errors.password || 'Use 6 to 48 characters.' : 'Use 6 to 48 characters.'}
+        />
+        <div className="ds-bd-checkbox-field">
+          <Checkbox
+            name="accept-terms"
+            checked={accepted}
+            onChange={(event) => {
+              setAccepted(event.target.checked);
+              if (submitted) setResult('Nothing submitted yet.');
+            }}
+            aria-describedby={showErrors && errors.accepted ? 'terms-error' : undefined}
+            title={
+              <>
+                Agree with{' '}
+                <TermsButton onActivate={() => setResult('Terms and Conditions activated. No destination URL is specified in this experiment.')} />
+              </>
+            }
+            showCaption={false}
+          />
+          {showErrors && errors.accepted ? (
+            <p className="ds-bd-form-error" id="terms-error">
+              {errors.accepted}
+            </p>
+          ) : null}
+        </div>
+        <Button type="submit">Submit</Button>
       </form>
       <span role="status">{result}</span>
     </div>
   );
 }
 
-/** Native attributes (`name`, `type`, `autoComplete`, `required`) go to the `<input>`, so the field works in a plain form. */
+/** Interactive validation experiment using the existing TextInput, Checkbox and Button components plus their existing error presentation. Test empty email, invalid email format, password length limits, unchecked Terms and Conditions, multiple simultaneous errors and successful validation. */
 export const InAForm: Story = {
   parameters: { controls: { disable: true } },
   render: () => <FormExample />,

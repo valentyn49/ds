@@ -71,7 +71,7 @@ function iconSvg(type: TabsType): string {
 const ICON_AFTER: Record<TabsType, boolean> = { tab: true, 'General tab': false, 'Small tab': false };
 
 /**
- * Socrates tab bars. Same markup and classes as the HTML `tabsHTML()` builder, styled by the same `tabs.css`.
+ * Test Design System tab bars. Same markup and classes as the HTML `tabsHTML()` builder, styled by the same `tabs.css`.
  *
  * `tab` and `Small tab` are real tabs (`tablist` / `tab` / `tabpanel`, roving tabindex, Arrow keys, Home and End,
  * selection follows focus). `General tab` is navigation: a `nav` with links, the current one marked `aria-current="page"`.

@@ -26,7 +26,7 @@ export interface CheckboxProps extends NativeInputProps {
 }
 
 /**
- * Socrates checkbox: a native `input type="checkbox"` inside a `label`, so click, label click, Tab and Space work in
+ * Test Design System checkbox: a native `input type="checkbox"` inside a `label`, so click, label click, Tab and Space work in
  * the browser. Same markup and classes as the HTML `checkboxHTML()` builder, styled by the same `checkbox.css`.
  *
  * It is controlled with `checked` + `onChange`, or uncontrolled with `defaultChecked`, like a native input. Figma's

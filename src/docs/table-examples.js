@@ -1,8 +1,8 @@
 // Documentation data. Every example below is a configuration of the real Table component; none is a drawing.
 // The structure and texts are read from the Figma Sandbox elements named "Table example":
-//   LIGHT      6228:19649  (Socrates Markets_All)           the main light example
-//   WATCHLIST  6228:26928  (Socrates Markets_All)           a second light table: sparklines and subscription tints
-//   ALERTS     6228:26517  (Socrates Markets_All)           a third light table: vertical column dividers
+//   LIGHT      6228:19649  (Test Design System Markets_All)           the main light example
+//   WATCHLIST  6228:26928  (Test Design System Markets_All)           a second light table: sparklines and subscription tints
+//   ALERTS     6228:26517  (Test Design System Markets_All)           a third light table: vertical column dividers
 //   STOCHASTICS 6228:21083 and ENERGY 6228:21100  (Dashboards_Last Daily Close_Hover)   the dark examples
 //   MOBILE     6228:25452  (mobile)                         the pinned first column
 // Values are sample data from those frames. They are not Figma specifications.
@@ -14,7 +14,7 @@ const btn = (variant, text) => ({ type: 'button', variant, text });
 
 const DAY = '4.04\n3/15/2024';
 
-/* ---------- Light: Socrates Markets_All, "Table example" 6228:19649 ---------- */
+/* ---------- Light: Test Design System Markets_All, "Table example" 6228:19649 ---------- */
 export const LIGHT_COLUMNS = [
   { title: 'Market', width: 140, sorting: true, sorted: true },
   { title: 'Ticker', sorting: true },

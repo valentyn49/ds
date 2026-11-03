@@ -12,7 +12,7 @@ export const FOOTER_TEXT = {
 };
 
 const markets = {
-  heading: 'Socrates Markets',
+  heading: 'Test Design System Markets',
   links: ['Bonds', 'Commodities', 'Crypto', 'Currencies', 'Stocks', 'Indices', 'ETFs', 'Category & Market Movers', 'Index Perfomance Tracker', 'Market Tags', 'Economics Tracker'],
 };
 

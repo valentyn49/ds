@@ -48,7 +48,7 @@ function InputIcon({ name }: { name: InputIconName }) {
 }
 
 /**
- * Socrates text input. Same markup and classes as the HTML `textInputHTML()` builder, styled by the same
+ * Test Design System text input. Same markup and classes as the HTML `textInputHTML()` builder, styled by the same
  * `text-input.css`. Focus, filled and disabled are native behavior (`:focus-within`, a value, `disabled`).
  * Props that are not listed here (`value`, `defaultValue`, `onChange`, `name`, `type`, `required`, ...) go to the
  * `<input>`, so it works controlled or uncontrolled. `type` defaults to `"text"`. The `ref` is the `<input>`.

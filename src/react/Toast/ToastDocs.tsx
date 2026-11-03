@@ -64,7 +64,7 @@ function DeviceControls({ desktop }: { desktop: boolean }) {
   const show = () => { clear(); toast({ type: 'info', message: 'Added to “Energy” watchlist', showIcon: false, duration: null, action: desktop ? { onClick: () => setUndo(true) } : undefined }); };
   const initiallyShown = useRef(false);
   useEffect(() => { if (!initiallyShown.current) { initiallyShown.current = true; show(); } }, []);
-  return <div className="ds-toast-docs__app"><header><strong>Socrates</strong><span>Market Overview · Watchlists</span></header><main><h2>Market Overview</h2><p>Schematic application context. The notification uses the actual viewport positioning system.</p><Button size={36} onClick={show}>Show toast again</Button>{undo && <p role="status">Undo callback executed.</p>}<div className="ds-toast-docs__mock-grid"><article>Market summary</article><article>Watchlists</article><article>Weekly overview</article></div></main></div>;
+  return <div className="ds-toast-docs__app"><header><strong>Test Design System</strong><span>Market Overview · Watchlists</span></header><main><h2>Market Overview</h2><p>Schematic application context. The notification uses the actual viewport positioning system.</p><Button size={36} onClick={show}>Show toast again</Button>{undo && <p role="status">Undo callback executed.</p>}<div className="ds-toast-docs__mock-grid"><article>Market summary</article><article>Watchlists</article><article>Weekly overview</article></div></main></div>;
 }
 function DeviceFrame({ name, width, height, desktop }: { name: string; width: number; height: number; desktop: boolean }) {
   const host = useRef<HTMLDivElement>(null);

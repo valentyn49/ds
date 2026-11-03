@@ -149,7 +149,7 @@ export const Responsive: Story = {
 };
 
 const PANELS: Array<{ panel: HeaderPanel; label: string; flyout?: boolean; height: number }> = [
-  { panel: 'markets', label: 'Socrates Markets open, with the Performance Trackers submenu', flyout: true, height: 640 },
+  { panel: 'markets', label: 'Test Design System Markets open, with the Performance Trackers submenu', flyout: true, height: 640 },
   { panel: 'myMarkets', label: 'My Markets open', height: 300 },
   { panel: 'help', label: 'Help open, with the Members Help submenu', flyout: true, height: 330 },
   { panel: 'profile', label: 'Profile open', height: 460 },
@@ -175,8 +175,8 @@ export const Drawer: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <div className="ds-bd-hd-row">
-      <HeaderFrame isolate width={375} height={812} label="Mobile · Socrates Markets expanded">
-        <Header defaultOpen={{ drawer: true, expanded: ['Socrates Markets'] }} />
+      <HeaderFrame isolate width={375} height={812} label="Mobile · Test Design System Markets expanded">
+        <Header defaultOpen={{ drawer: true, expanded: ['Test Design System Markets'] }} />
       </HeaderFrame>
       <HeaderFrame isolate width={375} height={812} label="Mobile · account expanded">
         <Header defaultOpen={{ drawer: true, expanded: ['account'] }} />

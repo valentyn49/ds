@@ -5,10 +5,10 @@ import * as HeaderStories from './Header.stories';
 
 # Header (React)
 
-The existing Socrates header, using the shared HTML component's CSS, tokens, logo, icons, and content. Layout follows the header container width. The `registration` variant is the existing logo-only header; it does not implement a registration flow.
+The existing Test Design System header, using the shared HTML component's CSS, tokens, logo, icons, and content. Layout follows the header container width. The `registration` variant is the existing logo-only header; it does not implement a registration flow.
 
 ```tsx
-import { Header } from '@socrates/design-system';
+import { Header } from 'test-design-system';
 
 <Header platform="standart" type="yes" searchInputProps={{ name: 'market-search' }} />
 ```
@@ -35,7 +35,7 @@ The visible mobile/tablet drawer is a modal dialog. It focuses the close button,
 
 ## Controlled state
 
-Use `open` with `onOpenChange`, or `defaultOpen` for initial uncontrolled state. `HeaderOpenState` contains `panel`, `flyout`, `drawer`, and `expanded`. Drawer expansion keys are section labels, `account`, or `Section:Row` for nested rows, for example `Socrates Markets:Bonds`. These stable React keys replace the legacy builder's generated DOM IDs for nested rows.
+Use `open` with `onOpenChange`, or `defaultOpen` for initial uncontrolled state. `HeaderOpenState` contains `panel`, `flyout`, `drawer`, and `expanded`. Drawer expansion keys are section labels, `account`, or `Section:Row` for nested rows, for example `Test Design System Markets:Bonds`. These stable React keys replace the legacy builder's generated DOM IDs for nested rows.
 
 <Canvas of={HeaderStories.Controlled} />
 

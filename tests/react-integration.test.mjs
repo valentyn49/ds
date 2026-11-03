@@ -77,13 +77,13 @@ test('PopupView preserves all legacy types, widths, modes and optional actions',
 
 test('Header preserves platform/account variants, desktop menus and expanded drawer content', () => {
   const cases = [];
-  for (const platform of api.HEADER_PLATFORMS) for (const type of api.HEADER_TYPES) for (const warning of [false, true]) for (const open of [{}, { panel: 'help', flyout: true }, { drawer: true, expanded: ['Socrates Markets', 'account'] }]) {
+  for (const platform of api.HEADER_PLATFORMS) for (const type of api.HEADER_TYPES) for (const warning of [false, true]) for (const open of [{}, { panel: 'help', flyout: true }, { drawer: true, expanded: ['Test Design System Markets', 'account'] }]) {
     const props = { platform, type, warning };
     cases.push({ name: `${platform}/${type}/${warning}/${JSON.stringify(open)}`, react: render('Header', { ...props, defaultOpen: open }), html: api.headerHTML({ ...props, open }) });
   }
   assertParity(cases);
   // React exposes stable section labels; the legacy builder uses a generated DOM ID for nested keys.
-  const nested = render('Header', { defaultOpen: { drawer: true, expanded: ['Socrates Markets', 'Socrates Markets:Bonds'] } });
+  const nested = render('Header', { defaultOpen: { drawer: true, expanded: ['Test Design System Markets', 'Test Design System Markets:Bonds'] } });
   assert.match(nested, /class="ds-header__row-button ds-header__row-button--sub" aria-expanded="true"[^>]*><span>Bonds/);
 });
 

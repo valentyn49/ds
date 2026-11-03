@@ -10,7 +10,7 @@ import type { ButtonVariant } from '../Button/Button';
 import { cx } from '../utils/cx';
 
 /*
-  React version of the Socrates Table. Same markup, class names and CSS as the HTML builders in
+  React version of the Test Design System Table. Same markup, class names and CSS as the HTML builders in
   src/components/table/table.js (tableHTML, tableCellHTML, tableHeaderCellHTML), so it looks identical.
   Source: Figma Design Library, Table page (cells 131:1295, header 449:139, Divider 3253:3507) and the Sandbox
   "Table example" elements.
@@ -324,7 +324,7 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, 'childr
 }
 
 /**
- * The Socrates table, configured with `columns` and `rows`. It scrolls sideways inside its own region (focusable,
+ * The Test Design System table, configured with `columns` and `rows`. It scrolls sideways inside its own region (focusable,
  * named) and never widens the page. With `stickyFirstColumn`, the pinned column gets its shadow once the table has
  * scrolled; Figma draws the shadow in a scrolled state and gives no rule for when it appears, so that timing is an
  * implementation decision. `ref` points to the scroll region.

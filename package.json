@@ -1,9 +1,9 @@
 {
-  "name": "@socrates/design-system",
+  "name": "test-design-system",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Socrates Design System: documentation (Storybook) and the React component library, sourced from the AEGL AUG Design Library in Figma.",
+  "description": "Test Design System: documentation (Storybook) and the React component library, sourced from the AEGL AUG Design Library in Figma.",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/types/react/index.d.ts",

@@ -139,7 +139,7 @@ export const Behavior: Story = {
   render: () => <BehaviorExample />,
 };
 
-/** The Socrates logo, exported for reuse (the Header uses it too). */
+/** The Test Design System logo, exported for reuse (the Header uses it too). */
 export const LogoOnly: Story = {
   name: 'Logo',
   parameters: { controls: { disable: true } },

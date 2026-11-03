@@ -126,7 +126,7 @@
       "figmaPage": "--- Email template",
       "nodeId": "732:9884",
       "items": [
-        { "name": "New Socrates Account", "kind": "Frame", "note": "Email layout frame, not a component." }
+        { "name": "New Test Design System Account", "kind": "Frame", "note": "Email layout frame, not a component." }
       ]
     },
     {

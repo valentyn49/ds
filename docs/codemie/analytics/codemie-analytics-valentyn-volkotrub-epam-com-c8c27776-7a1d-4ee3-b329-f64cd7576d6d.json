@@ -39,7 +39,7 @@
       "agentName": "claude",
       "provider": "ai-run-sso",
       "title": "/mcp",
-      "project": "/Users/Valentyn_Volkotrub/Socrates/design system",
+      "project": "/Users/Valentyn_Volkotrub/Test Design System/design system",
       "branch": "main",
       "startTime": 1792396022257,
       "durationMs": 197271,
@@ -107,7 +107,7 @@
         }
       ],
       "hadLog": true,
-      "agentSessionFile": "/Users/Valentyn_Volkotrub/.claude/projects/-Users-Valentyn-Volkotrub-Socrates-design-system/79dad4ae-3083-4abe-b806-9281bd24e4de.jsonl",
+      "agentSessionFile": "/Users/Valentyn_Volkotrub/.claude/projects/-Users-Valentyn-Volkotrub-Test Design System-design-system/79dad4ae-3083-4abe-b806-9281bd24e4de.jsonl",
       "costSeries": [
         {
           "t": 1792396112136,

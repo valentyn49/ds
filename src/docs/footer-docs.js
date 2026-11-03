@@ -52,7 +52,7 @@ export function renderAnatomy() {
     </div>
     <ol class="ds-bd-anatomy__legend">
       ${legendItem(1, 'Footer container', 'Full-width surface filled with <code>color/header/background</code> (secondary/900). The content inside is inset by the horizontal margin.')}
-      ${legendItem(2, 'Logo', 'The Socrates logo, 162px × 32px, in white. The Enterprise type adds a white <code>Enterprise</code> tag next to it.')}
+      ${legendItem(2, 'Logo', 'The Test Design System logo, 162px × 32px, in white. The Enterprise type adds a white <code>Enterprise</code> tag next to it.')}
       ${legendItem(3, 'Legal text', 'Two text blocks in Regular 12/18, white: the educational-use notice, and the <code>Important Note</code> with a semibold heading.')}
       ${legendItem(4, 'Link columns', 'Three columns of links. Group headings are Semibold 14/20 in white; links are Regular 14/20 in gray/300.')}
       ${legendItem(5, 'Divider', 'A 1px secondary/800 line, 17px above the legal bar. On desktop it runs the full width of the footer.')}

@@ -29,7 +29,7 @@ export const HEADER_SPEC = {
   surface: 'Fill color/header/background (secondary/900), full width of the page',
   padding: 'Top and bottom 16px (desktop, tablet, mobile)',
   heights: 'Follows the content: 72px (desktop and tablet "yes", because of the 40px search field), 64px (other types), 56px (mobile)',
-  logo: 'Socrates logo 162px × 32px (124px × 24px on mobile); Enterprise adds a tag (241px × 32px in total)',
+  logo: 'Test Design System logo 162px × 32px (124px × 24px on mobile); Enterprise adds a tag (241px × 32px in total)',
   gaps: 'Logo to menu 72px, menu items 16px apart, search to cart to profile 32px apart',
   menuItem: 'text-sm/font-medium, Proxima Nova Semibold 14/20, color/header/text (gray/50), 28px high; 20px chevron 4px after the text',
   actions: 'Search field 180px × 40px, cart icon 28px (24px on mobile), profile icon 29px, menu icon 24px',

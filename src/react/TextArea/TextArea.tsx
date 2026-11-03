@@ -45,7 +45,7 @@ function renderIcon(icon: InputIconName | ReactElement | undefined, side: 'left'
 }
 
 /**
- * Socrates text area: an optional label, a multi-line field with optional icons, and an optional footnote.
+ * Test Design System text area: an optional label, a multi-line field with optional icons, and an optional footnote.
  * Same markup and classes as the HTML `textAreaHTML()` builder, styled by the same `text-area.css`.
  * Works controlled (`value` + `onChange`) or uncontrolled (`defaultValue`). Focus, filing and filled are real browser
  * states (`:focus-within`, a non-empty value); `disabled` is the native attribute. A click anywhere in the field

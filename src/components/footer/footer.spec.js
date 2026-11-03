@@ -32,7 +32,7 @@ export const FOOTER_SPEC = {
   desktopLayout: 'Row: about block, then three link columns of 156px with a 32px gap; 64px between them',
   tabletLayout: 'Column, 64px gap: about block, then three equal link columns with a 32px gap; legal bar stacked with a 16px gap',
   mobileLayout: 'Column, 40px gap: about block, then three equal link columns with a 24px gap; legal bar stacked with a 16px gap',
-  brand: 'Socrates logo, 162px × 32px; Enterprise adds a 72px × 26px white tag with 8px radius',
+  brand: 'Test Design System logo, 162px × 32px; Enterprise adds a 72px × 26px white tag with 8px radius',
   aboutGap: '24px between the logo and the text, 16px between the two text blocks',
   text: 'text-xs/font-normal, Proxima Nova Regular 12/18, gray/50; "Important Note" is Semibold',
   heading: 'text-sm/font-medium, Proxima Nova Semibold 14/20, gray/50',

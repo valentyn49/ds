@@ -67,7 +67,7 @@ export function renderAnatomy() {
     <p class="ds-bd-note">Mobile, type=yes: the search field becomes a search icon, and the menu button (9) replaces the navigation.</p>
     <ol class="ds-bd-anatomy__legend">
       ${legendItem(1, 'Header container', 'Full-width bar filled with <code>color/header/background</code> (secondary/900). Its content is inset by the horizontal margin.')}
-      ${legendItem(2, 'Logo', 'The Socrates logo, 162px × 32px. The Enterprise platform adds a white <code>Enterprise</code> tag.')}
+      ${legendItem(2, 'Logo', 'The Test Design System logo, 162px × 32px. The Enterprise platform adds a white <code>Enterprise</code> tag.')}
       ${legendItem(3, 'Navigation', 'Menu items in Semibold 14/20, white, spread between the logo and the actions. Items with a menu open a panel.')}
       ${legendItem(4, 'Chevron', 'A 20px chevron after the label of items that open a menu. It points down when closed and up when open.')}
       ${legendItem(5, 'Search field', '180px × 40px field in secondary/700 with a search icon and the placeholder "Market Search".')}
@@ -127,7 +127,7 @@ export function renderStates() {
     headerFrame({ platform: 'standart', type: 'yes', open: { panel: panelKey, ...extra } }, { width: 1440, height: extra.height ?? 600, label });
   return `<h3>Desktop menus</h3>
     <div class="ds-bd-hd-stack">
-      ${panel('markets', 'Socrates Markets open, with the Performance Trackers submenu', { flyout: true, height: 640 })}
+      ${panel('markets', 'Test Design System Markets open, with the Performance Trackers submenu', { flyout: true, height: 640 })}
       ${panel('myMarkets', 'My Markets open', { height: 300 })}
       ${panel('help', 'Help open, with the Members Help submenu', { flyout: true, height: 330 })}
       ${panel('profile', 'Profile open', { height: 460 })}
@@ -135,7 +135,7 @@ export function renderStates() {
     </div>
     <h3>Drawer (tablet and mobile)</h3>
     <div class="ds-bd-hd-row">
-      ${headerFrame({ platform: 'standart', type: 'yes', open: { drawer: true, expanded: ['Socrates Markets'] } }, { width: 375, height: 812, label: 'Mobile · Socrates Markets expanded' })}
+      ${headerFrame({ platform: 'standart', type: 'yes', open: { drawer: true, expanded: ['Test Design System Markets'] } }, { width: 375, height: 812, label: 'Mobile · Test Design System Markets expanded' })}
       ${headerFrame({ platform: 'standart', type: 'yes', open: { drawer: true, expanded: ['account'] } }, { width: 375, height: 812, label: 'Mobile · account expanded' })}
     </div>
     <p class="ds-bd-note">Figma shows the open menus as page frames and does not name them as component states. Menus open from their button; the open item's chevron points up and the page below is blurred. Figma defines no hover look for header items (the hovered <code>Purchase</code> item in its frame does not change), so none is built. The Watchlist menu (Energy, Tech-list, Bonds, Commodities) is defined too; open it in the Live Demo.</p>`;

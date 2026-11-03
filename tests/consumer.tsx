@@ -2,7 +2,7 @@
 import {
   Dropdown, DropdownItems, Popup, PopupView, Table, TableCell, TableHeaderCell, TableDividerRow, Header,
   DROPDOWN_STATE_LIST, POPUP_TYPE_LIST, POPUP_WIDTH_LIST, TABLE_THEMES, HEADER_PLATFORMS,
-} from '@socrates/design-system';
+} from 'test-design-system';
 import type {
   DropdownProps, DropdownItemsProps, DropdownOption, DropdownState,
   PopupProps, PopupViewProps, PopupType, PopupWidth, PopupMode, PopupCloseReason,
@@ -10,8 +10,8 @@ import type {
   TableSubscription, TableMetricTone, TableIconName, TableTextTone, TableCellData, TableCellType,
   TableColumn, TableDataRow, TableDividerData, TableRow,
   HeaderProps, HeaderPlatform, HeaderType, HeaderResolution, HeaderPanel, HeaderOpenState,
-} from '@socrates/design-system';
-import '@socrates/design-system/styles.css';
+} from 'test-design-system';
+import 'test-design-system/styles.css';
 
 const options: DropdownOption[] = ['London', { value: 'paris', label: 'Paris', pro: true }];
 const dropdown: DropdownProps = { options, onValueChange(value, option) { console.log(value, option.label); } };

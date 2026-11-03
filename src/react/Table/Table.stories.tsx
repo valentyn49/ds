@@ -390,7 +390,7 @@ export const LightExample: Story = {
   render: () => (
     <div className="ds-bd-demo-surface ds-bd-tb-demo-surface">
       <div className="ds-bd-tb-demo">
-        <Table label="Socrates Markets, light theme example" columns={lightColumns} rows={lightRows} minWidth={1148} />
+        <Table label="Test Design System Markets, light theme example" columns={lightColumns} rows={lightRows} minWidth={1148} />
       </div>
     </div>
   ),

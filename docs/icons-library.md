@@ -15,7 +15,7 @@ Every vector was exported using `node.exportAsync({ format: 'SVG_STRING' })` thr
 ## Component API
 
 ```tsx
-import { Icon, type FigmaIconName } from '@socrates/design-system';
+import { Icon, type FigmaIconName } from 'test-design-system';
 
 // Original Figma appearance; decorative by default.
 <Icon name="icon/search" />

@@ -14,7 +14,7 @@ The working tree was clean before synchronization. Fetching origin failed becaus
 - Table: the existing implementation remains intact. Public exports include its cell/header/divider helpers and data/configuration types. Sorting and toggle glyphs remain presentational, matching the HTML component.
 - Stories: diagnostic TypeScript errors are fixed; Dropdown has a dynamic-options example; Header has MDX documentation and separate iframe documents for always-open drawer previews. Existing markup parity stories explicitly account for the intentional nonvisual accessibility additions.
 
-Nested Header expansion uses stable `Section:Row` keys, such as `Socrates Markets:Bonds`; the legacy HTML builder uses generated IDs for nested rows. This existing React API is preserved.
+Nested Header expansion uses stable `Section:Row` keys, such as `Test Design System Markets:Bonds`; the legacy HTML builder uses generated IDs for nested rows. This existing React API is preserved.
 
 ## Validation
 
@@ -33,7 +33,7 @@ Build before running the consumer check and tests: some tests inspect library ex
 
 The new integration suite compares normalized server markup against the HTML builders for 64 Dropdown combinations, 66 Table cells (33 variants as cells and row headers), four table configurations, 36 Popup configurations, and 48 Header combinations. It also checks public exports/styles, semantic relationships, standalone IDs, stable nested Header keys, and modal lifecycle/keyboard decisions using small DOM doubles. Those doubles do not emulate browser layout or React event dispatch.
 
-The consumer fixture compiles against generated package declarations. App integration was also checked using a temporary copy of the fixture inside socrates-app, its normal typecheck/build, and a bundle/render smoke check using the app's Vite React deduplication. No application source changes were retained. Direct Node SSR across the two linked node_modules trees does not apply Vite deduplication and encounters duplicate React; it is not an app browser-build check.
+The consumer fixture compiles against generated package declarations. App integration was also checked using a temporary copy of the fixture inside the consumer app fixture, its normal typecheck/build, and a bundle/render smoke check using the app's Vite React deduplication. No application source changes were retained. Direct Node SSR across the two linked node_modules trees does not apply Vite deduplication and encounters duplicate React; it is not an app browser-build check.
 
 Package contents are inspectable with `npm pack --dry-run --json`. The library package excludes proprietary font binaries; application and Storybook builds reference/include fonts locally. No generated site or package was published.
 

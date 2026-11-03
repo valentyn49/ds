@@ -49,7 +49,7 @@ function cartPanel(base, open) {
 function drawerHTML(base, platform, type, open) {
   const expanded = new Set(open.expanded ?? []);
   const sections = {
-    'Socrates Markets': MENUS.markets.map((m) => ({ label: m.drawerLabel ?? m.label, children: m.drawerChildren })),
+    'Test Design System Markets': MENUS.markets.map((m) => ({ label: m.drawerLabel ?? m.label, children: m.drawerChildren })),
     'My Markets': MENUS.myMarkets.map((m) => ({ label: m.label })),
     Help: MENUS.help.map((m) => ({ label: m.label })),
   };

@@ -1,6 +1,6 @@
-# Socrates Design System
+# Test Design System
 
-Public Storybook documentation for Socrates is deployed to GitHub Pages:
+Public Storybook documentation for Test Design System is deployed to GitHub Pages:
 
 - **React Storybook (primary):** https://valentyn49.github.io/ds/
 - **HTML Storybook (legacy):** https://valentyn49.github.io/ds/html/

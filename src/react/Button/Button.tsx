@@ -64,7 +64,7 @@ function renderIcon(icon: IconName | ReactElement | undefined, side: 'left' | 'r
 }
 
 /**
- * Socrates button. Same markup and classes as the HTML `buttonHTML()` builder, styled by the same `button.css`.
+ * Test Design System button. Same markup and classes as the HTML `buttonHTML()` builder, styled by the same `button.css`.
  * Hover, focus and disabled are real browser states. The native `type` defaults to `"button"`, so a button inside a
  * form does not submit it unless you pass `type="submit"`.
  */

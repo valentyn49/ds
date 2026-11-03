@@ -27,7 +27,7 @@ export interface RadioButtonProps extends NativeInputProps {
 }
 
 /**
- * Socrates radio button. Same markup and classes as the HTML `radiobuttonHTML()` builder, styled by the same
+ * Test Design System radio button. Same markup and classes as the HTML `radiobuttonHTML()` builder, styled by the same
  * `radiobutton.css`. The input is a native `type="radio"`: radios that share a `name` form one group, so exclusive
  * selection, Tab, arrow keys, Space and label clicks come from the browser. Figma's `state` is not a prop:
  * `selected` is `checked` / `defaultChecked`, `disabled` is the native `disabled`, and hover is the browser's `:hover`.

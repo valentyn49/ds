@@ -5,10 +5,10 @@ import * as FooterStories from './Footer.stories';
 
 # Footer (React)
 
-The React version of the Socrates **Footer**. It renders the same markup and uses the same `footer.css`, tokens and content as the HTML component, so it looks identical. Source of truth: Figma component set **footer** (Footer page). The Figma specification tables (spacing, typography, colors, responsive rules) are in the HTML Storybook page for the footer and are not repeated here.
+The React version of the Test Design System **Footer**. It renders the same markup and uses the same `footer.css`, tokens and content as the HTML component, so it looks identical. Source of truth: Figma component set **footer** (Footer page). The Figma specification tables (spacing, typography, colors, responsive rules) are in the HTML Storybook page for the footer and are not repeated here.
 
 ```tsx
-import { Footer, Logo } from '@socrates/design-system';
+import { Footer, Logo } from 'test-design-system';
 
 <Footer />                        {/* big, standart */}
 <Footer type="enterprise" />
@@ -60,7 +60,7 @@ Each preview is the footer at the width of a Figma frame (scaled down to fit thi
 
 ## Logo
 
-`Logo` is the Socrates logo (162 × 32) in the current text color. The Header uses the same component. Its path data comes from the HTML module, so there is one copy of the artwork.
+`Logo` is the Test Design System logo (162 × 32) in the current text color. The Header uses the same component. Its path data comes from the HTML module, so there is one copy of the artwork.
 
 <Canvas of={FooterStories.LogoOnly} sourceState="none" />
 

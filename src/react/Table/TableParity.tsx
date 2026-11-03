@@ -139,8 +139,8 @@ function buildCases(): Case[] {
   // 4. Whole tables: the Sandbox examples in both themes, with the options that change the markup.
   type Config = Omit<TableProps, 'rows' | 'columns'> & { columns: unknown; rows: unknown };
   const examples: Array<[string, Config]> = [
-    ['Light example (1148, divider rows, tints, hover)', { label: 'Socrates Markets', columns: LIGHT_COLUMNS, rows: LIGHT_ROWS, minWidth: 1148 }],
-    ['Light example, width set', { label: 'Socrates Markets', columns: LIGHT_COLUMNS, rows: LIGHT_ROWS, width: 900 }],
+    ['Light example (1148, divider rows, tints, hover)', { label: 'Test Design System Markets', columns: LIGHT_COLUMNS, rows: LIGHT_ROWS, minWidth: 1148 }],
+    ['Light example, width set', { label: 'Test Design System Markets', columns: LIGHT_COLUMNS, rows: LIGHT_ROWS, width: 900 }],
     ['Watchlist with footnote', { label: 'Watchlist', columns: WATCHLIST_COLUMNS, rows: WATCHLIST_ROWS, footnote: WATCHLIST_FOOTNOTE }],
     ['Alerts with column dividers', { label: 'Alerts', columns: ALERTS_COLUMNS, rows: ALERTS_ROWS, columnDividers: true }],
     ['Dark: Stochastics', { theme: 'dark', ...STOCHASTICS, width: 300 }],
